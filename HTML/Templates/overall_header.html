@@ -326,6 +326,19 @@
 	<!-- END switch_user_logged_in -->
 	<!-- NOTIFFIN --> 
 
+	<div id="top-header">
+		<div id="top-header-left">
+			<div id="top-header-avatar">Avatar</div>
+			<div id="top-header-texte">Bienvenue<br>
+				<div id="top-header-user">User sur Blood and Malice</div>
+			</div>
+		</div>
+		<div id="top-header-right">
+			<div class="top-header-btn">Menu</div>
+			<div class="top-header-btn">Theme</div>
+			<div class="top-header-btn">Notifs</div>
+		</div>
+	</div>
     <!-- Structure du forum -->
     <div class="main_forum">
 
@@ -333,20 +346,75 @@
         <a id="top" name="top" accesskey="t"></a>
         {JAVASCRIPT}
       
-      
-       <!----------------------------------------------->
-       <!-- ENTETE DU FORUM (au-dessus de la pub) -------------->
-
         <div id="page-header">
-
            <!-- Bannière -->
-            <a href="{U_INDEX}" id="header"><img loading="lazy" src="{LOGO}" alt="{L_INDEX}" /></a>
+			<div id="header-wrap">
+            	<a href="{U_INDEX}" id="header"><img loading="lazy" src="{LOGO}" alt="{L_INDEX}" /></a>
+			</div>
 
            <!-- Barre de navigation -->
-            <ul class="navbar">
-                <li>{GENERATED_NAV_BAR}</li>
-            </ul>
-            <!-- Fin de la barre de nav -->
+			<div id="navbar-wrap">
+				<button id="navbar-close">X</button>
+				<ul class="navbar">
+					<li>{GENERATED_NAV_BAR}</li>
+				</ul>
+				<!-- Fin de la barre de nav -->
+			</div>
+
+			<div id="pa-wrap">
+            	<div id="pa">
+					<div class="pa-col">
+						<div id="pa-news" class="pa-box">
+							<div class="pa-titre">actualités</div>
+							<div class="pa-texte">texte texte texte</div>
+						</div>
+						<div id="pa-list1" class="pa-list">
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+						</div>
+						<div id="pa-disclaimer" class="pa-box">
+							<div class="pa-texte">texte texte texte</div>
+							<img class="pa-icon" src="https://i.pinimg.com/736x/cc/96/88/cc9688d81fe313228fce2e20b9e05752.jpg"></img>
+						</div>
+					</div>
+					<div class="pa-col">
+						<div id="pa-contexte" class="pa-box">
+							<div><img id="pa-img" src="https://i.pinimg.com/736x/49/59/d6/4959d676c56aa1e194e9b69c37feb101.jpg"></div>
+							<div class="pa-texte">texte texte texte</div>
+						</div>
+						<div id="pa-staff" class="pa-box">
+							<div class="pa-titre">staff</div>
+							<div class="pa-texte">texte texte texte</div>
+						</div>
+					</div>
+					<div class="pa-col">
+						<div id="pa-time" class="pa-box">
+							<div class="pa-texte">texte texte texte</div>
+							<div class="pa-titre">période rp</div>
+						</div>
+						<div id="pa-list2" class="pa-list">
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+							<div class="pa-link">lien</div>
+						</div>
+						<div id="pa-vote">
+							<div class="pa-icon-wrap"><img class="pa-icon" src="https://i.pinimg.com/736x/cc/96/88/cc9688d81fe313228fce2e20b9e05752.jpg"></img></div>
+							<div class="pa-icon-wrap"><img class="pa-icon" src="https://i.pinimg.com/736x/cc/96/88/cc9688d81fe313228fce2e20b9e05752.jpg"></img></div>
+							<div class="pa-icon-wrap"><img class="pa-icon" src="https://i.pinimg.com/736x/cc/96/88/cc9688d81fe313228fce2e20b9e05752.jpg"></img></div>
+						</div>
+						<div id="pa-zone" class="pa-box">
+							<div class="pa-texte">texte texte texte</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
             <!-- Annonces défilantes -->
             <!-- BEGIN switch_ticker_new -->
