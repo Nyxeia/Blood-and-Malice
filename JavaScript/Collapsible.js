@@ -1,16 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(function(){
+  var savedState = $.cookie("pa_state");
+  
+  // Set initial panel state
+  if (savedState === "closed") {
+    $("#pa").hide();
+    // $("#pa-btn").addClass("closed-state");
+  }
 
-document.getElementById("navbar-close").addEventListener("click", function() {
-            this.classList.toggle("active");
-            console.log("toggling");
-            var panel = document.getElementById("pa-wrap");
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                console.log("closing");
+    $("#pa-btn").click(function(){
+      $("#pa").slideToggle('normal',function(){
+
+            if ($(this).is(':hidden')) {
+                state = "closed"; 
             } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                console.log("opening");
+                state = "open";
             }
-    });
 
+            $.cookie("pa_state", state);
+            console.log($.cookie("pa_state"));
+        });
+    });
 });

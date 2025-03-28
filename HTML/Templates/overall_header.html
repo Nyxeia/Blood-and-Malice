@@ -42,6 +42,7 @@
 	<script src="{JQUERY_DIR}browser/v1.0/jquery.browser.min.js" type="text/javascript"></script>
 	<script src="{JQUERY_DIR}support/jquery.support.js" type="text/javascript"></script>
 	<!-- END switch_recent_jquery -->
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 	<script src="{JS_DIR}{L_LANG}.js" type="text/javascript"></script>
 	{RICH_SNIPPET_GOOGLE}
       
@@ -330,15 +331,17 @@
 
 	<div id="top-header">
 		<div id="top-header-left">
-			<div id="top-header-avatar">Avatar</div>
-			<div id="top-header-texte">Bienvenue<br>
-				<div id="top-header-user">User sur Blood and Malice</div>
+			<div id="top-header-avatar"></div>
+			<div id="top-header-texte">Bienvenue à Vienne<br>
+				<div id="top-header-user"></div>
 			</div>
 		</div>
 		<div id="top-header-right">
-			<div class="top-header-btn">Menu</div>
-			<div class="top-header-btn">Theme</div>
-			<div class="top-header-btn">Notifs</div>
+			<!-- Barre de navigation -->
+			<ul class="navbar">
+				<li>{GENERATED_NAV_BAR}</li>
+			</ul>
+			<!-- Fin de la barre de nav -->
 		</div>
 	</div>
     <!-- Structure du forum -->
@@ -354,16 +357,11 @@
             	<a href="{U_INDEX}" id="header"><img loading="lazy" src="{LOGO}" alt="{L_INDEX}" /></a>
 			</div>
 
-           <!-- Barre de navigation -->
-			<div id="navbar-wrap">
-				<button id="navbar-close">X</button>
-				<ul class="navbar">
-					<li>{GENERATED_NAV_BAR}</li>
-				</ul>
-				<!-- Fin de la barre de nav -->
-			</div>
-
 			<div id="pa-wrap">
+				<div id="pa-head" class="cate_title">
+					<h2>Blood and Malice</h2>
+					<div id="pa-btn" class="box2">v</div>
+				</div>
             	<div id="pa">
 					<div class="pa-col">
 						<div id="pa-news" class="box1">
