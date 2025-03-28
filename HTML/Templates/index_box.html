@@ -49,25 +49,22 @@
             </div>
 
             <div class="forum-row-right">
-                <div class="top">
-                    <div class="left">
-                        <div class="forumtitle-wrap">
-                            <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
-                        </div>
-                        <!-- Description -->
-                        <div class="forum_desc box2">{catrow.forumrow.FORUM_DESC}</div>
-                    </div>
-                    <div class="right">
-                        <!-- Compteur sujets et message -->
-                        <div class="forum_stats_wrap"><span class="forum_stats box2">{catrow.forumrow.TOPICS}&nbsp;{L_TOPICS}&nbsp; •
-                            &nbsp;{catrow.forumrow.POSTS}&nbsp;{L_POSTS}</span></div>
+
+                <div class="forumtitle-wrap">
+                    <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
+                </div>
+
+                <div class="forum-row-grid">
+                    <!-- Description -->
+                    <div class="forum_desc box2">{catrow.forumrow.FORUM_DESC}</div>
+
+                    <div>
+                        <!-- Avatar du dernier posteur -->
                         <div class="forum_avatar lastpostavatar">
-                            <!-- Avatar du dernier posteur -->
                             <!-- BEGIN avatar -->
                             {catrow.forumrow.avatar.LAST_POST_AVATAR}
                             <!-- END avatar -->
                         </div>
-
                         <!-- Conteneur du du dernier message -->
                         <div class="forum_lastpost lastpost box2">
                             <span>
@@ -81,15 +78,15 @@
                                 {catrow.forumrow.USER_LAST_POST}
                             </span>
                         </div>
-
                     </div>
-                </div>
-                <div class="bot">
+
                     <!-- Liens de sous-forum -->
                     <div id="subforum">{catrow.forumrow.L_LINKS}{catrow.forumrow.LINKS}</div>
+
+                    <!-- Compteur sujets et message -->
+                    <div class="forum_stats_wrap"><span class="forum_stats">{catrow.forumrow.POSTS}&nbsp;{L_POSTS}&nbsp;dans&nbsp;{catrow.forumrow.TOPICS}&nbsp;{L_TOPICS}</span></div>
                 </div>
             </div>
-
         </div>
 
     </div>

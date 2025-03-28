@@ -37,7 +37,7 @@ color-scheme: dark;
 --forum: 1010px;
 --top: 80px;
 --pad-wrap: 10px;
---cat-grid-width: 160px;
+--cat-grid-width: 150px;
 }
 
 [data-color-scheme="light"] {
@@ -107,6 +107,7 @@ background: var(--neutral2);
 
 /* BANNIERE ---*/
 #top-header {
+    z-index: 2000;
     background: var(--neutral1);
     display: flex;
     justify-content: space-between;
@@ -1053,6 +1054,15 @@ background: var(--contrastLight);
 }
 
 /*** BARRE DE NAVIGATION ----------- ***/
+#navbar-wrap.fix {
+position: fixed;
+z-index: 2000 !important;
+top: var(--top);
+width: var(--forum);
+}
+#pa-wrap.fix {
+padding-top: 55px;
+}
 #navbar-wrap {
     display: flex;
     justify-content: space-between;
@@ -1104,6 +1114,10 @@ a.mainmenu img {
 display: none;
 }
 
+#pa-wrap {
+max-height: 370px;
+transition: max-height 0.2s ease-out;
+}
 #pa {
     display: grid;
     grid-template-columns: 300px auto auto;
@@ -1205,33 +1219,26 @@ margin: 10px 0 20px;
 /* conteneur d'un forum*/
 .forum {
 background: var(--neutral1);
-padding: 10px;
+padding: 10px 20px 0 20px;
 border-radius: 10px;
 display: grid;
 grid-template-columns: var(--cat-grid-width) auto;
-gap: 10px;
 margin-bottom: 10px;
 }
 .forum-row-left {
 padding-top: 10px;
-padding-left: 10px;
 }
-.forum-row-right {
-display: flex;
+.forum-row-right{
+display:flex;
 flex-direction: column;
-height: 150px;
-gap: 10px;
 }
-.forum-row-right>.top {
+.forum-row-grid {
 display: grid;
-grid-template-columns: auto 220px;
+grid-template-columns: auto 200px;
+grid-template-rows: auto 30px;
 gap: 15px;
 }
-.forum-row-right>.bot {
-    height: 35px;
-    display: flex;
-    align-items: center;
-}
+
 /*image statut du forum */
 .forum-img {
 width: 90px;
@@ -1248,9 +1255,8 @@ position: absolute;
 margin-left: calc(0px - var(--cat-grid-width) + 35px);
 margin-top: 10px;
 }
-    
 .forumtitle-wrap {
-    height: 30px;
+height: 40px;
 }
 a.forumtitle {
 font-size: var(--large-size);
@@ -1263,8 +1269,8 @@ padding: 5px 10px;
 
 .forum_avatar {
 position: absolute;
-margin-left: 160px;
-margin-top: -30px;
+margin-left: 70px;
+margin-top: -42px;
 }
 
 .forum_avatar img {
@@ -1280,19 +1286,17 @@ border: var(--border-round);
 /* dernier message*/
 .forum_lastpost {
 height: 85px;
-width: 200px;
 display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
+padding-top: 25px;
 }
 .forum_stats_wrap {
-height: 30px;
+text-align:center;
 }
 .forum_stats {
-font-weight: 600;
 font-size: var(--little-size);
-padding: 3px 5px;
 }
 
 /* liens des sous forums */
