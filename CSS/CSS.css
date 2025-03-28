@@ -1054,21 +1054,12 @@ background: var(--contrastLight);
 }
 
 /*** BARRE DE NAVIGATION ----------- ***/
-#navbar-wrap.fix {
-position: fixed;
-z-index: 2000 !important;
-top: var(--top);
-width: var(--forum);
-}
-#pa-wrap.fix {
-padding-top: 55px;
-}
 #navbar-wrap {
-    display: flex;
-    justify-content: space-between;
-    background: var(--neutral1);
-    padding: 10px;
-    height: 55px;
+display: flex;
+justify-content: space-between;
+background: var(--neutral1);
+padding: 10px;
+height: 55px;
 }
 .navbar {
 display: flex;
