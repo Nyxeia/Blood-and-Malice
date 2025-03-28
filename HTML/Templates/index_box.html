@@ -30,73 +30,75 @@
 <!-- BEGIN catrow -->
 
 <!-- BEGIN tablehead -->
+<!-- Titre catégorie -->
+<div class="cate_title">{catrow.tablehead.L_FORUM}</div>
 <div class="category" id="{catrow.tablehead.ID}">
-
-    <!-- Titre catégorie -->
-    <div class="cate_title">{catrow.tablehead.L_FORUM}</div>
-
 
     <!-- Conteneur liste des forums -->
     <div class="forums">
 
-<!-- END tablehead -->
+        <!-- END tablehead -->
 
 
         <!-- BEGIN forumrow -->
         <!-- Affichage d'un forum -->
         <div class="forum row {catrow.forumrow.FOLDER_CLASSNAME}">
-            <!-- Titre forum -->
-            <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
-
-            <div class="forum_content">
-
-                <!-- Staut du forum : sans réponse, nouvelle réponse, vérouillé -->
+            <div class="forum-row-left">
+                <!-- Statut du forum : sans réponse, nouvelle réponse, vérouillé -->
                 <img class="forum-img" src="{catrow.forumrow.FORUM_FOLDER_IMG}" />
-
-                <!-- Description -->
-                <div class="forum_desc">{catrow.forumrow.FORUM_DESC}</div>
-
-
-
-                <div class="forum_avatar lastpostavatar">
-                    <!-- Avatar du dernier posteur -->
-                    <!-- BEGIN avatar -->
-                    {catrow.forumrow.avatar.LAST_POST_AVATAR}
-                    <!-- END avatar -->
-                </div>
-
-                <!-- Conteneur du du dernier message -->
-                <div class="forum_lastpost lastpost">
-                    <span>
-                        <!-- Tire du dernier message -->
-                        <!-- BEGIN switch_topic_title -->
-                        <a href="{catrow.forumrow.U_LATEST_TOPIC}" title="{catrow.forumrow.LATEST_TOPIC_TITLE}"
-                            class="lastpost_link">{catrow.forumrow.LATEST_TOPIC_NAME}</a><br />
-                        <!-- END switch_topic_title -->
-
-                        <!-- Date et auteur -->
-                        {catrow.forumrow.USER_LAST_POST}
-                    </span>
-                </div>
-
             </div>
 
-            <div class="forum_details">
+            <div class="forum-row-right">
+                <div class="top">
+                    <div class="left">
+                        <div class="forumtitle-wrap">
+                            <a href="{catrow.forumrow.U_VIEWFORUM}" class="forumtitle">{catrow.forumrow.FORUM_NAME}</a>
+                        </div>
+                        <!-- Description -->
+                        <div class="forum_desc box2">{catrow.forumrow.FORUM_DESC}</div>
+                    </div>
+                    <div class="right">
+                        <!-- Compteur sujets et message -->
+                        <div class="forum_stats_wrap"><span class="forum_stats box2">{catrow.forumrow.TOPICS}&nbsp;{L_TOPICS}&nbsp; •
+                            &nbsp;{catrow.forumrow.POSTS}&nbsp;{L_POSTS}</span></div>
+                        <div class="forum_avatar lastpostavatar">
+                            <!-- Avatar du dernier posteur -->
+                            <!-- BEGIN avatar -->
+                            {catrow.forumrow.avatar.LAST_POST_AVATAR}
+                            <!-- END avatar -->
+                        </div>
 
-                <!-- Liens de sous-forum -->
-                <span id="subforum">{catrow.forumrow.L_LINKS}{catrow.forumrow.LINKS}</span>
+                        <!-- Conteneur du du dernier message -->
+                        <div class="forum_lastpost lastpost box2">
+                            <span>
+                                <!-- Tire du dernier message -->
+                                <!-- BEGIN switch_topic_title -->
+                                <a href="{catrow.forumrow.U_LATEST_TOPIC}" title="{catrow.forumrow.LATEST_TOPIC_TITLE}"
+                                    class="lastpost_link">{catrow.forumrow.LATEST_TOPIC_NAME}</a><br />
+                                <!-- END switch_topic_title -->
 
-                <!-- Compteur sujets et message -->
-                <span class="forum_stats">{catrow.forumrow.TOPICS}&nbsp;{L_TOPICS}&nbsp; • &nbsp;{catrow.forumrow.POSTS}&nbsp;{L_POSTS}</span>
+                                <!-- Date et auteur -->
+                                {catrow.forumrow.USER_LAST_POST}
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bot">
+                    <!-- Liens de sous-forum -->
+                    <div id="subforum">{catrow.forumrow.L_LINKS}{catrow.forumrow.LINKS}</div>
+                </div>
             </div>
 
         </div>
-        <!-- Fin affichage d'un forum -->
-        <!-- END forumrow -->
 
-        <!-- BEGIN tablefoot -->
     </div>
-    <!-- Fin liste des forums -->
+    <!-- Fin affichage d'un forum -->
+    <!-- END forumrow -->
+
+    <!-- BEGIN tablefoot -->
+</div>
+<!-- Fin liste des forums -->
 
 
 </div>
