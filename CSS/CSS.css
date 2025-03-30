@@ -1369,17 +1369,26 @@ border-radius: 5px;
     align-items: center;
 }
 
-/* Create a container for the borders */
-.newest-frame {
-width: 200px;
-height: 270px;
-border-radius: 100px 100px 0 0;
-overflow: hidden;
-position: relative;
-background-color: var(--neutral);
-margin-top: -80px;
-box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
+.qeel-avatar-wrap {
+    position: relative;
+    width: 210px; /* Slightly larger than .newest-frame */
+    height: 280px; /* Slightly larger than .newest-frame */
+    margin: -85px auto 0;
+    border-radius: 105px 105px 5px 5px;
+    padding: 5px; /* This creates the outer border width */
+    background-color: #4ecdc4; /* Outer border color */
+  }
+  
+  .newest-frame {
+    width: 200px;
+    height: 270px;
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--neutral);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 3px solid #ff6b6b; /* Inner border */
+  }
   
 .newest-avatar {
 width: 100%;
