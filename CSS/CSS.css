@@ -1101,11 +1101,13 @@ padding: 5px;
     background: var(--neutral1);
     border-radius: 5px;
     padding: 10px;
+    text-align: justify;
 }
 .box2 {
     background: var(--neutral2);
     border-radius: 5px;
     padding: 10px;
+    text-align: justify;
 }
 
 /* Lien navigation au survol*/
@@ -1324,63 +1326,115 @@ border-radius: 5px;
 /*** ------------------------------- ***/
 /*** QUI EST EN LIGNE -------------- ***/
 
-.qeel {
-background: var(--neutralDark);
+.qeel-wrap {
+background: var(--neutral1);
+padding: 20px;
+margin: 10px;
+border-radius: 10px;
+}
+.qeel-header {
+height: 120px;
+background-image: url("https://indieground.net/wp-content/uploads/2020/02/Freebie-DarkGrungeTextures-Preview-02.jpg");
 border-radius: 5px;
-padding: 10px;
-display: grid;
-grid-template-columns: 30% 40% 30%;
-grid-gap: 1px;
-margin-bottom: 10px;
 }
 
-.qeel>div {
-background: var(--neutral);
-padding: 15px 10px;
+/* Main Content Grid */
+.qeel-content {
+    display: grid;
+    grid-template-columns: 1fr 250px 1fr;
+    grid-gap: 20px;
+    margin-bottom: 20px;
 }
 
+/* Left Sidebar */
 .qeel-left {
-border-radius: 5px 0 0 5px;
+    padding-top: 10px;
 }
 
-/* Dernier inscrit */
-#last_user {
-display: flex;
-align-items: center;
+.qeel-stats {
+    margin-bottom: 10px;
+    line-height: 1.5;
 }
 
-#lastuser_avatar img {
-width: 40px;
-height: 40px;
-object-fit: cover;
-object-position: center;
-border-radius: 5px;
-margin-right: 10px;
+.online_users {
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* groupes*/
-a.groups {
-display: block;
-background: var(--neutralDark);
-border-radius: 5px;
-text-align: center;
-padding: 2px 0;
-margin-bottom: 5px;
-opacity: 1;
+/* Central Profile Section */
+.qeel-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-a.groups:hover {
-opacity: 0.7;
+/* Create a container for the borders */
+.newest-frame {
+width: 200px;
+height: 270px;
+border-radius: 100px 100px 0 0;
+overflow: hidden;
+position: relative;
+background-color: var(--neutral);
+margin-top: -80px;
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+  
+.newest-avatar {
+width: 100%;
+height: 100%;
 }
 
-a.groups:last-child {
-margin-bottom: 0;
+#newest_user {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: normal;
+    text-transform: lowercase;
+    letter-spacing: 2px;
 }
 
-.qeel-middle {}
+.newest-text {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
 
-/*X connectés :: 1 membre, 0 invisible, 0 invité*/
-#total_users {}
+/* Right Sidebar */
+.qeel-right {
+    padding-top: 10px;
+}
+
+#last_connected {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.credits {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.qeel-groups {
+    display: flex;
+    justify-content: space-evenly;
+}
+.group {
+    text-align: center;
+    display: flex;
+    gap: 5px;
+}
+.group-name {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.group-1 .group-name { color: #b04040; }
+.group-2 .group-name { color: #646464; }
+.group-3 .group-name { color: #4a6a7a; }
+.group-4 .group-name { color: #a08040; }
 
 /*Connectés en ce moment*/
 #online_users {
@@ -1393,23 +1447,7 @@ overflow: auto;
 display: none;
 }
 
-.credits {
-font-size: var(--little-size);
-border: var(--border);
-border-radius: 5px;
-padding: 5px;
-margin-top: 5px;
-}
-
-.qeel-right {
-border-radius: 0 5px 5px 0;
-text-align: justify;
-}
-
-/****** ------------------------------------------------------------------------------
-****** LISTE DES SUJETS ------------------------------------------------------------- ******/
-
-/*** ------------------------------- ***/
+/* LISTE DES SUJETS */
 /*** ENTETE ET FOOTER DE LA LISTE DES SUJETS ***/
 
 /* Chaîne de navigation et pagination

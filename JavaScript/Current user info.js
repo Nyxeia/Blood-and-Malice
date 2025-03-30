@@ -20,7 +20,7 @@ $(function(){
             var userAvatar = '<a href="https://bloodandmalice.forumactif.com/"><img src="https://i.pinimg.com/736x/d7/9c/6f/d79c6fbe6f725ab5ec1edb3ed4c1ac02.jpg"></a>';
             divPseudo = '';
 
-            $('#top-header-avatar').append(_userdata.avatar);
+            $('#top-header-avatar').append(userAvatar);
             $('#top-header-user').append(divPseudo);
 
            }
