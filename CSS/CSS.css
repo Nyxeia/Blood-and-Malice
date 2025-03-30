@@ -25,6 +25,7 @@ color-scheme: dark;
 --border-round: 5px solid var(--neutral3);
 --shadowBox: 0 0 20px #23265730;
 
+/* font  */
 --little-size: 12px;
 --normal-size: 14px;
 --medium-size: 16px;
@@ -32,6 +33,8 @@ color-scheme: dark;
 --title-size: 22px;
 
 --font: "Open Sans";
+--font2: "Pirata One";
+--font3: "Unica One";
 
 /* dimensions */
 --forum: 1010px;
@@ -71,10 +74,7 @@ scrollbar-color: var(--contrastLight);
 scrollbar-width: thin;
 }
 
-/*** ------------------------------- ***/
 /*** TOUTES LES PAGES --------------- ***/
-
-/* FOND DU FORUM ---*/
 body {
 background: var(--background);
 background-attachment: fixed;
@@ -83,9 +83,34 @@ font-size: var(--normal-size);
 color: var(--textColor);
 margin: 0 !important;
 }
-
 img {
     object-fit: cover;
+}
+
+/* title style */
+#top-header,
+.cate_title h2,
+.pa-titre,
+.forumtitle,
+#newest_user,
+.box-count{
+font-family: var(--font2);
+text-transform: lowercase;
+letter-spacing: 1px;
+}
+/* subtitle style */
+.pa-link,
+.subforum,
+.forum_lastpost,
+.forum_stats,
+.newest-text,
+#online_users,
+#last_connected,
+.group-name 
+{
+font-family: var(--font3);
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 
 /* SCROLLBAR --- */
@@ -1220,7 +1245,6 @@ margin-bottom: 25px;
 .cate_title h2 {
 display: block;
 text-align: center;
-text-transform: uppercase;
 font-size: 18px;
 font-weight: 700;
 margin: 10px 0 20px;
@@ -1353,12 +1377,13 @@ border-radius: 5px;
 .qeel-stats {
     margin-bottom: 10px;
     line-height: 1.5;
+    height: 135px;
 }
 
-.online_users {
-    margin-top: 30px;
+#online_users {
     text-transform: uppercase;
-    letter-spacing: 1px;
+    height: 107px!important;
+    overflow: auto;
 }
 
 /* Central Profile Section */
@@ -1401,15 +1426,10 @@ height: 100%;
 #newest_user {
     text-align: center;
     margin: 10px 0;
-    font-weight: normal;
-    text-transform: lowercase;
-    letter-spacing: 2px;
 }
 
 .newest-text {
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     margin-bottom: 10px;
 }
 
@@ -1419,19 +1439,20 @@ height: 100%;
 }
 
 #last_connected {
-    text-transform: uppercase;
-    letter-spacing: 1px;
     margin-bottom: 10px;
+    height:135px;
 }
 
 .credits {
     font-size: 0.9rem;
     line-height: 1.5;
+    height: 107px;
 }
 
 .qeel-groups {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 15px;
 }
 .group {
     text-align: center;
@@ -1439,8 +1460,7 @@ height: 100%;
     gap: 5px;
 }
 .group-name {
-    text-transform: uppercase;
-    letter-spacing: 1px;
+
 }
 
 .group-1 .group-name { color: #b04040; }
