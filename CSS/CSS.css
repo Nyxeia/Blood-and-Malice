@@ -26,11 +26,7 @@ color-scheme: dark;
 --shadowBox: 0 0 20px #23265730;
 
 /* font  */
---little-size: 12px;
 --normal-size: 14px;
---medium-size: 16px;
---large-size: 18px;
---title-size: 22px;
 
 --font: "Open Sans";
 --font2: "Pirata One";
@@ -291,33 +287,6 @@ color: var(--accentClr);
 width: 19px !important;
 }
 
-/* TITRES DES PAGES --- ***/
-
-h1,
-h1.page-title {
-color: var(--contrastLight);
-margin: 10px 0 20px;
-font-size: var(--title-size);
-font-weight: 700;
-text-transform: uppercase;
-text-align: center;
-}
-
-h2,
-.h2 {
-margin: 0;
-font-size: var(--large-size);
-font-weight: 700;
-}
-
-h3,
-.h3 {
-color: var(--contrastLight);
-padding-bottom: 10px;
-margin: 0;
-font-size: var(--medium-size);
-font-weight: bold;
-}
 
 /*** --------------------------------------- ***/
 /*** BOUTONS D'INTERACTION ET BARRE DE TEXTE ***/
@@ -456,7 +425,6 @@ background: transparent !important;
 
 /*lien unique vers les pages numérotées*/
 .pagination span a {
-font-size: var(--little-size);
 }
 
 /*survol des liens uniques des pages*/
@@ -776,7 +744,6 @@ width: 100%;
 
 /* Date de la notification */
 .notif_time {
-font-size: var(--little-size);
 opacity: .8;
 margin-top: 5px;
 }
@@ -1293,7 +1260,6 @@ margin-top: 10px;
 height: 40px;
 }
 a.forumtitle {
-font-size: var(--large-size);
 }
 .forum_desc {
 height: 85px;
@@ -1330,7 +1296,6 @@ padding-top: 25px;
 text-align:center;
 }
 .forum_stats {
-font-size: var(--little-size);
 }
 
 /* liens des sous forums */
@@ -1340,7 +1305,7 @@ font-size: 0;
 }
 
 #subforum a {
-font-size: var(--little-size);
+font-size: var(--normal-size);
 margin-right: 10px;
 padding: 3px 5px;
 background: var(--neutral2);
@@ -1576,8 +1541,6 @@ flex-grow: 100;
 
 /*titre du sujet*/
 .topictitle {
-font-size: var(--medium-size);
-/* permet de raccourir les titres trop long ainsi : "Titre du suj..." */
 overflow: hidden;
 text-overflow: ellipsis;
 display: inline-block;
@@ -1976,7 +1939,6 @@ padding: 5px;
 /* Nom de balise "code, spoiler" */
 .codebox dt {
 font-weight: 700;
-font-size: var(--little-size);
 }
 
 /*retire la mention "code" du bloc*/
@@ -2159,7 +2121,6 @@ padding-top: 3px;
 
 .preview_pseudo,
 .preview_pseudo strong {
-font-size: var(--medium-size);
 }
 
 .preview_contacts {
@@ -2208,7 +2169,6 @@ object-position: center;
 .userlist_details {}
 
 .userlist_pseudo {
-font-size: var(--medium-size);
 }
 
 .userlist_infos {}
@@ -2344,7 +2304,6 @@ grid-template-columns: 40% auto;
 }
 
 .profil_preferences .italic {
-font-size: var(--little-size);
 }
 
 /* EDITER SIGNATURE ---*/
@@ -2392,7 +2351,6 @@ padding: 10px;
 /* Colonne d'information du message */
 .postsearch_infos {
 border-right: var(--border);
-font-size: var(--little-size);
 }
 
 /* RECHERCHE DE SUJET -----*/
