@@ -1,6 +1,6 @@
 :root {
 color-scheme: dark;
---header: url('https://images2.imgbox.com/4b/b2/Pn7C9W7Q_o.gif');
+--header: url('https://images2.imgbox.com/f9/7d/pR2Q2bC7_o.gif');
 --background: linear-gradient(180deg, #5f586a42 10%, #1414147d), url(https://images2.imgbox.com/23/13/enJQZfKT_o.png); /*fond du forum*/
 
 --neutral1: #111111;
@@ -42,7 +42,7 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---header: url('https://images2.imgbox.com/4b/b2/Pn7C9W7Q_o.gif');
+--header: url('https://images2.imgbox.com/f9/7d/pR2Q2bC7_o.gif');
 
 --neutral: #fafbfc;
 --neutralDark: #f2f4f9;
@@ -159,7 +159,7 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: auto;
 width: calc(var(--forum)-var(--pad-wrap));
-height: 585px;
+height: 500px;
 display: block;
 border-radius: 10px;
 }
@@ -1341,7 +1341,7 @@ border-radius: 5px;
 /* Main Content Grid */
 .qeel-content {
     display: grid;
-    grid-template-columns: 1fr 250px 1fr;
+    grid-template-columns: 1fr 220px 1fr;
     margin-bottom: 20px;
 }
 
@@ -1370,11 +1370,11 @@ border-radius: 5px;
 
 .qeel-avatar-wrap {
     position: relative;
-    width: 250px;
-    height: 300px;
-    margin: -85px auto 0;
-    border-radius: 130px 130px 5px 5px;
-    padding: 20px;
+    width: 220px;
+    height: 260px;
+    margin-top: -85px;
+    border-radius: 120px 120px 5px 5px;
+    padding: 15px;
     background-color: var(--neutral1);
     display: flex;
     justify-content: center;
@@ -1382,12 +1382,15 @@ border-radius: 5px;
   
   .newest-frame {
     width: 220px;
-    height: 280px;
+    height: 250px;
     border-radius: 100px 100px 5px 5px;
     overflow: hidden;
     position: relative;
     background-color: var(--neutral);
     border: 5px solid var(--neutral2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
 .newest-avatar {
