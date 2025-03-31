@@ -22,8 +22,8 @@
     --textColor2: #aaaaaa;
     --textColor3: #bfbfbf;
     
-    --border: 1px solid #2b2e3b;
-    --border-round: 5px solid var(--neutral3);
+    --border: 1px solid #262626;
+    --border-round: 3px solid var(--neutral3);
     --border-double: 5px double #0e0e0e;
     --shadowBox: 0 0 20px #23265730;
     --text-shadow: 3px 3px 0px #000000;
@@ -1130,6 +1130,7 @@
         border-radius: 5px;
         padding: 10px;
         text-align: justify;
+        border: var(--border);
     }
     
     /* Lien navigation au survol*/
@@ -1168,6 +1169,7 @@
         background: var(--neutral2);
         border-radius: 5px;
         padding: 3px 10px;
+        border: var(--border);
     }
     .pa-titre {
         font-size:22px;
@@ -1179,7 +1181,12 @@
     #pa-list1 {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 7px;
+    }
+    #pa-list2 {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 7px;
     }
     #pa-disclaimer {
         display: flex;
@@ -1205,11 +1212,6 @@
     }
     #pa-time {
         height: 80px;
-    }
-    #pa-list2 {
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 10px;
     }
     #pa-vote {
         display: flex;
@@ -1318,7 +1320,7 @@
     object-fit: cover;
     object-position: center;
     border-radius: 100%;
-    border: 5px solid var(--neutral3);
+    border: var(--border-round);
     outline: 5px solid var(--neutral1);
     }
     
@@ -1348,7 +1350,6 @@
     /* liens des sous forums */
     #subforum {
     font-size: 0;
-    /*permet de retirer la virgule*/
     }
     
     #subforum a {
@@ -1357,6 +1358,7 @@
     padding: 3px 5px;
     background: var(--neutral2);
     border-radius: 5px;
+    border:var(--border);
     }
     
     /*** ------------------------------- ***/
@@ -1424,7 +1426,8 @@
         overflow: hidden;
         position: relative;
         background-color: var(--neutral);
-        border: 8px solid var(--neutral2);
+        border: 5px solid var(--neutral2);
+        outline: 1px solid var(--neutral3);
         display: flex;
         justify-content: center;
         align-items: center;
