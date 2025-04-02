@@ -7,9 +7,7 @@ color-scheme: dark;
 --neutral2: #191919;
 --neutral3: #282828;
 
---contrast: #e5e5f0;
---contrastLight: #f4f4f4;
---contrastLighter: #40485e;
+--accent1: #4a1f25;
 
 --accentClr: #7583ff;
 --accentClrDark: #333c92;
@@ -47,12 +45,7 @@ color-scheme: light;
 --neutral2: #f7f7f7;
 --neutral3: #c7c7c7;
 
---contrast: #171938;
---contrastLight: #232657;
---contrastLighter: #c3c8f3;
-
---accentClr: #4b57c5;
---accentClrDark: #333c92;
+--accent1: #331418;
 
 --textColor1: #404040;
 --textColor2: #3d3d3d;
@@ -113,12 +106,21 @@ text-shadow: var(--text-shadow);
 .newest-text,
 #online_users,
 #last_connected,
-.group-name 
+.group-name,
+tag 
 {
 font-family: var(--font3);
 text-transform: uppercase;
 letter-spacing: 0.5px;
 font-size: 16px;
+}
+
+tag,
+.newest-text {
+    background: var(--accent1);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 14px;
 }
 
 /* SCROLLBAR --- */
@@ -1321,7 +1323,7 @@ object-fit: cover;
 object-position: center;
 border-radius: 100%;
 border: var(--border2);
-outline: 4px solid var(--neutral1);
+outline: 5px solid var(--neutral1);
 }
 
 /* dernier message*/
@@ -1337,7 +1339,7 @@ font-size: 14px;
 .forum_lastpost .lastpost_link{
     font-size: 16px;
 }
-.forum_lastpost a{
+.forum_lastpost strong{
 font-size: 18px;
 }
 .forum_stats_wrap {
@@ -1350,16 +1352,29 @@ text-align:center;
 /* liens des sous forums */
 #subforum {
 font-size: 0;
+height: 30px;
 }
 
 #subforum a {
-font-size: var(--normal-size);
+font-size: var(--normal-size)!important;
 margin-right: 10px;
 padding: 3px 5px;
 background: var(--neutral2);
 border-radius: 5px;
 border:var(--border);
 }
+
+.pa-link a:before,
+#subforum a:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    background-color: var(--accent1);
+  }
 
 /*** ------------------------------- ***/
 /*** QUI EST EN LIGNE -------------- ***/
@@ -1451,10 +1466,6 @@ margin-bottom: 5px;
 font-size: 24px;
 width: 190px;
 line-height: 25px;
-}
-
-.newest-text {
-    font-size: 14px;
 }
 
 /* Right Sidebar */
