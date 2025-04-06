@@ -1227,12 +1227,13 @@ padding: 20px;
     height: 200px;
     border-radius: 5px;
     cursor: pointer;
+    transition: filter 0.2s;
 }
 #pa-img.expanded {
     z-index: 10;
   }
 #pa-img:hover {
-box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+filter: brightness(0.5);
 }
 #pa-staff {
     height: 140px;
