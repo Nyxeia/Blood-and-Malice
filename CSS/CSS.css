@@ -1186,7 +1186,7 @@ cursor: pointer;
 position: absolute;
 margin-left: 950px;
 padding: 3px 6px;
-color: var(--accent1);
+color: var(--textColor1);
 transition: var(--transition);
 }
 #pa-btn:hover {

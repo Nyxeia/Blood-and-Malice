@@ -6,9 +6,9 @@ $(document).ready(function(){
   // Set initial panel state
   if (savedPanelState === "closed") {
     $("#pa").hide();
-    $("#pa-btn").html("▼");
+    $("#pa-btn").html("<i class='ion-chevron-down'></i>");
   } else {
-    $("#pa-btn").html("▲");
+    $("#pa-btn").html("<i class='ion-chevron-up'></i>");
   }
   
   // Panel button click handler
@@ -18,10 +18,10 @@ $(document).ready(function(){
       
       if ($(this).is(":hidden")) {
         state = "closed";
-        $("#pa-btn").html("▼");
+        $("#pa-btn").html("<i class='ion-chevron-down'></i>");
       } else {
         state = "open";
-        $("#pa-btn").html("▲");
+        $("#pa-btn").html("<i class='ion-chevron-up'></i>");
         
         // If panel was closed but now opened, and image was saved as expanded
         if (savedPanelState === "closed" && savedImgState === "expanded") {
@@ -99,5 +99,5 @@ $(document).ready(function(){
       });
     }
   });
-  
+
 });
