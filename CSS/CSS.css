@@ -17,11 +17,13 @@ color-scheme: dark;
 --textColor2: #aaaaaa;
 --textColor3: #bfbfbf;
 
+--hoverColorBase: var(--accent1);
 --hoverColor1: var(--textColor3); /* style sous-titre au survol */
 --hoverColor2: var(--accent2); /* cercles au survol */
 
 --border: 1px solid var(--neutral3);
---border2: 1px solid var(--neutral3);
+--border2: 1px solid var(--neutral3); /* cercles */
+--border3: 1px solid #313131; /* navbar separator */
 --inner-border: 4px solid var(--neutral2);
 --shadowBox: 0 0 20px #23265730;
 --text-shadow: 2px 2px 0px #000000;
@@ -61,6 +63,8 @@ color-scheme: light;
 
 --hoverColor1: #0e0e0e; /* style sous-titre au survol */
 --hoverColor2: #5b3535; /* cercles au survol */
+
+--border3: 1px solid #a5a5a5; /* navbar separator */
 
 --shadowBox: 0 0 20px var(--neutralDark);
 --text-shadow: 2px 2px #eaeaea;
@@ -199,6 +203,27 @@ background: var(--neutral2);
 color: var(--textColor1);
 font-size: 24px;
 }
+#top-header-icons {
+display: flex;
+align-items: center;
+}
+.menu-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-shadow: var(--text-shadow);
+}
+.menu-icon:hover{
+    color:var(--hoverColorBase);
+}
+.icon.light {
+    font-size: 18px;
+}
+.icon.dark {
+    font-size: 16px;
+}
+
 #header-wrap {
     padding: var(--pad-wrap);
 }
@@ -276,7 +301,7 @@ text-align: center;
 .color-scheme-toggle,
 [data-color-scheme="light"] .color-scheme-toggle .dark,
 [data-color-scheme="dark"] .color-scheme-toggle .light {
-display: block;
+display: flex;
 width: 100%;
 }
 
@@ -287,15 +312,14 @@ display: none;
 
 .color-scheme-toggle {
 background-color: var(--neutralDark);
-padding: 5px 8px;
-font-size: 36px;
+padding: 0 10px;
 text-align: center;
 border-radius: 5px;
 color: var(--textColor1);
+transition: var(--transition);
 }
-
 .color-scheme-toggle:hover {
-color: var(--accentClr);
+color: var(--hoverColorBase);
 }
 
 /* LIENS DU FORUM --- */
@@ -307,7 +331,7 @@ transition : var(--transition);
 
 /*liens au survol*/
 a:hover {
-color: var(--accent1);
+color: var(--hoverColorBase);
 }
 
 /* Emoji mis par défaut de FA
@@ -572,17 +596,15 @@ display: none
 /* Bouton de notification */
 #notiffi_button {
 cursor: pointer;
-background: var(--neutral);
-border-radius: 10px;
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 5px 10px;
-position: fixed;
 z-index: 99;
-top: 10px;
-right: 10px;
-height: 35px;
+border-right: var(--border3);
+padding: 0 10px;
+color: var(--textColor1);
+transition: var(--transition);
+}
+
+#notiffi_button:hover {
+color: var(--hoverColorBase);
 }
 
 /* Conteneur du nombre de notification non lues REMPLI */
@@ -1100,6 +1122,7 @@ background: var(--contrastLight);
 display: flex;
 align-items: center;
 justify-content: flex-end;
+border-right: var(--border3);
 }
 
 /* Suppression des liens peu utilisés*/
@@ -1108,18 +1131,10 @@ justify-content: flex-end;
 .navbar a[href^="/groups"],
 .navbar a[href^="/images"],
 .navbar a[href^="/images"],
-.navbar li:first-child
+.navbar li:first-child,
+.navbar li:last-child
 {
 display: none;
-}
-#logout::after {
-content: "Déconnexion";
-display: inline-block;
-font-size: 18px;
-margin-left: -20px;
-}
-#logout {
-font-size: 0;
 }
 
 /* liens de navigation */
