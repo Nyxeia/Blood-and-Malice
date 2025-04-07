@@ -324,46 +324,46 @@
 	<!-- END switch_user_logged_in -->
 	<!-- NOTIFFIN --> 
 
-	<div id="top-header">
-		<div id="top-header-left">
-			<div id="top-header-avatar"></div>
-			<div class="acc-icons" id="logout-icon"><a href="" id="logout-link"><ion-icon name="log-out-outline"></ion-icon></a></div>
-			<div id="top-header-texte">Bienvenue à Vienne<br>
-				<div id="top-header-user"></div>
-			</div>
-		</div>
-		<div id="top-header-right">
-			<!-- Barre de navigation -->
-			<ul class="navbar">
-				<li>{GENERATED_NAV_BAR}</li>
-			</ul>
-			<!-- Fin de la barre de nav -->
-
-			<div id="top-header-icons">
-			<!-- BEGIN switch_user_logged_in -->
-			<!-- Bouton pour ouvrir le panneau des notifications -->
-			<div id="notiffi_button">
-				<span class="ntf_button-text"><ion-icon name="notifications"></ion-icon></span>
-				<template class="unread_count" type="template/potion" data-name="unread_notifs">[count]</template>
-			</div>
-			<!-- END switch_user_logged_in -->
-				<!-- Switch thème button -->
-				<div data-theme-controls>
-					<button class="color-scheme-toggle" title="Activer le mode sombre" aria-describedby="theme-controls-focus-text">
-						<!-- Light theme -->
-						<div class="icon light"><ion-icon name="sunny"></ion-icon></div>
-						<!-- Dark theme -->
-						<div class="icon dark"><ion-icon name="moon"></ion-icon></div>
-					</button>
-				</div>
-					<ion-icon class="menu-icon" name="menu"></ion-icon>
-			</div>
-		</div>
-	
-	</div>
     <!-- Structure du forum -->
     <div class="main_forum">
-
+		<div id="top-header">
+			<div id="top-header-left">
+				<div id="top-header-avatar"></div>
+				<div class="acc-icons" id="logout-icon"><a href="" id="logout-link"><ion-icon name="log-out-outline"></ion-icon></a></div>
+				<div id="top-header-texte">Bienvenue à Vienne<br>
+					<div id="top-header-user"></div>
+				</div>
+			</div>
+			<div id="top-header-right">
+				<!-- Barre de navigation -->
+				<ul class="navbar">
+					<li>{GENERATED_NAV_BAR}</li>
+				</ul>
+				<!-- Fin de la barre de nav -->
+	
+				<div id="top-header-icons">
+				<!-- BEGIN switch_user_logged_in -->
+				<!-- Bouton pour ouvrir le panneau des notifications -->
+				<div id="notiffi_button">
+					<span class="ntf_button-text"><ion-icon name="notifications"></ion-icon></span>
+					<template class="unread_count" type="template/potion" data-name="unread_notifs">[count]</template>
+				</div>
+				<!-- END switch_user_logged_in -->
+					<!-- Switch thème button -->
+					<div data-theme-controls>
+						<button class="color-scheme-toggle" title="Activer le mode sombre" aria-describedby="theme-controls-focus-text">
+							<!-- Light theme -->
+							<div class="icon light"><ion-icon name="sunny"></ion-icon></div>
+							<!-- Dark theme -->
+							<div class="icon dark"><ion-icon name="moon"></ion-icon></div>
+						</button>
+					</div>
+						<ion-icon class="menu-icon" name="menu"></ion-icon>
+				</div>
+			</div>
+		
+		</div>
+		
         <!-- Ascenseur : renvoi vers le haut de la page -->
         <a id="top" name="top" accesskey="t"></a>
         {JAVASCRIPT}
