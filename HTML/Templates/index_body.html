@@ -77,7 +77,7 @@
         <div class="qeel-left">
             <div class="qeel-stats box2">
                 Les ombres de Vienne retiennent <span id="qeel_members">{TOTAL_USERS}</span> habitants ayant laissés <span id="qeel_posts">{TOTAL_POSTS}</span> missives.
-                Actuellement, <span id="total_users">{TOTAL_USERS_ONLINE}</span>.
+                &nbsp;Actuellement, <span id="total_users">{TOTAL_USERS_ONLINE}</span>.
             </div>
             
             <div id="online_users" class="box2">
@@ -138,10 +138,8 @@
   $("#qeel_posts").html($("#qeel_posts").html().replace("Nos membres ont posté un total de", ""));
   
   $("#qeel_members").html($("#qeel_members").html().replace("Nous avons", ""));
-  
-  $("#total_users").html($("#total_users").html().replace("Il y a en tout", ""));
-  $("#total_users").html($("#total_users").html().replace("utilisateur en ligne", "connecté"));
-  $("#total_users").html($("#total_users").html().replace("utilisateurs en ligne", "connectés"));
+  $("#qeel_members").html($("#qeel_members").html().replace("membres enregistrés", ""));
+  $("#qeel_posts").html($("#qeel_posts").html().replace("messages", ""));
   
   $("#online_users").html($("#online_users").html().replace("Utilisateurs enregistrés", "En ligne"));
   

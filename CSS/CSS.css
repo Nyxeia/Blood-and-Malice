@@ -208,7 +208,7 @@ display: flex;
 align-items: center;
 }
 .menu-icon {
-    font-size: 20px;
+    font-size: 23px;
     margin-right: 10px;
     cursor: pointer;
     transition: var(--transition);
@@ -616,10 +616,13 @@ border-right: var(--border3);
 padding: 0 10px;
 color: var(--textColor1);
 transition: var(--transition);
+display:flex;
 }
-
 #notiffi_button:hover {
 color: var(--hoverColorBase);
+}
+#notiffi_button>span {
+display:flex;
 }
 
 /* Conteneur du nombre de notification non lues REMPLI */
@@ -863,10 +866,7 @@ aspect-ratio: 1;
 padding: 2px;
 }
 
-/*** ------------------------------- ***/
 /*** SWITCHEROO - Par Monomer ------ ***/
-/*** Gestionnaire de multicompte --- ***/
-
 :root {
 --ease: cubic-bezier(0.4, 0, 0.2, 1);
 --ease-bounce: cubic-bezier(0.43, 0.09, 0.38, 2.56);
@@ -890,7 +890,6 @@ gap: 15px;
 }
 
 /* AFFICHAGE DES COMPTES ---*/
-
 /* Rond */
 .switcheroo__squircle {
 position: relative;
@@ -904,23 +903,19 @@ cursor: pointer;
 outline: 5px solid transparent;
 transition: border-radius 128ms var(--ease);
 }
-
 /* Rond au survol */
 .switcheroo__squircle:hover {
 outline-color: var(--neutralDarker);
 border-radius: 8px;
 }
-
 .switcheroo__squircle:hover img {
 border-radius: 8px;
 }
-
 /* Conteneur de l'avatar */
 .switcheroo__avatar {
 width: 100%;
 aspect-ratio: 1/1;
 }
-
 /* Image de l'avatar */
 .switcheroo__avatar img {
 width: 100%;
@@ -931,30 +926,25 @@ border-radius: 50%;
 transition: border-radius 128ms var(--ease);
 position: relative;
 }
-
 /* Avatar du compte connecté */
 .switcheroo__squircle.active,
 .switcheroo__squircle.active img {
 outline-color: var(--neutralDark);
 cursor: default;
 }
-
 /* AJOUTER UN COMPTE ---*/
 /* button : ajouter un compte */
 .switcheroo__squircle--button {
 transition: border-radius 128ms var(--ease);
 color: var(--contrastLight);
 }
-
 /* icon plus */
 .switcheroo__squircle--button i {
 font-size: 19px;
 }
-
 .switcheroo__squircle--button:hover {
 color: var(--accentClr);
 }
-
 /* Bouton de suppression */
 .switcheroo__delete {
 display: grid;
@@ -973,14 +963,12 @@ cursor: pointer;
 color: var(--neutral);
 line-height: 0;
 }
-
 .switcheroo__squircle:hover .switcheroo__delete {
 opacity: 1;
 transform: scale(1);
 }
 
 /* TOOLTIP - INFOBULLE DU PSEUDO ---*/
-
 /* Conteneur du pseudo */
 .switcheroo__popper {
 background-color: var(--neutralDarker);
@@ -1138,6 +1126,7 @@ display: flex;
 align-items: center;
 justify-content: flex-end;
 border-right: var(--border3);
+height: 18px;
 }
 
 /* Suppression des liens peu utilisés*/
@@ -1145,9 +1134,8 @@ border-right: var(--border3);
 .navbar a[href^="/calendar"],
 .navbar a[href^="/groups"],
 .navbar a[href^="/images"],
-.navbar a[href^="/images"],
 .navbar li:first-child,
-.navbar li:last-child
+li:has(#logout)
 {
 display: none;
 }
@@ -1197,7 +1185,7 @@ max-height: 410px;
 overflow: hidden;
 transition: max-height 0.2s ease-out;
 display: grid;
-grid-template-columns: 300px 325px auto;
+grid-template-columns: 290px 325px auto;
 gap: 20px;
 margin: 15px 10px;
 background: var(--neutral1);
@@ -1402,9 +1390,16 @@ text-align: center;
 padding-top: 25px;
 font-size: var(--smallest-size);
 }
-.forum_lastpost .lastpost_link,
+.forum_lastpost .lastpost_link{
+font-size: 14px;
+}
 .forum_lastpost strong {
-font-size: 15px;
+font-size: 16px;
+font-family: var(--font2);
+text-transform: lowercase;
+letter-spacing: 1px;
+font-weight: 500;
+text-shadow: var(--text-shadow2);
 }
 .forum_stats_wrap {
 text-align:center;
