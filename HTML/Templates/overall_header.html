@@ -12,9 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
       
     <!-- INSTALLATION DE FONT ICON -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet"/>
+	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	
       
   	<!-- TEXTE DANS L'ONGLET DE NAVIGATEUR -->
 	<title>{SITENAME_TITLE}{PAGE_TITLE}</title>
@@ -257,19 +259,12 @@
           colorScheme && html.setAttribute('data-color-scheme', colorScheme);
         })();
     </script>
-
 </head>
 
 <body id="phpbb">
 
 	<!-- NOTIFFI : https://blankthemerpg.forumactif.com/t203-notiffi -->  
 	<!-- BEGIN switch_user_logged_in -->
-	<!-- Bouton pour ouvrir le panneau des notifications -->
-	<div id="notiffi_button">
-		<span class="ntf_button-text">Notifications</span>
-		<template class="unread_count" type="template/potion" data-name="unread_notifs">[count]</template>
-	</div>
-	
 	<!-- Panneau des notifications -->
 	<div id="notiffi_panel">
 		<!-- Conteneur des notifications -->
@@ -332,6 +327,7 @@
 	<div id="top-header">
 		<div id="top-header-left">
 			<div id="top-header-avatar"></div>
+			<div class="acc-icons" id="logout-icon"><a href="" id="logout-link"><ion-icon name="log-out-outline"></ion-icon></a></div>
 			<div id="top-header-texte">Bienvenue à Vienne<br>
 				<div id="top-header-user"></div>
 			</div>
@@ -342,7 +338,28 @@
 				<li>{GENERATED_NAV_BAR}</li>
 			</ul>
 			<!-- Fin de la barre de nav -->
+			<!-- BEGIN switch_user_logged_in -->
+			<!-- Bouton pour ouvrir le panneau des notifications -->
+			<div id="notiffi_button">
+				<span class="ntf_button-text">Notifications</span>
+				<template class="unread_count" type="template/potion" data-name="unread_notifs">[count]</template>
+			</div>
+			<!-- END switch_user_logged_in -->
+
+			<div id="top-header-icons">
+				<!-- Switch thème button -->
+				<div data-theme-controls>
+					<button class="color-scheme-toggle" title="Activer le mode sombre" aria-describedby="theme-controls-focus-text">
+						<!-- Light theme -->
+						<div class="icon light"><ion-icon name="sunny"></ion-icon></div>
+						<!-- Dark theme -->
+						<div class="icon dark"><ion-icon name="moon"></ion-icon></div>
+					</button>
+				</div>
+					<ion-icon class="menu-icon" name="menu"></ion-icon>
+			</div>
 		</div>
+	
 	</div>
     <!-- Structure du forum -->
     <div class="main_forum">
@@ -361,7 +378,7 @@
 				<div id="pa-head" class="cate_title">
 					<h2>Blood and Malice</h2>
 					<div class="cate_quote">— Une quote pour le forum —</div>
-					<div id="pa-btn" class="box2">▲</div>
+					<div id="pa-btn"><i class="ion-chevron-up"></i></div>
 				</div>
             	<div id="pa">
 					<div class="pa-col">

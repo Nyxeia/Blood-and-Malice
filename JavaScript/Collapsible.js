@@ -4,7 +4,7 @@ $(document).ready(function(){
   // Set initial panel state
   if (savedState === "closed") {
     $("#pa").hide();
-    $("#pa-btn").html("▼");
+    $("#pa-btn").html("<i class='ion-chevron-down'></i>");
   }
   
   $("#pa-btn").click(function(){
@@ -12,10 +12,10 @@ $(document).ready(function(){
       
       if ($(this).is(":hidden")) {
         state = "closed";
-        $("#pa-btn").html("▼");
+        $("#pa-btn").html("<i class='ion-chevron-down'></i>");
       } else {
         state = "open";
-        $("#pa-btn").html("▲"); 
+        $("#pa-btn").html("<i class='ion-chevron-up'></i>"); 
       }
       
       $.cookie("pa_state", state);
