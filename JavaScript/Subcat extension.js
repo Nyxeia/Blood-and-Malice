@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
       subforum.addEventListener("mouseout", function() {
-        this.style.height = "27px";
+        this.style.height = "28px";
       });
     }
   });

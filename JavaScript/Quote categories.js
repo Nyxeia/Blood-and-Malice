@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Sélectionner tous les titres de catégorie
+
     const categoryTitles = document.querySelectorAll('div.cate_title');
     
     categoryTitles.forEach(function(titleDiv) {
@@ -18,10 +18,28 @@ document.addEventListener('DOMContentLoaded', function() {
           
           switch(categoryId) {
             case 'c1':
-              descriptionDiv.textContent = '— Une jolie petite quote par ici —';
+              descriptionDiv.textContent = '— quote partie 1 —';
               break;
-            case 'f2':
-              descriptionDiv.textContent = '— Ceci est la corbeille —';
+            case 'c2':
+              descriptionDiv.textContent = '— quote partie 2 —';
+              break;
+            case 'c3':
+              descriptionDiv.textContent = '— quote partie 3 —';
+              break;
+            case 'c4':
+              descriptionDiv.textContent = '— quote partie 4 —';
+              break;
+            case 'c5':
+              descriptionDiv.textContent = '— quote partie 5 —';
+              break;
+            case 'c6':
+              descriptionDiv.textContent = '— quote partie 6 —';
+              break;
+            case 'c7':
+              descriptionDiv.textContent = '— quote partie 7 —';
+              break;
+            case 'c8':
+              descriptionDiv.textContent = '— quote corbeille —';
               break;
             default:
               break;

@@ -2,6 +2,7 @@
 color-scheme: dark;
 --header: url('https://images2.imgbox.com/f9/7d/pR2Q2bC7_o.gif');
 --background: linear-gradient(180deg, #46464642 10%, #1414147d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--cate-img: url('https://images2.imgbox.com/e6/48/SIvJzIvS_o.png');
 
 --neutral1: #0e0e0e;
 --neutral2: #191919;
@@ -14,8 +15,8 @@ color-scheme: dark;
 --accentClrDark: #333c92;
 
 --textColor1: #8b8b8b;
---textColor2: #aaaaaa;
---textColor3: #bfbfbf;
+--textColor2: #a7a7a7;
+--textColor3: #a5a5a5;
 
 --hoverColorBase: var(--accent1);
 --hoverColor1: var(--textColor3); /* style sous-titre au survol */
@@ -29,6 +30,8 @@ color-scheme: dark;
 --text-shadow: 2px 2px 0px #000000;
 --text-shadow2: 1px 1px 0px #000000;
 --transition: color 0.3s;
+
+--brightness: brightness(1);
 
 /* font  */
 --smallest-size: 12px;
@@ -50,6 +53,7 @@ color-scheme: dark;
 [data-color-scheme="light"] {
 color-scheme: light;
 --header: url('https://images2.imgbox.com/e9/ff/Mwlzl0w1_o.png');
+--cate-img: url('');
 
 --neutral1: #d8d8d8;
 --neutral2: #f7f7f7;
@@ -67,8 +71,10 @@ color-scheme: light;
 --border3: 1px solid #a5a5a5; /* navbar separator */
 
 --shadowBox: 0 0 20px var(--neutralDark);
---text-shadow: 2px 2px #eaeaea;
+--text-shadow: 2px 2px #e7e7e7;
 --text-shadow2: 1px 1px 0px #eaeaea;
+
+--brightness: brightness(1.5);
 }
 
 /* S'applique à TOUS les éléments du forum*/
@@ -135,7 +141,7 @@ font-size: 15px;
 tag,
 .newest-text,
 .unread_count
- {
+    {
     background: var(--accent1);
     border-radius: 3px;
     padding: 1px 5px;
@@ -158,11 +164,13 @@ tag,
 width: var(--forum);
 margin: var(--top) auto 20px auto;
 background: var(--neutral2);
+padding-bottom: 5px;
+border-radius: 10px;
 }
 
 @media only screen and (max-width: 1000px) {
     .main_forum, #top-header {
-      width: 90vw !important;
+        width: 90vw !important;
     }
 }
 
@@ -215,13 +223,14 @@ font-size: 24px;
 #top-header-icons {
 display: flex;
 align-items: center;
+margin-right: 10px;
 }
 .menu-icon {
     font-size: 23px;
-    margin-right: 10px;
     cursor: pointer;
     transition: var(--transition);
     text-shadow: var(--text-shadow);
+    margin-left: 10px;
 }
 .menu-icon:hover{
     color:var(--hoverColorBase);
@@ -261,6 +270,7 @@ width: calc(var(--forum)-var(--pad-wrap));
 height: 500px;
 display: block;
 border-radius: 10px;
+/* filter: brightness(1.2); */
 }
 
 /* Conteneur de toutes les sous-sections
@@ -336,7 +346,6 @@ display: none;
 
 .color-scheme-toggle {
 background-color: var(--neutralDark);
-padding: 0 10px;
 text-align: center;
 border-radius: 5px;
 color: var(--textColor1);
@@ -349,7 +358,7 @@ color: var(--hoverColorBase);
 /* LIENS DU FORUM --- */
 a {
 text-decoration: none;
-color: var(--textColor1);
+color: var(--textColor2);
 transition : var(--transition);
 }
 
@@ -373,16 +382,9 @@ input:is([type="text"], [type="password"], .inputbox),
 textarea {
 border: none;
 border-radius: 5px;
-background: var(--neutralDark);
 font-size: var(--normal-size);
-color: var(--contrastLight) !important;
+color: var(--textColor1) !important;
 padding: 8px 10px;
-}
-
-/* Au focus */
-:focus:is(input:is([type="text"], [type="password"], .inputbox), textarea) {
-outline: none;
-border: 1px solid var(--accentClr);
 }
 
 /* BOUTONS D'INTERACTION --- *
@@ -445,13 +447,13 @@ background-color: var(--neutral) !important;
 
 /* Barre d'outils de l'éditeur de texte*/
 div.sceditor-toolbar {
-background: var(--neutral) !important;
+background: var(--neutral2) !important;
 border-bottom: var(--border) !important;
 }
 
 /* Conteneur des groupes d'outils */
 div.sceditor-group {
-background: var(--neutralDark) !important;
+background: var(--neutral2) !important;
 border-bottom: var(--border) !important;
 }
 
@@ -642,7 +644,6 @@ scale: 1;
 opacity: 1;
 transition: scale ease-out .2s;
 text-shadow:none;
-border-radius: 100%;
 margin-left: 3px;
 }
 
@@ -1232,12 +1233,17 @@ padding: 20px;
 .pa-icon-wrap {
     display: flex;
     align-items: center;
-}
-.pa-icon {
     border: var(--inner-border);
     outline: var(--border2);
     border-radius: 100%;
     width: 50px;
+    position: relative;
+    overflow: hidden;
+}
+.pa-icon {
+    width: 100%;
+    height: 100%;
+    filter: var(--brightness);
 }
 #pa-contexte {
     display: flex;
@@ -1250,11 +1256,12 @@ padding: 20px;
     height: 200px;
     border-radius: 5px;
     cursor: pointer;
+    filter: var(--brightness);
     transition: filter 0.2s;
 }
 #pa-img.expanded {
     z-index: 10;
-  }
+    }
 #pa-img:hover {
 filter: brightness(0.5);
 }
@@ -1288,7 +1295,7 @@ padding: 4px 8px;
 .category {
 border-radius: 10px;
 padding: 10px;
-margin-bottom: 25px;
+margin-bottom: -10px;
 }
 
 .cate_title {
@@ -1298,6 +1305,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+background-image: var(--cate-img);
+margin: 0px 10px;
+border-radius: 10px;
+/* filter: var(--brightness); */
 }
 .cate_title h2 {
 display: block;
@@ -1336,23 +1347,43 @@ gap: 15px;
 }
 
 /*image statut du forum */
-.forum-img {
+.forum-img-wrap {
 width: 90px;
 height: 90px;
 border-radius: 100%;
 border: var(--inner-border);
 outline: var(--border2);
+position: relative;
+overflow: hidden; 
 }
-.forum_desc>img {
-width: 90px;
-height: 90px;
+.forum-img {
+width: 100%;
+height: 100%;
+filter: var(--brightness);
+}
+.forum_desc::before {
+content: "";
+position: absolute;
+width: 82px;
+height: 82px;
 border-radius: 100%;
 border: var(--inner-border);
 outline: var(--border2);
-position: absolute;
 margin-left: calc(0px - var(--cat-grid-width) + 35px);
 margin-top: 10px;
 background: var(--neutral1);
+z-index: 0;
+pointer-events: none;
+}
+.forum_desc>img {
+position: absolute;
+margin-left: calc(0px - var(--cat-grid-width) + 39px);
+margin-top: 14px;
+z-index: 1;
+width: 82px;
+height: 82px;
+border-radius: 100%;
+filter: var(--brightness);
 }
 .forumtitle-wrap {
 height: 40px;
@@ -1383,6 +1414,7 @@ object-position: center;
 border-radius: 100%;
 border: var(--border2);
 outline: 5px solid var(--neutral1);
+filter: grayscale(1);
 }
 
 /* dernier message*/
@@ -1416,7 +1448,7 @@ align-items: flex-start;
 flex-wrap: wrap;
 gap: 2px;
 overflow: hidden;
-height: 27px;
+height: 28px;
 transition: height 0.3s ease;
 }
 
@@ -1472,8 +1504,9 @@ border-radius: 10px;
 }
 .qeel-header {
 height: 120px;
-background-image: url("https://indieground.net/wp-content/uploads/2020/02/Freebie-DarkGrungeTextures-Preview-02.jpg");
+background-image: url("https://images2.imgbox.com/48/8a/OlJ7SqHN_o.png");
 border-radius: 5px;
+filter: var(--brightness);
 }
 
 /* Main Content Grid */

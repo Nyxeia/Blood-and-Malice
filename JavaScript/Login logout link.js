@@ -10,6 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       topHeaderLogoutLink.setAttribute('href', 'https://bloodandmalice.forumactif.com/login');
       
-      topHeaderLogoutLink.innerHTML = '<ion-icon name="log-in-outline"></ion-icon>';
+      topHeaderLogoutLink.innerHTML = '<ion-icon name="log-in"></ion-icon>';
     }
   });

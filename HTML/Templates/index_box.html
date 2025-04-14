@@ -33,19 +33,17 @@
 <!-- Titre catégorie -->
 <div class="cate_title">{catrow.tablehead.L_FORUM}</div>
 <div class="category" id="{catrow.tablehead.ID}">
+<!-- END tablehead -->
 
     <!-- Conteneur liste des forums -->
     <div class="forums">
-
-        <!-- END tablehead -->
-
-
+        
         <!-- BEGIN forumrow -->
         <!-- Affichage d'un forum -->
         <div class="forum row {catrow.forumrow.FOLDER_CLASSNAME}">
             <div class="forum-row-left">
                 <!-- Statut du forum : sans réponse, nouvelle réponse, vérouillé -->
-                <img class="forum-img" src="{catrow.forumrow.FORUM_FOLDER_IMG}" />
+                <div class="forum-img-wrap"><img class="forum-img" src="{catrow.forumrow.FORUM_FOLDER_IMG}" /></div>
             </div>
 
             <div class="forum-row-right">
@@ -88,10 +86,9 @@
                 </div>
             </div>
         </div>
-
+        <!-- END forumrow -->
     </div>
     <!-- Fin affichage d'un forum -->
-    <!-- END forumrow -->
 
     <!-- BEGIN tablefoot -->
 </div>
