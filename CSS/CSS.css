@@ -12,9 +12,6 @@ color-scheme: dark;
 --accent1: #49161f;
 --accent2: #7e2431;
 
---accentClr: #7583ff;
---accentClrDark: #333c92;
-
 --textColor1: #8b8b8b;
 --textColor2: #9b9b9b;
 --textColor3: #a5a5a5;
@@ -32,22 +29,20 @@ color-scheme: dark;
 --text-shadow2: 1px 1px 0px #000000;
 --transition: color 0.3s;
 
---brightness: brightness(1);
---brightness-header: brightness(1);
+--brightness: brightness(1.2);
+--brightness-header: brightness(1.2);
 --brightness-icons: brightness(1.2);
---color-cate-title: var(--textColor2);
+--color-cate-title: #858585;
 --shadow-cate-title: var(--text-shadow);
 
 /* font  */
 --smallest-size: 12px;
 --smaller-size: 13px;
 --normal-size: 14px;
---larger-size: 16px;
 
 --font: "Open Sans";
 --font2: "Pirata One";
---font3: "Unica One";
---font4: "Alegrya";
+--font3: "Roboto Condensed";
 
 /* dimensions */
 --forum: 1010px;
@@ -146,8 +141,8 @@ tag,
 {
 font-family: var(--font3);
 text-transform: uppercase;
-letter-spacing: 0.5px;
-font-size: 15px;
+letter-spacing: 0.3px;
+font-size: var(--smaller-size);
 }
 
 tag,
@@ -157,7 +152,6 @@ tag,
     background: var(--accent1);
     border-radius: 3px;
     padding: 1px 5px;
-    font-size: 14px;
     color: var(--textColor3);
 }
 
@@ -1335,7 +1329,6 @@ text-shadow: var(--shadow-cate-title);
 color: var(--accent2);
 margin-top: 42px;
 position: absolute;
-font-size: var(--larger-size);
 }
 
 /* conteneur d'un forum*/
@@ -1439,12 +1432,14 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-padding-top: 25px;
-font-size: var(--smallest-size);
+padding-top: 28px;
+font-size: 11px;
+line-height: 15px;
 }
 .forum_lastpost .lastpost_link,
 .forum_lastpost strong {
-font-size: 14px;
+font-size: var(--smaller-size);
+text-transform: uppercase;
 }
 
 .forum_stats_wrap {
@@ -1452,7 +1447,7 @@ text-align:center;
 margin-top: 1px;
 }
 .forum_stats {
-    font-size: var(--smaller-size);
+    font-size: var(--smallest-size);
 }
 
 /* liens des sous forums */
@@ -1498,6 +1493,7 @@ transition: var(--transition);
     height: 10px;
     border-radius: 50%;
     margin-right: 5px;
+    margin-top: -1px;
     vertical-align: middle;
     background-color: var(--accent1);
     transition: background-color 0.3s ease;
