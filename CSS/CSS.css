@@ -149,7 +149,8 @@ text-shadow: var(--text-shadow);
 .group-name,
 tag,
 .unread_count,
-.links_bar 
+.links_bar,
+.sidenav-links a 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -704,20 +705,27 @@ width: 400px;
     }
 }
 }
+
 .sidenav-wrap {
 padding:15px;
 }
 /* The navigation menu links */
+.sidenav-links {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 .sidenav a {
 text-decoration: none;
-font-size: 25px;
-color: #818181;
 display: block;
 transition: 0.3s;
 }
 .sidenav a:hover {
 color: #f1f1f1;
 }
+
 /* Notiffi CSS */
 #fa_toolbar {
 display: none
@@ -1323,7 +1331,8 @@ padding: 20px;
     flex-direction: column;
     gap: 10px;
 }
-.pa-link {
+.pa-link,
+.sidenav-links a{
     background: var(--neutral2);
     border-radius: 5px;
     padding: 3px 10px;
@@ -1708,13 +1717,15 @@ margin-bottom: 4px;
 }
 
 #subforum a:hover,
-.pa-link a:hover {
+.pa-link a:hover,
+.sidenav-links a:hover  {
 color: var(--hoverColor1);
 transition: var(--transition);
 }
 
 .pa-link a:before,
-#subforum a:before {
+#subforum a:before,
+.sidenav-links a:before  {
     content: "";
     display: inline-block;
     width: 10px;
@@ -1728,7 +1739,8 @@ transition: var(--transition);
 }
 
 .pa-link a:hover:before,
-#subforum a:hover:before {
+#subforum a:hover:before,
+.sidenav-links a:hover:before  {
     background-color: var(--hoverColor2); 
     transition: background-color 0.3s ease;
 }
