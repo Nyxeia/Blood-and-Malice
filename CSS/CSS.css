@@ -1,10 +1,15 @@
 :root {
 color-scheme: dark;
---header: url('https://images2.imgbox.com/f9/7d/pR2Q2bC7_o.gif');
 --background: linear-gradient(180deg, #46464642 10%, #1414147d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--header: url('https://images2.imgbox.com/f9/7d/pR2Q2bC7_o.gif');
 --pa-img: url('https://images2.imgbox.com/60/31/7ZGLKIbI_o.png');
 --cate-img: url('https://images2.imgbox.com/a5/35/6m6V834G_o.png');
 --qeel-header: url("https://images2.imgbox.com/48/8a/OlJ7SqHN_o.png");
+
+--staff1: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* livia */
+--staff3: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* kazir */
+--staff4: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* peluche */
 
 --neutral1: #0e0e0e;
 --neutral2: #191919;
@@ -17,8 +22,8 @@ color-scheme: dark;
 --textColor2: #9b9b9b;
 --textColor3: #a5a5a5;
 
---hoverColorBase: var(--accent1);
---hoverColor1: var(--textColor3); /* style sous-titre au survol */
+--hoverColorBase: var(--accent2);
+--hoverColor1: var(--textColor3); /* sous-cat au survol */
 --hoverColor2: var(--accent2); /* cercles au survol */
 
 --border: 1px solid var(--neutral3);
@@ -38,6 +43,7 @@ color-scheme: dark;
 --brightness-icons: brightness(1.2);
 --color-cate-title: #858585;
 --shadow-cate-title: var(--text-shadow);
+--shadow-cate-title2: var(--text-shadow2);
 
 /* font  */
 --smallest-size: 12px;
@@ -86,6 +92,7 @@ color-scheme: light;
 --brightness-icons: brightness(2.5);
 --color-cate-title: #323232;
 --shadow-cate-title: 2px 2px #afafaf;
+--shadow-cate-title2: 1px 1px #afafaf;
 }
 
 /* S'applique à TOUS les éléments du forum*/
@@ -119,7 +126,9 @@ strong {
 .forumtitle,
 #newest_user,
 .box-count,
-.adminlink{
+.adminlink, 
+.staff-char,
+.sidenav-title h2 {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -189,7 +198,7 @@ padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 1000px) {
-    .main_forum, #top-header, #page-footer {
+    .main_forum, #top-header {
         width: 90vw !important;
     }
 }
@@ -252,7 +261,8 @@ margin-right: 10px;
     text-shadow: var(--text-shadow);
     margin-left: 10px;
 }
-.menu-icon:hover{
+.menu-icon:hover,
+.menu-icon.active{
     color:var(--hoverColorBase);
 }
 .icon.light {
@@ -524,7 +534,6 @@ background: transparent !important;
 }
 
 /*** PAGINATIONS -------------------- ***/
-
 .pagination {}
 
 /*lien unique vers les pages numérotées*/
@@ -549,7 +558,6 @@ padding: 1px 4px;
 display: none;
 }
 
-/*** ------------------------------- ***/
 /*** ELEMENTS ESTHETIQUES ---------- ***/
 
 /* Contenur général qui sert généralement de fond et/ou de contour*/
@@ -629,7 +637,6 @@ margin-top:0;
 /* Lien spécial mis en avant */
 .specials_links a,
 a.specials_links {
-background: var(--neutralDark);
 padding: 2px 6px;
 border-radius: 5px;
 }
@@ -660,6 +667,57 @@ width: var(--forum);
 padding: 20px 0 10px 0;
 }
 
+/* SIDE NAVIGATION */
+.sidenav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 99;
+top: 0;
+right: 0;
+background-color: var(--neutral1);
+overflow-x: hidden;
+transition: all ease .5s;
+opacity: 0;
+visibility: hidden;
+}
+.sidenav.open {
+right: 0;
+visibility: visible;
+opacity: 1;
+width: 400px;
+
+.sidenav-title {
+    background-image: var(--cate-img);
+    filter: var(--brightness);
+    background-position: bottom 75px right -28px;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+
+    h2 {
+        color: var(--color-cate-title);
+        text-shadow: var(--shadow-cate-title2);
+        font-size: 22px;
+        margin-left: 15px;
+    }
+}
+}
+.sidenav-wrap {
+padding:15px;
+}
+/* The navigation menu links */
+.sidenav a {
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+.sidenav a:hover {
+color: #f1f1f1;
+}
 /* Notiffi CSS */
 #fa_toolbar {
 display: none
@@ -675,7 +733,8 @@ color: var(--textColor1);
 transition: var(--transition);
 display:flex;
 }
-#notiffi_button:hover {
+#notiffi_button:hover,
+#notiffi_button.active {
 color: var(--hoverColorBase);
 }
 #notiffi_button>span {
@@ -700,13 +759,9 @@ scale: 0;
 opacity: 0;
 transition: all ease-out .2s;
 }
-
-
-
 /* Menu des notifications FERMÉ */
 #notiffi_panel {
 --menuSize: 500px;
-/* taille du Menu */
 width: var(--menuSize);
 position: fixed;
 z-index: 98;
@@ -721,9 +776,8 @@ background: var(--neutral1);
 padding: 15px;
 opacity: 0;
 visibility: hidden;
-transition: all ease .7s;
+transition: all ease .5s;
 }
-
 /* Menu des notifications OUVERT */
 #notiffi_panel.open {
 right: 0;
@@ -731,19 +785,20 @@ visibility: visible;
 opacity: 1;
 }
 
-.notiffi_deco {
-height: 65px;
+.notiffi_deco,
+.sidenav-deco {
+height: 64px;
 width: 100%;
 background-image: var(--qeel-header);
 border-radius: 5px;
 filter: var(--brightness);
 }
 /* Conteneur des notifications */
-.all_notifications {
+.all_notifications,
+.sidenav-content {
 width: 100%;
 overflow: auto;
 max-height: 100%;
-background: var(--neutralDark);
 padding: 10px;
 border-radius: 10px;
 -ms-overflow-style: none;
@@ -812,7 +867,6 @@ animation: notiffiFadeIn 0.3s ease-in-out;
 from {
     opacity: 0;
 }
-
 to {
     opacity: 1;
 }
@@ -1204,10 +1258,12 @@ height: 18px;
 .navbar a[href^="/calendar"],
 .navbar a[href^="/groups"],
 .navbar a[href^="/images"],
-.navbar li:first-child,
 li:has(#logout)
 {
 display: none;
+}
+.navbar li:first-child {
+margin-right: -10px;
 }
 
 /* liens de navigation */
@@ -1349,6 +1405,111 @@ filter: brightness(0.5);
     height: 92px;
 }
 
+/*PA staff*/
+.staff-container{
+margin: 0 auto;
+width: 100%;
+
+}
+.gallery-wrap {
+display: flex;
+flex-direction: row;
+width: 100%;
+height: 120px;
+gap: 5px;
+}
+
+.item {
+flex: 1;
+height: 100%;
+background-position: center;
+background-size: cover;
+background-repeat: none;
+filter: var(--brightness);
+transition: flex 0.8s ease;
+position: relative;
+overflow: hidden;
+
+&:hover{
+    flex: 5;
+}
+}
+
+.item-1 { 
+background-image: var(--staff1);
+border-radius: 5px 0 0 5px;
+}
+.item-2 { 
+background-image: var(--staff2);
+}
+.item-3 { 
+background-image: var(--staff3);
+}
+.item-4 { 
+background-image: var(--staff4);
+border-radius: 0 5px 5px 0;
+}
+
+.staff-info {
+opacity: 0;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: rgba(0, 0, 0, 0.7);
+transition: opacity 0.6s ease;
+text-align: center;
+padding: 10px;
+box-sizing: border-box;
+pointer-events: none;
+}
+
+.staff-char,
+.staff-role,
+.staff-more {
+display: block;
+transform: scale(0);
+transition: transform 0.6s ease;
+text-shadow:none;
+color: #a5a5a5;
+text-shadow: 1px 1px 0px #000000;
+}
+
+.staff-char{
+color: var(--accent1);
+margin-bottom: 3px;
+transition: var(--transition);
+&:hover {
+    color: var(--accent2);
+}
+}
+
+.staff-role {
+margin-bottom: 3px;
+}
+
+.staff-more {
+font-style: italic;
+}
+
+.item:hover .staff-info {
+opacity: 1;
+z-index: 10;
+pointer-events: auto;
+}
+
+.item:hover .staff-char,
+.item:hover .staff-role,
+.item:hover .staff-more {
+transform: scale(1);
+transition-delay: 0.1s;
+}
+  
 /*** ANNONCES DEFILANTES ----------- ***/
 
 /* Barre défilante */
