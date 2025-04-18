@@ -707,7 +707,7 @@ width: 400px;
 }
 
 .sidenav-wrap {
-padding:15px;
+padding: 15px 25px;
 }
 /* The navigation menu links */
 .sidenav-links {
@@ -781,7 +781,7 @@ flex-direction: column;
 gap: 10px;
 align-items: start;
 background: var(--neutral1);
-padding: 15px;
+padding: 15px 25px;
 opacity: 0;
 visibility: hidden;
 transition: all ease .5s;
@@ -807,7 +807,7 @@ filter: var(--brightness);
 width: 100%;
 overflow: auto;
 max-height: 100%;
-padding: 10px;
+padding-top: 10px;
 border-radius: 10px;
 -ms-overflow-style: none;
 scrollbar-width: none;
