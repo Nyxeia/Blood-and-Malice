@@ -119,7 +119,8 @@ strong {
 .forumtitle,
 #newest_user,
 .box-count,
-.adminlink{
+.adminlink, 
+.staff-char {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -1360,6 +1361,7 @@ display: flex;
 flex-direction: row;
 width: 100%;
 height: 120px;
+gap: 5px;
 }
 
 .item {
@@ -1368,31 +1370,87 @@ height: 100%;
 background-position: center;
 background-size: cover;
 background-repeat: none;
+filter: var(--brightness);
 transition: flex 0.8s ease;
+position: relative;
+overflow: hidden;
 
 &:hover{
-    flex: 7;
+    flex: 5;
 }
 }
 
 .item-1 { 
-background-image: url('https://images.unsplash.com/photo-1499198116522-4a6235013d63?auto=format&fit=crop&w=1233&q=80');
+background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
 border-radius: 5px 0 0 5px;
 }
-
 .item-2 { 
-background-image: url('https://images.unsplash.com/photo-1492760864391-753aaae87234?auto=format&fit=crop&w=1336&q=80');
+background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
 }
-
 .item-3 { 
-background-image: url('https://images.unsplash.com/photo-1503631285924-e1544dce8b28?auto=format&fit=crop&w=1234&q=80');
+background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
 }
-
 .item-4 { 
-background-image: url('https://images.unsplash.com/photo-1510425463958-dcced28da480?auto=format&fit=crop&w=1352&q=80');
+background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
 border-radius: 0 5px 5px 0;
 }
 
+.staff-info {
+opacity: 0;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: rgba(0, 0, 0, 0.7);
+transition: opacity 0.6s ease;
+text-align: center;
+padding: 10px;
+box-sizing: border-box;
+pointer-events: none;
+}
+
+.staff-char,
+.staff-role,
+.staff-more {
+display: block;
+transform: scale(0);
+transition: transform 0.6s ease;
+text-shadow:none;
+color: #a5a5a5;
+text-shadow: 1px 1px 0px #000000;
+}
+
+.staff-char{
+color: var(--accent1);
+margin-bottom: 5px;
+}
+
+.staff-role {
+margin-bottom: 3px;
+}
+
+.staff-more {
+font-style: italic;
+}
+
+.item:hover .staff-info {
+opacity: 1;
+z-index: 10;
+pointer-events: auto;
+}
+
+.item:hover .staff-char,
+.item:hover .staff-role,
+.item:hover .staff-more {
+transform: scale(1);
+transition-delay: 0.1s;
+}
+  
 /*** ANNONCES DEFILANTES ----------- ***/
 
 /* Barre défilante */
