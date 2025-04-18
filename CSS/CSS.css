@@ -6,6 +6,11 @@ color-scheme: dark;
 --cate-img: url('https://images2.imgbox.com/a5/35/6m6V834G_o.png');
 --qeel-header: url("https://images2.imgbox.com/48/8a/OlJ7SqHN_o.png");
 
+--staff1: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* livia */
+--staff3: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* kazir */
+--staff4: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* peluche */
+
 --neutral1: #0e0e0e;
 --neutral2: #191919;
 --neutral3: #282828;
@@ -1381,17 +1386,17 @@ overflow: hidden;
 }
 
 .item-1 { 
-background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
+background-image: var(--staff1);
 border-radius: 5px 0 0 5px;
 }
 .item-2 { 
-background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
+background-image: var(--staff2);
 }
 .item-3 { 
-background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
+background-image: var(--staff3);
 }
 .item-4 { 
-background-image: url('https://images2.imgbox.com/1d/74/44l1XEHx_o.gif');
+background-image: var(--staff4);
 border-radius: 0 5px 5px 0;
 }
 
@@ -1427,7 +1432,7 @@ text-shadow: 1px 1px 0px #000000;
 
 .staff-char{
 color: var(--accent1);
-margin-bottom: 5px;
+margin-bottom: 3px;
 }
 
 .staff-role {
