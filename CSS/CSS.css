@@ -206,7 +206,7 @@ padding-bottom: 10px;
 
 /* BANNIERE ---*/
 #top-header {
-    z-index: 1000;
+    z-index: 990;
     background: var(--neutral1);
     display: flex;
     justify-content: space-between;
@@ -329,14 +329,13 @@ z-index: 999;
 .sidebar_top {
 display: flex;
 flex-direction: column;
-gap: 10px
+gap: 10px;
 }
 
 /* Conteneur de l'ascenseur
 * Sert essentiellement à définir où le placer dans la page */
 .sidebar_bottom {
 width: 25px;
-z-index: 999;
 display: flex;
 flex-direction: column;
 gap: 5px;

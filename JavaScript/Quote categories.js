@@ -18,28 +18,28 @@ document.addEventListener('DOMContentLoaded', function() {
           
           switch(categoryId) {
             case 'c1':
-              descriptionDiv.textContent = '— quote partie 1 —';
+              descriptionDiv.textContent = '— the way of shadows —';
               break;
             case 'c2':
-              descriptionDiv.textContent = '— quote partie 2 —';
+              descriptionDiv.textContent = '— children of blood and bones —';
               break;
             case 'c3':
-              descriptionDiv.textContent = '— quote partie 3 —';
+              descriptionDiv.textContent = '— of ash and moonlight —';
               break;
             case 'c4':
-              descriptionDiv.textContent = '— quote partie 4 —';
+              descriptionDiv.textContent = '— through the looking glass —';
               break;
             case 'c5':
-              descriptionDiv.textContent = '— quote partie 5 —';
+              descriptionDiv.textContent = '— the darkness between us —';
               break;
             case 'c6':
-              descriptionDiv.textContent = '— quote partie 6 —';
+              descriptionDiv.textContent = '— welcome to the playground —';
               break;
             case 'c7':
-              descriptionDiv.textContent = '— quote partie 7 —';
+              descriptionDiv.textContent = '— embrace the madness —';
               break;
             case 'c8':
-              descriptionDiv.textContent = '— quote corbeille —';
+              descriptionDiv.textContent = '— to be born again —';
               break;
             default:
               break;
