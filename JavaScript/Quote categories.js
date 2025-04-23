@@ -15,18 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
           const categoryId = categoryDiv.id;
           const descriptionDiv = document.createElement('div');
           descriptionDiv.className = 'cate_quote';
-          
+          let hasDescription = true;
+
           switch(categoryId) {
             case 'c1':
               descriptionDiv.textContent = '— the way of shadows —';
               break;
-            case 'c2':
+            case 'c2': 
               descriptionDiv.textContent = '— children of blood and bones —';
               break;
-            case 'c3':
+            case 'c3': 
               descriptionDiv.textContent = '— of ash and moonlight —';
               break;
-            case 'c4':
+            case 'c4': 
               descriptionDiv.textContent = '— through the looking glass —';
               break;
             case 'c5':
@@ -42,11 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
               descriptionDiv.textContent = '— to be born again —';
               break;
             default:
+              hasDescription = false;
+              h2.style.marginTop = '25px';
               break;
           }
           
           // Insérer la nouvelle div après le h2
-          h2.insertAdjacentElement('afterend', descriptionDiv);
+          if (hasDescription) {
+            h2.insertAdjacentElement('afterend', descriptionDiv);
+          }
         }
       }
     });

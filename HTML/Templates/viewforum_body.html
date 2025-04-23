@@ -1,44 +1,40 @@
 <!-- Affichage des sous forums (template : index_box) -->
 {BOARD_INDEX}
-<br />
-
-
 
 <!----------------------------------------------->
 <!-- LIEN DE NAVIGATION -------------->
 
-<div class="navigation_links">
+<div class="nav_links_topics">
 
     <!-- Chaîne de lien : Catégorie > Forum > Sous-fo -->
     <span class="navigation_chain">
         {NAV_CAT_DESC}
     </span>
-
-    <!-- Pagination -->
-    <span class="right pagination page-topic">
-        {PAGINATION}
-    </span>
+</div>
+<div class="forum-page-desc">
+<!-- Description du forum -->
+<!-- BEGIN switch_forum_desc -->
+<div class="forum-page_desc box2">
+    {SINGLE_FORUM_DESC}
+</div>
+<!-- END switch_forum_desc -->
 
 </div>
-
 
 <!----------------------------------------------->
 <!-- BARRE DE GESTION -------------->
 
-<div class="links_bar">
+<div class="postbutton">
 
     <!-- Boutons : nouveau, répondre, verrouillé -->
     <!-- BEGIN switch_user_authpost -->
     <a class="buttons" href="{U_POST_NEW_TOPIC}" accesskey="n" rel="nofollow">Nouveau sujet</a>
     <!-- END switch_user_authpost -->
 
-    <!-- Lien Surveiller ce forum -->
-    <!-- BEGIN switch_user_logged_in -->
-    <span class="right">
-        {S_WATCH_FORUM}
-    </span>
-    <!-- END switch_user_logged_in -->
-
+    <!-- Pagination -->
+<span class="right pagination page-topic">
+    {PAGINATION}
+</span>
 </div>
 
 
@@ -47,17 +43,6 @@
 <!--(template: topics_list_box) -->
 
 <div class="container">
-
-    <!-- Titre liste des sujets -->
-    <h1 class="page-title">{FORUM_NAME}</h1>
-
-    <!-- Description du forum -->
-    <!-- BEGIN switch_forum_desc -->
-    <div class="forum-page_desc">
-        {SINGLE_FORUM_DESC}
-    </div>
-    <!-- END switch_forum_desc -->
-
     <!-- Liste des sujets -->
     {TOPICS_LIST_BOX}
 </div>
