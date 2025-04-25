@@ -42,36 +42,40 @@
         <!-- Icon vous avez posté dans ce sujet -->
         {topics_list_box.row.PARTICIPATE_POST_IMG}
       
-        <br />
-      
-        <span class="topic-author">
-            {topics_list_box.row.L_BY}&nbsp;
-            <!-- Indication "par" -->
-            {topics_list_box.row.TOPIC_AUTHOR}
-            <!-- Auteur -->
-        </span>&nbsp;
-      
-      <!-- Pagination du sujet -->
-        <span class="topicslist-pagination">
-            {topics_list_box.row.GOTO_PAGE_NEW}
-            <!-- BEGIN nav_tree -->
-            {topics_list_box.row.TOPIC_NAV_TREE_NEW}
-            <!-- END nav_tree -->
-        </span>
+        <!-- Description du sujet -->
+        <!-- BEGIN switch_description -->
+        <div class="topicslist-description">
+            {topics_list_box.row.topic.switch_description.TOPIC_DESCRIPTION}
+        </div>
+        <!-- END switch_description -->  
 
+          <!-- Pagination du sujet -->
+        <div class="topicslist-pagination">
+        {topics_list_box.row.GOTO_PAGE_NEW}
+        <!-- BEGIN nav_tree -->
+        {topics_list_box.row.TOPIC_NAV_TREE_NEW}
+        <!-- END nav_tree -->
+        </div>
     </div>
 
-
+    <div class="topics-author-col">
+    <div class="topic-author">
+        {topics_list_box.row.TOPIC_AUTHOR}
+        <!-- Auteur -->
+    </div>
+    
     <!-- Statistiques -->
     <div class="topicslist-stats">
         {topics_list_box.row.REPLIES} {L_REPLIES}
         <!-- Nombres // Indication "messages" -->
-        <br />
+        &nbsp;✧&nbsp;
         {topics_list_box.row.VIEWS} {L_VIEWS}
         <!-- Nombres // Indication "vues" -->
-    </div>
+    </div>    
 
+</div>
 
+    <div class="topicslist-lastpost ">
     <!-- Avatar du dernier posteur-->
     <div class="topicslist-avatar-lastpost lastpostavatar">
         <!-- BEGIN avatar -->
@@ -79,9 +83,8 @@
         <!-- END avatar -->
     </div>
 
-
     <!-- Dernier message -->
-    <div class="topicslist-lastpost lastpost">
+    <div class="lastpost">
       <span>
         <!-- Date du dernier message -->
         {topics_list_box.row.LAST_POST_TIME} &nbsp;
@@ -92,14 +95,7 @@
         {topics_list_box.row.LAST_POST_IMG}
       </span>
     </div>
-
-
-    <!-- Description du sujet -->
-    <!-- BEGIN switch_description -->
-    <div class="topicslist-description">
-        {topics_list_box.row.topic.switch_description.TOPIC_DESCRIPTION}
     </div>
-    <!-- END switch_description -->
 
 
 </div>

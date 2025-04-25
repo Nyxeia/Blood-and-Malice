@@ -2023,7 +2023,7 @@ height: 50px;
 }
 
 .topicslist_infos {
-flex-grow: 100;
+width: 500px;
 }
 
 /*titre du sujet*/
@@ -2062,7 +2062,8 @@ background: var(--neutralDark);
 }
 
 .topicslist-lastpost {
-width: 180px;
+display:flex;
+align-items: center;
 }
 
 .topicslist-description {
