@@ -153,7 +153,9 @@ text-shadow: var(--text-shadow);
 tag,
 .unread_count,
 .links_bar,
-.sidenav-links a 
+.sidenav-links a,
+.pagination,
+.navigation_links 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -415,6 +417,11 @@ width: 19px !important;
 /*** --------------------------------------- ***/
 /*** BOUTONS D'INTERACTION ET BARRE DE TEXTE ***/
 
+.forumline {
+background: var(--neutral1);
+border-radius: 5px;
+}
+
 /* CHAMPS DE TEXTE ---*/
 input:is([type="text"], [type="password"], .inputbox),
 textarea {
@@ -432,15 +439,15 @@ input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]),
 font-size: var(--normal-size);
 padding: 10px 15px !important;
 border-radius: 5px;
-background: var(--neutralDarker);
-color: var(--contrastLight);
+background: var(--neutral2);
+color: var(--textColor1);
 font-weight: 600;
 border: none;
 }
 
 /* Au survol */
 :hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
-color: var(--accentClr);
+background: var(--accent1);
 }
 
 /* Boutons désactivés */
@@ -550,9 +557,8 @@ font-weight: 600;
 
 /*lien actif : page sur laquelle vous vous trouvez */
 .pagination span strong {
-background-color: var(--neutralDark);
-border-radius: 3px;
-padding: 1px 4px;
+color: var(--accent2);
+font-weight: 600;
 }
 
 /*suppression de l'image-lien "aller à la page suivante" */
@@ -623,7 +629,8 @@ clear: both;
 /* Barre de gestion 
 * Contient des boutons ou des liens spéciaux */
 .links_bar,
-.postbutton {
+.postbutton,
+.navigation_links {
 clear: both;
 background: var(--neutral1);
 border-radius: 8px;
@@ -635,6 +642,13 @@ display: none;
 }
 .links_bar.indexbot {
 margin-top:0;
+}
+
+.postbutton, 
+.navigation_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Lien spécial mis en avant */
@@ -1961,10 +1975,7 @@ font-size: 0px;
 }
 
 #moderation_forum_tools a {
-background: var(--neutralDark);
-border-radius: 5px;
-padding: 2px 8px;
-font-size: var(--normal-size);
+font-size: var(--smaller-size);
 }
 
 
