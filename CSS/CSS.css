@@ -1979,6 +1979,7 @@ margin: 10px;
 .forum-page_desc {
 max-height: 91px;
 overflow: auto;
+font-size: var(--normal-size)!important;
 }
 
 /* Conteneur sujet dans la liste */
