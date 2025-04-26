@@ -401,6 +401,7 @@ a {
 text-decoration: none;
 color: var(--textColor2);
 transition : var(--transition);
+font-weight: 500;
 }
 
 /*liens au survol*/
@@ -679,7 +680,7 @@ width: var(--forum);
 border-radius: 0px;
 background: var(--neutral1);
 
-strong {
+strong, a {
 font-weight:400;
 }
 }
@@ -1697,10 +1698,6 @@ text-transform: lowercase;
 font-size: var(--smaller-size);
 text-transform: uppercase;
 }
-.forum_lastpost strong
-{
-font-weight: 500;
-}
 
 .forum_stats_wrap {
 text-align:center;
@@ -1869,12 +1866,6 @@ line-height: 25px;
     margin-bottom: 10px;
     height:135px;
 }
-#last_connected a,
-#last_connected strong,
-#online_users a,
-#online_users strong {
-    font-weight: 500;
-}
 
 .credits {
     font-size: 0.9rem;
@@ -2006,7 +1997,7 @@ padding: 10px;
 margin-bottom: 5px;
 display: grid;
 grid-template-columns: 60px auto 150px 200px;
-gap: 20px;
+gap: 10px;
 align-items: center;
 }
 
@@ -2029,27 +2020,30 @@ height: 50px;
 filter: var(--brightness);
 }
 }
-
 /* icône de type de message ( exemple : -18 ans, sujet résolu, ... ) */
 .topic_msgicon {
 margin-right: 5px;
 }
-
 .topic_msgicon:empty {
 display: none;
 }
 
-.topictitle, .topic-author strong,
-.topic-author a {
-font-weight: 500;
+.topic-type strong {
+background: var(--accent1);
+border-radius: 3px;
+padding: 1px 5px;
+color: var(--textColor3);
+font-weight: 400;
 }
+
 .topiclist-infos img {
 margin-right: 3px;
 }
-
 .topics-author-col { 
     width: 140px;
     text-align: right;
+    padding-right: 20px;
+    border-right: var(--border3);
 }
 .topicslist-stats {
 font-size: var(--smallest-size);
@@ -2071,10 +2065,8 @@ gap: 10px;
 .lastpost {
     text-transform: lowercase;
 }
-
 strong {
     text-transform: uppercase;
-    font-weight: 500;
 }
 }
 
@@ -2082,7 +2074,7 @@ strong {
 width: 100%;
 text-transform: none;
 font-size: var(--smallest-size);
-color: #757575;
+color: #5d5d5d;
 }
 
 /* Bouton "trier les sujets" */
