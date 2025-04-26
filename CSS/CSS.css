@@ -117,7 +117,7 @@ img {
     object-fit: cover;
 }
 strong {
-    font-weight: 400;
+    font-weight: 500;
 }
 /* title style */
 #top-header,
@@ -678,6 +678,10 @@ margin: 0px;
 width: var(--forum);
 border-radius: 0px;
 background: var(--neutral1);
+
+strong {
+font-weight:400;
+}
 }
 .adminlink {
 background: var(--neutral1);
@@ -1999,17 +2003,11 @@ font-size: var(--normal-size)!important;
 background: var(--neutral1);
 border-radius: 5px;
 padding: 10px;
-margin-bottom: 7px;
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
+margin-bottom: 5px;
+display: grid;
+grid-template-columns: 60px auto 150px 200px;
+gap: 20px;
 align-items: center;
-justify-content: space-between;
-
->div {
-    display: flex;
-    align-items: center;
-}
 }
 
 .topicslist_row:last-child {
@@ -2018,6 +2016,8 @@ margin-bottom: 0;
 
 /* Image du sujet */
 .topicslist-img {
+grid-column: 1;
+justify-self: center;
 width: 50px;
 height: 50px;
 background: var(--neutral2);
@@ -2026,11 +2026,8 @@ img {
 border-radius: 100%;
 width: 50px;
 height: 50px;
+filter: var(--brightness);
 }
-}
-
-.topicslist_infos {
-    width: 450px;
 }
 
 /* icône de type de message ( exemple : -18 ans, sujet résolu, ... ) */
@@ -2042,28 +2039,34 @@ margin-right: 5px;
 display: none;
 }
 
+.topictitle, .topic-author strong,
+.topic-author a {
+font-weight: 500;
+}
 .topiclist-infos img {
 margin-right: 3px;
 }
 
 .topics-author-col { 
     width: 140px;
+    text-align: right;
 }
 .topicslist-stats {
 font-size: var(--smallest-size);
 }
 
 .topicslist-avatar-lastpost img {
-object-fit: cover;
-object-position: center;
 width: 50px;
 height: 50px;
-background: var(--neutralDark);
+background: var(--neutral1);
+border-radius: 100%;
+filter: grayscale(1);
 }
 
 .topicslist-lastpost {
 display:flex;
 align-items: center;
+gap: 10px;
 
 .lastpost {
     text-transform: lowercase;
@@ -2076,10 +2079,10 @@ strong {
 }
 
 .topicslist-description {
-padding-top: 5px;
 width: 100%;
 text-transform: none;
 font-size: var(--smallest-size);
+color: #757575;
 }
 
 /* Bouton "trier les sujets" */

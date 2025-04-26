@@ -15,8 +15,6 @@
 <!-- Conteneur d'un sujet -->
 <div class="topicslist_row row {topics_list_box.row.FOLDER_CLASSNAME} {topics_list_box.row.TOPIC_READ_STATUS}">
 
-    <div>
-
     <!-- Image d'un sujet -->
     <div class="topicslist-img">
         <img src="{topics_list_box.row.TOPIC_FOLDER_IMG}" />
@@ -50,16 +48,8 @@
         </div>
         <!-- END switch_description -->  
 
-          <!-- Pagination du sujet -->
-        <div class="topicslist-pagination">
-        {topics_list_box.row.GOTO_PAGE_NEW}
-        <!-- BEGIN nav_tree -->
-        {topics_list_box.row.TOPIC_NAV_TREE_NEW}
-        <!-- END nav_tree -->
-        </div>
     </div>
-    </div>
-    <div>
+
     <div class="topics-author-col">
     <div class="topic-author">
         {topics_list_box.row.TOPIC_AUTHOR}
@@ -74,7 +64,7 @@
         {topics_list_box.row.VIEWS} {L_VIEWS}
         <!-- Nombres // Indication "vues" -->
     </div>    
-    
+
 </div>
 
     <div class="topicslist-lastpost ">
@@ -96,9 +86,16 @@
         <!-- Image-lien pour aller au dernier message -->
         {topics_list_box.row.LAST_POST_IMG}
       </span>
+        <!-- Pagination du sujet -->
+        <div class="topicslist-pagination">
+        {topics_list_box.row.GOTO_PAGE_NEW}
+        <!-- BEGIN nav_tree -->
+        {topics_list_box.row.TOPIC_NAV_TREE_NEW}
+        <!-- END nav_tree -->
+        </div>
     </div>
     </div>
-</div>
+
 
 </div>
 <!-- END topic -->
