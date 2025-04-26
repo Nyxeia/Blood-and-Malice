@@ -155,7 +155,8 @@ tag,
 .links_bar,
 .sidenav-links a,
 .pagination,
-.navigation_links 
+.navigation_links,
+.topicslist_row 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2003,6 +2004,12 @@ display: flex;
 flex-wrap: wrap;
 gap: 10px;
 align-items: center;
+justify-content: space-between;
+
+>div {
+    display: flex;
+    align-items: center;
+}
 }
 
 .topicslist_row:last-child {
@@ -2023,17 +2030,7 @@ height: 50px;
 }
 
 .topicslist_infos {
-width: 500px;
-}
-
-/*titre du sujet*/
-.topictitle {
-overflow: hidden;
-text-overflow: ellipsis;
-display: inline-block;
-max-width: 430px;
-white-space: nowrap;
-vertical-align: bottom;
+    width: 450px;
 }
 
 /* icône de type de message ( exemple : -18 ans, sujet résolu, ... ) */
@@ -2049,8 +2046,11 @@ display: none;
 margin-right: 3px;
 }
 
+.topics-author-col { 
+    width: 140px;
+}
 .topicslist-stats {
-text-align: right;
+font-size: var(--smallest-size);
 }
 
 .topicslist-avatar-lastpost img {
@@ -2064,20 +2064,22 @@ background: var(--neutralDark);
 .topicslist-lastpost {
 display:flex;
 align-items: center;
+
+.lastpost {
+    text-transform: lowercase;
+}
+
+strong {
+    text-transform: uppercase;
+    font-weight: 500;
+}
 }
 
 .topicslist-description {
-border-top: 1px solid var(--neutralDark);
 padding-top: 5px;
 width: 100%;
-}
-
-/* ligne qui séparent les annonces et les notes des autres sujets (à activer dans "message > configuration") */
-.topic_separator {
-height: 5px;
-background: var(--neutral);
-margin-bottom: 10px;
-border-radius: 5px;
+text-transform: none;
+font-size: var(--smallest-size);
 }
 
 /* Bouton "trier les sujets" */
