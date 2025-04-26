@@ -25,9 +25,12 @@ document.addEventListener("click", function(event) {
   }
 });
 
+if (isNavOpen)
+{
 document.getElementById("sidenav").addEventListener("click", function(event) {
   event.stopPropagation();
 });
+}
 
 
   const notificationIcon = document.querySelector('#notiffi_button ion-icon[name="notifications"]');
