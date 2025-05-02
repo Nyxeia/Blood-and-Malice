@@ -11,10 +11,10 @@ color-scheme: dark;
 --staff3: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* kazir */
 --staff4: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* peluche */
 
---vampires: #833745;
---sorciers: #7a4459;
---spectres: #804641;
---humains: #804641;
+--vampires: #8d3848;
+--sorciers: #774c7e;
+--spectres: #4a6a7a;
+--humains: #8b684f;
 
 --neutral1: #0e0e0e;
 --neutral2: #191919;
@@ -1901,10 +1901,10 @@ line-height: 25px;
     font-weight: 500;
 }
 
-.group-1 .group-name { color: var(--vampires) }
-.group-2 .group-name { color: var(--sorciers) }
-.group-3 .group-name { color: var(--spectres) }
-.group-4 .group-name { color: var(--humains) }
+.group-1 .group-name a { color: var(--vampires) }
+.group-2 .group-name a { color: var(--sorciers) }
+.group-3 .group-name a { color: var(--spectres) }
+.group-4 .group-name a { color: var(--humains) }
 
 /*Connectés en ce moment*/
 #online_users {
