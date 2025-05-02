@@ -1880,7 +1880,7 @@ line-height: 25px;
 
 .qeel-groups {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15px;
     height: 30px;
 }
@@ -1888,6 +1888,7 @@ line-height: 25px;
     text-align: center;
     display: flex;
     gap: 5px;
+    width: 100%;
 }
 .box-count {
     text-shadow: var(--text-shadow2);
@@ -1898,7 +1899,9 @@ line-height: 25px;
 .group-name {
     display: flex;
     align-items: center;
+    justify-content: center;
     font-weight: 500;
+    width: 100%;
 }
 
 .group-1 .group-name a { color: var(--vampires) }
