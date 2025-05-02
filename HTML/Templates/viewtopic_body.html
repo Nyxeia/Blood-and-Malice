@@ -109,6 +109,11 @@
 
                 </button>
             </div>
+            
+            <!-- BEGIN switch_like_list -->
+            {postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
+            <!-- END switch_like_list -->
+
             <!-- END switch_likes_active -->
             <!-- Fin du bouton like -->
 
@@ -206,7 +211,7 @@
     <!-- END displayed -->
     <!-- END postrow -->
     <!-- Fin affichage d'un message -->
-     
+
 </div>
 <!-- Fin des messages -->
 
@@ -273,7 +278,7 @@
 <!-- BOUTONS DE MODERATION -------------->
 
 <!-- BEGIN viewtopic_bottom -->
-<form method="get" action="{S_FORM_MOD_ACTION}" class="right">
+<form method="get" action="{S_FORM_MOD_ACTION}" class="mod-topic">
     <fieldset class="quickmod">
         <input type="hidden" name="t" value="{TOPIC_ID}" />
 
@@ -283,7 +288,7 @@
         {S_SELECT_MOD}&nbsp;
         <input class="button2" type="submit" value="{L_GO}" />
     </fieldset>
-    <span class="right">{S_TOPIC_ADMIN}</span>
+    <div class="mod-icons">{S_TOPIC_ADMIN}</div>
 </form>
 <!-- END viewtopic_bottom -->
 

@@ -466,9 +466,15 @@ color: inherit;
 text-align: center;
 }
 
+.mod-topic {
+display: flex;
+justify-content: space-between;
+padding: 0 15px;
+}
 .quickmod {
 margin-bottom: 20px;
 }
+.mod-icons {font-size: 28px;}
 
 /* MENUS DEROULANTS --- */
 select {
@@ -488,7 +494,7 @@ outline: 1px solid var(--accentClr);
 /* Editeur de texte */
 .sceditor-container {
 border: var(--border) !important;
-background-color: var(--neutral) !important;
+background-color: var(--neutral2) !important;
 }
 
 /* Barre d'outils de l'éditeur de texte*/
@@ -525,7 +531,7 @@ outline: 1px solid var(--neutralDarker);
 /* Conteneur de la zone de texte */
 .sceditor-container iframe,
 .sceditor-container textarea {
-background-color: var(--neutral) !important;
+background-color: var(--neutral2) !important;
 /*ne pas supprimer*/
 width: 100% !important;
 margin: 0 !important;
@@ -2346,6 +2352,12 @@ display: none;
 
 .post_message {
 padding: 25px;
+}
+
+.post_message, 
+.post_details {
+    background: var(--neutral2);
+    border-radius: 3px;
 }
 
 /* REPONSE RAPIDE --- */
