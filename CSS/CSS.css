@@ -209,12 +209,6 @@ background: var(--neutral2);
 padding-bottom: 10px;
 }
 
-@media only screen and (max-width: 1000px) {
-    .main_forum, #top-header {
-        width: 90vw !important;
-    }
-}
-
 /* BANNIERE ---*/
 #top-header {
     z-index: 990;
