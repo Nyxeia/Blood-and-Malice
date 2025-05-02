@@ -644,6 +644,7 @@ display: none;
 .links_bar.indexbot {
 margin-top:0;
 }
+.watch_bar {text-align: right;}
 
 .postbutton, 
 .navigation_links {
@@ -2172,6 +2173,10 @@ border-radius: 5px;
 
 /*** ------------------------------- ***/
 /*** SUJET ------------------------- ***/
+.container-post {
+background: var(--neutral1);
+margin: 10px;
+}
 
 .post_row {
 background: var(--neutral);
@@ -2353,6 +2358,9 @@ display: none;
 .quickreply {
 display: flex;
 justify-content: center;
+background: var(--neutral1);
+margin: 10px;
+padding: 25px;
 }
 
 /* Retire le cadre de la réponse rapide pour les invités */
