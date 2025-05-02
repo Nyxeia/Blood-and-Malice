@@ -2004,7 +2004,7 @@ border-radius: 5px;
 padding: 10px;
 margin-bottom: 5px;
 display: grid;
-grid-template-columns: 60px auto 150px 200px;
+grid-template-columns: 60px auto 160px 200px;
 gap: 10px;
 align-items: center;
 }
@@ -2050,8 +2050,13 @@ margin-right: 3px;
 .topics-author-col { 
     width: 140px;
     text-align: right;
+    justify-self: right;
     padding-right: 20px;
+    margin-right: 5px;
     border-right: var(--border3);
+}
+.by-author {
+    text-transform: lowercase;
 }
 .topicslist-stats {
 font-size: var(--smallest-size);
@@ -2079,6 +2084,9 @@ strong {
 }
 
 .topicslist_infos {
+    align-content: center;
+    overflow: auto;
+    height: 50px;
 }
 .topicslist-description {
 width: 100%;
