@@ -163,7 +163,8 @@ tag,
 .pagination,
 .navigation_links,
 .topicslist_row,
-.post_rank, .post_date 
+.post_rank, .post_date,
+.fa_like_list 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2263,7 +2264,12 @@ background: var(--neutral);
 border-radius: 3px;
 }
 
-.fa_like_list { margin:0;}
+.fa_like_list { 
+margin:0;
+text-align: right;
+font-size: var(--smallest-size);
+padding-top: 3px;
+}
 
 .post_profile {
 }
@@ -2395,7 +2401,9 @@ min-height: 600px;
     border: var(--border);
 }
 .post_message_content {
-    padding: 25px;
+    padding: 15px;
+    border-top: var(--border);
+    margin-top: 7px;
 }
 
 /* REPONSE RAPIDE --- */
