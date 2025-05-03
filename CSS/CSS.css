@@ -2177,28 +2177,17 @@ padding: 10px;
 border-radius: 5px;
 }
 
-/*** ------------------------------- ***/
 /*** SUJET ------------------------- ***/
 .container-post {
 background: var(--neutral1);
 margin: 10px;
+padding: 10px;
 }
 
 .post_row {
-background: var(--neutral);
 display: grid;
-grid-template-rows: max-content auto;
-grid-template-columns: min-content 1fr;
-border-bottom: 1px solid var(--neutralDark);
-}
-
-div.post_row:nth-of-type(2) {
-border-radius: 5px 5px 0 0;
-}
-
-div.post_row:last-of-type {
-border-radius: 0 0 5px 5px;
-border-bottom: none;
+grid-template-columns: 220px auto;
+gap: 10px;
 }
 
 .post_details {
@@ -2275,8 +2264,6 @@ border-radius: 3px;
 }
 
 .post_profile {
-padding: 10px;
-border-right: 1px solid var(--neutralDark);
 }
 
 .post_pseudo {
@@ -2352,12 +2339,16 @@ display: none;
 
 .post_message {
 padding: 25px;
+min-height: 600px;
 }
 
-.post_message, 
-.post_details {
+.post_message, .post_details,
+.post_pseudo_rank, .avatar_container, 
+.post_userinfo 
+{
     background: var(--neutral2);
     border-radius: 3px;
+    margin: 5px 0px;
 }
 
 /* REPONSE RAPIDE --- */
