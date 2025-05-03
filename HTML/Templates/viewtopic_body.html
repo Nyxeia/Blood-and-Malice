@@ -64,12 +64,12 @@
             <div class="post_pseudo_rank">
             <center>
                 <!-- Pseudo -->
-                <span class="post_pseudo">{postrow.displayed.POSTER_NAME}</span><br />
-
+                <div class="post_pseudo">{postrow.displayed.POSTER_NAME}</div>
+                <hr>
                 <!-- Rang -->
-                <span class="post_rank">
+                <div class="post_rank">
                     {postrow.displayed.POSTER_RANK_NEW} <!-- Textuel -->
-                </span>
+                </div>
             </center>
             </div>
 
@@ -135,33 +135,34 @@
         <div class="post_details">
 
             <span class="post_date">
-                <!-- Lien d'ancre vers le message -->
-                (<a href="{postrow.displayed.POST_URL}">#</a>)
-                &nbsp;
                 <!-- Date du message -->
                 <time>{postrow.displayed.POST_DATE_NEW}</time>
             </span>
 
+            <div class="btn-anchor">
+                <!-- Lien d'ancre vers le message -->
+                <a href="{postrow.displayed.POST_URL}" title="Lien d'ancre vers le message"><i class="fa-solid fa-link"></i></a>
+            </div>
             <!-- Boutons d'édition de message -->
             <ul class="profile-icons">
                 <li class="btn-quote">
-                    <a href="{postrow.displayed.QUOTE_URL}">
-                        Citer
+                    <a href="{postrow.displayed.QUOTE_URL}" title="Répondre en citant">
+                        <i class="fa-solid fa-quote-right"></i>
                     </a>
                 </li>
-                <li class="btn-edit">
+                <li class="btn-edit" title="Éditer ce message">
                     <a href="{postrow.displayed.EDIT_URL}">
-                        Editer
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                 </li>
-                <li class="btn-delete">
+                <li class="btn-delete" title="Supprimer ce message">
                     <a href="{postrow.displayed.DELETE_URL}">
-                        Supprimer
+                        <i class="fa-solid fa-trash-can"></i>
                     </a>
                 </li>
-                <li class="btn-ip">
+                <li class="btn-ip" title="Voir l'addresse IP du posteur">
                     <a href="{postrow.displayed.IP_URL}">
-                        IP
+                        <i class="fa-solid fa-location-dot"></i>
                     </a>
                 </li>
             </ul>
@@ -182,13 +183,13 @@
                     data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}">
 
                     <!-- Texte "j'aime" -->
-                    <span class="like_text">{postrow.displayed.switch_likes_active.L_LIKE}</span>
+                    <span class="like_text"><i class="fa-solid fa-heart"></i></span>
                     <!-- Compte des "j'aime" -->
                     {postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
 
                 </button>
             </div>
-            
+
             <!-- BEGIN switch_like_list -->
             {postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
             <!-- END switch_like_list -->
@@ -196,7 +197,8 @@
             <!-- END switch_likes_active -->
             <!-- Fin du bouton like -->
 
-            <div>{postrow.displayed.MESSAGE}</div>
+            <div class="clear"></div>
+            <div class="post_message_content">{postrow.displayed.MESSAGE}</div>
 
             <!-- Signature -->
             <!-- BEGIN switch_signature -->
