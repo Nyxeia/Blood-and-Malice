@@ -136,7 +136,8 @@ strong {
 .staff-char,
 .sidenav-title h2,
 .nav_links_topics,
-.postbutton .buttons {
+.postbutton .buttons,
+.post_pseudo {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -161,7 +162,9 @@ tag,
 .sidenav-links a,
 .pagination,
 .navigation_links,
-.topicslist_row 
+.topicslist_row,
+.post_rank, .post_date,
+.fa_like_list 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2177,41 +2180,30 @@ padding: 10px;
 border-radius: 5px;
 }
 
-/*** ------------------------------- ***/
 /*** SUJET ------------------------- ***/
 .container-post {
 background: var(--neutral1);
 margin: 10px;
+padding: 10px;
 }
 
 .post_row {
-background: var(--neutral);
 display: grid;
-grid-template-rows: max-content auto;
-grid-template-columns: min-content 1fr;
-border-bottom: 1px solid var(--neutralDark);
-}
-
-div.post_row:nth-of-type(2) {
-border-radius: 5px 5px 0 0;
-}
-
-div.post_row:last-of-type {
-border-radius: 0 0 5px 5px;
-border-bottom: none;
+grid-template-columns: 220px auto;
+gap: 10px;
 }
 
 .post_details {
 grid-column: 1 / span 2;
-padding: 10px;
+padding: 5px 0px 5px 10px;
 display: flex;
 align-items: center;
-border-bottom: 1px solid var(--neutralDark);
 width: 100%;
 }
 
 .post_date {
 flex-grow: 100;
+text-transform: lowercase;
 }
 
 /* BOUTONS D'EDITION DU MESSAGE --- */
@@ -2222,9 +2214,15 @@ display: flex;
 }
 
 /*UN SEUL bouton d'édition */
-ul.profile-icons li {
-padding: 2px 4px;
+ul.profile-icons li,
+.btn-anchor {
+padding: 2px 8px;
 border-radius: 5px;
+background: var(--neutral1);
+margin: 0px 2px;
+}
+ul.profile-icons li:last-child {
+margin-right:0;
 }
 
 /* Cache les boutons pour les invités */
@@ -2232,40 +2230,32 @@ border-radius: 5px;
 display: none
 }
 
-/*hover d'un bouton d'édition*/
-ul.profile-icons li:hover {
-background: var(--neutralDark);
-}
-
 /* BOUTON LIKE --- */
-/* Conteneur du bouton like */
+.like_section {
+padding: 5px 5px 10px 10px;
+}
 .like_button {
 float: right;
 margin-left: 10px;
 flex-grow: 1;
 cursor: pointer;
 }
-
-/* Bouton like */
 .rep-button,
 .rep-button:active,
 .rep-button:focus {
-background: var(--neutralDark);
+background: var(--neutral1);
 color: var(--textColor1);
 border: none;
-padding: 3px 5px;
+padding: 2px 8px;
 border-radius: 5px;
 font-weight: 600;
 }
-
-/*Bouton au survol*/
 .rep-button:hover {
-background: var(--var(--contrastLighter));
+color: var(--accent1);
 }
-
-/* Texte "j'aime" */
-button.rep-button .like_text {}
-
+.fa_liked {
+    color: var(--accent2);
+}
 /*compteur de like*/
 button.rep-button .rep-nb {
 margin-left: 5px;
@@ -2274,13 +2264,61 @@ background: var(--neutral);
 border-radius: 3px;
 }
 
-.post_profile {
-padding: 10px;
-border-right: 1px solid var(--neutralDark);
+.fa_like_list { 
+margin:0;
+text-align: right;
+font-size: var(--smallest-size);
+padding-top: 3px;
 }
 
+.post_profile {
+}
+
+.post_pseudo_rank {padding: 10px;}
 .post_pseudo {
-font-weight: bold;
+text-shadow: var(--text-shadow2);
+font-size: 22px;
+}
+
+.post_avatar img {border-radius: 3px;}
+.post_avatar a:hover {
+    cursor: default;
+}
+.avatar_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px 7px 0px;
+}
+.avatar_links {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background: #000;
+    border-radius: 3px;
+    opacity: 0;
+    transition: 0.3s;
+}
+.avatar_links:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+}
+.profil_contact {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-rows: max-content;
+    grid-gap: 30px;
+    justify-items: center;
+    padding : 2px; 
+    border-radius: 10px;
+    width: 100%;
 }
 
 /* Lien "@" de mention */
@@ -2351,13 +2389,21 @@ display: none;
 }
 
 .post_message {
-padding: 25px;
+min-height: 600px;
 }
-
-.post_message, 
-.post_details {
+.post_message, .post_details,
+.post_pseudo_rank, .avatar_container, 
+.post_userinfo 
+{
     background: var(--neutral2);
     border-radius: 3px;
+    margin: 5px 0px;
+    border: var(--border);
+}
+.post_message_content {
+    padding: 15px;
+    border-top: var(--border);
+    margin-top: 7px;
 }
 
 /* REPONSE RAPIDE --- */
