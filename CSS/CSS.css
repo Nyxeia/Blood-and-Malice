@@ -164,7 +164,7 @@ tag,
 .navigation_links,
 .topicslist_row,
 .post_rank, .post_date,
-.fa_like_list 
+.fa_like_list, .fa_dislike_list 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2210,7 +2210,7 @@ display: flex;
 /*UN SEUL bouton d'édition */
 ul.profile-icons li,
 .btn-anchor {
-padding: 2px 8px;
+padding: 2px 10px;
 border-radius: 5px;
 background: var(--neutral1);
 margin: 0px 2px;
@@ -2227,12 +2227,18 @@ display: none
 /* BOUTON LIKE --- */
 .like_section {
 padding: 5px 5px 10px 10px;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+gap: 3px;
+border-bottom: none;
+margin-bottom: 0;
 }
-.like_button {
-float: right;
-margin-left: 10px;
-flex-grow: 1;
+.like_button,
+.dislike_button {
+margin-left: 4px;
 cursor: pointer;
+display: inline;
 }
 .rep-button,
 .rep-button:active,
@@ -2240,7 +2246,7 @@ cursor: pointer;
 background: var(--neutral1);
 color: var(--textColor1);
 border: none;
-padding: 2px 8px;
+padding: 2px 9px;
 border-radius: 5px;
 font-weight: 600;
 }
@@ -2258,11 +2264,11 @@ background: var(--neutral);
 border-radius: 3px;
 }
 
-.fa_like_list { 
+.fa_like_list, .fa_dislike_list { 
 margin:0;
 text-align: right;
 font-size: var(--smallest-size);
-padding-top: 3px;
+padding-top: 2px;
 }
 
 .post_profile {
@@ -2401,9 +2407,7 @@ min-height: 600px;
     border: var(--border);
 }
 .post_message_content {
-    padding: 15px;
-    border-top: var(--border);
-    margin-top: 7px;
+    padding: 0 15px;
 }
 
 /* REPONSE RAPIDE --- */

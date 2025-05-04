@@ -62,33 +62,33 @@
         <div class="post_profile" id="profile{postrow.displayed.U_POST_ID}">
 
             <div class="post_pseudo_rank">
-            <center>
-                <!-- Pseudo -->
-                <div class="post_pseudo">{postrow.displayed.POSTER_NAME}</div>
-                <hr>
-                <!-- Rang -->
-                <div class="post_rank">
-                    {postrow.displayed.POSTER_RANK_NEW} <!-- Textuel -->
-                </div>
-            </center>
+                <center>
+                    <!-- Pseudo -->
+                    <div class="post_pseudo">{postrow.displayed.POSTER_NAME}</div>
+                    <hr>
+                    <!-- Rang -->
+                    <div class="post_rank">
+                        {postrow.displayed.POSTER_RANK_NEW} <!-- Textuel -->
+                    </div>
+                </center>
             </div>
 
             <div class="avatar_container">
-            <!-- Avatar -->
-            <div class="post_avatar">
-                {postrow.displayed.POSTER_AVATAR}
-            </div>
-
-            <div class="avatar_links">
-            <!-- Lien de contact -->
-                <div class="profil_contact">
-                    <!-- Autre contact-->
-                    <!-- BEGIN contact_field -->
-                    {postrow.displayed.contact_field.CONTENT} <!-- Autre champs de contact -->
-                    <!-- END contact_field -->
-                    {postrow.displayed.PM_IMG} <!-- MP -->
+                <!-- Avatar -->
+                <div class="post_avatar">
+                    {postrow.displayed.POSTER_AVATAR}
                 </div>
-            </div>
+
+                <div class="avatar_links">
+                    <!-- Lien de contact -->
+                    <div class="profil_contact">
+                        <!-- Autre contact-->
+                        <!-- BEGIN contact_field -->
+                        {postrow.displayed.contact_field.CONTENT} <!-- Autre champs de contact -->
+                        <!-- END contact_field -->
+                        {postrow.displayed.PM_IMG} <!-- MP -->
+                    </div>
+                </div>
             </div>
 
             <div class="post_userinfo">
@@ -131,82 +131,105 @@
 
 
         <div class="post_main_col">
-        <!-- Conteneur informations du message-->
-        <div class="post_details">
+            <!-- Conteneur informations du message-->
+            <div class="post_details">
 
-            <span class="post_date">
-                <!-- Date du message -->
-                <time>{postrow.displayed.POST_DATE_NEW}</time>
-            </span>
+                <span class="post_date">
+                    <!-- Date du message -->
+                    <time>{postrow.displayed.POST_DATE_NEW}</time>
+                </span>
 
-            <div class="btn-anchor">
-                <!-- Lien d'ancre vers le message -->
-                <a href="{postrow.displayed.POST_URL}" title="Lien d'ancre vers le message"><i class="fa-solid fa-link"></i></a>
+                <div class="btn-anchor">
+                    <!-- Lien d'ancre vers le message -->
+                    <a href="{postrow.displayed.POST_URL}" title="Lien d'ancre vers le message"><i class="fa-solid fa-link"></i></a>
+                </div>
+                <!-- Boutons d'édition de message -->
+                <ul class="profile-icons">
+                    <li class="btn-quote">
+                        <a href="{postrow.displayed.QUOTE_URL}" title="Répondre en citant">
+                            <i class="fa-solid fa-quote-right"></i>
+                        </a>
+                    </li>
+                    <li class="btn-edit" title="Éditer ce message">
+                        <a href="{postrow.displayed.EDIT_URL}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                    </li>
+                    <li class="btn-delete" title="Supprimer ce message">
+                        <a href="{postrow.displayed.DELETE_URL}">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a>
+                    </li>
+                    <li class="btn-ip" title="Voir l'addresse IP du posteur">
+                        <a href="{postrow.displayed.IP_URL}">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
-            <!-- Boutons d'édition de message -->
-            <ul class="profile-icons">
-                <li class="btn-quote">
-                    <a href="{postrow.displayed.QUOTE_URL}" title="Répondre en citant">
-                        <i class="fa-solid fa-quote-right"></i>
-                    </a>
-                </li>
-                <li class="btn-edit" title="Éditer ce message">
-                    <a href="{postrow.displayed.EDIT_URL}">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                </li>
-                <li class="btn-delete" title="Supprimer ce message">
-                    <a href="{postrow.displayed.DELETE_URL}">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </a>
-                </li>
-                <li class="btn-ip" title="Voir l'addresse IP du posteur">
-                    <a href="{postrow.displayed.IP_URL}">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </a>
-                </li>
-            </ul>
+            <!-- Fin détails -->
 
-        </div>
-        <!-- Fin détails -->        
-        
-        <!-- Contenu du message -->
-        <div class="post_message postbody content">
-             <!-- Conteneur du bouton like -->
-            <!-- BEGIN switch_likes_active -->
-            <div class="like_section">
-            <div class="like_button">
+            <!-- Contenu du message -->
+            <div class="post_message postbody content">
+                <!-- Conteneur du bouton like -->
+                <!-- BEGIN switch_likes_active -->
+                <div class="like_section">
+                    <div class="like_list_section">
+                    <!-- BEGIN switch_like_list -->
+                    {postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
+                    <!-- END switch_like_list -->
 
-                <!-- Bouton "j'aime" -->
-                <button class="rep-button {postrow.displayed.switch_likes_active.C_VOTE_LIKE}"
-                    data-href="{postrow.displayed.switch_likes_active.U_VOTE_LIKE}"
-                    data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}">
+                    <!-- BEGIN switch_dislike_list -->
+                    {postrow.displayed.switch_likes_active.switch_dislike_list.D_DISLIKE_LIST}
+                    <!-- END switch_dislike_list -->
+                    </div>
 
-                    <!-- Texte "j'aime" -->
-                    <span class="like_text"><i class="fa-solid fa-heart"></i></span>
-                    <!-- Compte des "j'aime" -->
-                    {postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
+                    <div class="like_button_section">
+                    <div class="like_button">
 
-                </button>
+                        <!-- Bouton "j'aime" -->
+                        <button class="rep-button {postrow.displayed.switch_likes_active.C_VOTE_LIKE}"
+                            data-href="{postrow.displayed.switch_likes_active.U_VOTE_LIKE}"
+                            data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}" 
+                            onclick="checkListDisplayBorder(this)">
+
+                            <!-- Texte "j'aime" -->
+                            <span class="like_text"><i class="fa-solid fa-heart"></i></span>
+                            <!-- Compte des "j'aime" -->
+                            {postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
+
+                        </button>
+                    </div>
+
+                    <div class="dislike_button">
+                        <!-- BEGIN switch_dislike_button -->
+                        <button class="rep-button {postrow.displayed.switch_likes_active.switch_dislike_button.C_VOTE_DISLIKE}"
+                            data-href="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_DISLIKE}"
+                            data-href-rm="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_RM_LIKE}" 
+                            onclick="checkListDisplayBorder(this)">
+                            
+                            <span class="dislike_text"><i class="fa-solid fa-fire-flame-curved"></i></span>
+                            {postrow.displayed.switch_likes_active.switch_dislike_button.COUNT_VOTE_DISLIKE}
+                        </button>
+                        <!-- END switch_dislike_button -->
+                    </div>
+                </div>
+
+                </div>
+                <!-- END switch_likes_active -->
+                <!-- Fin du bouton like -->
+
+                <div class="clear"></div>
+                <div class="post_message_content">{postrow.displayed.MESSAGE}</div>
+
+                <!-- Signature -->
+                <!-- BEGIN switch_signature -->
+                <div class="signature_div" id="sig{postrow.displayed.U_POST_ID}">{postrow.displayed.SIGNATURE_NEW}</div>
+                <!-- END switch_signature -->
+
             </div>
-
-            <!-- BEGIN switch_like_list -->
-            {postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
-            <!-- END switch_like_list -->
-            </div>
-            <!-- END switch_likes_active -->
-            <!-- Fin du bouton like -->
-
-            <div class="clear"></div>
-            <div class="post_message_content">{postrow.displayed.MESSAGE}</div>
-
-            <!-- Signature -->
-            <!-- BEGIN switch_signature -->
-            <div class="signature_div" id="sig{postrow.displayed.U_POST_ID}">{postrow.displayed.SIGNATURE_NEW}</div>
-            <!-- END switch_signature -->
-
-        </div>
-        <!-- Fin du contenu du message -->
+            <!-- Fin du contenu du message -->
 
         </div>
     </div>
@@ -257,15 +280,15 @@
 
 <div class="postbutton">
     <div>
-    <!-- Boutons : nouveau -->
-    <!-- BEGIN switch_user_authpost -->
-    <a class="buttons" href="{U_POST_NEW_TOPIC}" rel="nofollow" title="{T_POST_NEW_TOPIC}">nouveau</a>&nbsp;
-    <!-- END switch_user_authpost -->
+        <!-- Boutons : nouveau -->
+        <!-- BEGIN switch_user_authpost -->
+        <a class="buttons" href="{U_POST_NEW_TOPIC}" rel="nofollow" title="{T_POST_NEW_TOPIC}">nouveau</a>&nbsp;
+        <!-- END switch_user_authpost -->
 
-    <!-- Bouton : répondre -->
-    <!-- BEGIN switch_user_authreply -->
-    <a class="buttons" href="{U_POST_REPLY_TOPIC}" title="{T_POST_REPLY_TOPIC}">répondre</a>
-    <!-- END switch_user_authreply -->
+        <!-- Bouton : répondre -->
+        <!-- BEGIN switch_user_authreply -->
+        <a class="buttons" href="{U_POST_REPLY_TOPIC}" title="{T_POST_REPLY_TOPIC}">répondre</a>
+        <!-- END switch_user_authreply -->
     </div>
     <!-- Pagination -->
     <!-- BEGIN topicpagination -->
