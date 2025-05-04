@@ -2197,7 +2197,7 @@ width: 100%;
 
 .post_date {
 flex-grow: 100;
-text-transform: lowercase;
+font-size: var(--smallest-size);
 }
 
 /* BOUTONS D'EDITION DU MESSAGE --- */
@@ -2254,7 +2254,10 @@ font-weight: 600;
 color: var(--accent1);
 }
 .fa_liked {
-    color: var(--accent2);
+    color: #7a2020;
+}
+.fa_disliked {
+    color: #a95911;
 }
 /*compteur de like*/
 button.rep-button .rep-nb {
@@ -2296,7 +2299,7 @@ font-size: 22px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: calc(100% - 20px);
+    width: calc(100% - 18px);
     height: calc(100% - 20px);
     background: #000;
     border-radius: 3px;
