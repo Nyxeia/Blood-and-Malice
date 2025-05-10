@@ -7,7 +7,7 @@
 
 !(function () {
   const SETTINGS_PROFILE = {
-      semicolon: false, //false = retire les (:) après un nom de champ
+      semicolon: true, //false = retire les (:) après un nom de champ
       selectorField: ".user_field", //Le sélecteur d'un champ de profil
       selectorPost: ".post", //Le sélecteur d'un message entier
 

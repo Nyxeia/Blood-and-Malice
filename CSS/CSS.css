@@ -2324,17 +2324,25 @@ font-size: 22px;
     border-radius: 10px;
     width: 100%;
 }
-
 /* Lien "@" de mention */
 a.fa-mention {
 cursor: pointer;
 }
 
+.custom-icon {
+    display:block;
+    img {
+        width: 65px;
+        height: 65px;
+        border-radius: 100%;
+    }
+}
+
+
 /* Mention "en ligne" */
 .presence {
 display: none
 }
-
 .presence.online {
 display: inline-block;
 position: relative;
