@@ -137,7 +137,8 @@ strong {
 .sidenav-title h2,
 .nav_links_topics,
 .postbutton .buttons,
-.post_pseudo {
+.post_pseudo,
+.page-title {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -2360,7 +2361,6 @@ background-image: var(--award-image);
 background-size: cover;
 background-position: center;
 border-radius: 100%;
-cursor: pointer;
 }
 
 .award:hover .award_tooltiptext {
@@ -2391,6 +2391,12 @@ font-weight: 600;
 display: none;
 }
 
+.page-title {
+display: block;
+text-align: right;
+font-size: 28px;
+margin: 10px;
+}
 .post_anchor {
 display: block;
 height: 85px;
@@ -2410,7 +2416,7 @@ min-height: 600px;
     border: var(--border);
 }
 .post_message_content {
-    padding: 0 15px;
+    padding: 0 15px 15px 15px;
 }
 
 /* REPONSE RAPIDE --- */
