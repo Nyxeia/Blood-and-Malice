@@ -19,6 +19,7 @@ color-scheme: dark;
 --neutral1: #0e0e0e;
 --neutral2: #191919;
 --neutral3: #282828;
+--neutral4: #474747;
 
 --accent1: #49161f;
 --accent2: #7e2431;
@@ -165,7 +166,8 @@ tag,
 .navigation_links,
 .topicslist_row,
 .post_rank, .post_date,
-.fa_like_list, .fa_dislike_list 
+.fa_like_list, .fa_dislike_list,
+.tabs-wrap 
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2329,15 +2331,43 @@ a.fa-mention {
 cursor: pointer;
 }
 
-.custom-icon {
-    display:block;
+.post_customfield {
+    position: relative;
+
     img {
-        width: 65px;
-        height: 65px;
-        border-radius: 100%;
+        max-width: 200px;
     }
 }
+.custom-icon, .custom-icon-hrp {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -35px;
 
+    img {
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        border: var(--border2);
+        outline: 4px solid var(--neutral1);
+        padding: 4px;
+        background: var(--neutral2);
+    }
+}
+.tabs-wrap {
+    display: flex;
+    justify-content: space-between;
+    background: var(--neutral1);
+    padding: 5px 7px;
+    margin: 4px;
+    border-radius: 3px;
+    border-left: 3px solid var(--accent1);
+    border-right: 3px solid var(--neutral4);
+}
+.as-above, .so-below {
+cursor: pointer;
+}
 
 /* Mention "en ligne" */
 .presence {
@@ -2416,7 +2446,7 @@ min-height: 600px;
 }
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
-.post_userinfo 
+.post_userinfo, .post_customfield
 {
     background: var(--neutral2);
     border-radius: 3px;
