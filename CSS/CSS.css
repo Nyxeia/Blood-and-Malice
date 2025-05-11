@@ -173,6 +173,7 @@ tag,
 .fa_like_list, .fa_dislike_list,
 .tabs-wrap,
 .award_tooltiptext,
+.field_label
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2193,6 +2194,7 @@ padding: 10px;
 display: grid;
 grid-template-columns: 220px auto;
 gap: 10px;
+margin-bottom: 10px;
 }
 
 .post_details {
@@ -2415,7 +2417,6 @@ font-weight: 500;
 .custom-rank, .custom-pseudo {
     text-align: center;
     font-style: italic;
-    font-size: 13px;
     font-family: var(--font3);
     color: var(--accent3);
 }
@@ -2491,8 +2492,12 @@ height: 85px;
 margin-top: -85px;
 visibility: hidden;
 }
+.post_main_col {
+    display: flex;
+    flex-direction: column;
+}
 .post_message {
-min-height: 745px;
+flex: 1;
 }
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
@@ -2702,10 +2707,8 @@ grid-template-columns: 135px auto;
 grid-gap: 10px;
 }
 
-.profile_field label,
-.profile_field label>span {
-font-weight: 600;
-color: var(--link);
+.field_label span{
+color: var(--accent3) !important;
 }
 
 .profile_field field {
