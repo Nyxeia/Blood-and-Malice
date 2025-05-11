@@ -100,16 +100,25 @@
                     <div class="as-above">AS ABOVE</div>
                     <div class="so-below">SO BELOW</div>
                 </div>
+                <div class="custom-text">
                 <div class="custom-name"></div>
                 <div class="custom-rank"></div>
                 <div class="custom-fc" style="display: none;">ft. <span class="faceclaim"></span></div>
                 <div class="custom-pseudo" style="display: none;">joué·e par <span class="pseudo"></span></div>
+                </div>
             </div>
 
                 <div class="post_userinfo">
 
                     <!-- Champs de profil -->
                     <div class="tabcontent1" style="display: block;">
+                    <div class="post_rewards">
+                        <!-- Récompenses -->
+                        <div {postrow.displayed.AWARDS_SHOW} id="list_awards">
+                            {postrow.displayed.AWARDS}
+                        </div>
+                        <div class="award_more"></div>
+                    </div>
                     <!-- BEGIN profile_field -->
                     <div class="user_field">
                         <!-- Label d'un champs de profil -->
@@ -127,22 +136,6 @@
                     <div class="tabcontent2" style="display: none;"></div>
 
                 </div>
-
-            <div class="post_rewards">
-                <!-- Récompenses -->
-                <div {postrow.displayed.AWARDS_SHOW} id="list_awards">
-                    {postrow.displayed.AWARDS}
-                </div>
-                <div class="award_more"></div>
-            </div>
-
-            <!-- En ligne -->
-            <center>
-                <div class="presence {postrow.displayed.ONLINE_IMG_NEW}">
-                    En ligne
-                </div>
-            </center>
-
         </div>
         <!-- Fin colonne profil -->
 
@@ -153,7 +146,9 @@
 
                 <span class="post_date">
                     <!-- Date du message -->
-                    <time>{postrow.displayed.POST_DATE_NEW}</time>
+                    <time>{postrow.displayed.POST_DATE_NEW}</time><span class="presence {postrow.displayed.ONLINE_IMG_NEW}">
+                        &nbsp;✧&nbsp;En ligne
+                    </span>
                 </span>
 
                 <div class="btn-anchor">

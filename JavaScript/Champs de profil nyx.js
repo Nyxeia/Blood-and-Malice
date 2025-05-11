@@ -1,21 +1,23 @@
 $(function() {
   // AS ABOVE
   $('body').on('click', '.as-above', function() {
-      $('.tabcontent1').show();
-      $('.tabcontent2').hide();
+      var $postProfile = $(this).closest('.post_profile');
+      
+      $postProfile.find('.tabcontent1').show();
+      $postProfile.find('.tabcontent2').hide();
 
       // Show AS ABOVE elements
-      $('.custom-icon').show();
-      $('.custom-name').show();
-      $('.custom-rank').show();
+      $postProfile.find('.custom-icon').show();
+      $postProfile.find('.custom-name').show();
+      $postProfile.find('.custom-rank').show();
       
       // Hide SO BELOW elements
-      $('.custom-icon-hrp').hide();
-      $('.custom-fc').hide();
-      $('.custom-pseudo').hide();
+      $postProfile.find('.custom-icon-hrp').hide();
+      $postProfile.find('.custom-fc').hide();
+      $postProfile.find('.custom-pseudo').hide();
 
       // Update border colors
-      $('.tabs-wrap').css({
+      $postProfile.find('.tabs-wrap').css({
           'border-left': '3px solid var(--accent1)',
           'border-right': '3px solid var(--neutral4)'
       });
@@ -23,25 +25,70 @@ $(function() {
   
   // SO BELOW
   $('body').on('click', '.so-below', function() {
-      $('.tabcontent1').hide();
-      $('.tabcontent2').show();
+      var $postProfile = $(this).closest('.post_profile');
+      
+      $postProfile.find('.tabcontent1').hide();
+      $postProfile.find('.tabcontent2').show();
 
       // Hide AS ABOVE elements
-      $('.custom-icon').hide();
-      $('.custom-name').hide();
-      $('.custom-rank').hide();
+      $postProfile.find('.custom-icon').hide();
+      $postProfile.find('.custom-name').hide();
+      $postProfile.find('.custom-rank').hide();
       
       // Show SO BELOW elements
-      $('.custom-icon-hrp').show();
-      $('.custom-fc').show();
-      $('.custom-pseudo').show();
+      $postProfile.find('.custom-icon-hrp').show();
+      $postProfile.find('.custom-fc').show();
+      $postProfile.find('.custom-pseudo').show();
 
       // Update border colors
-      $('.tabs-wrap').css({
-      'border-left': '3px solid var(--neutral4)',
-      'border-right': '3px solid var(--accent1)'
+      $postProfile.find('.tabs-wrap').css({
+          'border-left': '3px solid var(--neutral4)',
+          'border-right': '3px solid var(--accent1)'
       });
   });
+
+// Hover effects for tabs
+$('.as-above').hover(
+  function() {
+      // On hover - change left border to accent2
+      $(this).closest('.tabs-wrap').css('border-left', '3px solid var(--accent2)');
+  },
+  function() {
+      // On mouse leave - restore original border based on active tab
+      var $postProfile = $(this).closest('.post_profile');
+      var $tabsWrap = $(this).closest('.tabs-wrap');
+      
+      if ($postProfile.find('.tabcontent1').is(':visible')) {
+          // AS ABOVE is active
+          $tabsWrap.css('border-left', '3px solid var(--accent1)');
+      } else {
+          // SO BELOW is active
+          $tabsWrap.css('border-left', '3px solid var(--neutral4)');
+      }
+  }
+);
+
+$('.so-below').hover(
+  function() {
+      // On hover - change right border to accent2
+      $(this).closest('.tabs-wrap').css('border-right', '3px solid var(--accent2)');
+  },
+  function() {
+      // On mouse leave - restore original border based on active tab
+      var $postProfile = $(this).closest('.post_profile');
+      var $tabsWrap = $(this).closest('.tabs-wrap');
+      
+      if ($postProfile.find('.tabcontent1').is(':visible')) {
+          // AS ABOVE is active (tabcontent1 is visible)
+          $tabsWrap.css('border-right', '3px solid var(--neutral4)');
+      } else {
+          // SO BELOW is active (tabcontent2 is visible)
+          $tabsWrap.css('border-right', '3px solid var(--accent1)');
+      }
+  }
+);
+
+  
 });
 
 
@@ -61,8 +108,8 @@ $(function() {
         "Autre identité": ".custom-name",
         "Rang personnalisé": ".custom-rank",
         "Icone HRP": ".custom-icon-hrp",
-        "Faceclaim": ".custom-fc",
-        "Pseudo": ".custom-pseudo"
+        "Faceclaim": ".faceclaim",
+        "Pseudo": ".pseudo"
     };
     
     // Only hide labels (without moving)

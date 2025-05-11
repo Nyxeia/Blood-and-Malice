@@ -23,6 +23,7 @@ color-scheme: dark;
 
 --accent1: #49161f;
 --accent2: #7e2431;
+--accent3: #704a50;
 
 --textColor1: #8b8b8b;
 --textColor2: #9b9b9b;
@@ -44,6 +45,7 @@ color-scheme: dark;
 --scrollbar-thumb: var(--neutral3);
 --scrollbar-bg: transparent;
 
+--invert: invert(0);
 --brightness: brightness(1.2);
 --brightness-header: brightness(1.2);
 --brightness-icons: brightness(1.2);
@@ -93,6 +95,7 @@ color-scheme: light;
 --text-shadow: 2px 2px #e7e7e7;
 --text-shadow2: 1px 1px 0px #eaeaea;
 
+--invert: invert(1);
 --brightness: brightness(1.3);
 --brightness-header: brightness(1.2);
 --brightness-icons: brightness(2.5);
@@ -139,7 +142,8 @@ strong {
 .nav_links_topics,
 .postbutton .buttons,
 .post_pseudo,
-.page-title {
+.page-title, 
+.custom-name, .custom-fc {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -167,7 +171,8 @@ tag,
 .topicslist_row,
 .post_rank, .post_date,
 .fa_like_list, .fa_dislike_list,
-.tabs-wrap 
+.tabs-wrap,
+.award_tooltiptext,
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2236,6 +2241,8 @@ align-items: center;
 gap: 3px;
 border-bottom: none;
 margin-bottom: 0;
+color: var(--accent3);
+a {color: var(--accent3);}
 }
 .like_button,
 .dislike_button {
@@ -2342,13 +2349,23 @@ cursor: pointer;
 }
 .tabcontent1, .tabcontent2 {
     height: 250px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
     img {
         max-width: 200px;
     }
 }
+.custom-icon, .custom-icon-rp, .custom-name, 
+.custom-rank, .custom-fc, .custom-pseudo,
+.tabcontent1, .tabcontent2 {
+    transition: opacity 0.3s ease;
+}
 .post_customfield {
     position: relative;
-    height: 120px;
+    min-height: 95px;
+    transition: var(--transition);
     img {
         max-width: 200px;
     }
@@ -2359,6 +2376,7 @@ cursor: pointer;
     left: 50%;
     transform: translateX(-50%);
     margin-top: -35px;
+    transition: var(--transition);
 
     img {
         width: 70px;
@@ -2382,19 +2400,31 @@ cursor: pointer;
 }
 .as-above, .so-below {
 cursor: pointer;
+font-weight: 500;
 }
-
+.custom-text {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.custom-name, .custom-fc{
+    text-shadow: none;
+}
+.custom-rank, .custom-pseudo {
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    font-family: var(--font3);
+    color: var(--accent3);
+}
 /* Mention "en ligne" */
 .presence {
 display: none
 }
 .presence.online {
 display: inline-block;
-position: relative;
-background-color: var(--neutralDarker);
-border-radius: 5px;
-padding: 0 5px;
-margin: 0 auto;
 }
 
 /* RECOMPENSES --- */
@@ -2403,17 +2433,22 @@ margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
 gap: 5px;
+border-bottom: var(--border);
+padding-bottom: 5px;
+margin-bottom: 10px;
+justify-content: center;
 }
 
 /* Récompense */
 .award {
-width: 40px;
-height: 40px;
+width: 30px;
+height: 30px;
 position: relative;
 background-image: var(--award-image);
 background-size: cover;
 background-position: center;
 border-radius: 100%;
+filter: var(--invert);
 }
 
 .award:hover .award_tooltiptext {
@@ -2422,17 +2457,17 @@ display: block;
 
 /* Bloc description de la récompenses */
 .award_tooltiptext {
-width: max-content;
+width: 150px;
 display: none;
 position: absolute;
 top: 25%;
-left: 25px;
-background-color: var(--neutral);
-border: 1px solid var(--neutralDark);
+left: 30px;
+background-color: var(--accent1);
 padding: 5px;
 border-radius: 5px;
 text-align: center;
 font-size: 11px;
+color: var(--textColor3);
 }
 
 /* titre de la récompenses*/
@@ -2457,7 +2492,7 @@ margin-top: -85px;
 visibility: hidden;
 }
 .post_message {
-min-height: 600px;
+min-height: 745px;
 }
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
