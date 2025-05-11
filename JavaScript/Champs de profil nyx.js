@@ -107,4 +107,6 @@ $(function() {
             $(this).parent('.field_label').remove();
         }
     });
+
+    $('.user_field').css('visibility', 'visible');
 });

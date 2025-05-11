@@ -2331,9 +2331,24 @@ a.fa-mention {
 cursor: pointer;
 }
 
+.tabcontent2,
+.custom-icon-hrp,
+.custom-fc,
+.custom-pseudo {
+    display: none;
+}
+.user_field {
+    visibility: hidden;
+}
+.tabcontent1, .tabcontent2 {
+    height: 250px;
+    img {
+        max-width: 200px;
+    }
+}
 .post_customfield {
     position: relative;
-
+    height: 120px;
     img {
         max-width: 200px;
     }
