@@ -45,7 +45,6 @@ color-scheme: dark;
 --scrollbar-thumb: var(--neutral3);
 --scrollbar-bg: transparent;
 
---invert: invert(0);
 --brightness: brightness(1.2);
 --brightness-header: brightness(1.2);
 --brightness-icons: brightness(1.2);
@@ -81,6 +80,7 @@ color-scheme: light;
 
 --accent1: #782436;
 --accent2: #620026;
+--accent3: #995661;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -95,7 +95,6 @@ color-scheme: light;
 --text-shadow: 2px 2px #e7e7e7;
 --text-shadow2: 1px 1px 0px #eaeaea;
 
---invert: invert(1);
 --brightness: brightness(1.3);
 --brightness-header: brightness(1.2);
 --brightness-icons: brightness(2.5);
@@ -2287,6 +2286,9 @@ padding-top: 2px;
 }
 
 .post_profile {
+    position: sticky;
+    height: fit-content;
+    top: 80px;
 }
 
 .post_pseudo_rank {padding: 10px;}
@@ -2405,14 +2407,16 @@ cursor: pointer;
 font-weight: 500;
 }
 .custom-text {
-    padding: 5px;
+    padding: 5px 5px 10px 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 .custom-name, .custom-fc{
     text-shadow: none;
+    min-height: 10px;
 }
 .custom-rank, .custom-pseudo {
     text-align: center;
@@ -2449,7 +2453,6 @@ background-image: var(--award-image);
 background-size: cover;
 background-position: center;
 border-radius: 100%;
-filter: var(--invert);
 }
 
 .award:hover .award_tooltiptext {
@@ -2458,7 +2461,7 @@ display: block;
 
 /* Bloc description de la récompenses */
 .award_tooltiptext {
-width: 150px;
+width: 160px;
 display: none;
 position: absolute;
 top: 25%;
@@ -2467,13 +2470,14 @@ background-color: var(--accent1);
 padding: 5px;
 border-radius: 5px;
 text-align: center;
-font-size: 11px;
 color: var(--textColor3);
+text-transform: none;
 }
 
 /* titre de la récompenses*/
 .award_tooltiptext_title {
-font-weight: 600;
+font-weight: 500;
+text-transform: uppercase;
 }
 
 .online:empty {
@@ -2505,7 +2509,7 @@ flex: 1;
 {
     background: var(--neutral2);
     border-radius: 3px;
-    margin: 5px 0px;
+    margin: 10px 0px 0px 0px;
     border: var(--border);
 }
 .post_message_content {
