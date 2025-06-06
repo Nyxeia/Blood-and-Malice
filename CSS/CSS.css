@@ -19,9 +19,11 @@ color-scheme: dark;
 --neutral1: #0e0e0e;
 --neutral2: #191919;
 --neutral3: #282828;
+--neutral4: #474747;
 
 --accent1: #49161f;
 --accent2: #7e2431;
+--accent3: #704a50;
 
 --textColor1: #8b8b8b;
 --textColor2: #9b9b9b;
@@ -78,6 +80,7 @@ color-scheme: light;
 
 --accent1: #782436;
 --accent2: #620026;
+--accent3: #995661;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -138,7 +141,8 @@ strong {
 .nav_links_topics,
 .postbutton .buttons,
 .post_pseudo,
-.page-title {
+.page-title, 
+.custom-name, .custom-fc {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -165,7 +169,10 @@ tag,
 .navigation_links,
 .topicslist_row,
 .post_rank, .post_date,
-.fa_like_list, .fa_dislike_list 
+.fa_like_list, .fa_dislike_list,
+.tabs-wrap,
+.award_tooltiptext,
+.field_label
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2186,6 +2193,7 @@ padding: 10px;
 display: grid;
 grid-template-columns: 220px auto;
 gap: 10px;
+margin-bottom: 10px;
 }
 
 .post_details {
@@ -2234,6 +2242,8 @@ align-items: center;
 gap: 3px;
 border-bottom: none;
 margin-bottom: 0;
+color: var(--accent3);
+a {color: var(--accent3);}
 }
 .like_button,
 .dislike_button {
@@ -2276,6 +2286,9 @@ padding-top: 2px;
 }
 
 .post_profile {
+    position: sticky;
+    height: fit-content;
+    top: 80px;
 }
 
 .post_pseudo_rank {padding: 10px;}
@@ -2324,24 +2337,99 @@ font-size: 22px;
     border-radius: 10px;
     width: 100%;
 }
-
 /* Lien "@" de mention */
 a.fa-mention {
 cursor: pointer;
 }
 
+.tabcontent2,
+.custom-icon-hrp,
+.custom-fc,
+.custom-pseudo {
+    display: none;
+}
+.user_field {
+    visibility: hidden;
+}
+.tabcontent1, .tabcontent2 {
+    height: 250px;
+    padding: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    img {
+        max-width: 200px;
+    }
+}
+.custom-icon, .custom-icon-rp, .custom-name, 
+.custom-rank, .custom-fc, .custom-pseudo,
+.tabcontent1, .tabcontent2 {
+    transition: opacity 0.3s ease;
+}
+.post_customfield {
+    position: relative;
+    min-height: 95px;
+    transition: var(--transition);
+    img {
+        max-width: 200px;
+    }
+}
+.custom-icon, .custom-icon-hrp {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -35px;
+    transition: var(--transition);
+
+    img {
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        border: var(--border2);
+        outline: 4px solid var(--neutral1);
+        padding: 4px;
+        background: var(--neutral2);
+    }
+}
+.tabs-wrap {
+    display: flex;
+    justify-content: space-between;
+    background: var(--neutral1);
+    padding: 5px 7px;
+    margin: 4px;
+    border-radius: 3px;
+    border-left: 3px solid var(--accent1);
+    border-right: 3px solid var(--neutral4);
+}
+.as-above, .so-below {
+cursor: pointer;
+font-weight: 500;
+}
+.custom-text {
+    padding: 5px 5px 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.custom-name, .custom-fc{
+    text-shadow: none;
+    min-height: 10px;
+}
+.custom-rank, .custom-pseudo {
+    text-align: center;
+    font-style: italic;
+    font-family: var(--font3);
+    color: var(--accent3);
+}
 /* Mention "en ligne" */
 .presence {
 display: none
 }
-
 .presence.online {
 display: inline-block;
-position: relative;
-background-color: var(--neutralDarker);
-border-radius: 5px;
-padding: 0 5px;
-margin: 0 auto;
 }
 
 /* RECOMPENSES --- */
@@ -2350,12 +2438,16 @@ margin: 0 auto;
 display: flex;
 flex-wrap: wrap;
 gap: 5px;
+border-bottom: var(--border);
+padding-bottom: 5px;
+margin-bottom: 10px;
+justify-content: center;
 }
 
 /* Récompense */
 .award {
-width: 40px;
-height: 40px;
+width: 30px;
+height: 30px;
 position: relative;
 background-image: var(--award-image);
 background-size: cover;
@@ -2369,22 +2461,23 @@ display: block;
 
 /* Bloc description de la récompenses */
 .award_tooltiptext {
-width: max-content;
+width: 160px;
 display: none;
 position: absolute;
 top: 25%;
-left: 25px;
-background-color: var(--neutral);
-border: 1px solid var(--neutralDark);
+left: 30px;
+background-color: var(--accent1);
 padding: 5px;
 border-radius: 5px;
 text-align: center;
-font-size: 11px;
+color: var(--textColor3);
+text-transform: none;
 }
 
 /* titre de la récompenses*/
 .award_tooltiptext_title {
-font-weight: 600;
+font-weight: 500;
+text-transform: uppercase;
 }
 
 .online:empty {
@@ -2403,16 +2496,20 @@ height: 85px;
 margin-top: -85px;
 visibility: hidden;
 }
+.post_main_col {
+    display: flex;
+    flex-direction: column;
+}
 .post_message {
-min-height: 600px;
+flex: 1;
 }
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
-.post_userinfo 
+.post_userinfo, .post_customfield
 {
     background: var(--neutral2);
     border-radius: 3px;
-    margin: 5px 0px;
+    margin: 10px 0px 0px 0px;
     border: var(--border);
 }
 .post_message_content {
@@ -2614,10 +2711,8 @@ grid-template-columns: 135px auto;
 grid-gap: 10px;
 }
 
-.profile_field label,
-.profile_field label>span {
-font-weight: 600;
-color: var(--link);
+.field_label span{
+color: var(--accent3) !important;
 }
 
 .profile_field field {

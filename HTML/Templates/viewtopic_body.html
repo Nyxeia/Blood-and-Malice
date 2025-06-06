@@ -43,7 +43,9 @@
 <div class="container container-post">
 
     <!-- Titre du poste -->
-    <h1 class="page-title">{TOPIC_TITLE}</h1>
+    <div class="page-title-wrap">
+        <h1 class="page-title">{TOPIC_TITLE}</h1>
+    </div>
 
     <!-- Liste des participants du sujet -->
     {POSTERS_LIST}
@@ -91,41 +93,49 @@
                 </div>
             </div>
 
-            <div class="post_userinfo">
-
-                <!-- Champs de profil -->
-                <!-- BEGIN profile_field -->
-                <div class="user_field">
-                    <!-- Label d'un champs de profil -->
-                    <span class="field_label">{postrow.displayed.profile_field.LABEL}</span>
-
-                    <!-- Contenu d'un champs de profil -->
-                    <span class="field_content">{postrow.displayed.profile_field.CONTENT}</span>
-
-                    <!-- Séparateur entre champs de profil -->
-                    <span class="field_separator">{postrow.displayed.profile_field.SEPARATOR}</span>
+            <div class="post_customfield">
+                <div class="custom-icon"></div>
+                <div class="custom-icon-hrp" style="display: none;"></div>
+                <div class="tabs-wrap">
+                    <div class="as-above">AS ABOVE</div>
+                    <div class="so-below">SO BELOW</div>
                 </div>
-                <!-- END profile_field -->
-                <!-- Fin de champs de profil -->
-
-                <!-- Récompenses -->
-                <div {postrow.displayed.AWARDS_SHOW} id="list_awards">
-                    {postrow.displayed.AWARDS}
+                <div class="custom-text">
+                <div class="custom-name"></div>
+                <div class="custom-rank"></div>
+                <div class="custom-fc" style="display: none;">ft. <span class="faceclaim"></span></div>
+                <div class="custom-pseudo" style="display: none;">joué·e par <span class="pseudo"></span></div>
                 </div>
-                <div class="award_more"></div>
-
-                <!-- Champs de profil de la feuille de personnage -->
-                {postrow.displayed.POSTER_RPG}
-
             </div>
 
-            <!-- En ligne -->
-            <center>
-                <div class="presence {postrow.displayed.ONLINE_IMG_NEW}">
-                    En ligne
-                </div>
-            </center>
+                <div class="post_userinfo">
 
+                    <!-- Champs de profil -->
+                    <div class="tabcontent1" style="display: block;">
+                    <div class="post_rewards">
+                        <!-- Récompenses -->
+                        <div {postrow.displayed.AWARDS_SHOW} id="list_awards">
+                            {postrow.displayed.AWARDS}
+                        </div>
+                        <div class="award_more"></div>
+                    </div>
+                    <!-- BEGIN profile_field -->
+                    <div class="user_field">
+                        <!-- Label d'un champs de profil -->
+                        <span class="field_label">{postrow.displayed.profile_field.LABEL}</span>
+
+                        <!-- Contenu d'un champs de profil -->
+                        <span class="field_content">{postrow.displayed.profile_field.CONTENT}</span>
+
+                        <!-- Séparateur entre champs de profil -->
+                        <span class="field_separator">{postrow.displayed.profile_field.SEPARATOR}</span>
+                    </div>
+                    <!-- END profile_field -->
+                    <!-- Fin de champs de profil -->
+                    </div>
+                    <div class="tabcontent2" style="display: none;"></div>
+
+                </div>
         </div>
         <!-- Fin colonne profil -->
 
@@ -136,7 +146,9 @@
 
                 <span class="post_date">
                     <!-- Date du message -->
-                    <time>{postrow.displayed.POST_DATE_NEW}</time>
+                    <time>{postrow.displayed.POST_DATE_NEW}</time><span class="presence {postrow.displayed.ONLINE_IMG_NEW}">
+                        &nbsp;✧&nbsp;En ligne
+                    </span>
                 </span>
 
                 <div class="btn-anchor">
@@ -176,45 +188,45 @@
                 <!-- BEGIN switch_likes_active -->
                 <div class="like_section">
                     <div class="like_list_section">
-                    <!-- BEGIN switch_like_list -->
-                    {postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
-                    <!-- END switch_like_list -->
+                        <!-- BEGIN switch_like_list -->
+                        {postrow.displayed.switch_likes_active.switch_like_list.D_LIKE_LIST}
+                        <!-- END switch_like_list -->
 
-                    <!-- BEGIN switch_dislike_list -->
-                    {postrow.displayed.switch_likes_active.switch_dislike_list.D_DISLIKE_LIST}
-                    <!-- END switch_dislike_list -->
+                        <!-- BEGIN switch_dislike_list -->
+                        {postrow.displayed.switch_likes_active.switch_dislike_list.D_DISLIKE_LIST}
+                        <!-- END switch_dislike_list -->
                     </div>
 
                     <div class="like_button_section">
-                    <div class="like_button">
+                        <div class="like_button">
 
-                        <!-- Bouton "j'aime" -->
-                        <button class="rep-button {postrow.displayed.switch_likes_active.C_VOTE_LIKE}"
-                            data-href="{postrow.displayed.switch_likes_active.U_VOTE_LIKE}"
-                            data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}" 
-                            onclick="checkListDisplayBorder(this)">
+                            <!-- Bouton "j'aime" -->
+                            <button class="rep-button {postrow.displayed.switch_likes_active.C_VOTE_LIKE}"
+                                data-href="{postrow.displayed.switch_likes_active.U_VOTE_LIKE}"
+                                data-href-rm="{postrow.displayed.switch_likes_active.U_VOTE_RM_LIKE}"
+                                onclick="checkListDisplayBorder(this)">
 
-                            <!-- Texte "j'aime" -->
-                            <span class="like_text"><i class="fa-solid fa-heart"></i></span>
-                            <!-- Compte des "j'aime" -->
-                            {postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
+                                <!-- Texte "j'aime" -->
+                                <span class="like_text"><i class="fa-solid fa-heart"></i></span>
+                                <!-- Compte des "j'aime" -->
+                                {postrow.displayed.switch_likes_active.COUNT_VOTE_LIKE}
 
-                        </button>
+                            </button>
+                        </div>
+
+                        <div class="dislike_button">
+                            <!-- BEGIN switch_dislike_button -->
+                            <button class="rep-button {postrow.displayed.switch_likes_active.switch_dislike_button.C_VOTE_DISLIKE}"
+                                data-href="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_DISLIKE}"
+                                data-href-rm="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_RM_LIKE}"
+                                onclick="checkListDisplayBorder(this)">
+
+                                <span class="dislike_text"><i class="fa-solid fa-fire-flame-curved"></i></span>
+                                {postrow.displayed.switch_likes_active.switch_dislike_button.COUNT_VOTE_DISLIKE}
+                            </button>
+                            <!-- END switch_dislike_button -->
+                        </div>
                     </div>
-
-                    <div class="dislike_button">
-                        <!-- BEGIN switch_dislike_button -->
-                        <button class="rep-button {postrow.displayed.switch_likes_active.switch_dislike_button.C_VOTE_DISLIKE}"
-                            data-href="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_DISLIKE}"
-                            data-href-rm="{postrow.displayed.switch_likes_active.switch_dislike_button.U_VOTE_RM_LIKE}" 
-                            onclick="checkListDisplayBorder(this)">
-                            
-                            <span class="dislike_text"><i class="fa-solid fa-fire-flame-curved"></i></span>
-                            {postrow.displayed.switch_likes_active.switch_dislike_button.COUNT_VOTE_DISLIKE}
-                        </button>
-                        <!-- END switch_dislike_button -->
-                    </div>
-                </div>
 
                 </div>
                 <!-- END switch_likes_active -->
