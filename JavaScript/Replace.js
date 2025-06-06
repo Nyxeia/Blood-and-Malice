@@ -10,3 +10,5 @@ $(function() {
     topicType.find('strong:contains("Annonce:")').text('Annonce ✧');
     topicType.find('strong:contains("Note:")').text('Note ✧');
   });
+
+  

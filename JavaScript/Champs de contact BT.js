@@ -16,20 +16,35 @@
  * VOS REGLAGES SE FONT ICI
  * ----------------------------- */
 
-const contactFields_selectorInTopic = ".post_contact"; // Sélecteur des champs de contact dans les messages
+const contactFields_selectorInTopic = ".profil_contact"; // Sélecteur des champs de contact dans les messages
 const contactFields_selectorInProfile = ".profile_contact"; // Sélecteur des champs de contact dans la page de profil
 
 /* Liste des champs à personnaliser */
 const contactFields_list = [
   {
-    text: "MP", // Texte du lien pour envoyer un MP
+    text: "CONTACT", // Texte du lien pour envoyer un MP
   },
 
   /* Pour chaque champ de contact à personnaliser, dupliquez le code suivant */
   {
-    urlImg: "image.png", // Nom de l'image du champ de contact (voir documentation)
-    text: "Nom du champ", // Texte du champ de contact
-    info: "Information du lien en infobulle", // Infobulle au survol du lien
+    urlImg: "fiche.png", // Nom de l'image du champ de contact (voir documentation)
+    text: "PRÉSENTATION", // Texte du champ de contact
+    info: "Présentation du personnage", // Infobulle au survol du lien
+  },
+  {
+    urlImg: "journal.png", 
+    text: "JOURNAL",
+    info: "Carnet de personnage",
+  },
+  {
+    urlImg: "mood.png",
+    text: "MOODBOARD",
+    info: "Moodboard du personnage",
+  },
+  {
+    urlImg: "playlist.png",
+    text: "PLAYLIST",
+    info: "Playlist du personnage",
   },
 ];
 
