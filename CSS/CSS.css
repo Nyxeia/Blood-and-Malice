@@ -19,11 +19,13 @@ color-scheme: dark;
 --neutral1: #0e0e0e;
 --neutral2: #191919;
 --neutral3: #282828;
---neutral4: #474747;
+--neutral4: #474747; 
+--neutral5: #111111; /*fond soilers, quote, etc*/
 
 --accent1: #49161f;
 --accent2: #7e2431;
 --accent3: #7c464e;
+--accent4: #29191c;
 
 --textColor1: #8b8b8b;
 --textColor2: #9b9b9b;
@@ -78,10 +80,12 @@ color-scheme: light;
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
 --neutral3: #c7c7c7;
+--neutral5: #dedede;
 
 --accent1: #782436;
 --accent2: #620026;
 --accent3: #995661;
+--accent4: #c6b3b3;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -173,7 +177,9 @@ tag,
 .tabs-wrap,
 .award_tooltiptext,
 .field_label,
-.profil_contact a
+.profil_contact a,
+.spoiler_title,
+blockquote cite
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2457,9 +2463,26 @@ visibility: hidden;
     display: flex;
     flex-direction: column;
 }
+
 .post_message {
 flex: 1;
+
+/*listes dans les messages*/
+ul {
+    list-style-type: disc;
+    padding: revert;
+    margin-left: -10px;
+    li {margin-left: 18px;}
 }
+
+ol {
+    margin-left: -10px;
+    li {margin-left: 16px;}
+    li::marker {font-weight: bold;}
+}
+
+} /*fin post_message*/
+
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
 .post_userinfo, .post_customfield
@@ -2554,27 +2577,28 @@ margin: 20px 0 0;
 /* Balise code, spoiler et hide*/
 .codebox {
 display: block;
-width: 90%;
+width: 95%;
 margin: 0 auto;
 position: relative;
+padding: 5px;
+border-radius: 5px;
+background: var(--neutral5);
 }
 
 /* Contenu code, spoiler et hide*/
 .codebox dd {
-background: var(--neutralDark);
 border-radius: 5px;
 padding: 5px;
-}
-
-/* Nom de balise "code, spoiler" */
-.codebox dt {
-font-weight: 700;
 }
 
 /*retire la mention "code" du bloc*/
 #codeBox dt {
 height: 0;
 font-size: 0;
+}
+
+.codebox code {
+    color: var(--accent3);
 }
 
 /* bouton "copier" */
@@ -2594,7 +2618,12 @@ clear: right;
 }
 
 /* Spoiler */
-.hidebox.spoiler {}
+.spoiler_title {
+    margin: 5px;
+    margin: 5px 5px 0 5px;
+    font-weight: 500;
+    box-shadow: inset 0 -6px 0 var(--accent4);
+}
 
 /* spoiler fermé */
 .spoiler_content {
@@ -2608,14 +2637,43 @@ display: block;
 
 /* Citation contenu */
 blockquote div {
-padding-left: 20px;
+    position: relative;
+    background: var(--neutral5);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 4;
+}
+
+blockquote div::before,
+blockquote div::after {
+position: absolute;
+font-size: 55px;
+color: var(--accent3);
+line-height: 1;
+opacity: 0.2;
+z-index: -1;
+}
+blockquote div::before {
+content: "❝";
+top: -1px;
+left: 4px;
+}
+blockquote div::after {
+content: "❞";
+top: -1px;
+right: 4px;
 }
 
 /* Citation mention "... a écrit" */
 blockquote cite {
+position: relative;
 display: block;
-margin-left: -20px;
 font-style: normal;
+box-shadow: inset 0 -6px 0 var(--accent4);
+font-weight: 500;
+z-index: 4;
+margin: 0 30px;
+margin-bottom: 3px;
 }
 
 /* Citation pseudo */
