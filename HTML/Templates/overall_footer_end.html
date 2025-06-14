@@ -100,33 +100,73 @@ $(document).ready(function() {
 <script>
 (function () {
     const html = document.documentElement;
-    const themeControls = document.querySelector("[data-theme-controls]");
-    const toggle = themeControls.querySelector(".color-scheme-toggle");
     
-    const setToggleLabel = function () {
-    	let mode = html.dataset.colorScheme;
-        toggle.setAttribute(
-            "title",
-            "Activer le mode " + (mode === "dark" ? "clair" : "sombre")
-        );
-    };
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeControls = document.querySelector("[data-theme-controls]");
+        const toggle = themeControls.querySelector(".color-scheme-toggle");
+        
+        const setToggleLabel = function () {
+            let mode = html.dataset.colorScheme;
+            toggle.setAttribute(
+                "title",
+                "Activer le mode " + (mode === "dark" ? "clair" : "sombre")
+            );
+        };
 
-    const setColorScheme = function (value) {
-        html.dataset.colorScheme = value;
-        localStorage.setItem("color-scheme", value);
-        setToggleLabel();
-    };
+        const applyThemeToIframe = function () {
+            const iframe = document.querySelector('iframe[name="smilies"]');
+            console.log(iframe);
+            if (iframe && iframe.contentDocument) {
+                try {
+                    const iframeDoc = iframe.contentDocument;
+                    const iframeHtml = iframeDoc.documentElement;
+                    
+                    const parentTheme = document.documentElement.getAttribute('data-color-scheme');
+                    iframeHtml.setAttribute('data-color-scheme', parentTheme);
+                    
+                    if (!iframeDoc.getElementById('theme-styles')) {
+                        const style = iframeDoc.createElement('style');
+                        style.id = 'theme-styles';
+                        style.textContent = `
+                            [data-color-scheme="light"] {
+                                color-scheme: light;
+                            }
+                        `;
+                        
+                        iframeDoc.head.appendChild(style);
+                    }
+                } catch (e) {
+                    console.log('Could not access iframe content:', e);
+                }
+            }
+        };
 
-    const init = function () {
-        setToggleLabel();
-    };
+        const setColorScheme = function (value) {
+            html.dataset.colorScheme = value;
+            localStorage.setItem("color-scheme", value);
+            setToggleLabel();
 
-    toggle.addEventListener("click", function () {
-        const scheme = html.dataset.colorScheme === "dark" ? "light" : "dark";
-        setColorScheme(scheme);
+            applyThemeToIframe();
+        };
+
+        const init = function () {
+            setToggleLabel();
+            
+            applyThemeToIframe();
+
+            const iframe = document.querySelector('iframe[name="smilies"]');
+            if (iframe) {
+                iframe.addEventListener('load', applyThemeToIframe);
+            }
+        };
+
+        toggle.addEventListener("click", function () {
+            const scheme = html.dataset.colorScheme === "dark" ? "light" : "dark";
+            setColorScheme(scheme);
+        });
+
+        init();
     });
-
-    init();
 
 })();
 </script>

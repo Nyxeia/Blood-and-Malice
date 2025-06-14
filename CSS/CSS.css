@@ -25,7 +25,8 @@ color-scheme: dark;
 --accent1: #49161f;
 --accent2: #7e2431;
 --accent3: #7c464e;
---accent4: #29191c;
+--accent4: #29191c; /*highlight fond 1 */
+--accent5: #39262a; /*highlight fond 2 */
 
 --textColor1: #8b8b8b;
 --textColor2: #9b9b9b;
@@ -86,6 +87,7 @@ color-scheme: light;
 --accent2: #620026;
 --accent3: #995661;
 --accent4: #c6b3b3;
+--accent5: #d8cbce;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -156,6 +158,7 @@ color: var(--textColor2);
 text-shadow: var(--text-shadow);
 }
 /* subtitle style */
+#top-header-texte,
 .pa-link,
 .cate_quote,
 #subforum,
@@ -272,6 +275,8 @@ padding-bottom: 10px;
 #top-header-user {
 color: var(--textColor1);
 font-size: 24px;
+font-family: var(--font2);
+text-transform: lowercase;
 }
 #top-header-icons {
 display: flex;
@@ -309,8 +314,6 @@ margin: 53px 0 0 7px;
 color: var(--textColor1);
 }
 
-
-
 #header-wrap {
     padding: var(--pad-wrap);
 }
@@ -330,7 +333,7 @@ filter: var(--brightness-header);
 /* Conteneur de toutes les sous-sections
 * comme les encadrés d'options, de rappel, etc... */
 .panel {
-background: var(--neutral);
+background: var(--neutral2);
 border: var(--border);
 border-radius: 5px;
 padding: 10px;
@@ -526,7 +529,7 @@ border-bottom: var(--border) !important;
 
 /* Conteneur des groupes d'outils */
 div.sceditor-group {
-background: var(--neutral2) !important;
+background: var(--neutral1) !important;
 border-bottom: var(--border) !important;
 }
 
@@ -537,16 +540,20 @@ height: 26px !important;
 width: 26px !important;
 /*ne pas retirer*/
 }
+/*basculer mode d'edition*/
+a.sceditor-button.sceditor-button-source {
+    display: none;
+}
 
 /* Bouton d'un outil au survol ou actif*/
 .sceditor-button.active,
 .sceditor-button:active,
 .sceditor-button:hover,
 .sceditor-button.hover {
-background: var(--neutral) !important;
+background: var(--neutral3) !important;
 box-shadow: none !important;
 border: none !important;
-outline: 1px solid var(--neutralDarker);
+outline: var(--border);
 }
 
 /* Conteneur de la zone de texte */
@@ -2619,7 +2626,6 @@ clear: right;
 
 /* Spoiler */
 .spoiler_title {
-    margin: 5px;
     margin: 5px 5px 0 5px;
     font-weight: 500;
     box-shadow: inset 0 -6px 0 var(--accent4);
@@ -2943,8 +2949,8 @@ gap: 15px;
 
 /* Prévisualisation d'un message */
 #preview {
-background: var(--neutral);
-padding: 10px;
+background: var(--neutral2);
+padding: 20px;
 border: var(--border);
 border-radius: 5px;
 }
@@ -3099,3 +3105,96 @@ padding: 10px;
 border: var(--border);
 border-radius: 5px;
 }
+
+/*** FICHES--------------- ***/
+
+fiche {
+    display: block;
+    background: var(--neutral1);
+    border-radius: 5px;
+    padding: 15px;
+
+section, header {
+    display: block;
+    background: var(--neutral2);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: justify;
+    border: var(--border);
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+div:first-child {
+    width: 447px;
+}
+img {
+    background: var(--neutral2);
+    padding: 5px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100%;
+    border: var(--border);
+    outline: 5px solid var(--neutral5);
+}
+m1 {margin-left: 50px;
+    &::before {
+    content: "━";
+    margin-right: 5px;
+    }
+}
+} /*fin  header*/
+
+} /*fin fiche*/
+
+/*** STYLES --------------- ***/
+t0, t1, t2, t3, t4,
+p1 {
+display: block;
+font-size: 25px;
+font-family: var(--font2);
+text-transform: lowercase;
+letter-spacing: 1px;
+font-weight: 500;
+color: var(--textColor2);
+}
+t0 {
+    display: inline-block;
+    font-size: 30px;
+}
+t1 {
+box-shadow: inset 0px -10px 0 var(--accent5);
+line-height: 26px;
+display: block;
+padding: 0 5px;
+}
+t2 {
+box-shadow: inset 0px -2px 0 var(--accent5);
+display: block;
+padding: 0 0px 4px 0px;
+}
+
+p1 {
+box-shadow: inset 0px -10px 0 var(--accent5);
+line-height: 26px;
+font-size: 22px;
+display: inline-block;
+}
+
+m1 {
+display: inline-block;
+font-family: var(--font3);
+text-transform: uppercase;
+letter-spacing: 0.3px;
+font-size: var(--smaller-size);
+}
+m1 {
+    color: var(--accent3);
+    letter-spacing: 1.5px;
+}
+
