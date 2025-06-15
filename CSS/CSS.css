@@ -24,7 +24,7 @@ color-scheme: dark;
 
 --accent1: #49161f;
 --accent2: #7e2431;
---accent3: #993143;
+--accent3: #823542;
 --accent4: #29191c; /*highlight fond 1 */
 --accent5: #39262a; /*highlight fond 2 */
 
@@ -2425,6 +2425,7 @@ font-weight: 500;
 .custom-name, .custom-fc{
     text-shadow: none;
     min-height: 10px;
+    font-size: 16px;
 }
 .custom-rank, .custom-pseudo {
     text-align: center;
