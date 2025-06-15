@@ -24,7 +24,7 @@ color-scheme: dark;
 
 --accent1: #49161f;
 --accent2: #7e2431;
---accent3: #7c464e;
+--accent3: #993143;
 --accent4: #29191c; /*highlight fond 1 */
 --accent5: #39262a; /*highlight fond 2 */
 
@@ -2246,7 +2246,6 @@ align-items: center;
 gap: 3px;
 border-bottom: none;
 margin-bottom: 0;
-color: var(--accent3);
 a {color: var(--accent3);}
 }
 .like_button,
@@ -2266,7 +2265,7 @@ border-radius: 5px;
 font-weight: 600;
 }
 .rep-button:hover {
-color: var(--accent1);
+color: var(--accent2);
 }
 .fa_liked {
     color: #7a2020;
@@ -2300,6 +2299,11 @@ padding-top: 2px;
 text-shadow: var(--text-shadow2);
 font-size: 22px;
 strong {font-weight: 500;}
+}
+
+.post_rank {
+    font-size: var(--smallest-size);
+    letter-spacing: 1px;
 }
 
 .post_avatar img {border-radius: 3px;}
@@ -2425,6 +2429,7 @@ font-weight: 500;
 .custom-rank, .custom-pseudo {
     text-align: center;
     font-family: var(--font3);
+    font-style: italic;
     color: var(--accent3);
 }
 /* Mention "en ligne" */
@@ -2708,7 +2713,6 @@ blockquote cite {
 position: relative;
 display: block;
 font-style: normal;
-box-shadow: inset 0 -6px 0 var(--accent4);
 font-weight: 500;
 z-index: 4;
 margin: 0 30px;
