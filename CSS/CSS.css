@@ -2288,13 +2288,31 @@ font-size: var(--smallest-size);
 padding-top: 2px;
 }
 
-.post_profile {
+.post_profile, .post_nav {
     position: sticky;
     height: fit-content;
-    top: 80px;
+    top: 85px;
+}
+.post:has(.annexe) .post_profile {
+   display: none;
 }
 
-.post_pseudo_rank {padding: 10px;}
+.post_nav {
+display: none;
+}
+.post:has(.annexe) .post_nav {
+display: block;
+min-height: 100px;
+margin-top: 10px;
+}
+
+.annexe {
+    top: 85px;
+}
+
+.post_pseudo_rank {
+    padding: 7px;
+}
 .post_pseudo {
 text-shadow: var(--text-shadow2);
 font-size: 22px;
