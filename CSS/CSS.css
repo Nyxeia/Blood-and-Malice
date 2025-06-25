@@ -2310,6 +2310,10 @@ margin-top: 10px;
     top: 85px;
 }
 
+.toc-subsection-link {
+    margin-left: 15px;
+}
+
 .post_pseudo_rank {
     padding: 7px;
 }
