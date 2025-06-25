@@ -155,8 +155,9 @@ function generateTableOfContents() {
 }
 
 function makeTableOfContentsSticky(tocContainer, originalContainer) {
-    let isFixed = false;
+    let state = 'normal'; // 'normal', 'fixed', or 'bottom'
     const originalParent = originalContainer;
+    let placeholder = null;
     
     function handleScroll() {
         const originalRect = originalParent.getBoundingClientRect();
@@ -165,63 +166,126 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
         const allPostMessages = document.querySelectorAll('.container-post');
         const lastPostMessage = allPostMessages[allPostMessages.length - 1];
         
-        let shouldBeFixed = originalRect.top <= 85; // Condition de base
-        
-        // Si on a un dernier post_message, vérifier la position
-        if (lastPostMessage && isFixed) {
-            const lastPostMessageRect = lastPostMessage.getBoundingClientRect();
-            const postNavRect = originalParent.getBoundingClientRect();
-            
-            // Si le bas du dernier post_message est plus haut que le bas de la post_nav, désactiver
-            if (lastPostMessageRect.bottom < postNavRect.bottom) {
-                shouldBeFixed = false;
-            }
-
-            console.log("last post bottom = " + lastPostMessageRect.bottom);
-            console.log("nav bottom = " + postNavRect.bottom);
+        if (!lastPostMessage) {
+            return;
         }
         
-        if (shouldBeFixed && !isFixed) {
-            // Passer en mode fixed
-            isFixed = true;
-            
-            // Sauvegarder les dimensions originales
-            const width = tocContainer.offsetWidth;
-            const left = originalRect.left;
-            
-            // Appliquer uniquement le style fixed nécessaire
-            tocContainer.style.position = 'fixed';
-            tocContainer.style.top = '85px';
-            tocContainer.style.left = left + 'px';
-            tocContainer.style.width = width + 'px';
-            tocContainer.style.zIndex = '1000';
-            
-            // Créer un placeholder pour éviter le saut de layout
-            const placeholder = document.createElement('div');
-            placeholder.className = 'toc-placeholder';
-            placeholder.style.height = tocContainer.offsetHeight + 'px';
-            originalParent.appendChild(placeholder);
-            
-        } else if (!shouldBeFixed && isFixed) {
-            // Revenir en mode normal
-            isFixed = false;
-            
-            // Supprimer le placeholder
-            const placeholder = document.querySelector('.toc-placeholder');
-            if (placeholder) {
-                placeholder.remove();
+        const lastPostRect = lastPostMessage.getBoundingClientRect();
+        const tocHeight = tocContainer.offsetHeight;
+        
+        // Calculer les seuils
+        const shouldStartFixed = originalRect.top <= 85;
+        const tocBottomIfFixed = 85 + tocHeight;
+        const wouldOverflow = tocBottomIfFixed > lastPostRect.bottom;
+        
+        // Debug logs
+        console.log("Current state:", state);
+        console.log("Should start fixed:", shouldStartFixed);
+        console.log("Would overflow:", wouldOverflow);
+        console.log("TOC bottom if fixed:", tocBottomIfFixed);
+        console.log("Last post bottom:", lastPostRect.bottom);
+        
+        // Déterminer le nouvel état
+        let newState = state;
+        
+        if (state === 'normal') {
+            if (shouldStartFixed && !wouldOverflow) {
+                newState = 'fixed';
+            } else if (shouldStartFixed && wouldOverflow) {
+                newState = 'bottom';
             }
+        } else if (state === 'fixed') {
+            if (!shouldStartFixed) {
+                newState = 'normal';
+            } else if (wouldOverflow) {
+                newState = 'bottom';
+            }
+        } else if (state === 'bottom') {
+            // Calculer si on peut revenir en fixed
+            const scrolledBackUp = !wouldOverflow && shouldStartFixed;
+            const scrolledAboveStart = !shouldStartFixed;
             
-            // Remettre dans le conteneur original
-            tocContainer.style.position = '';
-            tocContainer.style.top = '';
-            tocContainer.style.left = '';
-            tocContainer.style.width = '';
-            tocContainer.style.zIndex = '';
+            if (scrolledAboveStart) {
+                newState = 'normal';
+            } else if (scrolledBackUp) {
+                newState = 'fixed';
+            }
         }
         
-        // Mettre à jour la position horizontale si en mode fixed (pour le responsive)
-        if (isFixed) {
+        // Appliquer les changements si l'état a changé
+        if (newState !== state) {
+            console.log("State change:", state, "->", newState);
+            
+            // Nettoyer l'état précédent
+            if (state === 'fixed' || state === 'bottom') {
+                if (placeholder) {
+                    placeholder.remove();
+                    placeholder = null;
+                }
+            }
+            
+            // Appliquer le nouvel état
+            if (newState === 'normal') {
+                // Remettre dans le conteneur original si nécessaire
+                if (tocContainer.parentElement === document.body) {
+                    originalParent.appendChild(tocContainer);
+                }
+                
+                tocContainer.style.position = '';
+                tocContainer.style.top = '';
+                tocContainer.style.left = '';
+                tocContainer.style.width = '';
+      
+            } else if (newState === 'fixed') {
+                const width = tocContainer.offsetWidth;
+                const left = originalRect.left;
+                
+                // Remettre dans le conteneur original si nécessaire
+                if (tocContainer.parentElement === document.body) {
+                    originalParent.appendChild(tocContainer);
+                }
+                
+                tocContainer.style.position = 'fixed';
+                tocContainer.style.top = '85px';
+                tocContainer.style.left = left + 'px';
+                tocContainer.style.width = width + 'px';
+                
+                // Créer placeholder
+                if (!placeholder) {
+                    placeholder = document.createElement('div');
+                    placeholder.className = 'toc-placeholder';
+                    placeholder.style.height = tocHeight + 'px';
+                    originalParent.appendChild(placeholder);
+                }
+            } else if (newState === 'bottom') {
+                // Positionner en absolu par rapport au dernier post
+                const width = tocContainer.offsetWidth;
+                
+                // Calculer la position absolue où le TOC doit s'arrêter
+                const stopPosition = lastPostRect.bottom - tocHeight + window.pageYOffset;
+                
+                // S'assurer que le placeholder existe pour maintenir la hauteur
+                if (!placeholder) {
+                    placeholder = document.createElement('div');
+                    placeholder.className = 'toc-placeholder';
+                    placeholder.style.height = tocHeight + 'px';
+                    originalParent.appendChild(placeholder);
+                }
+                
+                // Ajouter le TOC au body pour le positionner en absolu
+                document.body.appendChild(tocContainer);
+                
+                tocContainer.style.position = 'absolute';
+                tocContainer.style.top = stopPosition + 'px';
+                tocContainer.style.left = (originalRect.left + window.pageXOffset) + 'px';
+                tocContainer.style.width = width + 'px';
+            }
+            
+            state = newState;
+        }
+        
+        // Mettre à jour la position horizontale si fixed
+        if (state === 'fixed') {
             const newRect = originalParent.getBoundingClientRect();
             tocContainer.style.left = newRect.left + 'px';
         }
