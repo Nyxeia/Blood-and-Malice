@@ -150,8 +150,90 @@ function generateTableOfContents() {
     // Vider post_nav et ajouter la table des matières
     postNav.innerHTML = '';
     postNav.appendChild(tocContainer);
+
+    makeTableOfContentsSticky(tocContainer, postNav);
 }
 
+function makeTableOfContentsSticky(tocContainer, originalContainer) {
+    let isFixed = false;
+    const originalParent = originalContainer;
+    
+    function handleScroll() {
+        const originalRect = originalParent.getBoundingClientRect();
+        
+        // Trouver le dernier post_message de la page
+        const allPostMessages = document.querySelectorAll('.container-post');
+        const lastPostMessage = allPostMessages[allPostMessages.length - 1];
+        
+        let shouldBeFixed = originalRect.top <= 85; // Condition de base
+        
+        // Si on a un dernier post_message, vérifier la position
+        if (lastPostMessage && isFixed) {
+            const lastPostMessageRect = lastPostMessage.getBoundingClientRect();
+            const postNavRect = originalParent.getBoundingClientRect();
+            
+            // Si le bas du dernier post_message est plus haut que le bas de la post_nav, désactiver
+            if (lastPostMessageRect.bottom < postNavRect.bottom) {
+                shouldBeFixed = false;
+            }
+
+            console.log("last post bottom = " + lastPostMessageRect.bottom);
+            console.log("nav bottom = " + postNavRect.bottom);
+        }
+        
+        if (shouldBeFixed && !isFixed) {
+            // Passer en mode fixed
+            isFixed = true;
+            
+            // Sauvegarder les dimensions originales
+            const width = tocContainer.offsetWidth;
+            const left = originalRect.left;
+            
+            // Appliquer uniquement le style fixed nécessaire
+            tocContainer.style.position = 'fixed';
+            tocContainer.style.top = '85px';
+            tocContainer.style.left = left + 'px';
+            tocContainer.style.width = width + 'px';
+            tocContainer.style.zIndex = '1000';
+            
+            // Créer un placeholder pour éviter le saut de layout
+            const placeholder = document.createElement('div');
+            placeholder.className = 'toc-placeholder';
+            placeholder.style.height = tocContainer.offsetHeight + 'px';
+            originalParent.appendChild(placeholder);
+            
+        } else if (!shouldBeFixed && isFixed) {
+            // Revenir en mode normal
+            isFixed = false;
+            
+            // Supprimer le placeholder
+            const placeholder = document.querySelector('.toc-placeholder');
+            if (placeholder) {
+                placeholder.remove();
+            }
+            
+            // Remettre dans le conteneur original
+            tocContainer.style.position = '';
+            tocContainer.style.top = '';
+            tocContainer.style.left = '';
+            tocContainer.style.width = '';
+            tocContainer.style.zIndex = '';
+        }
+        
+        // Mettre à jour la position horizontale si en mode fixed (pour le responsive)
+        if (isFixed) {
+            const newRect = originalParent.getBoundingClientRect();
+            tocContainer.style.left = newRect.left + 'px';
+        }
+    }
+    
+    // Écouter le scroll et le resize
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // Vérification initiale
+    handleScroll();
+}
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', generateTableOfContents);
