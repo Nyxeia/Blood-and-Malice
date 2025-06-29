@@ -98,9 +98,8 @@ $('.so-below').hover(
     
     // Move to tabcontent2
     var fieldsToMove = [
-        "Credits", "Messages", "Date d'inscription",
-        "Triggers", "Warnings", "Multicomptes",
-        "Habitudes RPG", "Points"
+        "Messages", "Cristaux", "Date d'inscription", "Aka", "Pronoms IRL", "Thèmes abordés", "Thèmes refusés", "Infos RP", 
+        "Zone libre 2", "Note", "Crédits"
     ];
     
     var customDestinations = {
