@@ -2947,7 +2947,6 @@ margin: 0;
 
 .userlist_header {
     margin-top: 0;
-    margin-bottom: 15px;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -2964,7 +2963,9 @@ margin: 0;
 letter-spacing: 1px;
 }
 
-.userlist_avatar {}
+.userlist_avatar {
+    margin: 10px 0;
+}
 
 .userlist_avatar img {
 width: 175px;
