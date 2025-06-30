@@ -15,7 +15,8 @@ $(document).ready(function () {
             memberList = '.userlist', /* sélecteur du bloc autour des blocs membres */
             itemSelector = '.userlist_profil', /* le sélecteur des blocs membres individuels */
             pseudoMembre = '.userlist_name', /* sélecteur du pseudo du membre */
-            humeurMembre = '.userlist_alias'; /* sélecteur du contenu du champ humeur du membre */
+            humeurMembre = '.userlist_alias', /* sélecteur du contenu du champ humeur du membre */
+            messagesMembre = '.userlist_posts'; /* sélecteur du nombre de messages du membre */
 
         /* ne pas toucher à ces variables */
         var allMembers = document.createDocumentFragment(), /* on crée un fragment qui sera append à la grid isotopée plus tard */
@@ -55,7 +56,7 @@ $(document).ready(function () {
                         return;
                     }
                         /* Pour chaque membre dans newMembers */
-                        newMembers.each(function() {
+                        newMembers.each(function(index) {
  
                             /* on récupère le bloc membre */
                             oneMember = $(this)[0];
@@ -63,6 +64,13 @@ $(document).ready(function () {
                             /* on lui ajoute un attribut data-inscription qui prend l'id du membre, que l'on récupère sur le lien du pseudo */
                             var idMembre = $(this).find(pseudoMembre).attr('href').replace(/[^0-9]/g,'');
                             $(this).attr('data-inscription', idMembre);
+
+                            /* on ajoute un attribut data-messages qui prend le nombre de messages */
+                            var nbMessages = $(this).find(messagesMembre).text().replace(/[^0-9]/g,'');
+                            $(this).attr('data-messages', nbMessages || '0');
+
+                            /* on ajoute un attribut data-derco basé sur l'ordre original (dernière connexion) */
+                            $(this).attr('data-derco', ((page - 1) * membersPerPage) + index);
  
                             /* on ajoute le bloc membre dans le docfrag allMembers */
                             allMembers.append( oneMember );
@@ -105,7 +113,8 @@ $(document).ready(function () {
                                 pseudo: pseudoMembre,
                                 inscription: '[data-inscription] parseInt',
                                 humeur: humeurMembre,
-                                derco : '[data-derco] parseInt'
+                                derco : '[data-derco] parseInt',
+                                messages: '[data-messages] parseInt'
                             }
                         });
             
@@ -238,6 +247,12 @@ $(document).ready(function () {
                             else if (sorting === "inscription"){
                                 valueA = $(a).data("inscription");
                                 valueB = $(b).data("inscription");
+                            }
+
+                            /* Si l'ordre est par Nombre de messages */
+                            else if (sorting === "messages"){
+                                valueA = $(a).data("messages");
+                                valueB = $(b).data("messages");
                             }
  
  
@@ -449,13 +464,13 @@ $(document).ready(function () {
                 /* Récupérer la valeur de l'attribut correspondant */
                 sorting = $(this).attr('data-sort-by');
  
-                /* Si l'ordre de triage n'est pas Dernière connexion */
-                if (sorting != 'original-order'){
-                    /* Remettre la direction croissante */
-                    order = true;
-                } else{ /* Sinon pour l'ordre de triage Dernière connexion */
+                /* Si l'ordre de triage est Dernière connexion ou Messages */
+                if (sorting == 'original-order' || sorting == 'messages'){
                     /* Remettre la direction décroissante */
                     order = false;
+                } else{ /* Sinon pour tous les autres ordres de triage */
+                    /* Remettre la direction croissante */
+                    order = true;
                 }
                 /* Si le bouton de direction de triage décroissant est sélectionné, enlever la sélection */
                 $('button[data-order="'+!order+'"]').removeClass('is-checked');
@@ -465,11 +480,20 @@ $(document).ready(function () {
                 /* Réattribuer la pagination à tous les blocs */
                 setPagination();
  
-                /* Changer l'organisation de la grille selon le bouton sélectionné + set la direction par défaut */
-                $grid.isotope({
-                    sortBy: sorting,
-                    sortAscending: true
-                });
+                /* Si l'ordre de triage est Dernière connexion */
+                if (sorting == 'original-order'){
+                    /* Changer l'organisation de la grille pour Dernière connexion avec la direction par défaut */
+                    $grid.isotope({
+                        sortBy: 'derco',
+                        sortAscending: !order
+                    });
+                } else {
+                    /* Changer l'organisation de la grille selon le bouton sélectionné + set la direction par défaut */
+                    $grid.isotope({
+                        sortBy: sorting,
+                        sortAscending: order
+                    });
+                }
  
                 /* Afficher la première page */
                 goToPage(1)
