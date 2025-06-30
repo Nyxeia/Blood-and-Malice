@@ -3250,6 +3250,13 @@ border: var(--border);
 border-radius: 5px;
 }
 
+.forumbg-table {
+background: var(--neutral1);
+border-radius: 5px;
+margin: 10px;
+padding: 10px;
+}
+
 /*** FICHES--------------- ***/
 
 fiche {

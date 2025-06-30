@@ -6,8 +6,17 @@
 
 $(document).ready(function () {
 
-    /* Si on est sur la page /memberlist */
-    if (window.location.href.includes("/memberlist")) {
+    var currentUrl = window.location.href;
+    var memberlistBase = "https://bloodandmalice.forumactif.com/memberlist";
+    var overallPostersUrl = "https://bloodandmalice.forumactif.com/memberlist?mode=overall_posters";
+
+    /* Si on est sur la page /memberlist normale OU sur overall_posters */
+    if (currentUrl === memberlistBase || 
+        (currentUrl.startsWith(memberlistBase + "?start=") && !currentUrl.includes("mode=")) ||
+        currentUrl === overallPostersUrl) {
+
+        /* Détecter si on est sur la page overall_posters pour changer les valeurs par défaut */
+        var isOverallPosters = (currentUrl === overallPostersUrl);
 
         /* MODIFS DES VARIABLES */
         var membersPerPage = 40, /* nombre de membres par page (le même que dans les settings du PA) */
@@ -134,9 +143,24 @@ $(document).ready(function () {
  
             var pageAtribute = 'data-page'; /* attribut des filtres de page */
             var pagerClass = 'isotope-pager'; /* class du bloc de pagination */
-            var sorting = 'original-order'; /* définition de l'ordre de triage par défaut (original-order = dernière connexion, l'ordre de base de la liste des membres de FA) */
+            
+            /* Définition de l'ordre de triage par défaut selon la page */
+            var sorting = isOverallPosters ? 'messages' : 'original-order';
             var search = false; /* état de la barre de recherche, par défaut il n'y a pas de recherche donc false */
             var order = false; /* direction du triage, par défaut décroissant */
+
+            /* Mettre à jour l'interface selon la page */
+            if (isOverallPosters) {
+                /* Sélectionner le bouton Messages */
+                $('.sort-by-button-group button').removeClass('is-checked');
+                $('.sort-by-button-group button[data-sort-by="messages"]').addClass('is-checked');
+                
+                /* Appliquer le tri par messages à Isotope */
+                $grid.isotope({
+                    sortBy: 'messages',
+                    sortAscending: false
+                });
+            }
  
             /* Objet qui va récupérer tous les filtres actifs */
             var buttonFilters = {};
@@ -512,5 +536,5 @@ $(document).ready(function () {
  
         }
         
-    }
+    } // Fermeture de la condition URL
 });
