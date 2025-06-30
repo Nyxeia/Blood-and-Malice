@@ -185,7 +185,8 @@ tag,
 .spoiler_title,
 blockquote cite,
 .preview-author,
-.userlist_alias, .userlist_visited
+.userlist_alias, .userlist_visited,
+.table-contact a
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -1424,7 +1425,8 @@ padding: 20px;
 }
 .pa-link,
 .sidenav-links a, 
-.profil_contact a {
+.profil_contact a,
+.table-contact a {
     background: var(--neutral2);
     border-radius: 5px;
     padding: 3px 10px;
@@ -1812,7 +1814,8 @@ margin-bottom: 4px;
 #subforum a:hover,
 .pa-link a:hover,
 .sidenav-links a:hover,
-.profil_contact a:hover  {
+.profil_contact a:hover,
+.table-contact a:hover  {
 color: var(--hoverColor1);
 transition: var(--transition);
 }
@@ -2524,10 +2527,13 @@ display: none;
 
 .page-title {
 display: block;
-text-align: right;
 font-size: 28px;
 margin: 10px;
 }
+.container-post .page-title {
+    text-align: right;
+}
+
 .post_anchor {
 display: block;
 height: 85px;
@@ -3255,6 +3261,26 @@ background: var(--neutral1);
 border-radius: 5px;
 margin: 10px;
 padding: 10px;
+}
+.grplist {
+    margin: 10px !important;
+}
+.grp_table {
+    text-align: center;
+}
+.grp_table tr {height: 45px;}
+.grp_table td {
+    border-bottom: var(--border);
+}
+.grp_role {
+    text-align: left;
+    padding: 20px 10px !important;
+    font-style: italic;
+}
+.h3 {
+font-size:15px;}
+.grplist #username {
+    width:250px;
 }
 
 /*** FICHES--------------- ***/

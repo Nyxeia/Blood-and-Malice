@@ -1,15 +1,11 @@
 <!-- BEGIN switch_user_logged_in --><p class="right rightside">{LAST_VISIT_DATE}</p><!-- END switch_user_logged_in -->
 <p>{CURRENT_TIME}</p>
 
-<!-- Titre de la page -->
-<div class="forum_title_grp topic_title_grp">
-    <div class="forum_title_line topic_title_line"></div>
-    <div class="topic_title">
-        <h1 class="page-title">{GROUP_NAME}</h1>
-    </div>
-</div>
+<!-- Titre de la liste des membres -->
+<div class="cate_title"><h2>{GROUP_NAME}</h2>
+<div class="cate_quote">— Strength in numbers —</div></div>
 
-<div class="panel">
+<div class="panel grplist">
 	<div class="inner"><span class="corners-top"><span></span></span>
 	<h2 class="h3">{L_GROUP_INFORMATION}</h2>
 	<form action="{S_GROUPCP_ACTION}" method="post">
@@ -74,10 +70,10 @@
 				<td colspan="8" class="grp_role">{L_GROUP_MODERATOR}</td>
 			</tr>
 			<tr class="row1">
-				<td>{MOD_PM_IMG}</td>
+				<td class="table-contact">{MOD_PM_IMG}</td>
 				<td><a href="{U_MOD_VIEWPROFILE}">{MOD_USERNAME}</a></td>
 				<td>{MOD_POSTS}</td>
-				<td>{MOD_WWW_IMG}</td>
+				<td class="table-contact">{MOD_WWW_IMG}</td>
 				<!-- BEGIN switch_mod_option --><td>&nbsp;</td><!-- END switch_mod_option -->
 			</tr>
 			<tr class="row3">
@@ -85,10 +81,10 @@
 			</tr>
 			<!-- BEGIN member_row -->
 			<tr class="{member_row.ROW_CLASS}">
-				<td>{member_row.PM_IMG}</td>
+				<td class="table-contact">{member_row.PM_IMG}</td>
 				<td><a href="{member_row.U_VIEWPROFILE}">{member_row.USERNAME}</a></td>
 				<td>{member_row.POSTS}</td>
-				<td>{member_row.WWW_IMG}</td>
+				<td class="table-contact">{member_row.WWW_IMG}</td>
 				<!-- BEGIN switch_mod_option --><td class="posts"><input type="checkbox" name="members[]" value="{member_row.USER_ID}" /></td><!-- END switch_mod_option -->
 			</tr>
 			<!-- END member_row -->
@@ -108,7 +104,7 @@
     </div>
 </div>
 <!-- BEGIN switch_mod_option -->
-    <div class="panel">
+    <div class="panel grplist">
         <div class="inner">
             <span class="corners-top"><span></span></span>
             <!-- BEGIN switch_grp_admin -->
@@ -128,9 +124,6 @@
 <p class="pagination">{PAGINATION}</p>
 <div class="clear"></div>
 {PENDING_USER_BOX}
-</form>
-<form action="{S_JUMPBOX_ACTION}" method="get" name="jumpbox" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
-	<p class="right">{L_JUMP_TO}:&nbsp;{S_JUMPBOX_SELECT}&nbsp;<input class="button2" type="submit" value="{L_GO}" /></p>
 </form>
 
 <!-- BEGIN switch_mod_option -->
