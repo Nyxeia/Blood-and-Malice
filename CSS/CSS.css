@@ -2931,11 +2931,12 @@ margin: 0;
 .userlist {
     padding: 10px 20px !important;
     border-radius: 10px !important;
+    background: var(--neutral1);
 }
 
 .userlist_profil {
     padding: 10px !important;
-    background: var(--neutral1) !important;
+    background: var(--neutral2) !important;
     border-radius: 5px !important;
     width: 225px !important;
     box-sizing: border-box !important;
