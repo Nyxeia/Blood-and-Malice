@@ -1,18 +1,4 @@
-<!----------------------------------------------->
-<!-- BARRE DE SELECTION -------------->
-
-<div class="links_bar">
-    <form action="{S_MODE_ACTION}" method="get">
-        <span>
-            {L_USER_SELECT}&nbsp;<input type="text" class="inputbox tiny" name="username" maxlength="25" size="20" value="{L_USER_SELECT_VALUE}" />&nbsp;&nbsp;&nbsp;&nbsp;
-            {L_SELECT_SORT_METHOD}&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;&nbsp;&nbsp;
-            {L_ORDER}&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;&nbsp;&nbsp;
-            {S_HIDDEN_SID}
-            <input class="button2" type="submit" name="submit" value="{L_SUBMIT}" />
-        </span>
-    </form>
-</div>
-
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
 <!----------------------------------------------->
 <!-- LISTE DES MEMBRES -------------->
@@ -20,7 +6,44 @@
 <div class="container">
 
     <!-- Titre de la liste des membres -->
-    <h1 class="page-title">{PAGE_TITLE}</h1>
+    <div class="membres cate_title"><h2>liste des membres</h2>
+    <div class="cate_quote">— paint the town red —</div></div>
+
+    <!-- filtres -->
+    <div class="filtres">
+
+        <div class="filters">
+            <div class="ui-group">
+                <h3>Filtrer par groupe</h3>
+                <div class="button-group js-radio-button-group" data-filter-group="groupe">
+                    <button class="button is-checked" data-filter="">Tous</button>
+                    <button class="button" data-filter=".vampires">Vampires</button>
+                    <button class="button" data-filter=".sorciers">Sorcier·es</button>
+                    <button class="button" data-filter=".spectres">Spectres</button>
+                    <button class="button" data-filter=".humains">Humain·es</button>
+                </div>
+            </div>
+        </div>
+        <div class="sorts">
+            <h3>Ranger par</h3>
+            <div class="button-group sort-by-button-group">
+                <button class="button is-checked" data-sort-by="original-order">Dernière connexion</button>
+                <button class="button" data-sort-by="pseudo">Nom du perso</button>
+                <button class="button" data-sort-by="humeur">Alias</button>
+                <button class="button" data-sort-by="inscription">Date d'inscription</button>
+            </div>
+        </div>
+        <div class="namesearch"><h3>Chercher par nom</h3><p><input type="text" class="quicksearch" placeholder="Nom du personnage"></p></div>
+
+        <div class="croiss">
+            <h3>Ordre</h3>
+            <div class="button-group croiss-group">
+                <button class="button" data-order="true">Croissant</button>
+                <button class="button is-checked" data-order="false">Décroissant</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Liste des membres -->
     <div class="userlist">
@@ -29,32 +52,25 @@
         <!-- BEGIN memberrow -->
         <div class="userlist_profil">
 
-            <!-- Avatar -->
-            <div class="userlist_avatar">
-                {memberrow.AVATAR_IMG}
-            </div>
-
-            <!-- Conteneurs des informations de membre -->
-            <div class="userlist_details">
-
                 <!-- Pseudo -->
-                <span class="userlist_pseudo">
-                    <a href="{memberrow.U_VIEWPROFILE}">{memberrow.USERNAME}</a>
-                </span>
+                <div class="userlist_header">
+                <div class="userlist_pseudo">
+                    <a href="{memberrow.U_VIEWPROFILE}" class="userlist_name">{memberrow.USERNAME}</a>
+                </div>
+                <div class="userlist_alias">{memberrow.INTERESTS}</div>
+                </div>
+
+                <!-- Avatar -->
+                <div class="userlist_avatar">
+                    {memberrow.AVATAR_IMG}
+                </div>
 
                 <!-- Champs de profil -->
                 <div class="userlist_infos">
-                    {L_JOINED}: {memberrow.JOINED}<br />
-                    {L_VISITED}: {memberrow.LASTVISIT}<br />
-                    {L_POSTS}: {memberrow.POSTS}<br />
+                    <div class="userlist_visited">{memberrow.LASTVISIT}</div>
+                    <div class="userlist_posts">{memberrow.POSTS} messages postés</div>
+                    <div class="userlist_joined inscription">depuis le {memberrow.JOINED}</div>
                 </div>
-
-                <!-- Lien de contact -->
-                <div class="userlist_contact right">
-                    {memberrow.PM_IMG}&nbsp;
-                    {memberrow.WWW_IMG}
-                </div>
-            </div>
 
         </div>
         <!-- END memberrow -->
@@ -62,7 +78,7 @@
 
     </div>
     <!-- Fin liste des membres -->
-  
+
     <!-- Pagination -->
     <center>
         <!-- BEGIN switch_pagination -->
@@ -71,6 +87,5 @@
         </span>
         <!-- END switch_pagination -->
     </center>
-  
+
 </div>
-            

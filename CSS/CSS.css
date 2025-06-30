@@ -148,7 +148,8 @@ img {
 .postbutton .buttons,
 .post_pseudo,
 .page-title, 
-.custom-name, .custom-fc {
+.custom-name, .custom-fc,
+.userlist_name {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -183,7 +184,8 @@ tag,
 .profil_contact a,
 .spoiler_title,
 blockquote cite,
-.preview-author
+.preview-author,
+.userlist_alias, .userlist_visited
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -2557,7 +2559,8 @@ ol {
 
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
-.post_userinfo, .post_customfield
+.post_userinfo, .post_customfield,
+.userlist_header, .userlist_infos
 {
     background: var(--neutral2);
     border-radius: 3px;
@@ -2898,38 +2901,93 @@ display: none;
 /*** ------------------------------- ***/
 /*** LISTE DES MEMBRES ------------- ***/
 
+.membres.cate_title {
+margin: 0;
+}
+.filtres {
+    margin: 10px 0;
+    background: var(--neutral1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+
+    h3 {
+        font-size: 15px;
+    }
+    button {
+        padding: 3px 10px !important;
+        margin: 0 2px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .is-checked {
+        background: var(--accent1);
+        color: var(--textColor3) !important;
+        font-weight: 400;
+        border: 1px solid var(--accent1);
+    }
+}
+
 .userlist {
-display: grid;
-grid-template-columns: auto auto;
-grid-gap: 10px;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
 }
 
 .userlist_profil {
-display: grid;
-grid-template-columns: 95px auto;
-grid-gap: 10px;
-padding: 10px;
-background: var(--neutral);
-border-radius: 5px;
+    padding: 10px !important;
+    background: var(--neutral1) !important;
+    border-radius: 5px !important;
+    width: 225px !important;
+    box-sizing: border-box !important;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.userlist_header {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 58px;
+}
+.userlist_name {
+    text-shadow: var(--text-shadow2);
+    font-size: 22px;
+    transition: var(--transition);
+    strong {font-weight: 500;}
+}
+.userlist_alias {
+letter-spacing: 1px;
 }
 
 .userlist_avatar {}
 
 .userlist_avatar img {
-width: 75px;
-height: 120px;
+width: 175px;
+height: 175px;
 object-fit: cover;
 object-position: center;
+border-radius: 100%;
+background: var(--neutral2);
+padding: 6px;
+border: var(--border2);
 }
 
-.userlist_details {}
-
-.userlist_pseudo {
+.userlist_infos {
+    padding: 5px;
 }
+.userlist_visited.vampires {color: var(--vampires)}
+.userlist_visited.sorciers {color:var(--sorciers)}
+.userlist_visited.spectres {color: var(--spectres)}
+.userlist_visited.humains {color:var(--humains)}
 
-.userlist_infos {}
-
-.userlist_contact {}
+.userlist_posts, .userlist_joined {
+    font-size: var(--smallest-size);
+}
 
 /****** ------------------------------------------------------------------------------ 
 ****** MESSAGES PRIVES -------------------------------------------------------------- ******/
