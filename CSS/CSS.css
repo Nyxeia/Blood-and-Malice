@@ -2326,6 +2326,7 @@ margin-top: 10px;
 .post_pseudo {
 text-shadow: var(--text-shadow2);
 font-size: 22px;
+line-height: 20px;
 strong {font-weight: 500;}
 }
 
@@ -2955,10 +2956,14 @@ margin: 0;
     justify-content: center;
     height: 58px;
 }
+.userlist_pseudo {
+    margin-bottom: 2px;
+}
 .userlist_name {
     text-shadow: var(--text-shadow2);
     font-size: 22px;
     transition: var(--transition);
+    line-height: 24px;
     strong {font-weight: 500;}
 }
 .userlist_alias {
@@ -2966,7 +2971,7 @@ letter-spacing: 1px;
 }
 
 .userlist_avatar {
-    margin: 10px 0;
+    margin: 18px 0 15px 0;
 }
 
 .userlist_avatar img {
