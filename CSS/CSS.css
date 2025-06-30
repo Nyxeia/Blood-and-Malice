@@ -2938,6 +2938,7 @@ margin: 0;
     padding: 10px !important;
     background: var(--neutral2) !important;
     border-radius: 5px !important;
+    border: var(--border);
     width: 225px !important;
     box-sizing: border-box !important;
     margin-right: 12px;
