@@ -462,7 +462,7 @@ width: 80%;
 /* BOUTONS D'INTERACTION --- *
 * Envoyer, prévisualiser, sauvegarder, aller,... */
 input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]),
-.button {
+.button, #tabs li {
     padding: 7px 15px !important;
     background: var(--neutral2);
     color: var(--textColor1);
@@ -475,7 +475,7 @@ input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]),
 }
 
 /* Au survol */
-:hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
+:hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button, #tabs li) {
 color: var(--hoverColorBase);
 transition: var(--transition);
 }
@@ -3111,30 +3111,36 @@ margin: 10px;
 }
 
 /* Onglets dans la modification de profil */
+#tabs {
+background: var(--neutral1);
+padding: 15px 10px;
+margin: 10px 10px -15px;
+margin-bottom: -15px;
+border-radius: 5px;
+}
 #tabs ul {
 display: flex;
-justify-content: space-between;
-margin: 20px 0 10px;
+justify-content: center;
+align-items: center;
 }
 
 /*onglet*/
 #tabs li {
-padding: 5px 10px;
-border: 1px solid transparent;
+padding: 3px 10px !important;
+margin: 0 2px;
+font-size: 13px;
+font-weight: 500;
 }
 
 /* Onglet selectionné */
 #tabs li.activetab {
-background: var(--neutralDark);
-border: var(--border);
-border-radius: 5px;
+background: var(--accent1);
+border: 1px solid var(--accent1);
+margin-top:1px;
+a {
+color: var(--textColor3) !important;
+font-weight: 400;
 }
-
-/* onglet au survol */
-#tabs li:hover {
-background: var(--neutralDark);
-border-radius: 5px;
-border: var(--border);
 }
 
 /* Suppression de l'onglet "amis et ignorés" */
@@ -3281,6 +3287,24 @@ padding: 10px;
 font-size:15px;}
 .grplist #username {
     width:250px;
+}
+
+.page-title-bg {
+    background: var(--neutral1);
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: var(--cate-img);
+    border-radius: 10px;
+    filter: var(--brightness);
+    background-position: bottom -50px right 0px;
+
+    .page-title {
+    color: var(--color-cate-title);
+    text-shadow: var(--shadow-cate-title);
+    }
 }
 
 /*** FICHES--------------- ***/
