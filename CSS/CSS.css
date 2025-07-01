@@ -2513,6 +2513,7 @@ border-radius: 5px;
 text-align: center;
 color: var(--textColor3);
 text-transform: none;
+z-index: 10;
 }
 
 /* titre de la récompenses*/
@@ -2526,9 +2527,21 @@ display: none;
 }
 
 .page-title {
-display: block;
 font-size: 28px;
 margin: 10px;
+text-align: center;
+background: var(--neutral1);
+height: 50px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-image: var(--cate-img);
+border-radius: 10px;
+filter: var(--brightness);
+background-position: bottom -50px right 0px;
+color: var(--color-cate-title);
+text-shadow: var(--shadow-cate-title);
 }
 .container-post .page-title {
     text-align: right;
@@ -3289,22 +3302,16 @@ font-size:15px;}
     width:250px;
 }
 
-.page-title-bg {
-    background: var(--neutral1);
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: var(--cate-img);
-    border-radius: 10px;
-    filter: var(--brightness);
-    background-position: bottom -50px right 0px;
-
-    .page-title {
-    color: var(--color-cate-title);
-    text-shadow: var(--shadow-cate-title);
+/*Sujets surveillés profil*/
+#memberlist, .table1 
+{
+    td.posts>img {
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
     }
+    .mobile-visible {display:none;}
 }
 
 /*** FICHES--------------- ***/
