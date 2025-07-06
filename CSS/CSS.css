@@ -3346,7 +3346,7 @@ form>p {
 fiche {
     display:block;
     width:90%;
-    margin: 45px auto auto auto;
+    margin: 10px auto auto auto;
     background: var(--neutral1);
     border-radius: 10px;
     padding: 15px;
@@ -3371,7 +3371,6 @@ header {
     flex-direction: column;
     position: relative;
     height: 115px;
-
 img {
     position: absolute;
     background: var(--neutral2);
@@ -3386,9 +3385,26 @@ img {
     outline: 7px solid var(--neutral1);
 }
 } /*fin  header*/
+fiche:has(header img) {
+    margin-top: 50px !important;
+}
 header:has(img) {
     height: 145px !important;
+
+&::before {
+content: '';
+position: absolute;
+background: var(--neutral2);
+padding: 7px;
+width: 120px;
+height: 120px;
+border-radius: 100%;
+top: -87px;
+outline: 1px solid var(--neutral5);
+clip-path: circle(150px at 50% -50%);
 }
+}
+
 
 /*** STYLES --------------- ***/
 hr1 {
