@@ -152,7 +152,8 @@ img {
 .post_pseudo,
 .page-title, 
 .custom-name, .custom-fc,
-.userlist_name {
+.userlist_name,
+t0, t1 {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -2536,7 +2537,7 @@ text-transform: uppercase;
 display: none;
 }
 
-.page-title {
+.page-title, t1 {
 font-size: 28px;
 margin: 10px;
 text-align: center;
@@ -3114,6 +3115,11 @@ padding: 10px 20px;
 border: var(--border);
 border-radius: 5px;
 margin: 10px;
+
+.content {
+    width: 738px;
+    margin: auto;
+}
 }
 
 /*** ------------------------------- ***/
@@ -3333,23 +3339,35 @@ form>p {
 
 /*** FICHES--------------- ***/
 
-corps {
+fiche, .fiche {
+    display:block;
+    width:90%;
+    margin:auto;
+}
+corps, .corps {
     display: block;
     background: var(--neutral1);
     border-radius: 0 0 5px 5px;
     padding: 15px;
 }
 
-section {
+section, .section {
     display: block;
     background: var(--neutral2);
     border-radius: 5px;
     padding: 10px;
     text-align: justify;
     border: var(--border);
+    font-family: var(--font), system-ui, sans-serif;
 }
+/* @supports (-webkit-touch-callout: none) {
+  section {
+    height: 400px;
+    overflow-y: scroll;
+  }
+} */
 
-header {
+header, .header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -3398,51 +3416,30 @@ img {
 /*** STYLES --------------- ***/
 hr1 {
 content: url("https://images2.imgbox.com/fe/70/L8oIIqLl_o.png");
-width: 130px;
+width: 120px;
 filter: var(--badges);
 display: block;
 margin: 0 auto;
 }
 hr2 {
 content: url("https://images2.imgbox.com/84/10/m7j6vZfT_o.png");
-width: 200px;
+width: 180px;
 filter: var(--badges);
 display: block;
 margin: 0 auto;
 }
 
-t0, t1, t2, t3, t4,
-p1 {
-display: block;
-font-size: 25px;
-font-family: var(--font2);
-text-transform: lowercase;
-letter-spacing: 1px;
-font-weight: 500;
-color: var(--textColor2);
-}
 t0 {
 display:block;
-    font-size: 32px;
+font-size: 32px;
 }
 t1 {
-box-shadow: inset 0px -10px 0 var(--accent5);
-line-height: 26px;
-display: block;
-padding: 0 5px;
-}
-t2 {
-box-shadow: inset 0px -2px 0 var(--accent5);
-display: block;
-padding: 0 0px 4px 0px;
+margin: 0;
+height: 35px;
+font-size: 24px;
+background-position: bottom -9px right -81px;
 }
 
-p1 {
-box-shadow: inset 0px -10px 0 var(--accent5);
-line-height: 26px;
-font-size: 22px;
-display: inline-block;
-}
 
 m0, m1 {
 display: inline-block;
@@ -3453,6 +3450,7 @@ font-size: var(--smaller-size);
 }
 m0 {
     color: var(--accent2);
+    filter: var(--brightness);
     letter-spacing: 1.5px;
 }
 m1 {
