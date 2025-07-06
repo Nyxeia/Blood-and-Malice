@@ -3360,12 +3360,6 @@ section, .section {
     border: var(--border);
     font-family: var(--font), system-ui, sans-serif;
 }
-/* @supports (-webkit-touch-callout: none) {
-  section {
-    height: 400px;
-    overflow-y: scroll;
-  }
-} */
 
 header, .header {
     display: flex;
