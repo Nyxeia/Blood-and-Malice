@@ -55,6 +55,7 @@ color-scheme: dark;
 --color-cate-title: #858585;
 --shadow-cate-title: var(--text-shadow);
 --shadow-cate-title2: var(--text-shadow2);
+--badges: brightness(0.6);
 
 /* font  */
 --smallest-size: 12px;
@@ -102,6 +103,8 @@ color-scheme: light;
 --text-shadow: 2px 2px #e1e1e1;
 --text-shadow2: 1px 1px 0px #eaeaea;
 
+--badges: brightness(0.8) invert(1);
+
 --greyout: #bbbbbb94;
 --brightness: brightness(1.3);
 --brightness-header: brightness(1.2);
@@ -113,8 +116,8 @@ color-scheme: light;
 
 /* S'applique à TOUS les éléments du forum*/
 * {
-box-sizing: border-box;
-/*évite que les éléments soient agrandis par le padding*/
+box-sizing: border-box; /*évite que les éléments soient agrandis par le padding*/
+-webkit-text-size-adjust: 100%;
 }
 
 /*** TOUTES LES PAGES --------------- ***/
@@ -147,9 +150,10 @@ img {
 .nav_links_topics,
 .postbutton .buttons,
 .post_pseudo,
-.page-title, 
+.page-title, .page-title-topic,
 .custom-name, .custom-fc,
-.userlist_name {
+.userlist_name,
+t0, t1 {
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -2084,6 +2088,12 @@ gap: 10px;
 align-items: center;
 }
 
+.topicslist_row.searchres {
+    grid-template-columns: 60px auto 160px 135px;
+    .topic-cate {text-transform: none; color:#5d5d5d;}
+    strong {font-weight:500;}
+}
+
 .topicslist_row:last-child {
 margin-bottom: 0;
 }
@@ -2215,7 +2225,7 @@ width: 100%;
 
 .post_date {
 flex-grow: 100;
-font-size: var(--smallest-size);
+font-size: var(--smallest-size) !important;
 }
 
 /* BOUTONS D'EDITION DU MESSAGE --- */
@@ -2328,13 +2338,13 @@ margin-top: 10px;
 }
 .post_pseudo {
 text-shadow: var(--text-shadow2);
-font-size: 22px;
+font-size: 22px !important;
 line-height: 20px;
 strong {font-weight: 500;}
 }
 
 .post_rank {
-    font-size: var(--smallest-size);
+    font-size: var(--smallest-size) !important;
     letter-spacing: 1px;
 }
 
@@ -2390,6 +2400,7 @@ cursor: pointer;
 }
 .user_field {
     visibility: hidden;
+    font-size: var(--normal-size) !important;
 }
 .tabcontent1, .tabcontent2 {
     height: 250px;
@@ -2494,6 +2505,7 @@ background-image: var(--award-image);
 background-size: cover;
 background-position: center;
 border-radius: 100%;
+filter: var(--badges);
 }
 
 .award:hover .award_tooltiptext {
@@ -2526,7 +2538,7 @@ text-transform: uppercase;
 display: none;
 }
 
-.page-title {
+.page-title, t1 {
 font-size: 28px;
 margin: 10px;
 text-align: center;
@@ -2543,8 +2555,10 @@ background-position: bottom -50px right 0px;
 color: var(--color-cate-title);
 text-shadow: var(--shadow-cate-title);
 }
-.container-post .page-title {
+.page-title-topic {
+    font-size: 28px;
     text-align: right;
+    margin-right: 10px;
 }
 
 .post_anchor {
@@ -2820,6 +2834,7 @@ grid-gap: 10px;
 
 .field_label span{
 color: var(--accent3) !important;
+font-size: var(--smaller-size) !important;
 }
 
 .profile_field field {
@@ -3104,6 +3119,11 @@ padding: 10px 20px;
 border: var(--border);
 border-radius: 5px;
 margin: 10px;
+
+.content {
+    width: 738px;
+    margin: auto;
+}
 }
 
 /*** ------------------------------- ***/
@@ -3237,7 +3257,7 @@ justify-items: center;
 
 /* Fenêtre popup "recherche" */
 .overview {
-background: var(--neutral);
+background: var(--neutral1);
 border-radius: 5px;
 border: var(--border);
 padding: 10px;
@@ -3314,92 +3334,117 @@ font-size:15px;}
     .mobile-visible {display:none;}
 }
 
+p.right-box {text-align:right;}
+
+/* page confirmation*/
+form>p {
+    text-align: center;
+}
+
 /*** FICHES--------------- ***/
 
 fiche {
-    display: block;
+    display:block;
+    width:90%;
+    margin: 10px auto auto auto;
     background: var(--neutral1);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 15px;
+    outline: 1px solid var(--neutral5);
+    outline-offset: 5px;
+}
 
-section, header {
+section {
     display: block;
     background: var(--neutral2);
     border-radius: 5px;
     padding: 10px;
     text-align: justify;
     border: var(--border);
+    font-family: var(--font), system-ui, sans-serif;
 }
 
 header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px 20px;
-div:first-child {
-    width: 447px;
-}
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 115px;
 img {
+    position: absolute;
     background: var(--neutral2);
     padding: 5px;
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
     object-position: center;
     border-radius: 100%;
     border: var(--border);
-    outline: 5px solid var(--neutral5);
-}
-m1 {margin-left: 50px;
-    &::before {
-    content: "━";
-    margin-right: 5px;
-    }
+    top: -75px;
+    outline: 7px solid var(--neutral1);
 }
 } /*fin  header*/
+fiche:has(header img) {
+    margin-top: 50px !important;
+}
+header:has(img) {
+    height: 145px !important;
 
-} /*fin fiche*/
+&::before {
+content: '';
+position: absolute;
+background: var(--neutral2);
+padding: 7px;
+width: 120px;
+height: 120px;
+border-radius: 100%;
+top: -87px;
+outline: 1px solid var(--neutral5);
+clip-path: circle(150px at 50% -50%);
+}
+}
+
 
 /*** STYLES --------------- ***/
-t0, t1, t2, t3, t4,
-p1 {
+hr1 {
+content: url("https://images2.imgbox.com/fe/70/L8oIIqLl_o.png");
+width: 115px;
+filter: var(--badges);
 display: block;
-font-size: 25px;
-font-family: var(--font2);
-text-transform: lowercase;
-letter-spacing: 1px;
-font-weight: 500;
-color: var(--textColor2);
+margin: 0 auto;
 }
+hr2 {
+content: url("https://images2.imgbox.com/84/10/m7j6vZfT_o.png");
+width: 180px;
+filter: var(--badges);
+display: block;
+margin: 0 auto;
+}
+
 t0 {
-    display: inline-block;
-    font-size: 30px;
+display:block;
+font-size: 32px;
 }
 t1 {
-box-shadow: inset 0px -10px 0 var(--accent5);
-line-height: 26px;
-display: block;
-padding: 0 5px;
-}
-t2 {
-box-shadow: inset 0px -2px 0 var(--accent5);
-display: block;
-padding: 0 0px 4px 0px;
+margin: 0 0 -8px 0;
+height: 35px;
+font-size: 24px;
+background-position: bottom -9px right -81px;
 }
 
-p1 {
-box-shadow: inset 0px -10px 0 var(--accent5);
-line-height: 26px;
-font-size: 22px;
-display: inline-block;
-}
 
-m1 {
+m0, m1 {
 display: inline-block;
 font-family: var(--font3);
 text-transform: uppercase;
 letter-spacing: 0.3px;
 font-size: var(--smaller-size);
+}
+m0 {
+    color: var(--accent2);
+    filter: var(--brightness);
+    letter-spacing: 1.5px;
 }
 m1 {
     color: var(--accent3);
