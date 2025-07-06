@@ -116,8 +116,8 @@ color-scheme: light;
 
 /* S'applique à TOUS les éléments du forum*/
 * {
-box-sizing: border-box;
-/*évite que les éléments soient agrandis par le padding*/
+box-sizing: border-box; /*évite que les éléments soient agrandis par le padding*/
+-webkit-text-size-adjust: 100%;
 }
 
 /*** TOUTES LES PAGES --------------- ***/
@@ -150,7 +150,7 @@ img {
 .nav_links_topics,
 .postbutton .buttons,
 .post_pseudo,
-.page-title, 
+.page-title, .page-title-topic,
 .custom-name, .custom-fc,
 .userlist_name,
 t0, t1 {
@@ -2225,7 +2225,7 @@ width: 100%;
 
 .post_date {
 flex-grow: 100;
-font-size: var(--smallest-size);
+font-size: var(--smallest-size) !important;
 }
 
 /* BOUTONS D'EDITION DU MESSAGE --- */
@@ -2338,13 +2338,13 @@ margin-top: 10px;
 }
 .post_pseudo {
 text-shadow: var(--text-shadow2);
-font-size: 22px;
+font-size: 22px !important;
 line-height: 20px;
 strong {font-weight: 500;}
 }
 
 .post_rank {
-    font-size: var(--smallest-size);
+    font-size: var(--smallest-size) !important;
     letter-spacing: 1px;
 }
 
@@ -2400,6 +2400,7 @@ cursor: pointer;
 }
 .user_field {
     visibility: hidden;
+    font-size: var(--normal-size) !important;
 }
 .tabcontent1, .tabcontent2 {
     height: 250px;
@@ -2554,8 +2555,10 @@ background-position: bottom -50px right 0px;
 color: var(--color-cate-title);
 text-shadow: var(--shadow-cate-title);
 }
-.container-post .page-title {
+.page-title-topic {
+    font-size: 28px;
     text-align: right;
+    margin-right: 10px;
 }
 
 .post_anchor {
@@ -2831,6 +2834,7 @@ grid-gap: 10px;
 
 .field_label span{
 color: var(--accent3) !important;
+font-size: var(--smaller-size) !important;
 }
 
 .profile_field field {
@@ -3339,19 +3343,18 @@ form>p {
 
 /*** FICHES--------------- ***/
 
-fiche, .fiche {
+fiche {
     display:block;
     width:90%;
-    margin:auto;
-}
-corps, .corps {
-    display: block;
+    margin: 45px auto auto auto;
     background: var(--neutral1);
-    border-radius: 0 0 5px 5px;
+    border-radius: 10px;
     padding: 15px;
+    outline: 1px solid var(--neutral5);
+    outline-offset: 5px;
 }
 
-section, .section {
+section {
     display: block;
     background: var(--neutral2);
     border-radius: 5px;
@@ -3361,56 +3364,36 @@ section, .section {
     font-family: var(--font), system-ui, sans-serif;
 }
 
-header, .header {
+header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 10px 20px;
-    background: var(--neutral1);
     flex-direction: column;
-    border-radius: 500px 500px 0px 0px;
-    height: 300px;
+    position: relative;
+    height: 115px;
 
---offsetX: -25px;
-
-trio {
-   display: flex;
-    align-items: flex-end;
-    margin-left: var(--offsetX);
-    padding-bottom: 10px;
-}
 img {
+    position: absolute;
     background: var(--neutral2);
     padding: 5px;
-    width: 80px;
-    height: 80px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
     object-position: center;
     border-radius: 100%;
     border: var(--border);
-
-    &:nth-child(1) {
-        margin-left: calc(var(--offsetX) * -1);
-    }
-    &:nth-child(3) {
-        margin-left: var(--offsetX);
-    }
-    &:nth-child(2) {
-        margin-left: var(--offsetX);
-        margin-bottom: 10px;
-        width: 120px;
-        height: 120px;
-        position: relative;
-        z-index: 5;
-    }
+    top: -75px;
+    outline: 7px solid var(--neutral1);
 }
-
 } /*fin  header*/
+header:has(img) {
+    height: 145px !important;
+}
 
 /*** STYLES --------------- ***/
 hr1 {
 content: url("https://images2.imgbox.com/fe/70/L8oIIqLl_o.png");
-width: 120px;
+width: 115px;
 filter: var(--badges);
 display: block;
 margin: 0 auto;
@@ -3428,7 +3411,7 @@ display:block;
 font-size: 32px;
 }
 t1 {
-margin: 0;
+margin: 0 0 -8px 0;
 height: 35px;
 font-size: 24px;
 background-position: bottom -9px right -81px;
