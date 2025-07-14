@@ -4,6 +4,7 @@ color-scheme: dark;
 --header: url('https://images2.imgbox.com/f9/7d/pR2Q2bC7_o.gif');
 --pa-img: url('https://images2.imgbox.com/60/31/7ZGLKIbI_o.png');
 --cate-img: url('https://images2.imgbox.com/a5/35/6m6V834G_o.png');
+--section-img: url(' https://images2.imgbox.com/52/4e/jH6vuytz_o.png');
 --qeel-header: url("https://images2.imgbox.com/48/8a/OlJ7SqHN_o.png");
 
 --staff1: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* lady mahler */
@@ -78,6 +79,7 @@ color-scheme: light;
 --header: url('https://images2.imgbox.com/e9/ff/Mwlzl0w1_o.png');
 --pa-img: url('https://images2.imgbox.com/dd/72/dIZOidri_o.png');
 --cate-img: url('https://images2.imgbox.com/bc/b3/ktcwSg7t_o.png');
+--section-img: url('https://images2.imgbox.com/86/41/fjdzcBth_o.png');
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
@@ -2538,7 +2540,7 @@ text-transform: uppercase;
 display: none;
 }
 
-.page-title, t1 {
+.page-title {
 font-size: 28px;
 margin: 10px;
 text-align: center;
@@ -2551,7 +2553,7 @@ justify-content: center;
 background-image: var(--cate-img);
 border-radius: 10px;
 filter: var(--brightness);
-background-position: bottom -50px right 0px;
+background-position: bottom -50px right -40px;
 color: var(--color-cate-title);
 text-shadow: var(--shadow-cate-title);
 }
@@ -3427,12 +3429,22 @@ display:block;
 font-size: 32px;
 }
 t1 {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 margin: 0 0 -8px 0;
 height: 35px;
 font-size: 24px;
+text-align: center;
+background: var(--neutral1);
 background-position: bottom -9px right -81px;
+background-image: var(--section-img);
+border-radius: 10px;
+filter: var(--brightness);
+color: var(--color-cate-title);
+text-shadow: var(--shadow-cate-title);
 }
-
 
 m0, m1 {
 display: inline-block;
