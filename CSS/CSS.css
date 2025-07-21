@@ -26,12 +26,12 @@ color-scheme: dark;
 --accent1: #49161f;
 --accent2: #7e2431;
 --accent3: #823542;
---accent4: #29191c; /*highlight fond 1 */
---accent5: #39262a; /*highlight fond 2 */
+--accent4: #29191c; /*highlight fond 1*/
+--accent5: #39262a; /*highlight fond 2*/
 
 --textColor1: #8b8b8b;
 --textColor2: #9b9b9b;
---textColor3: #a5a5a5;
+--textColor3: #a5a5a5; /*blanc invariable*/
 
 --hoverColorBase: var(--accent2);
 --hoverColor1: var(--textColor3); /* sous-cat au survol */
@@ -694,7 +694,9 @@ background: var(--neutralDark);
 .right {
 float: right;
 }
-
+.center {
+text-align: center;
+}
 .left {
 float: left;
 }
@@ -2604,6 +2606,14 @@ ol {
 }
 .post_message_content {
     padding: 0 15px 15px 15px;
+
+    a {
+        font-weight: 600;
+        color: var(--textColor2);
+    }
+    a:hover {
+        color: var(--accent3);
+    }
 }
 
 /* REPONSE RAPIDE --- */
@@ -3339,7 +3349,7 @@ font-size:15px;}
 p.right-box {text-align:right;}
 
 /* page confirmation*/
-form>p {
+form>p, .msgdie-panel {
     text-align: center;
 }
 
