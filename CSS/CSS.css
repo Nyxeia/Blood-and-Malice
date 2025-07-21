@@ -193,7 +193,8 @@ tag,
 blockquote cite,
 .preview-author,
 .userlist_alias, .userlist_visited,
-.table-contact a
+.table-contact a,
+.toc-item a
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -1824,7 +1825,7 @@ margin-bottom: 4px;
 .pa-link a:hover,
 .sidenav-links a:hover,
 .profil_contact a:hover,
-.table-contact a:hover  {
+.table-contact a:hover {
 color: var(--hoverColor1);
 transition: var(--transition);
 }
@@ -2349,19 +2350,47 @@ outline: 6px solid var(--neutral1);
 }
 .toc-title {
 margin: 5px;
-font-size: 22px;
+font-size: 24px;
 color: var(--accent2);
 text-shadow: var(--text-shadow2);
 }
 .toc-hr {
-width: 75px;
+width: 90px;
 margin-bottom: 5px;
 }
 .toc-list {
     text-align: left;
     padding: 10px;
 }
-
+.toc-item {
+    margin: 3px 0;
+}
+.toc-item a {
+font-weight: 470;
+text-transform: none;
+font-size: 15px;
+}
+.toc-item a:hover  {
+color: var(--hoverColor1);
+transition: var(--transition);
+}
+.toc-item a:before {
+    content: "✦";
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: -4px;
+    vertical-align: middle;
+    color: var(--accent1);
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+.toc-item a:hover:before {
+    color: var(--hoverColor2); 
+    transition: color 0.3s ease;
+}
+.toc-subsection a:before{ 
+    content: "✧";
+}
 .post_pseudo_rank {
     padding: 7px;
 }
