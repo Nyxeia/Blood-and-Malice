@@ -16,13 +16,28 @@ function generateTableOfContents() {
     // Créer le conteneur de la table des matières
     const tocContainer = document.createElement('div');
     tocContainer.className = 'table-of-contents';
+
+    // Récupérer et déplacer l'image du header
+    const headerImage = document.querySelector('header img');
+    if (headerImage) {
+        const tocImage = headerImage.cloneNode(true);
+        tocImage.className = 'toc-image';
+        tocContainer.appendChild(tocImage);
+        // Supprimer l'image originale du header
+        headerImage.remove();
+    }
     
     // titre pour la table des matières
-    const tocTitle = document.createElement('h3');
+    const tocTitle = document.createElement('div');
     tocTitle.textContent = 'Table des matières';
     tocTitle.className = 'toc-title';
     tocContainer.appendChild(tocTitle);
     
+    // separateur
+    const tocSep = document.createElement('hr1');
+    tocSep.className = 'toc-hr';
+    tocContainer.appendChild(tocSep);
+
     // liste principale
     const tocList = document.createElement('ul');
     tocList.className = 'toc-list';

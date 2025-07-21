@@ -155,6 +155,7 @@ img {
 .page-title, .page-title-topic,
 .custom-name, .custom-fc,
 .userlist_name,
+.toc-title,
 t0, t1 {
 font-size: 18px;
 font-family: var(--font2);
@@ -2312,29 +2313,53 @@ padding-top: 2px;
     height: fit-content;
     top: 85px;
 }
+.annexe {
+    top: 85px;
+}
 .post:has(.annexe) .post_profile {
    display: none;
 }
-
 .post_nav {
 display: none;
 }
 .post_nav:has(.table-of-contents){
 z-index: 700;
 }
-
 .post:has(.annexe) .post_nav {
 display: block;
 min-height: 100px;
 margin-top: 10px;
 }
-
-.annexe {
-    top: 85px;
-}
-
 .toc-subsection-link {
     margin-left: 15px;
+}
+.table-of-contents {
+    text-align: center;
+}
+.toc-image {
+background: var(--neutral2);
+padding: 5px;
+width: 100px;
+height: 100px;
+object-fit: cover;
+object-position: center;
+border-radius: 100%;
+border: var(--border);
+outline: 6px solid var(--neutral1);
+}
+.toc-title {
+margin: 5px;
+font-size: 22px;
+color: var(--accent2);
+text-shadow: var(--text-shadow2);
+}
+.toc-hr {
+width: 75px;
+margin-bottom: 5px;
+}
+.toc-list {
+    text-align: left;
+    padding: 10px;
 }
 
 .post_pseudo_rank {
