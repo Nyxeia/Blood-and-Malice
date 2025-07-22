@@ -2333,6 +2333,7 @@ margin-top: 10px;
 }
 .toc-subsection-link {
     margin-left: 15px;
+    font-style: italic;
 }
 .table-of-contents {
     text-align: center;
@@ -2366,9 +2367,9 @@ margin-bottom: 5px;
     margin: 3px 0;
 }
 .toc-item a {
-font-weight: 470;
 text-transform: none;
 font-size: 15px;
+transition: all 0.3s ease;
 }
 .toc-item a:hover  {
 color: var(--hoverColor1);
@@ -2381,7 +2382,7 @@ transition: var(--transition);
     margin-top: -4px;
     vertical-align: middle;
     color: var(--accent1);
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 16px;
 }
 .toc-item a:hover:before {
@@ -2390,7 +2391,27 @@ transition: var(--transition);
 }
 .toc-subsection a:before{ 
     content: "✧";
+    font-style:normal;
 }
+.toc-item a.toc-active {
+    color: var(--hoverColor1);
+    font-weight: 500;
+}
+
+.toc-item a.toc-active:before {
+    color: var(--hoverColor2);
+    transform: scale(1.1);
+}
+
+.toc-item a.toc-parent-active {
+    color: var(--accent2);
+    font-weight: 500;
+}
+
+.toc-item a.toc-parent-active:before {
+    color: var(--accent2);
+}
+
 .post_pseudo_rank {
     padding: 7px;
 }
