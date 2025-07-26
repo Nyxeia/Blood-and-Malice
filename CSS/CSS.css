@@ -119,29 +119,9 @@ color-scheme: light;
 --shadow-cate-title: 2px 2px #aaaaaa;
 --shadow-cate-title2: 1px 1px #afafaf;
 }
-
-/* S'applique à TOUS les éléments du forum*/
-* {
-box-sizing: border-box; /*évite que les éléments soient agrandis par le padding*/
--webkit-text-size-adjust: 100%;
+.color-scheme-toggle {
+    background:none;
 }
-
-/*** TOUTES LES PAGES --------------- ***/
-body {
-background: var(--background);
-background-attachment: fixed;
-font-family: var(--font);
-font-size: var(--normal-size);
-color: var(--textColor1);
-margin: 0 !important;
-}
-#container {
-    padding-bottom: 5px;
-}
-img {
-    object-fit: cover;
-}
-
 /* title style */
 #top-header,
 .cate_title h2,
@@ -2885,4 +2865,26 @@ dialogue:hover .base,
 dialogue:hover .trad,
 .dialogue:hover .trad {
     display: inline;
+}
+
+.tooltip {
+    position: relative;
+    display: inline;
+}
+
+.tooltip .tooltiptext {
+visibility: hidden;
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 0;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

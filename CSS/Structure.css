@@ -1,3 +1,25 @@
+/* S'applique à TOUS les éléments du forum*/
+* {
+box-sizing: border-box; /*évite que les éléments soient agrandis par le padding*/
+-webkit-text-size-adjust: 100%;
+}
+
+/*** TOUTES LES PAGES --------------- ***/
+body {
+background: var(--background);
+background-attachment: fixed;
+font-family: var(--font);
+font-size: var(--normal-size);
+color: var(--textColor1);
+margin: 0 !important;
+}
+#container {
+    padding-bottom: 5px;
+}
+img {
+    object-fit: cover;
+}
+
 /* SCROLLBAR --- */
 @-moz-document url-prefix() {
     * {
