@@ -1,0 +1,273 @@
+
+/* Notiffi CSS */
+#fa_toolbar {
+display: none
+}
+
+/* Bouton de notification */
+#notiffi_button {
+cursor: pointer;
+z-index: 99;
+border-right: var(--border3);
+padding: 0 10px;
+color: var(--textColor1);
+transition: var(--transition);
+display:flex;
+}
+#notiffi_button:hover,
+#notiffi_button.active {
+color: var(--hoverColorBase);
+}
+#notiffi_button>span {
+display:flex;
+align-items: center;
+}
+
+/* Conteneur du nombre de notification non lues REMPLI */
+.unread_count {
+position: relative;
+scale: 1;
+opacity: 1;
+transition: scale ease-out .2s;
+text-shadow:none;
+margin-left: 3px;
+}
+
+/* Conteneur du nombre de notification non lues VIDE */
+.unread_count:empty {
+position: absolute;
+scale: 0;
+opacity: 0;
+transition: all ease-out .2s;
+}
+/* Menu des notifications FERMÉ */
+#notiffi_panel {
+--menuSize: 500px;
+width: var(--menuSize);
+position: fixed;
+z-index: 98;
+top: 0;
+height: 100%;
+right: calc(var(--menuSize) * -1);
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: start;
+background: var(--neutral1);
+padding: 15px 25px;
+opacity: 0;
+visibility: hidden;
+transition: all ease .5s;
+}
+/* Menu des notifications OUVERT */
+#notiffi_panel.open {
+right: 0;
+visibility: visible;
+opacity: 1;
+}
+
+.notiffi_deco,
+.sidenav-deco {
+height: 64px;
+width: 100%;
+background-image: var(--qeel-header);
+border-radius: 5px;
+filter: var(--brightness);
+}
+/* Conteneur des notifications */
+.all_notifications,
+.sidenav-content {
+width: 100%;
+overflow: auto;
+max-height: 100%;
+padding-top: 10px;
+border-radius: 10px;
+-ms-overflow-style: none;
+scrollbar-width: none;
+
+/* Désactive la barre de défilement dans le contenenur */
+&::-webkit-scrollbar {
+    display: none;
+}
+}
+
+/* Conteneur des notifications VIDE */
+.no_notification {
+text-align: center;
+font-style: italic;
+}
+
+/* Conteneur du footer du menu
+(voir toutes les notifications, marquer comme lu, tout supprimer) */
+.notiffi_manage {
+width: 100%;
+display: flex;
+justify-content: space-between;
+font-family: var(--font3);
+text-transform: lowercase;
+padding: 0 13px;
+}
+
+/* Conteneur des bouton d'action des notifications */
+.notiffi_actions {
+display: grid;
+justify-items: end;
+gap: 5px;
+
+/* Bouton d'action */
+button {
+    font-family: var(--font3);
+    text-transform: uppercase;
+    background-color: transparent;
+    color: var(--textColor2);
+    &:hover {
+    color: var(--accentClr);
+    }
+}
+}
+
+/* Apparence d'une notification */
+.notification {
+display: flex;
+gap: 15px;
+margin-bottom: 5px;
+padding: 10px;
+border-radius: 5px;
+border: var(--border);
+transition: border .2s;
+animation: notiffiFadeIn 0.3s ease-in-out;
+
+/* Notification au survol */
+&:hover {
+    border-color: var(--neutralDarker);
+}
+}
+
+/* Animation d'apparition des notifications */
+@keyframes notiffiFadeIn {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+
+/* Apparence d'une notification NON LUE */
+.notification.unread {
+background-color: var(--neutral2);
+}
+
+/* Conteneur des détails de la notification (avatar, icone) */
+.notif_details {
+position: relative;
+align-self: start;
+}
+
+/* Conteneur de l'avatar */
+.notif_avatar {
+background: var(--neutral2);
+height: 35px;
+border-radius: 100%;
+aspect-ratio: 1;
+
+/* Image de l'avatar */
+& img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100%;
+}
+}
+
+/* Icone du type de la notification */
+.notif_icon {
+position: absolute;
+bottom: -5px;
+right: -5px;
+background: var(--neutral1);
+width: 18px;
+aspect-ratio: 1;
+display: grid;
+place-items: center;
+border-radius: 20px;
+font-size: 10px;
+}
+.notif_icon:has(.bi-at){
+font-size: 15px;
+}
+
+/* Icone lorsque la notification est non lue */
+.notification.unread .notif_icon {
+color: var(--accent1);
+background: var(--neutral2);
+}
+
+/* Conteneur du texte et la date de la notification */
+.notif_content {
+width: 100%;
+font-family: var(--font3);
+}
+.notif_text a {
+text-transform: uppercase;
+}
+.notification.unread a {
+font-weight: 500;
+}
+
+/* Date de la notification */
+.notif_time {
+opacity: .8;
+margin-top: 5px;
+text-transform: lowercase;
+}
+
+/* Bouton de suppression de la notification */
+.notif_close {
+background: transparent;
+align-self: start;
+font-size: 18px;
+line-height: 0;
+opacity: 0;
+border-radius: 100px;
+aspect-ratio: 1;
+padding: 2px;
+transition: all .3s;
+}
+
+/* Affiche le bouton de suppression au survol de la notification */
+.notification:hover .notif_close {
+opacity: 1
+}
+
+/* Alerte d'une notification */
+.notification.alert {
+position: fixed;
+width: 400px;
+align-items: center;
+z-index: 99;
+bottom: 10px;
+right: 10px;
+background: var(--neutralDarker);
+transform: translateY(100%);
+opacity: 0;
+filter: blur(5px);
+transition: all .5s ease-in-out;
+}
+
+.notification.alert.up {
+transform: translateY(0%);
+opacity: 1;
+filter: blur(0);
+transition: all .5s ease-in-out;
+}
+
+.alert_close {
+background: var(--neutral);
+font-size: 18px;
+line-height: 0;
+border-radius: 100px;
+aspect-ratio: 1;
+padding: 2px;
+}
