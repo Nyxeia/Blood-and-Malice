@@ -3313,6 +3313,7 @@ i1 {
     background: -webkit-linear-gradient(120deg, var(--accent2),var(--accent3) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-style: italic;
 }
 
 u1 {
@@ -3377,7 +3378,7 @@ u4 {
     }
 }
 
-strike {
+strike2 {
     text-decoration-line: line-through;
     text-decoration-color: var(--accent1);
     text-decoration-style: wavy;
@@ -3397,7 +3398,7 @@ qt {
         font-size: 10em;
         color: var(--neutral3);
         position: absolute;
-        top:-55px;
+        top:-70px;
         left: 0;
         opacity: .5;
         z-index: -1;
@@ -3450,7 +3451,7 @@ tbox {
     margin-bottom: 0.7em;
 }
 
-.icon {
+.ibox {
     padding: 5px;
     width: 80px;
     height: 80px;
@@ -3459,20 +3460,21 @@ tbox {
     border-radius: 100%;
     border: var(--border);
     outline: 2px solid var(--neutral1);
-
-    &.left {
+  
+  &.left {
     float: left;
     shape-outside: circle(50%);
     margin-right: 10px;
-    }
+}
 
-    &.right {
+  &.right {
         float: right;
         shape-outside: circle(50%);
         margin-left: 10px;
         margin-bottom:5px;
-    }
 }
+}
+
 
 deco {
     display: flex;
@@ -3482,7 +3484,7 @@ deco {
     }
 }
 
-a[href^="/u"] {
+.post_message_content a[href^="/u"] {
     color: var(--color-cate-title);
     text-shadow: var(--shadow-cate-title);
     font-family: var(--font3), sans-serif;
