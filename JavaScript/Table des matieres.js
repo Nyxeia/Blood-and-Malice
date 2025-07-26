@@ -191,7 +191,7 @@ function initializeActiveSectionTracking() {
         });
         
         let activeSection = null;
-        const viewportTop = 120; // Zone de lecture optimale (un peu plus bas que la barre de navigation)
+        const viewportTop = 300; // Zone de lecture optimale (un peu plus bas que la barre de navigation)
         const viewportBottom = window.innerHeight * 0.7; // On considère la partie haute de l'écran comme zone de lecture
         
         // Approche différente : trouver quelle section est dans la zone de lecture optimale
