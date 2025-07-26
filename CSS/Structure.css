@@ -203,7 +203,6 @@ display: none;
 }
 
 .color-scheme-toggle {
-background-color: var(--neutralDark);
 text-align: center;
 border-radius: 5px;
 color: var(--textColor1);
@@ -211,4 +210,188 @@ transition: var(--transition);
 }
 .color-scheme-toggle:hover {
 color: var(--hoverColorBase);
+}
+
+/* Emoji mis par défaut de FA
+* Les réduire les rend moins horribles à voir */
+.emojione {
+width: 19px !important;
+}
+
+/*** BOUTONS D'INTERACTION ET BARRE DE TEXTE ***/
+
+.forumline {
+background: var(--neutral1);
+border-radius: 5px;
+}
+
+/* CHAMPS DE TEXTE ---*/
+input:is([type="text"], [type="password"], .inputbox),
+textarea {
+background: var(--neutral2);
+border: var(--border);
+border-radius: 5px;
+font-size: var(--normal-size);
+color: var(--textColor1) !important;
+padding: 5px 10px;
+width: 80%;
+}
+
+/* BOUTONS D'INTERACTION --- *
+* Envoyer, prévisualiser, sauvegarder, aller,... */
+input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]),
+.button, #tabs li {
+    padding: 7px 15px !important;
+    background: var(--neutral2);
+    color: var(--textColor1);
+    font-weight: 600;
+    border-radius: 5px;
+    border: var(--border);
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Au survol */
+:hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button, #tabs li) {
+color: var(--hoverColorBase);
+transition: var(--transition);
+}
+
+/* Boutons désactivés */
+:disabled:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
+opacity: .5;
+filter: saturate(1);
+cursor: not-allowed;
+}
+
+:disabled:hover:is(input:is([type="submit"], [type="button"], [type="hidden"], [type="reset"]), .button) {
+color: inherit;
+}
+
+.submit-buttons {
+text-align: center;
+}
+
+.mod-topic {
+display: flex;
+justify-content: space-between;
+padding: 0 15px;
+}
+.quickmod {
+margin-bottom: 20px;
+}
+.mod-icons {font-size: 28px;}
+
+/* MENUS DEROULANTS --- */
+select {
+background: var(--neutral1);
+border: var(--border);
+border-radius: 5px;
+font-size: var(--normal-size);
+padding: 5px 10px;
+color: var(--textColor1);
+}
+
+select:focus-visible {
+outline: 1px solid var(--accentClr);
+}
+
+/*** EDITEUR DE TEXTE -------------- ***/
+/* Editeur de texte */
+.sceditor-container {
+border: var(--border) !important;
+background-color: var(--neutral2) !important;
+}
+
+/* Barre d'outils de l'éditeur de texte*/
+div.sceditor-toolbar {
+background: var(--neutral2) !important;
+border-bottom: var(--border) !important;
+}
+
+/* Conteneur des groupes d'outils */
+div.sceditor-group {
+background: var(--neutral2) !important;
+border-bottom: none !important;
+}
+
+/* Bouton d'un outil */
+a.sceditor-button {
+height: 26px !important;
+/*ne pas retirer*/
+width: 26px !important;
+/*ne pas retirer*/
+}
+/*basculer mode d'edition*/
+a.sceditor-button.sceditor-button-source {
+    display: none;
+}
+
+/* Bouton d'un outil au survol ou actif*/
+.sceditor-button.active,
+.sceditor-button:active,
+.sceditor-button:hover,
+.sceditor-button.hover {
+background: var(--neutral3) !important;
+box-shadow: none !important;
+border: none !important;
+outline: var(--border);
+}
+
+/* Conteneur de la zone de texte */
+.sceditor-container iframe,
+.sceditor-container textarea {
+background-color: var(--neutral2) !important;
+/*ne pas supprimer*/
+width: 100% !important;
+margin: 0 !important;
+padding: 5px !important;
+/*ne pas supprimer*/
+min-height: 250px !important;
+}
+
+.sceditor-container textarea:focus {
+outline: none
+}
+
+/*Boîte Smiley*/
+iframe[name="smilies"] {
+border: var(--border);
+border-radius: 5px;
+background: var(--neutral2);
+}
+
+html#sceditor_smilies,
+body#sce_smilies_body {
+background: var(--neutral2) !important;
+padding: 5px;
+}
+
+#postingbox {padding:0}
+
+#list_dice input {width:initial;}
+
+/*** PAGINATIONS -------------------- ***/
+.pagination {}
+
+/*lien unique vers les pages numérotées*/
+.pagination span a {
+}
+
+/*survol des liens uniques des pages*/
+.pagination span a:hover {
+font-weight: 600;
+}
+
+/*lien actif : page sur laquelle vous vous trouvez */
+.pagination span strong {
+color: var(--accent2);
+font-weight: 600;
+}
+
+/*suppression de l'image-lien "aller à la page suivante" */
+.page-topic span a:last-child,
+.pag-img {
+display: none;
 }
