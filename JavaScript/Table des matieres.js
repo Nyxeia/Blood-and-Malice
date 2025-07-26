@@ -1,5 +1,4 @@
 function generateTableOfContents() {
-
     const postNav = document.querySelector('.post_nav');
     
     if (!postNav) {
@@ -16,13 +15,28 @@ function generateTableOfContents() {
     // Créer le conteneur de la table des matières
     const tocContainer = document.createElement('div');
     tocContainer.className = 'table-of-contents';
+
+    // Récupérer et déplacer l'image du header
+    const headerImage = document.querySelector('header img');
+    if (headerImage) {
+        const tocImage = headerImage.cloneNode(true);
+        tocImage.className = 'toc-image';
+        tocContainer.appendChild(tocImage);
+        // Supprimer l'image originale du header
+        headerImage.remove();
+    }
     
     // titre pour la table des matières
-    const tocTitle = document.createElement('h3');
+    const tocTitle = document.createElement('div');
     tocTitle.textContent = 'Table des matières';
     tocTitle.className = 'toc-title';
     tocContainer.appendChild(tocTitle);
     
+    // separateur
+    const tocSep = document.createElement('hr1');
+    tocSep.className = 'toc-hr';
+    tocContainer.appendChild(tocSep);
+
     // liste principale
     const tocList = document.createElement('ul');
     tocList.className = 'toc-list';
@@ -48,6 +62,7 @@ function generateTableOfContents() {
         anchor.href = `#${targetId}`;
         anchor.textContent = title;
         anchor.className = className;
+        anchor.setAttribute('data-target', targetId); // Pour identifier la cible
         
         // défilement au clic avec offset
         anchor.addEventListener('click', function(e) {
@@ -58,6 +73,9 @@ function generateTableOfContents() {
                 const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 
                 window.scrollTo(0, y);
+                
+                // Mettre à jour immédiatement l'état actif après le clic
+                setTimeout(() => updateActiveSection(), 100);
             }
         });
         
@@ -68,7 +86,6 @@ function generateTableOfContents() {
     const subsectionsBySection = new Map();
     
     subsections.forEach(subsection => {
-
         const subsectionId = subsection.id;
         const match = subsectionId.match(/subsection(\d+)/);
         
@@ -103,7 +120,6 @@ function generateTableOfContents() {
     
     // Créer la table des matières
     sections.forEach((section, index) => {
-
         if (section.id.startsWith('subsection')) {
             return;
         }
@@ -152,6 +168,121 @@ function generateTableOfContents() {
     postNav.appendChild(tocContainer);
 
     makeTableOfContentsSticky(tocContainer, postNav);
+    
+    // Initialiser le système de section active
+    initializeActiveSectionTracking();
+}
+
+// Fonction pour gérer la section active
+function initializeActiveSectionTracking() {
+    let isScrolling = false;
+    
+    function updateActiveSection() {
+        // Récupérer toutes les sections et sous-sections
+        const allSections = document.querySelectorAll('[id^="section"]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+        
+        // Supprimer les classes actives existantes
+        tocLinks.forEach(link => link.classList.remove('toc-active', 'toc-parent-active'));
+        
+        // Convertir en array et trier par position dans le DOM
+        const sectionsArray = Array.from(allSections).sort((a, b) => {
+            return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+        });
+        
+        let activeSection = null;
+        const viewportTop = 120; // Zone de lecture optimale (un peu plus bas que la barre de navigation)
+        const viewportBottom = window.innerHeight * 0.7; // On considère la partie haute de l'écran comme zone de lecture
+        
+        // Approche différente : trouver quelle section est dans la zone de lecture optimale
+        for (let i = 0; i < sectionsArray.length; i++) {
+            const section = sectionsArray[i];
+            const rect = section.getBoundingClientRect();
+            
+            // Si le haut de la section est au-dessus de la zone de lecture
+            // et le bas est en dessous, alors on est en train de lire cette section
+            if (rect.top <= viewportTop && rect.bottom >= viewportTop) {
+                activeSection = section;
+                break;
+            }
+        }
+        
+        // Si aucune section ne traverse la zone de lecture, 
+        // prendre la dernière section passée (celle qui est juste au-dessus)
+        if (!activeSection) {
+            for (let i = sectionsArray.length - 1; i >= 0; i--) {
+                const section = sectionsArray[i];
+                const rect = section.getBoundingClientRect();
+                
+                // Prendre la dernière section dont le haut est passé
+                if (rect.top <= viewportTop) {
+                    activeSection = section;
+                    break;
+                }
+            }
+        }
+        
+        // En dernier recours, si on est tout en haut, prendre la première section
+        if (!activeSection && sectionsArray.length > 0) {
+            activeSection = sectionsArray[0];
+        }
+        
+        // Activer le lien correspondant
+        if (activeSection) {
+            const targetId = activeSection.id;
+            const activeLink = document.querySelector(`.toc-link[data-target="${targetId}"]`);
+            
+            if (activeLink) {
+                activeLink.classList.add('toc-active');
+                
+                // Si c'est une sous-section, activer aussi la section parent
+                if (targetId.startsWith('subsection')) {
+                    // Trouver la section parent
+                    const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
+                    let parentSection = null;
+                    
+                    for (let i = 0; i < allElements.length; i++) {
+                        if (allElements[i] === activeSection) {
+                            for (let j = i - 1; j >= 0; j--) {
+                                if (allElements[j].id.startsWith('section') && !allElements[j].id.startsWith('subsection')) {
+                                    parentSection = allElements[j];
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    
+                    if (parentSection) {
+                        const parentLink = document.querySelector(`.toc-link[data-target="${parentSection.id}"]`);
+                        if (parentLink) {
+                            parentLink.classList.add('toc-active', 'toc-parent-active');
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Fonction de debounce pour optimiser les performances
+    function debounceScroll() {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                updateActiveSection();
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    }
+    
+    // Écouter le scroll
+    window.addEventListener('scroll', debounceScroll);
+    
+    // Mise à jour initiale
+    updateActiveSection();
+    
+    // Expose la fonction pour usage externe
+    window.updateActiveSection = updateActiveSection;
 }
 
 function makeTableOfContentsSticky(tocContainer, originalContainer) {
@@ -177,13 +308,6 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
         const shouldStartFixed = originalRect.top <= 85;
         const tocBottomIfFixed = 85 + tocHeight;
         const wouldOverflow = tocBottomIfFixed > lastPostRect.bottom;
-        
-        // Debug logs
-        console.log("Current state:", state);
-        console.log("Should start fixed:", shouldStartFixed);
-        console.log("Would overflow:", wouldOverflow);
-        console.log("TOC bottom if fixed:", tocBottomIfFixed);
-        console.log("Last post bottom:", lastPostRect.bottom);
         
         // Déterminer le nouvel état
         let newState = state;
@@ -214,8 +338,6 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
         
         // Appliquer les changements si l'état a changé
         if (newState !== state) {
-            console.log("State change:", state, "->", newState);
-            
             // Nettoyer l'état précédent
             if (state === 'fixed' || state === 'bottom') {
                 if (placeholder) {
