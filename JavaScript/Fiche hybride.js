@@ -1,6 +1,6 @@
 function generateTableOfContents() {
     
-    const annexeDiv = document.querySelector('.annexe');
+    const annexeDiv = document.querySelector('.hybrid');
     if (!annexeDiv) {
         return;
     }
@@ -9,8 +9,7 @@ function generateTableOfContents() {
         return;
     }
     
-    const sections = document.querySelectorAll('[id^="section"]');
-    const subsections = document.querySelectorAll('[id^="subsection"]');
+    const sections = document.querySelectorAll('[id^="section"]:not([id^="subsection"])');
     
     if (sections.length === 0) {
         return;
@@ -20,21 +19,30 @@ function generateTableOfContents() {
     const tocContainer = document.createElement('div');
     tocContainer.className = 'table-of-contents';
 
-    // Récupérer et déplacer l'image du header
-    const headerImage = document.querySelector('header img');
-    if (headerImage) {
-        const tocImage = headerImage.cloneNode(true);
-        tocImage.className = 'toc-image';
-        tocContainer.appendChild(tocImage);
-        // Supprimer l'image originale du header
-        headerImage.remove();
-    }
-    
-    // titre pour la table des matières
+        // Récupérer le pseudo et l'utiliser comme titre
+    const postPseudo = document.querySelector('.post_pseudo');
     const tocTitle = document.createElement('div');
-    tocTitle.textContent = 'Table des matières';
+    if (postPseudo) {
+        // Cloner le contenu du pseudo (pour garder les liens et le formatage)
+        tocTitle.innerHTML = postPseudo.innerHTML;
+        // Supprimer le pseudo original
+        postPseudo.remove();
+    } else {
+        // Fallback au cas où le pseudo n'existe pas
+        tocTitle.textContent = 'Table des matières';
+    }
     tocTitle.className = 'toc-title';
     tocContainer.appendChild(tocTitle);
+
+    // Récupérer et déplacer l'avatar du profil
+    const postAvatar = document.querySelector('.post_avatar');
+    if (postAvatar) {
+        const tocImage = postAvatar.cloneNode(true);
+        tocImage.className = 'toc-image';
+        tocContainer.appendChild(tocImage);
+        // Supprimer l'avatar original du profil
+        postAvatar.remove();
+    }
     
     // separateur
     const tocSep = document.createElement('hr1');
@@ -86,48 +94,8 @@ function generateTableOfContents() {
         return anchor;
     }
     
-    // Grouper les sous-sections par section (map sous-section -> section)
-    const subsectionsBySection = new Map();
-    
-    subsections.forEach(subsection => {
-        const subsectionId = subsection.id;
-        const match = subsectionId.match(/subsection(\d+)/);
-        
-        if (match) {
-            const subsectionNumber = parseInt(match[1]);
-            
-            // Trouver la section parent dans le DOM
-            let parentSection = null;
-            const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
-            
-            for (let i = 0; i < allElements.length; i++) {
-                if (allElements[i] === subsection) {
-                    // Chercher la section précédente
-                    for (let j = i - 1; j >= 0; j--) {
-                        if (allElements[j].id.startsWith('section') && !allElements[j].id.startsWith('subsection')) {
-                            parentSection = allElements[j];
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-            
-            if (parentSection) {
-                if (!subsectionsBySection.has(parentSection.id)) {
-                    subsectionsBySection.set(parentSection.id, []);
-                }
-                subsectionsBySection.get(parentSection.id).push(subsection);
-            }
-        }
-    });
-    
     // Créer la table des matières
     sections.forEach((section, index) => {
-        if (section.id.startsWith('subsection')) {
-            return;
-        }
-        
         // Récupérer le titre de la section
         const sectionTitle = getTitleFromElement(section, `Section ${index + 1}`);
         
@@ -138,29 +106,6 @@ function generateTableOfContents() {
         // Créer le lien d'ancrage pour la section
         const sectionAnchor = createAnchorLink(section.id, sectionTitle, 'toc-link toc-section-link');
         listItem.appendChild(sectionAnchor);
-        
-        // Vérifier s'il y a des sous-sections pour cette section
-        const sectionSubsections = subsectionsBySection.get(section.id) || [];
-        
-        if (sectionSubsections.length > 0) {
-            // Créer une sous-liste pour les sous-sections
-            const subList = document.createElement('ul');
-            subList.className = 'toc-sublist';
-            
-            sectionSubsections.forEach((subsection, subIndex) => {
-                const subsectionTitle = getTitleFromElement(subsection, `Sous-section ${subIndex + 1}`);
-                
-                const subListItem = document.createElement('li');
-                subListItem.className = 'toc-item toc-subsection';
-                
-                const subsectionAnchor = createAnchorLink(subsection.id, subsectionTitle, 'toc-link toc-subsection-link');
-                subListItem.appendChild(subsectionAnchor);
-                
-                subList.appendChild(subListItem);
-            });
-            
-            listItem.appendChild(subList);
-        }
         
         tocList.appendChild(listItem);
     });
@@ -182,7 +127,7 @@ function initializeActiveSectionTracking() {
     let isScrolling = false;
     
     function updateActiveSection() {
-        // Récupérer toutes les sections et sous-sections
+        // Récupérer toutes les sections
         const allSections = document.querySelectorAll('[id^="section"]');
         const tocLinks = document.querySelectorAll('.toc-link');
         
@@ -238,32 +183,6 @@ function initializeActiveSectionTracking() {
             
             if (activeLink) {
                 activeLink.classList.add('toc-active');
-                
-                // Si c'est une sous-section, activer aussi la section parent
-                if (targetId.startsWith('subsection')) {
-                    // Trouver la section parent
-                    const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
-                    let parentSection = null;
-                    
-                    for (let i = 0; i < allElements.length; i++) {
-                        if (allElements[i] === activeSection) {
-                            for (let j = i - 1; j >= 0; j--) {
-                                if (allElements[j].id.startsWith('section') && !allElements[j].id.startsWith('subsection')) {
-                                    parentSection = allElements[j];
-                                    break;
-                                }
-                            }
-                            break;
-                        }
-                    }
-                    
-                    if (parentSection) {
-                        const parentLink = document.querySelector(`.toc-link[data-target="${parentSection.id}"]`);
-                        if (parentLink) {
-                            parentLink.classList.add('toc-active', 'toc-parent-active');
-                        }
-                    }
-                }
             }
         }
     }
