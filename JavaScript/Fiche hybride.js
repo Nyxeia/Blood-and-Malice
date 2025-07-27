@@ -9,7 +9,7 @@ function generateTableOfContents() {
         return;
     }
     
-    const sections = document.querySelectorAll('[id^="section"]:not([id^="subsection"])');
+    const sections = document.querySelectorAll('[id^="section"]');
     
     if (sections.length === 0) {
         return;
@@ -17,9 +17,9 @@ function generateTableOfContents() {
     
     // Créer le conteneur de la table des matières
     const tocContainer = document.createElement('div');
-    tocContainer.className = 'table-of-contents';
+    tocContainer.className = 'table-of-contents hybrid';
 
-        // Récupérer le pseudo et l'utiliser comme titre
+// Récupérer le pseudo et l'utiliser comme titre
     const postPseudo = document.querySelector('.post_pseudo');
     const tocTitle = document.createElement('div');
     if (postPseudo) {
@@ -31,14 +31,14 @@ function generateTableOfContents() {
         // Fallback au cas où le pseudo n'existe pas
         tocTitle.textContent = 'Table des matières';
     }
-    tocTitle.className = 'toc-title';
+    tocTitle.className = 'toc-pseudo';
     tocContainer.appendChild(tocTitle);
 
     // Récupérer et déplacer l'avatar du profil
     const postAvatar = document.querySelector('.post_avatar');
     if (postAvatar) {
         const tocImage = postAvatar.cloneNode(true);
-        tocImage.className = 'toc-image';
+        tocImage.className = 'toc-avatar';
         tocContainer.appendChild(tocImage);
         // Supprimer l'avatar original du profil
         postAvatar.remove();
@@ -216,21 +216,47 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
     function handleScroll() {
         const originalRect = originalParent.getBoundingClientRect();
         
-        // Trouver le dernier post_message de la page
-        const allPostMessages = document.querySelectorAll('.container-post');
-        const lastPostMessage = allPostMessages[allPostMessages.length - 1];
+        // Trouver le message actuel (celui qui contient .hybrid)
+        const currentPostRow = tocContainer.closest('.post_row');
         
-        if (!lastPostMessage) {
+        // Trouver le prochain message
+        let nextPostRow = null;
+        if (currentPostRow) {
+            nextPostRow = currentPostRow.nextElementSibling;
+            // Chercher le prochain élément avec la classe post_row
+            while (nextPostRow && !nextPostRow.classList.contains('post_row')) {
+                nextPostRow = nextPostRow.nextElementSibling;
+            }
+        }
+        
+        // Vérifier si le prochain message contient .hybrid
+        const nextHasHybrid = nextPostRow ? nextPostRow.querySelector('.hybrid') !== null : false;
+        
+        // Déterminer la limite de scroll
+        let limitElement = null;
+        let limitRect = null;
+        
+        if (nextPostRow && !nextHasHybrid) {
+            // Si le prochain message n'a pas .hybrid, utiliser son début comme limite
+            limitElement = nextPostRow;
+            limitRect = limitElement.getBoundingClientRect();
+        } else {
+            // Sinon, utiliser le dernier message de la page
+            const allPostRows = document.querySelectorAll('.post_row');
+            limitElement = allPostRows[allPostRows.length - 1];
+            limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+        }
+        
+        if (!limitRect) {
             return;
         }
         
-        const lastPostRect = lastPostMessage.getBoundingClientRect();
         const tocHeight = tocContainer.offsetHeight;
         
         // Calculer les seuils
         const shouldStartFixed = originalRect.top <= 85;
         const tocBottomIfFixed = 85 + tocHeight;
-        const wouldOverflow = tocBottomIfFixed > lastPostRect.bottom;
+        const wouldOverflow = tocBottomIfFixed > limitRect.top;
         
         // Déterminer le nouvel état
         let newState = state;
@@ -303,11 +329,11 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                     originalParent.appendChild(placeholder);
                 }
             } else if (newState === 'bottom') {
-                // Positionner en absolu par rapport au dernier post
+                // Positionner en absolu par rapport à la limite déterminée
                 const width = tocContainer.offsetWidth;
                 
                 // Calculer la position absolue où le TOC doit s'arrêter
-                const stopPosition = lastPostRect.bottom - tocHeight + window.pageYOffset;
+                const stopPosition = limitRect.top - tocHeight + window.pageYOffset;
                 
                 // S'assurer que le placeholder existe pour maintenir la hauteur
                 if (!placeholder) {

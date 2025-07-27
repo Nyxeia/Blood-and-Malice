@@ -137,7 +137,7 @@ color-scheme: light;
 .page-title, .page-title-topic,
 .custom-name, .custom-fc,
 .userlist_name,
-.toc-title,
+.toc-title, .toc-pseudo,
 t0, t1 {
 font-size: 18px;
 font-family: var(--font2);
@@ -1382,11 +1382,14 @@ display: none;
 .post_nav:has(.table-of-contents){
 z-index: 700;
 }
-.post:has(.annexe) .post_nav,
-.post:has(.hybrid) .post_nav {
+.post:has(.annexe) .post_nav {
 display: block;
 min-height: 100px;
 margin-top: 10px;
+}
+.post:has(.hybrid) .post_nav {
+display: block;
+min-height: 100px;
 }
 .toc-subsection-link {
     margin-left: 15px;
@@ -1394,7 +1397,7 @@ margin-top: 10px;
 .table-of-contents {
     text-align: center;
 }
-.annexe .toc-image {
+.toc-image {
 background: var(--neutral2);
 padding: 5px;
 width: 100px;
@@ -1405,12 +1408,16 @@ border-radius: 100%;
 border: var(--border);
 outline: 6px solid var(--neutral1);
 }
-.annexe .toc-title {
+.toc-title {
 margin: 5px;
 font-size: 24px;
 color: var(--accent2);
 text-shadow: var(--text-shadow2);
 }
+.toc-pseudo {
+margin:20px;
+}
+
 .toc-hr {
 width: 90px;
 margin-bottom: 5px;
@@ -1462,7 +1469,7 @@ transition: var(--transition);
 .post_pseudo_rank {
     padding: 7px;
 }
-.post_pseudo {
+.post_pseudo, .toc-pseudo {
 text-shadow: var(--text-shadow2);
 font-size: 22px !important;
 line-height: 20px;
@@ -2128,7 +2135,8 @@ letter-spacing: 1px;
     margin: 18px 0 15px 0;
 }
 
-.userlist_avatar img {
+.userlist_avatar img,
+.toc-avatar img {
 width: 175px;
 height: 175px;
 object-fit: cover;
