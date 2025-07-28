@@ -119,9 +119,7 @@ color-scheme: light;
 --shadow-cate-title: 2px 2px #aaaaaa;
 --shadow-cate-title2: 1px 1px #afafaf;
 }
-.color-scheme-toggle {
-    background:none;
-}
+
 /* title style */
 #top-header,
 .cate_title h2,
@@ -139,7 +137,7 @@ color-scheme: light;
 .page-title, .page-title-topic,
 .custom-name, .custom-fc,
 .userlist_name,
-.toc-title,
+.toc-title, .toc-pseudo,
 t0, t1 {
 font-size: 18px;
 font-family: var(--font2);
@@ -1371,10 +1369,11 @@ padding-top: 2px;
     height: fit-content;
     top: 85px;
 }
-.annexe {
+.annexe, .hybrid {
     top: 85px;
 }
-.post:has(.annexe) .post_profile {
+.post:has(.annexe) .post_profile,
+.post:has(.hybrid) .post_profile {
    display: none;
 }
 .post_nav {
@@ -1387,6 +1386,10 @@ z-index: 700;
 display: block;
 min-height: 100px;
 margin-top: 10px;
+}
+.post:has(.hybrid) .post_nav {
+display: block;
+min-height: 100px;
 }
 .toc-subsection-link {
     margin-left: 15px;
@@ -1411,6 +1414,10 @@ font-size: 24px;
 color: var(--accent2);
 text-shadow: var(--text-shadow2);
 }
+.toc-pseudo {
+margin:20px;
+}
+
 .toc-hr {
 width: 90px;
 margin-bottom: 5px;
@@ -1462,7 +1469,7 @@ transition: var(--transition);
 .post_pseudo_rank {
     padding: 7px;
 }
-.post_pseudo {
+.post_pseudo, .toc-pseudo {
 text-shadow: var(--text-shadow2);
 font-size: 22px !important;
 line-height: 20px;
@@ -2128,7 +2135,8 @@ letter-spacing: 1px;
     margin: 18px 0 15px 0;
 }
 
-.userlist_avatar img {
+.userlist_avatar img,
+.toc-avatar img {
 width: 175px;
 height: 175px;
 object-fit: cover;
@@ -2594,7 +2602,7 @@ m1 {
 
 m2, m3, m4 {
     color: var(--textColor3);
-    font-weight: bolder;
+    font-weight: 450;
     padding-inline: 0.2em;
     box-shadow: inset 0 -15px 0 var(--accent1);
 }
@@ -2765,20 +2773,30 @@ deco {
     }
 }
 
-.post_message_content {
+.post_message_content, #preview {
 a {
-    font-weight: 600;
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
     color: var(--textColor2);
     text-decoration:none;
     padding-inline: 0.1em;
     padding-bottom: 0.2em;
-    background-image: linear-gradient(120deg, var(--accent1),var(--accent2) 100%);
+    background-image: none;
     background-repeat: no-repeat;
     background-size: 100% 0.1em;
     background-position: 0 100%;
+    text-decoration: underline;
+    text-decoration-color: var(--accent3);
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
     transition: all 0.2s ease-in;
 
     &:hover {
+        text-decoration: none;
+        background-image: linear-gradient(120deg, var(--accent1),var(--accent2) 100%);
         background-size: 100% 100%;
         border-radius: 3px;
         color: var(--textColor3);
@@ -2842,28 +2860,24 @@ a[href^="/u"] {
     text-decoration-color: #42403ea6;
     text-underline-offset: 3px;
 }
-.dialogue,
-dialogue {
+
+textswitch {
     display: contents;
 }
 
-dialogue .base,
-.dialogue .base {
+textswitch .base {
     display: inline;
 }
 
-dialogue .trad,
-.dialogue .trad {
+ditextswitchalogue .new {
     display: none;
 }
 
-dialogue:hover .base,
-.dialogue:hover .base {
+textswitch:hover .base {
     display: none;
 }
 
-dialogue:hover .trad,
-.dialogue:hover .trad {
+dialogue:hover .new {
     display: inline;
 }
 
@@ -2876,7 +2890,7 @@ dialogue:hover .trad,
 visibility: hidden;
     width: 100%;
     background-color: black;
-    color: #fff;
+    color: #b4b4b4;
     border-radius: 6px;
     padding: 5px;
     position: absolute;

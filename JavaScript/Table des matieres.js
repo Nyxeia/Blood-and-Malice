@@ -1,12 +1,24 @@
 function generateTableOfContents() {
-    const postNav = document.querySelector('.post_nav');
     
+    // Détecter le type de contenu
+    const annexeDiv = document.querySelector('.annexe');
+    const hybridDiv = document.querySelector('.hybrid');
+    
+    // Si aucun des deux types n'est présent, ne rien faire
+    if (!annexeDiv && !hybridDiv) {
+        return;
+    }
+    
+    const postNav = document.querySelector('.post_nav');
     if (!postNav) {
         return;
     }
     
-    const sections = document.querySelectorAll('[id^="section"]');
-    const subsections = document.querySelectorAll('[id^="subsection"]');
+    // Déterminer le mode : 'annexe' ou 'hybrid'
+    const mode = hybridDiv ? 'hybrid' : 'annexe';
+    
+    const sections = document.querySelectorAll('[id^="section"]:not([id^="subsection"])');
+    const subsections = mode === 'annexe' ? document.querySelectorAll('[id^="subsection"]') : [];
     
     if (sections.length === 0) {
         return;
@@ -14,30 +26,46 @@ function generateTableOfContents() {
     
     // Créer le conteneur de la table des matières
     const tocContainer = document.createElement('div');
-    tocContainer.className = 'table-of-contents';
+    tocContainer.className = mode === 'hybrid' ? 'table-of-contents hybrid' : 'table-of-contents';
 
-    // Récupérer et déplacer l'image du header
-    const headerImage = document.querySelector('header img');
-    if (headerImage) {
-        const tocImage = headerImage.cloneNode(true);
-        tocImage.className = 'toc-image';
-        tocContainer.appendChild(tocImage);
-        // Supprimer l'image originale du header
-        headerImage.remove();
+    if (mode === 'hybrid') {
+        const postPseudo = document.querySelector('.post_pseudo');
+        const tocTitle = document.createElement('div');
+        if (postPseudo) {
+            tocTitle.innerHTML = postPseudo.innerHTML;
+            postPseudo.remove();
+        } 
+        tocTitle.className = 'toc-pseudo';
+        tocContainer.appendChild(tocTitle);
+
+        const postAvatar = document.querySelector('.post_avatar');
+        if (postAvatar) {
+            const tocImage = postAvatar.cloneNode(true);
+            tocImage.className = 'toc-avatar';
+            tocContainer.appendChild(tocImage);
+            postAvatar.remove();
+        }
+    } else {
+        const headerImage = document.querySelector('header img');
+        if (headerImage) {
+            const tocImage = headerImage.cloneNode(true);
+            tocImage.className = 'toc-image';
+            tocContainer.appendChild(tocImage);
+            headerImage.remove();
+        }
+        
+        const tocTitle = document.createElement('div');
+        tocTitle.textContent = 'Table des matières';
+        tocTitle.className = 'toc-title';
+        tocContainer.appendChild(tocTitle);
     }
     
-    // titre pour la table des matières
-    const tocTitle = document.createElement('div');
-    tocTitle.textContent = 'Table des matières';
-    tocTitle.className = 'toc-title';
-    tocContainer.appendChild(tocTitle);
-    
-    // separateur
+    // Séparateur
     const tocSep = document.createElement('hr1');
     tocSep.className = 'toc-hr';
     tocContainer.appendChild(tocSep);
 
-    // liste principale
+    // Liste principale
     const tocList = document.createElement('ul');
     tocList.className = 'toc-list';
     
@@ -62,19 +90,17 @@ function generateTableOfContents() {
         anchor.href = `#${targetId}`;
         anchor.textContent = title;
         anchor.className = className;
-        anchor.setAttribute('data-target', targetId); // Pour identifier la cible
+        anchor.setAttribute('data-target', targetId);
         
-        // défilement au clic avec offset
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const targetSection = document.querySelector(this.getAttribute('href'));
             if (targetSection) {
-                const yOffset = -90; // Offset négatif de 90px pour la barre de navigation
+                const yOffset = -90;
                 const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 
                 window.scrollTo(0, y);
                 
-                // Mettre à jour immédiatement l'état actif après le clic
                 setTimeout(() => updateActiveSection(), 100);
             }
         });
@@ -82,139 +108,132 @@ function generateTableOfContents() {
         return anchor;
     }
     
-    // Grouper les sous-sections par section (map sous-section -> section)
-    const subsectionsBySection = new Map();
-    
-    subsections.forEach(subsection => {
-        const subsectionId = subsection.id;
-        const match = subsectionId.match(/subsection(\d+)/);
+    if (mode === 'annexe') {
+        // Mode annexe : gérer les sous-sections
+        const subsectionsBySection = new Map();
         
-        if (match) {
-            const subsectionNumber = parseInt(match[1]);
+        subsections.forEach(subsection => {
+            const subsectionId = subsection.id;
+            const match = subsectionId.match(/subsection(\d+)/);
             
-            // Trouver la section parent dans le DOM
-            let parentSection = null;
-            const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
-            
-            for (let i = 0; i < allElements.length; i++) {
-                if (allElements[i] === subsection) {
-                    // Chercher la section précédente
-                    for (let j = i - 1; j >= 0; j--) {
-                        if (allElements[j].id.startsWith('section') && !allElements[j].id.startsWith('subsection')) {
-                            parentSection = allElements[j];
-                            break;
+            if (match) {
+                let parentSection = null;
+                const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
+                
+                for (let i = 0; i < allElements.length; i++) {
+                    if (allElements[i] === subsection) {
+                        for (let j = i - 1; j >= 0; j--) {
+                            if (allElements[j].id.startsWith('section') && !allElements[j].id.startsWith('subsection')) {
+                                parentSection = allElements[j];
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
+                }
+                
+                if (parentSection) {
+                    if (!subsectionsBySection.has(parentSection.id)) {
+                        subsectionsBySection.set(parentSection.id, []);
+                    }
+                    subsectionsBySection.get(parentSection.id).push(subsection);
                 }
             }
-            
-            if (parentSection) {
-                if (!subsectionsBySection.has(parentSection.id)) {
-                    subsectionsBySection.set(parentSection.id, []);
-                }
-                subsectionsBySection.get(parentSection.id).push(subsection);
+        });
+        
+        // Créer la table des matières avec sous-sections
+        sections.forEach((section, index) => {
+            if (section.id.startsWith('subsection')) {
+                return;
             }
-        }
-    });
-    
-    // Créer la table des matières
-    sections.forEach((section, index) => {
-        if (section.id.startsWith('subsection')) {
-            return;
-        }
-        
-        // Récupérer le titre de la section
-        const sectionTitle = getTitleFromElement(section, `Section ${index + 1}`);
-        
-        // Créer l'élément de liste pour la section
-        const listItem = document.createElement('li');
-        listItem.className = 'toc-item toc-section';
-        
-        // Créer le lien d'ancrage pour la section
-        const sectionAnchor = createAnchorLink(section.id, sectionTitle, 'toc-link toc-section-link');
-        listItem.appendChild(sectionAnchor);
-        
-        // Vérifier s'il y a des sous-sections pour cette section
-        const sectionSubsections = subsectionsBySection.get(section.id) || [];
-        
-        if (sectionSubsections.length > 0) {
-            // Créer une sous-liste pour les sous-sections
-            const subList = document.createElement('ul');
-            subList.className = 'toc-sublist';
             
-            sectionSubsections.forEach((subsection, subIndex) => {
-                const subsectionTitle = getTitleFromElement(subsection, `Sous-section ${subIndex + 1}`);
-                
-                const subListItem = document.createElement('li');
-                subListItem.className = 'toc-item toc-subsection';
-                
-                const subsectionAnchor = createAnchorLink(subsection.id, subsectionTitle, 'toc-link toc-subsection-link');
-                subListItem.appendChild(subsectionAnchor);
-                
-                subList.appendChild(subListItem);
-            });
+            const sectionTitle = getTitleFromElement(section, `Section ${index + 1}`);
             
-            listItem.appendChild(subList);
-        }
-        
-        tocList.appendChild(listItem);
-    });
+            const listItem = document.createElement('li');
+            listItem.className = 'toc-item toc-section';
+            
+            const sectionAnchor = createAnchorLink(section.id, sectionTitle, 'toc-link toc-section-link');
+            listItem.appendChild(sectionAnchor);
+            
+            const sectionSubsections = subsectionsBySection.get(section.id) || [];
+            
+            if (sectionSubsections.length > 0) {
+                const subList = document.createElement('ul');
+                subList.className = 'toc-sublist';
+                
+                sectionSubsections.forEach((subsection, subIndex) => {
+                    const subsectionTitle = getTitleFromElement(subsection, `Sous-section ${subIndex + 1}`);
+                    
+                    const subListItem = document.createElement('li');
+                    subListItem.className = 'toc-item toc-subsection';
+                    
+                    const subsectionAnchor = createAnchorLink(subsection.id, subsectionTitle, 'toc-link toc-subsection-link');
+                    subListItem.appendChild(subsectionAnchor);
+                    
+                    subList.appendChild(subListItem);
+                });
+                
+                listItem.appendChild(subList);
+            }
+            
+            tocList.appendChild(listItem);
+        });
+    } else {
+        // Mode hybrid : sections simples seulement
+        sections.forEach((section, index) => {
+            const sectionTitle = getTitleFromElement(section, `Section ${index + 1}`);
+            
+            const listItem = document.createElement('li');
+            listItem.className = 'toc-item toc-section';
+            
+            const sectionAnchor = createAnchorLink(section.id, sectionTitle, 'toc-link toc-section-link');
+            listItem.appendChild(sectionAnchor);
+            
+            tocList.appendChild(listItem);
+        });
+    }
     
     tocContainer.appendChild(tocList);
     
-    // Vider post_nav et ajouter la table des matières
     postNav.innerHTML = '';
     postNav.appendChild(tocContainer);
 
-    makeTableOfContentsSticky(tocContainer, postNav);
+    makeTableOfContentsSticky(tocContainer, postNav, mode);
     
-    // Initialiser le système de section active
-    initializeActiveSectionTracking();
+    initializeActiveSectionTracking(mode);
 }
 
-// Fonction pour gérer la section active
-function initializeActiveSectionTracking() {
+function initializeActiveSectionTracking(mode) {
     let isScrolling = false;
     
     function updateActiveSection() {
-        // Récupérer toutes les sections et sous-sections
         const allSections = document.querySelectorAll('[id^="section"]');
         const tocLinks = document.querySelectorAll('.toc-link');
         
-        // Supprimer les classes actives existantes
         tocLinks.forEach(link => link.classList.remove('toc-active', 'toc-parent-active'));
         
-        // Convertir en array et trier par position dans le DOM
         const sectionsArray = Array.from(allSections).sort((a, b) => {
             return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
         });
         
         let activeSection = null;
-        const viewportTop = 300; // Zone de lecture optimale (un peu plus bas que la barre de navigation)
-        const viewportBottom = window.innerHeight * 0.7; // On considère la partie haute de l'écran comme zone de lecture
+        const viewportTop = 300;
         
-        // Approche différente : trouver quelle section est dans la zone de lecture optimale
         for (let i = 0; i < sectionsArray.length; i++) {
             const section = sectionsArray[i];
             const rect = section.getBoundingClientRect();
             
-            // Si le haut de la section est au-dessus de la zone de lecture
-            // et le bas est en dessous, alors on est en train de lire cette section
             if (rect.top <= viewportTop && rect.bottom >= viewportTop) {
                 activeSection = section;
                 break;
             }
         }
         
-        // Si aucune section ne traverse la zone de lecture, 
-        // prendre la dernière section passée (celle qui est juste au-dessus)
         if (!activeSection) {
             for (let i = sectionsArray.length - 1; i >= 0; i--) {
                 const section = sectionsArray[i];
                 const rect = section.getBoundingClientRect();
                 
-                // Prendre la dernière section dont le haut est passé
                 if (rect.top <= viewportTop) {
                     activeSection = section;
                     break;
@@ -222,12 +241,10 @@ function initializeActiveSectionTracking() {
             }
         }
         
-        // En dernier recours, si on est tout en haut, prendre la première section
         if (!activeSection && sectionsArray.length > 0) {
             activeSection = sectionsArray[0];
         }
         
-        // Activer le lien correspondant
         if (activeSection) {
             const targetId = activeSection.id;
             const activeLink = document.querySelector(`.toc-link[data-target="${targetId}"]`);
@@ -235,9 +252,8 @@ function initializeActiveSectionTracking() {
             if (activeLink) {
                 activeLink.classList.add('toc-active');
                 
-                // Si c'est une sous-section, activer aussi la section parent
-                if (targetId.startsWith('subsection')) {
-                    // Trouver la section parent
+                // Gérer les sous-sections seulement en mode annexe
+                if (mode === 'annexe' && targetId.startsWith('subsection')) {
                     const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
                     let parentSection = null;
                     
@@ -264,7 +280,6 @@ function initializeActiveSectionTracking() {
         }
     }
     
-    // Fonction de debounce pour optimiser les performances
     function debounceScroll() {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
@@ -275,41 +290,63 @@ function initializeActiveSectionTracking() {
         }
     }
     
-    // Écouter le scroll
     window.addEventListener('scroll', debounceScroll);
-    
-    // Mise à jour initiale
     updateActiveSection();
-    
-    // Expose la fonction pour usage externe
     window.updateActiveSection = updateActiveSection;
 }
 
-function makeTableOfContentsSticky(tocContainer, originalContainer) {
-    let state = 'normal'; // 'normal', 'fixed', or 'bottom'
+function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
+    let state = 'normal';
     const originalParent = originalContainer;
     let placeholder = null;
     
     function handleScroll() {
         const originalRect = originalParent.getBoundingClientRect();
         
-        // Trouver le dernier post_message de la page
-        const allPostMessages = document.querySelectorAll('.container-post');
-        const lastPostMessage = allPostMessages[allPostMessages.length - 1];
+        let limitElement = null;
+        let limitRect = null;
         
-        if (!lastPostMessage) {
+        if (mode === 'hybrid') {
+            // Mode hybrid : détecter le prochain message sans .hybrid
+            const currentPostRow = tocContainer.closest('.post_row');
+            
+            let nextPostRow = null;
+            if (currentPostRow) {
+                nextPostRow = currentPostRow.nextElementSibling;
+                while (nextPostRow && !nextPostRow.classList.contains('post_row')) {
+                    nextPostRow = nextPostRow.nextElementSibling;
+                }
+            }
+            
+            const nextHasHybrid = nextPostRow ? nextPostRow.querySelector('.hybrid') !== null : false;
+            
+            if (nextPostRow && !nextHasHybrid) {
+                limitElement = nextPostRow;
+                limitRect = limitElement.getBoundingClientRect();
+            } else {
+                const allPostRows = document.querySelectorAll('.post_row');
+                limitElement = allPostRows[allPostRows.length - 1];
+                limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+            }
+        } else {
+            // Mode annexe : utiliser le dernier message de la page
+            const allPostMessages = document.querySelectorAll('.container-post');
+            limitElement = allPostMessages[allPostMessages.length - 1];
+            limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+        }
+        
+        if (!limitRect) {
             return;
         }
         
-        const lastPostRect = lastPostMessage.getBoundingClientRect();
         const tocHeight = tocContainer.offsetHeight;
-        
-        // Calculer les seuils
         const shouldStartFixed = originalRect.top <= 85;
         const tocBottomIfFixed = 85 + tocHeight;
-        const wouldOverflow = tocBottomIfFixed > lastPostRect.bottom;
         
-        // Déterminer le nouvel état
+        // Utiliser .top pour hybrid, .bottom pour annexe
+        const referencePoint = mode === 'hybrid' ? limitRect.top : limitRect.bottom;
+        const wouldOverflow = tocBottomIfFixed > referencePoint;
+        
         let newState = state;
         
         if (state === 'normal') {
@@ -325,7 +362,6 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                 newState = 'bottom';
             }
         } else if (state === 'bottom') {
-            // Calculer si on peut revenir en fixed
             const scrolledBackUp = !wouldOverflow && shouldStartFixed;
             const scrolledAboveStart = !shouldStartFixed;
             
@@ -336,9 +372,7 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
             }
         }
         
-        // Appliquer les changements si l'état a changé
         if (newState !== state) {
-            // Nettoyer l'état précédent
             if (state === 'fixed' || state === 'bottom') {
                 if (placeholder) {
                     placeholder.remove();
@@ -346,9 +380,7 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                 }
             }
             
-            // Appliquer le nouvel état
             if (newState === 'normal') {
-                // Remettre dans le conteneur original si nécessaire
                 if (tocContainer.parentElement === document.body) {
                     originalParent.appendChild(tocContainer);
                 }
@@ -362,7 +394,6 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                 const width = tocContainer.offsetWidth;
                 const left = originalRect.left;
                 
-                // Remettre dans le conteneur original si nécessaire
                 if (tocContainer.parentElement === document.body) {
                     originalParent.appendChild(tocContainer);
                 }
@@ -372,7 +403,6 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                 tocContainer.style.left = left + 'px';
                 tocContainer.style.width = width + 'px';
                 
-                // Créer placeholder
                 if (!placeholder) {
                     placeholder = document.createElement('div');
                     placeholder.className = 'toc-placeholder';
@@ -380,13 +410,13 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                     originalParent.appendChild(placeholder);
                 }
             } else if (newState === 'bottom') {
-                // Positionner en absolu par rapport au dernier post
                 const width = tocContainer.offsetWidth;
                 
-                // Calculer la position absolue où le TOC doit s'arrêter
-                const stopPosition = lastPostRect.bottom - tocHeight + window.pageYOffset;
+                // Calculer différemment selon le mode
+                const stopPosition = mode === 'hybrid' 
+                    ? referencePoint - tocHeight + window.pageYOffset
+                    : referencePoint - tocHeight + window.pageYOffset;
                 
-                // S'assurer que le placeholder existe pour maintenir la hauteur
                 if (!placeholder) {
                     placeholder = document.createElement('div');
                     placeholder.className = 'toc-placeholder';
@@ -394,7 +424,6 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
                     originalParent.appendChild(placeholder);
                 }
                 
-                // Ajouter le TOC au body pour le positionner en absolu
                 document.body.appendChild(tocContainer);
                 
                 tocContainer.style.position = 'absolute';
@@ -406,18 +435,14 @@ function makeTableOfContentsSticky(tocContainer, originalContainer) {
             state = newState;
         }
         
-        // Mettre à jour la position horizontale si fixed
         if (state === 'fixed') {
             const newRect = originalParent.getBoundingClientRect();
             tocContainer.style.left = newRect.left + 'px';
         }
     }
     
-    // Écouter le scroll et le resize
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    
-    // Vérification initiale
     handleScroll();
 }
 
