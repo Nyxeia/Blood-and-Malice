@@ -2602,7 +2602,7 @@ m1 {
 
 m2, m3, m4 {
     color: var(--textColor3);
-    font-weight: bolder;
+    font-weight: 450;
     padding-inline: 0.2em;
     box-shadow: inset 0 -15px 0 var(--accent1);
 }
@@ -2773,20 +2773,30 @@ deco {
     }
 }
 
-.post_message_content {
+.post_message_content, #preview {
 a {
-    font-weight: 600;
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
     color: var(--textColor2);
     text-decoration:none;
     padding-inline: 0.1em;
     padding-bottom: 0.2em;
-    background-image: linear-gradient(120deg, var(--accent1),var(--accent2) 100%);
+    background-image: none;
     background-repeat: no-repeat;
     background-size: 100% 0.1em;
     background-position: 0 100%;
+    text-decoration: underline;
+    text-decoration-color: var(--accent3);
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
     transition: all 0.2s ease-in;
 
     &:hover {
+        text-decoration: none;
+        background-image: linear-gradient(120deg, var(--accent1),var(--accent2) 100%);
         background-size: 100% 100%;
         border-radius: 3px;
         color: var(--textColor3);
