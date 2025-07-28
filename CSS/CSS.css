@@ -2696,6 +2696,27 @@ qt {
 
 }
 
+qt2 {
+    display: block;
+    margin: auto;
+    position: relative;
+    width:90%;
+    text-align:justify;
+    padding: 1em 2em 0 2em;
+    z-index: 2;
+    &:before {
+        content: '❝';
+        font-size: 10em;
+        color: var(--neutral3);
+        position: absolute;
+        top:-60px;
+        left: 0;
+        opacity: .5;
+        z-index: -1;
+    }
+
+}
+
 bq {
     display: block;
     margin: 20px 10px;
