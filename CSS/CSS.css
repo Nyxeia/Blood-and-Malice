@@ -40,6 +40,7 @@ color-scheme: dark;
 --hoverColorBase: var(--accent2);
 --hoverColor1: var(--textColor3); /* sous-cat au survol */
 --hoverColor2: var(--accent2); /* cercles au survol */
+--dashed: #696969;
 
 --border: 1px solid var(--neutral3);
 --border2: 1px solid var(--neutral3); /* cercles */
@@ -92,9 +93,9 @@ color-scheme: light;
 
 --accent1: #782436;
 --accent2: #620026;
---accent3: #995661;
+--accent3: #934552;
 --accent4: #c89aa2c9; /*gros souligné 1*/
---accent5: #a03a56a6; /*gros souligné 2*/
+--accent5: #b26076a6; /*gros souligné 2*/
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -1393,6 +1394,7 @@ min-height: 100px;
 }
 .toc-subsection-link {
     margin-left: 15px;
+    display:block;
 }
 .table-of-contents {
     text-align: center;
@@ -1406,7 +1408,6 @@ object-fit: cover;
 object-position: center;
 border-radius: 100%;
 border: var(--border);
-outline: 6px solid var(--neutral1);
 }
 .toc-title {
 margin: 5px;
@@ -1827,7 +1828,7 @@ background: var(--neutral5);
 /* Contenu code, spoiler et hide*/
 .codebox dd {
 border-radius: 5px;
-padding: 5px;
+padding: 10px 5px;
 }
 
 /*retire la mention "code" du bloc*/
@@ -1883,7 +1884,7 @@ padding: 3px;
 }
 
 /* Citation contenu */
-blockquote div {
+blockquote>div:first-child {
     display: block;
     position: relative;
     padding: 1em 2em 0 2em;
@@ -2574,6 +2575,7 @@ t1 {
 t2 {
     font-family: var(--font2), sans-serif;
     font-size: 1.5em;
+    letter-spacing: 0.5px;
     &:before {
         content: '✧';
         color: var(--accent3);
@@ -2602,7 +2604,6 @@ m1 {
 
 m2, m3, m4 {
     color: var(--textColor3);
-    font-weight: 450;
     padding-inline: 0.2em;
     box-shadow: inset 0 -15px 0 var(--accent1);
 }
@@ -2629,7 +2630,7 @@ u1 {
     background-image: linear-gradient(120deg, var(--accent1),var(--accent2) 100%);
     background-repeat: no-repeat;
     background-size: 100% 0.1em;
-    background-position: 0 100%;
+    background-position: 0 95%;
 }
 
 u2 {
@@ -2638,7 +2639,7 @@ u2 {
     -webkit-text-fill-color: transparent;
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: var(--textColor1);
+    text-decoration-color: var(--dashed);
     text-decoration-style: dashed;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
@@ -2838,6 +2839,11 @@ a[href^="/u"] {
 }
 }
 
+va {color: var(--vampires)}
+so {color: var(--sorciers);}
+sp {color: var(--spectres);}
+hu {color: var(--humains);}
+
 .accordion {
     background-color: transparent;
     color: var(--textColor);
@@ -2890,7 +2896,7 @@ textswitch .base {
     display: inline;
 }
 
-ditextswitchalogue .new {
+textswitch .new {
     display: none;
 }
 
@@ -2898,7 +2904,7 @@ textswitch:hover .base {
     display: none;
 }
 
-dialogue:hover .new {
+textswitch:hover .new {
     display: inline;
 }
 
@@ -2906,7 +2912,6 @@ dialogue:hover .new {
     position: relative;
     display: inline;
 }
-
 .tooltip .tooltiptext {
 visibility: hidden;
     width: 100%;
@@ -2919,7 +2924,6 @@ visibility: hidden;
     bottom: 100%;
     left: 0;
 }
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
