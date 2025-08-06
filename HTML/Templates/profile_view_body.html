@@ -2,17 +2,44 @@
 <!-- ACTIVATE SIMPLE PROFILE: Users & Groups › Profiles › General options › Activate advanced profile: no -->
 
 <br/>
-<div class="container">
-
     <!-- Username -->
-    <h1 class="page-title">{USERNAME}</h1>
+    <div class="idcard cate_title"><h2>{USERNAME}</h2>
+    <div class="idcard cate_quote">        <!-- BEGIN switch_show_status -->
+           {USER_ONLINE} ✧ 
+        <!-- END switch_show_status -->
+         &nbsp;{LAST_VISIT_TIME}</div></div>
 
+<div class="idcard container">
     <!-- Profile contents -->
     <div class="user_profile">
 
-        <!-- Avatar -->
-        <div class="profile_avatar" id="user_avatar"> {AVATAR_IMG}</div>
+        <div class="idcard leftcol">
 
+        <div class="post_pseudo_rank post_rank">{POSTER_RANK}</div>
+        <!-- Avatar -->
+         <div class="avatar_container">
+                <!-- Avatar -->
+                <div id="user_avatar" class="post_avatar">
+                    {AVATAR_IMG}
+                </div>
+        </div>
+
+        <div class="post_customfield">
+            <div class="custom-icon"></div>
+            <div class="custom-icon-hrp" style="display: none;"></div>
+            <div class="tabs-wrap">
+                <div class="as-above">AS ABOVE</div>
+                <div class="so-below">SO BELOW</div>
+            </div>
+            <div class="custom-text">
+            <div class="custom-name"></div>
+            <div class="custom-rank"></div>
+            <div class="custom-fc" style="display: none;">ft. <span class="faceclaim"></span></div>
+            <div class="custom-pseudo" style="display: none;">joué·e par <span class="pseudo"></span></div>
+            </div>
+        </div>
+
+        </div>  <!-- leftcol end -->
       
         <!-- Profile info -->
         <div class="profile_infos">
@@ -24,24 +51,9 @@
                 <!-- END contact_field -->
             </form>
 
-            <!-- Rank-->
-            <strong>{POSTER_RANK}</strong><br />
-
-            <!-- Status: online -->
-            <!-- BEGIN switch_show_status -->
-            {USER_ONLINE}
-            <!-- END switch_show_status -->
-
-
             <br/>
             <!-- PROFILE FIELDS -->
             <div class="profile_content">
-
-                <!-- "Last visited" field -->
-                <div class="profile_field">
-                    <label>{L_LAST_VISITED} :</label>
-                    <field>{LAST_VISIT_TIME}</field>
-                </div>
 
                <!-- "Private messages" field -->
                 <!-- BEGIN switch_dhow_mp -->
@@ -70,19 +82,6 @@
                 </div>
                 <!-- END profile_field -->
 
-              
-              	<!-- Character sheet -->
-                <!-- BEGIN switch_rpg -->
-                <!-- BEGIN rpg_fields -->
-                <div class="profile_field">
-                    <label>{switch_rpg.rpg_fields.F_NAME} :</label>
-                    <field>{switch_rpg.rpg_fields.F_VALUE_NEW}</field>
-                </div>
-                <!-- END rpg_fields -->
-
-                <fieldset class="submit-buttons">{U_ADMIN_RPG_NEW}</fieldset>
-                <!-- END switch_rpg -->
-
 
             </div>
             <!-- End of profile fields -->
@@ -91,26 +90,6 @@
 
 
     </div>
-
-    <!-- Liens de modération -->
-    <div class="profile_admin">
-    
-        <!-- Bouton "suivre le membre" -->
-        <!-- BEGIN switch_follow_member -->
-        <button onclick="doFollowAction(this);" data-id="{CUR_USER_ID}" class="followBtn {C_CLASS} ion-android-notifications{C_ICLASS}">
-            {CUR_FOLLOW_TEXT}
-        </button>
-        <!-- END switch_follow_member -->
-      
-      &nbsp;
-      
-      	<!-- Bouton d'administration du membre --> 
-        <!-- BEGIN switch_auth_user -->
-        {ADMINISTRATE_USER}{BAN_USER}
-        <!-- END switch_auth_user -->
-    
-    </div>
-
 
 </div>
 

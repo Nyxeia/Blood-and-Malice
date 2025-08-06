@@ -1810,9 +1810,6 @@ margin: 20px 0 0;
 
 /*** TEXTES, BALISES, ETC ---------- ***/
 
-/* Lien-tag des utilisateurs */
-.mentiontag {}
-
 /* BALISES DE MESSAGE : spoiler, code, quote... */
 /* Balise code, spoiler et hide*/
 .codebox {
@@ -1927,12 +1924,36 @@ opacity: 0.8;
 /*** ------------------------------- ***/
 /*** PAGE DE PROFIL ---------------- ***/
 
+.idcard.container {
+    background: var(--neutral1);
+    border-radius: 8px;
+    margin: 10px;
+}
+.idcard.cate_title {
+    strong {font-weight: 500;}
+}
+.idcard.cate_quote {
+    color: var(--textColor);
+}
+
+.idcard {
+    .avatar_container {
+        padding: 10px;
+        margin: 0;
+    }
+    .post_pseudo_rank {
+        text-align: center;
+    font-size: var(--smaller-size) !important;
+    margin: 0 0 10px 0;
+    }
+}
+
 .user_profile {
 background: var(--neutral);
 border-radius: 5px;
 display: grid;
 grid-template-columns: max-content auto;
-padding: 10px;
+padding: 10px 0;
 grid-gap: 20px;
 }
 
@@ -1972,23 +1993,6 @@ position: relative;
 .profile_admin {
 text-align: center;
 margin: 10px 0 0;
-}
-
-/* Bouton "suivre le membre" */
-.followBtn {
-background: var(--neutral);
-border: 1px solid var(--neutralDark);
-border-radius: 5px;
-font-weight: 600;
-margin: 0;
-font-size: 14px;
-}
-
-.followBtn::before {
-top: 1px;
-position: relative;
-color: var(--accentClr);
-margin-right: 5px;
 }
 
 /* Bouton édition d'un champ de profil */
