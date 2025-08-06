@@ -1620,7 +1620,7 @@ display: inline-block;
 
 /* RECOMPENSES --- */
 /* Conteneur des récompenses */
-#list_awards {
+#list_awards, .awards_block {
 display: flex;
 flex-wrap: wrap;
 gap: 5px;
@@ -1975,10 +1975,6 @@ overflow: auto;
 }
 
 .profile_field {
-margin: 10px 0;
-display: grid;
-grid-template-columns: 135px auto;
-grid-gap: 10px;
 }
 
 .field_label span{

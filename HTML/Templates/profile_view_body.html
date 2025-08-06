@@ -15,7 +15,14 @@
 
         <div class="idcard leftcol">
 
-        <div class="post_pseudo_rank post_rank">{POSTER_RANK}</div>
+        <div class="post_pseudo_rank">
+                        <!-- BEGIN switch_awards -->
+      <div class="awards_block_simple_wrapper">
+     <div class="awards_block simple">{switch_awards.AWARDS_LIST}</div>
+      </div>
+      <!-- END switch_awards -->
+            <div class="post_rank">{POSTER_RANK}</div>
+        </div>
         <!-- Avatar -->
          <div class="avatar_container">
                 <!-- Avatar -->
@@ -81,7 +88,7 @@
                     </field>
                 </div>
                 <!-- END profile_field -->
-
+                
 
             </div>
             <!-- End of profile fields -->
