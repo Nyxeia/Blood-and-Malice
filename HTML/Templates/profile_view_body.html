@@ -16,12 +16,12 @@
         <div class="idcard leftcol">
 
         <div class="post_pseudo_rank">
-                        <!-- BEGIN switch_awards -->
+            <div class="post_rank">{POSTER_RANK}</div>
+            <!-- BEGIN switch_awards -->
       <div class="awards_block_simple_wrapper">
      <div class="awards_block simple">{switch_awards.AWARDS_LIST}</div>
       </div>
       <!-- END switch_awards -->
-            <div class="post_rank">{POSTER_RANK}</div>
         </div>
         <!-- Avatar -->
          <div class="avatar_container">
@@ -48,9 +48,8 @@
 
         </div>  <!-- leftcol end -->
       
-        <!-- Profile info -->
-        <div class="profile_infos">
-
+        <div class="idcard midcol">
+            <div class="midtop">
             <!-- Contact image link -->
             <form action="{S_PROFILE_ACTION}" method="post" name="post" class="profile_contact">
                 <!-- BEGIN contact_field -->
@@ -58,43 +57,46 @@
                 <!-- END contact_field -->
             </form>
 
-            <br/>
-            <!-- PROFILE FIELDS -->
-            <div class="profile_content">
+            <!-- Profile info -->
+            <div class="profile_infos">
 
-               <!-- "Private messages" field -->
-                <!-- BEGIN switch_dhow_mp -->
-                <div class="profile_field">
-                    <label>{L_PRIVATE_MSG} :</label>
-                    <field>{PRIVATE_MSG}</field>
+                <!-- PROFILE FIELDS -->
+                <div class="profile_content">
+
+                    <!-- Other fields -->
+                    <!-- BEGIN profile_field -->
+                    <div class="profile_field" id="field_id{profile_field.ID}">
+                        <label>{profile_field.LABEL}</label>
+                        <field>{profile_field.CONTENT}</field>
+                    </div>
+                    <!-- END profile_field -->
+                    
+
                 </div>
-                <!-- END switch_dhow_mp -->
-
-                <!-- Other fields -->
-                <!-- BEGIN profile_field -->
-                <div class="profile_field" id="field_id{profile_field.ID}">
-                    <label>{profile_field.LABEL}</label>
-                    <field>{profile_field.CONTENT}
-
-                        <!-- "Message" field contents -->
-                        <!-- BEGIN profil_type_user_posts -->
-                        <a rel="nofollow" href="/st/{PUSERNAME}" id="opentopics">{L_SEARCH_USER_POSTS} :</a><!-- topics opened by -->
-
-                        <br />
-                        <a rel="nofollow" href="/sta/{PUSERNAME}" id="alltopics">{L_TOPICS}</a> <!-- all topics -->
-                      		&nbsp;-&nbsp;
-                        <a rel="nofollow" href="/spa/{PUSERNAME}" id="allposts">{L_POSTS}</a> <!-- all posts -->
-                        <!-- END profil_type_user_posts -->
-                    </field>
-                </div>
-                <!-- END profile_field -->
-                
+                <!-- End of profile fields -->
 
             </div>
-            <!-- End of profile fields -->
+            </div> <!-- midtop end -->
 
-        </div>
+            <div class="midbot"></div>
+        </div> <!-- midcol end -->
 
+        <div class="idcard rightcol">
+            <div class="aeszone1" style="display: block;"></div>
+            <div class="aeszone2" style="display: none;"></div>
+            <div class="twinfo"></div>
+            <div class="msginfo">
+                <!-- BEGIN profile_field -->
+                    <!-- BEGIN profil_type_user_posts -->
+                    <a rel="nofollow" href="/st/{PUSERNAME}" id="opentopics" class="btn">OUVERTURES</a><!-- topics opened by -->
+
+                    <a rel="nofollow" href="/spa/{PUSERNAME}" id="allposts" class="btn">MESSAGES</a> <!-- all posts -->
+
+                    <a rel="nofollow" href="/sta/{PUSERNAME}" id="alltopics" class="btn">PARTICIPATIONS</a> <!-- all topics -->
+                    <!-- END profil_type_user_posts -->
+                <!-- END profile_field -->
+            </div>
+        </div> <!-- rightcol end -->
 
     </div>
 

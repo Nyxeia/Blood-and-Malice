@@ -1620,7 +1620,7 @@ display: inline-block;
 
 /* RECOMPENSES --- */
 /* Conteneur des récompenses */
-#list_awards, .awards_block {
+#list_awards {
 display: flex;
 flex-wrap: wrap;
 gap: 5px;
@@ -1727,7 +1727,8 @@ ol {
 
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
-.post_userinfo, .post_customfield
+.post_userinfo, .post_customfield,
+.profile_content, .midbot, .aeszone1, .aeszone2, .twinfo 
 {
     background: var(--neutral2);
     border-radius: 3px;
@@ -1943,16 +1944,44 @@ opacity: 0.8;
     }
     .post_pseudo_rank {
         text-align: center;
-    font-size: var(--smaller-size) !important;
-    margin: 0 0 10px 0;
+        margin: 0 0 10px 0;
+    }
+    .post_rank {
+        font-size: var(--smaller-size)!important;
+    }
+
+    .awards_block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        border-top: var(--border);
+        padding-top: 5px;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
+
+.idcard {
+    .midtop {
+        display: grid;
+        grid-template-columns: max-content auto;
+        padding: 10px 0;
+        grid-gap: 10px;
+    }
+
+    .msginfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #field_id:has(#i_icon_email) {
+        display:none;
     }
 }
 
 .user_profile {
-background: var(--neutral);
-border-radius: 5px;
 display: grid;
-grid-template-columns: max-content auto;
+grid-template-columns: 220px auto 220px;
 padding: 10px 0;
 grid-gap: 20px;
 }
@@ -1964,13 +1993,10 @@ width: 200px;
 .profile_infos {}
 
 .profile_contact {
-display: flex;
-gap: 5px;
-float: right;
 }
 
 .profile_content {
-height: 265px;
+height: 450px;
 overflow: auto;
 }
 
