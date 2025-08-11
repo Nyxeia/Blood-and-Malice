@@ -1734,6 +1734,10 @@ ol {
     border-radius: 3px;
     margin: 10px 0px 0px 0px;
     border: var(--border);
+
+    img {
+        max-width: -webkit-fill-available;
+    }
 }
 .post_message_content {
     padding: 0 15px 15px 15px;
@@ -1962,10 +1966,14 @@ opacity: 0.8;
 }
 
 .idcard {
+    .profile_content, .midbot, .aeszone1, .aeszone2, .twinfo {
+        padding: 10px;
+        overflow: auto;  
+    }
+
     .midtop {
         display: grid;
-        grid-template-columns: max-content auto;
-        padding: 10px 0;
+        grid-template-columns: 140px auto;
         grid-gap: 10px;
     }
 
@@ -1983,24 +1991,28 @@ opacity: 0.8;
 display: grid;
 grid-template-columns: 220px auto 220px;
 padding: 10px 0;
-grid-gap: 20px;
+grid-gap: 10px;
 }
 
 .profile_avatar {
 width: 200px;
 }
 
-.profile_infos {}
-
-.profile_contact {
-}
-
 .profile_content {
-height: 450px;
-overflow: auto;
+height: 200px;
+margin-top: 0;
 }
 
-.profile_field {
+.profile_field field {
+    display: inline-flex !important;
+}
+
+.midbot {
+height: 330px;
+}
+
+.aeszone1, .aeszone2 {
+margin-top: 0;
 }
 
 .field_label span{

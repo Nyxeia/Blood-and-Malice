@@ -117,8 +117,12 @@ $(function() {
     
     // Fields to move to midbot
     var fieldsToMove = [
-        "Messages", "Cristaux", "Date d'inscription", "Aka", "Pronoms IRL", "Thèmes abordés", "Thèmes refusés", "Infos RP", 
-        "Note", "Crédits"
+        "Pronoms", "Âge", "Sentiments", "Appartenance", "Occupation(s)",  "Habitation", 
+        "Pouvoirs", "Inventaire", "Autre"
+    ];
+
+    var twToMove = [
+        "Thèmes abordés", "Thèmes refusés"
     ];
     
     var customDestinations = {
@@ -159,6 +163,11 @@ $(function() {
         else if (fieldsToMove.includes(fieldName)) {
             var $midbot = $field.closest(parent).find('.midbot');
             $midbot.append($field);
+        }
+        // Check if field should move to twinfo
+        else if (twToMove.includes(fieldName)) {
+            var $tw = $field.closest(parent).find('.twinfo');
+            $tw.append($field);
         }
         // Check if field should just have its label hidden
         else if (fieldsToHideLabel.includes(fieldName)) {
