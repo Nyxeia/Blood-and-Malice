@@ -7,9 +7,6 @@ $(function() {
   // AS ABOVE
   $('body').on('click', '.as-above', function() {
       var $userProfile = $(this).closest('.user_profile');
-      
-      $userProfile.find('.aeszone1').show();
-      $userProfile.find('.aeszone2').hide();
 
       // Show AS ABOVE elements
       $userProfile.find('.custom-icon').show();
@@ -31,9 +28,6 @@ $(function() {
   // SO BELOW
   $('body').on('click', '.so-below', function() {
       var $userProfile = $(this).closest('.user_profile');
-      
-      $userProfile.find('.aeszone1').hide();
-      $userProfile.find('.aeszone2').show();
 
       // Hide AS ABOVE elements
       $userProfile.find('.custom-icon').hide();
@@ -69,7 +63,7 @@ $(function() {
         var $userProfile = $(this).closest('.user_profile');
         var $tabsWrap = $(this).closest('.tabs-wrap');
         
-        if ($userProfile.find('.aeszone1').is(':visible')) {
+        if ($userProfile.find('.custom-icon').is(':visible')) {
             // AS ABOVE is active
             $tabsWrap.css('border-left', '3px solid var(--accent1)');
         } else {
@@ -95,11 +89,11 @@ $(function() {
         var $userProfile = $(this).closest('.user_profile');
         var $tabsWrap = $(this).closest('.tabs-wrap');
         
-        if ($userProfile.find('.aeszone1').is(':visible')) {
-            // AS ABOVE is active (aeszone1 is visible)
+        if ($userProfile.find('.custom-icon').is(':visible')) {
+            // AS ABOVE is active
             $tabsWrap.css('border-right', '3px solid var(--neutral4)');
         } else {
-            // SO BELOW is active (aeszone2 is visible)
+            // SO BELOW is active
             $tabsWrap.css('border-right', '3px solid var(--accent1)');
         }
     }
@@ -117,7 +111,7 @@ $(function() {
     
     // Fields to move to midbot
     var fieldsToMove = [
-        "Pronoms", "Âge", "Sentiments", "Appartenance", "Occupation(s)",  "Habitation", 
+        "Pronoms", "Âge", "Sentiments", "Appartenance", "Occupation(s)", "Habitation", 
         "Pouvoirs", "Inventaire", "Autre"
     ];
 
@@ -135,6 +129,9 @@ $(function() {
         "Zone libre 1": ".aeszone1",
         "Zone libre 2": ".aeszone2"
     };
+    
+    // Fields to copy instead of move (keep in original location AND copy to custom destination)
+    var fieldsToCopy = ["Faceclaim", "Pseudo"];
     
     // Only hide labels (without moving)
     var fieldsToHideLabel = ["Zone libre 1", "Zone libre 2"];
@@ -156,17 +153,19 @@ $(function() {
                 $destination.html($contentToMove);
             }
             
-            // Remove the entire field after moving its content
-            $field.remove();
+            // Only remove the field if it's not in the copy list
+            if (!fieldsToCopy.includes(fieldName)) {
+                $field.remove();
+            }
         }
         // Check if field should move to midbot
         else if (fieldsToMove.includes(fieldName)) {
-            var $midbot = $field.closest(parent).find('.midbot');
+            var $midbot = $field.closest(parent).find('.midbot-content');
             $midbot.append($field);
         }
         // Check if field should move to twinfo
         else if (twToMove.includes(fieldName)) {
-            var $tw = $field.closest(parent).find('.twinfo');
+            var $tw = $field.closest(parent).find('.twinfo-content');
             $tw.append($field);
         }
         // Check if field should just have its label hidden

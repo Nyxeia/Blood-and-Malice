@@ -1728,7 +1728,7 @@ ol {
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
 .post_userinfo, .post_customfield,
-.profile_content, .midbot, .aeszone1, .aeszone2, .twinfo 
+.profile_infos, .midbot, .aeszone, .twinfo 
 {
     background: var(--neutral2);
     border-radius: 3px;
@@ -1966,8 +1966,8 @@ opacity: 0.8;
 }
 
 .idcard {
-    .profile_content, .midbot, .aeszone1, .aeszone2, .twinfo {
-        padding: 10px;
+    .profile_content, .midbot-content, .aeszone, .twinfo-content {
+        padding: 0 5px 5px 5px;
         overflow: auto;  
     }
 
@@ -1985,6 +1985,8 @@ opacity: 0.8;
     #field_id:has(#i_icon_email) {
         display:none;
     }
+
+    .profile_content { height: 155px;}
 }
 
 .user_profile {
@@ -1998,9 +2000,10 @@ grid-gap: 10px;
 width: 200px;
 }
 
-.profile_content {
+.profile_infos {
 height: 200px;
 margin-top: 0;
+padding: 5px;
 }
 
 .profile_field field {
@@ -2009,10 +2012,17 @@ margin-top: 0;
 
 .midbot {
 height: 330px;
+padding: 5px;
 }
 
-.aeszone1, .aeszone2 {
+.aeszone {
 margin-top: 0;
+height: 250px;
+}
+
+.twinfo { 
+height: 135px;
+padding: 5px;
 }
 
 .field_label span{
