@@ -177,7 +177,7 @@ blockquote cite,
 .preview-author,
 .userlist_alias, .userlist_visited,
 .table-contact a,
-.toc-item a,
+.toc-item a, .toc-subtitle,
 .idcard .midtop a, .msginfo a,
 .idcard label
 {
@@ -1421,10 +1421,15 @@ border-radius: 100%;
 border: var(--border);
 }
 .toc-title {
-margin: 5px;
+margin: 5px 5px 0 5px;
 font-size: 24px;
-color: var(--accent2);
+color: var(--textColor2);
 text-shadow: var(--text-shadow2);
+}
+.toc-subtitle {
+color: var(--accent2);
+margin-bottom: 5px;
+filter: var(--brightness);
 }
 .toc-pseudo {
 margin:20px;

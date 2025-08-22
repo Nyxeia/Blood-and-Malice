@@ -59,7 +59,7 @@ function generateTableOfContents() {
         tocTitle.className = 'toc-title';
         tocContainer.appendChild(tocTitle);
 
-        // titre du sujet en sous-titre
+        // titre du sujet
         const subtitleTxt = document.querySelector('header t0');
         const subTitle = document.createElement('div');
         if (subtitleTxt) {
