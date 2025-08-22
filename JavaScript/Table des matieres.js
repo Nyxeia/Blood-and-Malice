@@ -58,6 +58,15 @@ function generateTableOfContents() {
         tocTitle.textContent = 'Table des matières';
         tocTitle.className = 'toc-title';
         tocContainer.appendChild(tocTitle);
+
+        // titre du sujet en sous-titre
+        const subtitleTxt = document.querySelector('header t0');
+        const subTitle = document.createElement('div');
+        if (subtitleTxt) {
+            subTitle.innerHTML = "— " + subtitleTxt.innerHTML + " —";
+        } 
+        subTitle.className = 'toc-subtitle';
+        tocContainer.appendChild(subTitle);
     }
     
     // Séparateur
@@ -381,6 +390,7 @@ function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
             }
             
             if (newState === 'normal') {
+                tocContainer.classList.remove('toc-fixed');
                 if (tocContainer.parentElement === document.body) {
                     originalParent.appendChild(tocContainer);
                 }
@@ -402,6 +412,7 @@ function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
                 tocContainer.style.top = '85px';
                 tocContainer.style.left = left + 'px';
                 tocContainer.style.width = width + 'px';
+                tocContainer.classList.add('toc-fixed');
                 
                 if (!placeholder) {
                     placeholder = document.createElement('div');
