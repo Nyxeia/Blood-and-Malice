@@ -177,7 +177,9 @@ blockquote cite,
 .preview-author,
 .userlist_alias, .userlist_visited,
 .table-contact a,
-.toc-item a
+.toc-item a,
+.idcard .midtop a, .msginfo a,
+.idcard label
 {
 font-family: var(--font3);
 text-transform: uppercase;
@@ -492,7 +494,8 @@ padding: 20px;
 .pa-link,
 .sidenav-links a, 
 .profil_contact a,
-.table-contact a {
+.table-contact a,
+.idcard .midtop a, .msginfo a {
     background: var(--neutral2);
     border-radius: 5px;
     padding: 3px 10px;
@@ -881,7 +884,8 @@ margin-bottom: 4px;
 .pa-link a:hover,
 .sidenav-links a:hover,
 .profil_contact a:hover,
-.table-contact a:hover {
+.table-contact a:hover,
+.idcard .midtop a:hover, .msginfo a:hover {
 color: var(--hoverColor1);
 transition: var(--transition);
 }
@@ -889,7 +893,8 @@ transition: var(--transition);
 .pa-link a:before,
 #subforum a:before,
 .sidenav-links a:before,
-.profil_contact a:before {
+.profil_contact a:before,
+.idcard .midtop a:before, .msginfo a:before {
     content: "";
     display: inline-block;
     width: 10px;
@@ -905,7 +910,8 @@ transition: var(--transition);
 .pa-link a:hover:before,
 #subforum a:hover:before,
 .sidenav-links a:hover:before,
-.profil_contact a:hover:before {
+.profil_contact a:hover:before,
+.idcard .midtop a:hover:before, .msginfo a:hover:before {
     background-color: var(--hoverColor2); 
     transition: background-color 0.3s ease;
 }
@@ -1980,13 +1986,27 @@ opacity: 0.8;
     .msginfo {
         display: flex;
         flex-direction: column;
+        gap: 8px;
+        margin-top:10px;
     }
 
-    #field_id:has(#i_icon_email) {
-        display:none;
+    #field_id {
+        display:none!important;
+    }
+    .profile_contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .profile_content { height: 155px;}
+    .midbot-content {height: 284px;}
+    .twinfo-content { height: 103px; }
+
+    .midtop a, .msginfo a {
+        width: 100%;
+        display: block;
+    }
 }
 
 .user_profile {
@@ -2017,15 +2037,17 @@ padding: 5px;
 
 .aeszone {
 margin-top: 0;
-height: 250px;
+padding-top: 5px !important;
+height: 249px;
 }
 
 .twinfo { 
-height: 135px;
+height: 150px;
 padding: 5px;
 }
 
-.field_label span{
+.field_label span,
+.idcard label span {
 color: var(--accent3) !important;
 font-size: var(--smaller-size) !important;
 }
@@ -2044,15 +2066,7 @@ margin: 10px 0 0;
 cursor: pointer;
 position: absolute;
 top: 0;
-left: 0px;
-}
-
-/* Bouton édition d'un champ de profil */
-.ajax-profil_edit {
-cursor: pointer;
-position: absolute;
-top: 0;
-left: -15px;
+left: 0 px;
 }
 
 /* Bouton validation des modifications */

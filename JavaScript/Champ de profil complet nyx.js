@@ -174,6 +174,15 @@ $(function() {
         }
     });
 
+    // Contact link
+    var $contactLink = $('.profile_contact a[href*="privmsg"][href*="mode=post"]');
+    var $participationsLink = $('.msginfo a[id="alltopics"]');
+    
+    if ($contactLink.length > 0 && $participationsLink.length > 0) {
+        $contactLink.find('img').replaceWith('ENVOYER UN MP');
+        $participationsLink.after($contactLink);
+    }
+
     $('.profile_field').css('visibility', 'visible');
   });
 });
