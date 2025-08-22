@@ -3,11 +3,8 @@
 
 <br/>
     <!-- Username -->
-    <div class="idcard cate_title"><h2>{USERNAME}</h2>
-    <div class="idcard cate_quote">        <!-- BEGIN switch_show_status -->
-           {USER_ONLINE} ✧ 
-        <!-- END switch_show_status -->
-         &nbsp;{LAST_VISIT_TIME}</div></div>
+    <div class="cate_title"><h2>Portrait de l'âme</h2>
+    <div class="cate_quote">— Dernière esquisse : {LAST_VISIT_TIME} —</div></div>
 
 <div class="idcard container">
     <!-- Profile contents -->
@@ -16,12 +13,8 @@
         <div class="idcard leftcol">
 
         <div class="post_pseudo_rank">
+            <div class="post_pseudo">{USERNAME}</div><hr>
             <div class="post_rank">{POSTER_RANK}</div>
-            <!-- BEGIN switch_awards -->
-      <div class="awards_block_simple_wrapper">
-     <div class="awards_block simple">{switch_awards.AWARDS_LIST}</div>
-      </div>
-      <!-- END switch_awards -->
         </div>
         <!-- Avatar -->
          <div class="avatar_container">
@@ -45,21 +38,26 @@
             <div class="custom-pseudo" style="display: none;">joué·e par <span class="pseudo"></span></div>
             </div>
         </div>
-
         </div>  <!-- leftcol end -->
       
         <div class="idcard midcol">
             <div class="midtop">
+            <div class="midtopleft">
             <!-- Contact image link -->
             <form action="{S_PROFILE_ACTION}" method="post" name="post" class="profile_contact">
                 <!-- BEGIN contact_field -->
                 <div id="field_id{contact_field.ID}">{contact_field.CONTENT}</div>
                 <!-- END contact_field -->
             </form>
-
+            <!-- BEGIN switch_awards -->
+            <div class="awards_block_simple_wrapper">
+            <div class="awards_block simple">{switch_awards.AWARDS_LIST}</div>
+            </div>
+            <!-- END switch_awards -->
+            </div>
             <!-- Profile info -->
             <div class="profile_infos">
-                <tbox>Derrière l'écran</tbox>
+                <tbox>L'âme créatrice</tbox>
                 <!-- PROFILE FIELDS -->
                 <div class="profile_content">
                     <!-- Other fields -->
@@ -78,7 +76,7 @@
             </div> <!-- midtop end -->
 
             <div class="midbot">
-                <tbox>Mon personnage</tbox>
+                <tbox>L'âme incarnée</tbox>
                 <div class="midbot-content"></div>
             </div>
         </div> <!-- midcol end -->

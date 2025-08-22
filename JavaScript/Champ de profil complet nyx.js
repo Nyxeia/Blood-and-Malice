@@ -174,6 +174,40 @@ $(function() {
         }
     });
 
+     // Handle placeholder links in profile_contact section
+    var placeholderDomains = [
+        'presentation.com',
+        'journal.com', 
+        'moodboard.com',
+        'playlist.com'
+    ];
+    
+    $('.profile_contact a').each(function() {
+        var $link = $(this);
+        var href = $link.attr('href');
+        
+        if (href) {
+            // Check if the href contains any of the placeholder domains
+            var isPlaceholder = placeholderDomains.some(function(domain) {
+                return href.includes(domain);
+            });
+            
+            if (isPlaceholder) {
+                // Make link non-clickable
+                $link.removeAttr('href');
+                $link.css('cursor', 'default');
+                
+                $link.addClass('placeholder-link');
+                
+                // Prevent click events
+                $link.on('click', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        }
+    });
+
     // Contact link
     var $contactLink = $('.profile_contact a[href*="privmsg"][href*="mode=post"]');
     var $participationsLink = $('.msginfo a[id="alltopics"]');

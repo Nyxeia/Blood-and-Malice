@@ -1734,7 +1734,7 @@ ol {
 .post_message, .post_details,
 .post_pseudo_rank, .avatar_container, 
 .post_userinfo, .post_customfield,
-.profile_infos, .midbot, .aeszone, .twinfo 
+.profile_infos, .midbot, .aeszone, .twinfo, .idcard .awards_block 
 {
     background: var(--neutral2);
     border-radius: 3px;
@@ -1963,11 +1963,23 @@ opacity: 0.8;
     .awards_block {
         display: flex;
         flex-wrap: wrap;
-        gap: 5px;
-        border-top: var(--border);
-        padding-top: 5px;
-        margin-top: 10px;
+        gap: 2px;
+        padding: 3px;
         justify-content: center;
+        height: 69px;
+        align-items: center;
+        overflow:hidden;
+    }
+
+    .placeholder-link, .placeholder-link:hover {
+        color: gray !important;
+        text-decoration: line-through;
+        opacity: 0.9;
+    }
+    .placeholder-link::before,
+    .placeholder-link:hover::before {
+        background-color: gray !important;
+        color: gray!important;
     }
 }
 
@@ -2000,7 +2012,7 @@ opacity: 0.8;
     }
 
     .profile_content { height: 155px;}
-    .midbot-content {height: 284px;}
+    .midbot-content {height: 274px;}
     .twinfo-content { height: 103px; }
 
     .midtop a, .msginfo a {
@@ -2031,14 +2043,14 @@ padding: 5px;
 }
 
 .midbot {
-height: 330px;
+height: 320px;
 padding: 5px;
 }
 
 .aeszone {
 margin-top: 0;
 padding-top: 5px !important;
-height: 249px;
+height: 240px;
 }
 
 .twinfo { 
@@ -2637,7 +2649,7 @@ t1 {
 t2 {
     font-family: var(--font2), sans-serif;
     font-size: 1.5em;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     &:before {
         content: '✧';
         color: var(--accent3);
