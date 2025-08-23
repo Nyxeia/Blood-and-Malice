@@ -1847,6 +1847,8 @@ background: var(--neutral5);
 .codebox dd {
 border-radius: 5px;
 padding: 10px 5px;
+max-height: 175px;
+overflow: auto;
 }
 
 /*retire la mention "code" du bloc*/
@@ -1890,6 +1892,7 @@ padding: 2px 8px;
 }
 .codebox.spoiler dd {
 padding: 0;
+max-height: none !important;
 }
 .spoiler_content {
 display: none;
@@ -1937,6 +1940,7 @@ text-decoration: none !important;
 .codebox.hidecode dd {
 background: transparent;
 opacity: 0.8;
+max-height: none !important;
 }
 
 /****** ------------------------------------------------------------------------------
@@ -2854,7 +2858,8 @@ tbox {
     object-position: center;
     border-radius: 100%;
     border: var(--border);
-    outline: 2px solid var(--neutral1);
+    outline: 3px solid var(--neutral1);
+    background: var(--neutral2);
   
   &.left {
     float: left;

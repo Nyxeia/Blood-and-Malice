@@ -154,5 +154,30 @@ $('.so-below').hover(
         }
     });
 
+    // Placeholder links
+
+    var placeholderUrls = [
+        "presentation.com",
+        "journal.com", 
+        "moodboard.com",
+        "playlist.com"
+    ];
+    
+    $('.profil_contact a').each(function() {
+        var $link = $(this);
+        var href = $link.attr('href');
+        
+        if (href) {
+            // Check if the href contains any of the placeholder URLs
+            var shouldRemove = placeholderUrls.some(function(placeholderUrl) {
+                return href.includes(placeholderUrl);
+            });
+            
+            if (shouldRemove) {
+                $link.remove();
+            }
+        }
+    });
+
     $('.user_field').css('visibility', 'visible');
 });
