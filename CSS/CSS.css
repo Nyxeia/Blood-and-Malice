@@ -165,7 +165,7 @@ tag,
 .sidenav-links a,
 .pagination,
 .navigation_links,
-.topicslist_row,
+.topicslist_row, .mp_row,
 .post_rank, .post_date,
 .fa_like_list, .fa_dislike_list,
 .tabs-wrap,
@@ -315,6 +315,7 @@ margin-top:0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    a strong {font-weight: 500;}
 }
 
 /* Lien spécial mis en avant */
@@ -1154,6 +1155,7 @@ display: grid;
 grid-template-columns: 60px auto 160px 200px;
 gap: 10px;
 align-items: center;
+a strong {font-weight: 500;}
 }
 
 .topicslist_row.searchres {
@@ -2259,55 +2261,89 @@ outline: 6px solid var(--neutral1);
 #privmsgs-menu {
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 10px;
 margin: 20px auto;
+background: var(--neutral1);
+padding: 15px 10px;
+margin: 10px;
+border-radius: 5px;
 }
 
 #privmsgs-menu li {
 display: flex;
 align-items: center;
 gap: 5px;
+padding: 3px 10px !important;
+font-size: 13px;
+font-weight: 500;
+font-weight: 600;
+border-radius: 5px;
+font-family: var(--font3);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+background: var(--accent1);
+border: 1px solid var(--accent1);
+margin-top: 1px;
+}
+#privmsgs-menu li:has(a) {
+    color: var(--textColor1);
+    background: var(--neutral2);
+    border: var(--border);
 }
 
 /* Affichage d'un MP dans la liste */
 .mp_row {
-background: var(--neutral);
+background: var(--neutral1);
 border-radius: 5px;
 display: grid;
-grid-template-columns: 55px auto;
+grid-template-columns: 60px auto 145px 100px;
 grid-gap: 10px;
 align-items: center;
-margin: 10px 0;
+border-radius: 5px;
 padding: 10px;
+margin-bottom: 5px;
+
+a strong {font-weight: 500;}
 }
 
-/*** ------------------------------- ***/
+.mp_img img {
+grid-column: 1;
+justify-self: center;
+width: 50px;
+height: 50px;
+background: var(--neutral2);
+border-radius: 100%;
+}
+
+.navigation_links.mp {
+align-items: flex-end;
+flex-direction: column;
+}
+
 /*** AFFICHAGE D'UN MESSAGE PRIVÉ -- ***/
 
+.container.mpread {
+    .page-title, .postbutton {margin: 10px 0;}
+    .post_message {
+        grid-column: 1 / span 2;
+        padding: 15px;
+    }
+}
 .message {
-background: var(--neutral);
+background: var(--neutral1);
 border-radius: 5px;
 display: grid;
-grid-template-rows: max-content auto;
-grid-template-columns: 220px auto;
+grid-template-columns: 240px auto;
 }
 
 .message_infos {
-grid-column: 1 / span 2;
-border-bottom: 1px solid var(--neutralDark);
-padding: 10px;
-display: flex;
-justify-content: space-between;
-}
-
-.mp-icons {
-display: flex;
-float: right;
+padding: 10px 10px 10px 0;
+display:grid;
+grid-template-rows: 46px auto;
 }
 
 .message_profil {
 padding: 10px;
-border-right: 1px solid var(--neutralDark);
 text-align: center;
 }
 

@@ -7,8 +7,20 @@ $(document).ready(function(){
   if (savedPanelState === "closed") {
     $("#pa").hide();
     $("#pa-btn").html("<i class='ion-chevron-down'></i>");
-  } else {
+  } else if (savedPanelState === "open") {
     $("#pa-btn").html("<i class='ion-chevron-up'></i>");
+  } else {
+    var currentUrl = window.location.href;
+    var isForumIndex = currentUrl === "https://bloodandmalice.forumactif.com/";
+    
+    if (isForumIndex) {
+      // Open by default on forum index
+      $("#pa-btn").html("<i class='ion-chevron-up'></i>");
+    } else {
+      // Close by default on other pages
+      $("#pa").hide();
+      $("#pa-btn").html("<i class='ion-chevron-down'></i>");
+    }
   }
   
   // Panel button click handler

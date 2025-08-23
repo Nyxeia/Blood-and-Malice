@@ -5,24 +5,24 @@
 
 <ul id="privmsgs-menu">
     <!-- Boîte de reception (image / lien) -->
-    <li>{INBOX_IMG} {INBOX}</li>
+    <li>{INBOX}</li>
     <!-- Messages envoyés (image / lien) -->
-    <li>{SENTBOX_IMG} {SENTBOX}</li>
+    <li>{SENTBOX}</li>
     <!-- Boîte d'envoi (image / lien) -->
-    <li>{OUTBOX_IMG} {OUTBOX}</li>
+    <li>{OUTBOX}</li>
     <!-- Archives (image / lien) -->
-    <li>{SAVEBOX_IMG} {SAVEBOX}</li>
+    <li>{SAVEBOX}</li>
 </ul>
 
 <!----------------------------------------------->
 <!-- BARRE DE GESTION -------------->
-<div class="links_bar">
+<div class="postbutton">
       
        <!-- Bouton: répondre -->
        <!-- BEGIN switch_post_reply -->
-       <a href="{REPLY_PM_URL}" rel="nofollow" title="{REPLY_PM_IMG}" class="replypm_button buttons">Répondre au message</a>
+       <a href="{REPLY_PM_URL}" rel="nofollow" title="{REPLY_PM_IMG}" class="replypm_button buttons">Répondre au mp</a>
         <!-- END switch_post_reply -->
-    </div>
+</div>
 
 
 
@@ -30,53 +30,45 @@
 
    <!----------------------------------------------->
     <!-- AFFICHAGE DU MESSAGE -------------->
-    <div class="container">
+    <div class="container mpread">
 
         <!-- Tire du message -->
         <h1 class="page-title">{POST_SUBJECT}</h1>
 
         <!-- Conteneur du message -->
         <div class="message">
-
+            <!-- Profil de l'expéditeur -->
+            <div class="message_profil">
+                <div class="post_pseudo_rank">
+                    <div class="message_from post_pseudo">
+                        {MESSAGE_FROM}<!-- BEGIN switch_user_contact -->
+                    {PROFILE_IMG}
+                    <!-- END switch_user_contact -->
+                    </div>
+                </div>
+            <!-- avatar -->
+            <div class="avatar_container">{AVATAR_FROM}</div>
+            </div>
             <!-- Conteneur des informations du message -->
             <div class="message_infos">
-
-                <!-- De XX à XX, date -->
-                <span>{L_FROM} {MESSAGE_FROM} {L_TO} {MESSAGE_TO}, {POST_DATE}</span>
-
+                <div class="post_details"><span class="post_date">{POST_DATE}</span>
                 <!-- Boutons d'édition -->
-                <ul class="mp-icons">
+                <ul class="profile-icons">
                     <!-- BEGIN switch_quote -->
                     <li class="btn-quote">
-                      	<a href="/privmsg?mode=quote">Citer</a>
+                      	<a href="/privmsg?mode=quote" title="Répondre en citant"><i class="fa-solid fa-quote-right"></i></a>
                     </li>
                     <!-- END switch_quote -->
                   
                     <li class="btn-edit">
-                    	<a href="/privmsg?mode=edit">Editer</a>
+                    	<a href="/privmsg?mode=edit" title="Éditer ce message"><i class="fa-solid fa-pen-to-square"></i></a>
                     </li>
                 </ul>
-
-            </div>
-
-            <!-- Profil de l'expéditeur -->
-            <div class="message_profil">
-
-                <!-- avatar -->
-                {AVATAR_FROM}<br /><br />
-
-                <!-- pseudo -->
-                <div class="message_from">
-                    {MESSAGE_FROM}
-                    <!-- BEGIN switch_user_contact -->
-                    {PROFILE_IMG}
-                    <!-- END switch_user_contact -->
-              </div>
-            </div>
-
-            <!-- contenu du MP -->
-            <div class="message_content postbody content">
-                {MESSAGE}
+                </div>
+                <!-- contenu du MP -->
+                <div class="post_message postbody content">
+                    {MESSAGE}
+                </div>
             </div>
 
         </div>
@@ -85,8 +77,12 @@
       
         <!----------------------------------------------->
         <!-- BOUTONS DE GESTION -------------->
-        <br/>
-        <fieldset class="submit-buttons">
+        <div class="postbutton">
+        <!-- Bouton: répondre -->
+        <!-- BEGIN switch_post_reply -->
+        <a href="{REPLY_PM_URL}" rel="nofollow" title="{REPLY_PM_IMG}" class="replypm_button buttons">Répondre au mp</a>
+            <!-- END switch_post_reply -->
+        <fieldset class="submit-buttons right">
             {S_HIDDEN_FIELDS}
             <!-- BEGIN switch_save -->
             <input class="button2" type="submit" name="save" value="{L_SAVE_MSG}" />&nbsp;&nbsp;
@@ -98,6 +94,7 @@
 
             <input class="button2" type="submit" name="delete" value="{L_DELETE_MSG}" />
         </fieldset>
+        </div>
 
     </div>
     <!-- Fin de l'affichage du message -->
@@ -111,13 +108,6 @@
 <!-- BEGIN switch_review_box -->
 {TOPIC_REVIEW_BOX}
 <!-- END switch_review_box -->
-
-
-
-
-<!-- Sauter vers un forum -->
-{JUMPBOX}
-
 
 
 <!-- BEGIN switch_image_resize -->
