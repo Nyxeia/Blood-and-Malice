@@ -82,9 +82,7 @@ function generateTableOfContents() {
     function getTitleFromElement(element, defaultTitle) {
         let title = '';
         
-        const titleElement = element.querySelector('span') || 
-                           element.querySelector('u') || 
-                           element;
+        const titleElement = element;
         
         if (titleElement) {
             title = titleElement.textContent.trim();
