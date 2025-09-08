@@ -2849,7 +2849,7 @@ qt2 {
 
 bq {
     display: block;
-    margin: 20px 10px;
+    margin: auto;
     border-left: 4px solid;
     border-image:
             linear-gradient(
@@ -2974,14 +2974,14 @@ a[href^="/u"] {
 }
 }
 
-va {color: var(--vampires)}
-so {color: var(--sorciers);}
-sp {color: var(--spectres);}
-hu {color: var(--humains);}
+va, .va {color: var(--vampires)}
+so, .so {color: var(--sorciers);}
+sp, .sp {color: var(--spectres);}
+hu, .hu {color: var(--humains);}
 
 .accordion {
     background-color: transparent;
-    color: var(--textColor);
+    color: var(--textColor1);
     cursor: pointer;
     padding: 12px;
     width: 100%;
@@ -2990,8 +2990,13 @@ hu {color: var(--humains);}
     outline: none;
     transition: 0.4s;
     border-bottom: var(--border);
-    font-size: 14px;
     border-radius: 3px;
+    font-family: var(--font3);
+    letter-spacing: 0.3px;
+    font-size: var(--normal-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .accordion.active, .accordion:hover {
     border-left: 5px solid var(--accent1);
