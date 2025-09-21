@@ -2404,6 +2404,8 @@ border-radius: 5px;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
+gap: 5px;
 }
 
 /*onglet*/
@@ -2919,7 +2921,7 @@ tbox {
 
 deco {
     display: flex;
-    padding-right: 20px;
+    padding: 10px;
     > *:nth-child(2) {
         margin-left: -20px;
     }
