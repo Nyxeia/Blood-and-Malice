@@ -205,9 +205,23 @@ function generateTableOfContents() {
     postNav.innerHTML = '';
     postNav.appendChild(tocContainer);
 
-    makeTableOfContentsSticky(tocContainer, postNav, mode);
+    // **************************************************************************************
+    // A partir d'ici, si fiche hybrid n'a aucun message "normaux" (réponses d'utilisateur) 
+    // considérer comme fiche annexe pour handle le scroll
+    // **************************************************************************************
+    const allPostMessages = document.querySelectorAll('.post_row');
+    const allHybridMessages = document.querySelectorAll('.post_message_content .hybrid');
+    const hasOnlyHybridMessages = allPostMessages.length === allHybridMessages.length;
+    const scrollMode = (hybridDiv && !hasOnlyHybridMessages) ? 'hybrid' : 'annexe';
+
+    // console.log("All post messages = " + allPostMessages.length);
+    // console.log("All hybrid messages = " + allHybridMessages.length);
+    // console.log("hasOnlyHybridMessages = " + hasOnlyHybridMessages);
+    // console.log("scrollMode = " + scrollMode);
+
+    makeTableOfContentsSticky(tocContainer, postNav, scrollMode);
     
-    initializeActiveSectionTracking(mode);
+    initializeActiveSectionTracking(scrollMode);
 }
 
 function initializeActiveSectionTracking(mode) {
@@ -312,9 +326,9 @@ function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
         
         let limitElement = null;
         let limitRect = null;
-        
+
         if (mode === 'hybrid') {
-            // Mode hybrid : détecter le prochain message sans .hybrid
+            // Mode hybrid si mix de réponses : détecter le prochain message sans .hybrid
             const currentPostRow = tocContainer.closest('.post_row');
             
             let nextPostRow = null;
@@ -330,16 +344,23 @@ function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
             if (nextPostRow && !nextHasHybrid) {
                 limitElement = nextPostRow;
                 limitRect = limitElement.getBoundingClientRect();
+                
+                //console.log("CASE 2");
+                
             } else {
                 const allPostRows = document.querySelectorAll('.post_row');
                 limitElement = allPostRows[allPostRows.length - 1];
                 limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+                
+                //console.log("CASE 3");
             }
         } else {
-            // Mode annexe : utiliser le dernier message de la page
-            const allPostMessages = document.querySelectorAll('.container-post');
-            limitElement = allPostMessages[allPostMessages.length - 1];
+            // Mode annexe : utiliser le container du message
+            const postContainer = document.querySelectorAll('.container-post');
+            limitElement = postContainer[postContainer.length - 1];
             limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+
+            //console.log("CASE 1");
         }
         
         if (!limitRect) {
