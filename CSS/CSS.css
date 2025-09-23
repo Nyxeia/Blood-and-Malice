@@ -1752,11 +1752,15 @@ ol {
     border-radius: 3px;
     margin: 10px 0px 0px 0px;
     border: var(--border);
+}
 
+.post_userinfo, .profile_infos, .midbot, .aeszone, .twinfo, .idcard .awards_block
+{
     img {
         max-width: -webkit-fill-available;
     }
 }
+
 .post_message_content {
     padding: 0 15px 15px 15px;
 }
@@ -2650,6 +2654,15 @@ clip-path: circle(150px at 50% -50%);
 }
 }
 
+.pres_id {
+height: 286px;
+padding: 5px;
+overflow: auto;
+}
+.pres_ava {
+    object-fit:cover; height:100%; width:220px; padding: 5px; object-fit: cover; object-position: center;border-radius: 5px;border: var(--border);outline: 3px solid var(--neutral1);background: var(--neutral2);
+}
+
 /*** STYLES --------------- ***/
 tw {
     color: transparent !important;
@@ -3068,4 +3081,7 @@ visibility: hidden;
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+.scrollbar {
+    overflow: auto;
 }

@@ -237,6 +237,47 @@ function initializeActiveSectionTracking(mode) {
             return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
         });
         
+        // Détecter si on est au bas de la page
+        const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10; // Marge de 10px
+        
+        if (isAtBottom && sectionsArray.length > 0) {
+            // Si on est au bas de la page, activer le dernier élément
+            const lastSection = sectionsArray[sectionsArray.length - 1];
+            const lastTargetId = lastSection.id;
+            const lastActiveLink = document.querySelector(`.toc-link[data-target="${lastTargetId}"]`);
+            
+            if (lastActiveLink) {
+                lastActiveLink.classList.add('toc-active');
+                
+                // Gérer les sous-sections seulement en mode annexe
+                if (mode === 'annexe' && lastTargetId.startsWith('subsection')) {
+                    const allElements = document.querySelectorAll('[id^="section"], [id^="subsection"]');
+                    let parentSection = null;
+                    
+                    for (let i = 0; i < allElements.length; i++) {
+                        if (allElements[i] === lastSection) {
+                            for (let j = i - 1; j >= 0; j--) {
+                                if (allElements[j].id.startsWith('section') && !allElements[j].id.startsWith('subsection')) {
+                                    parentSection = allElements[j];
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    
+                    if (parentSection) {
+                        const parentLink = document.querySelector(`.toc-link[data-target="${parentSection.id}"]`);
+                        if (parentLink) {
+                            parentLink.classList.add('toc-active', 'toc-parent-active');
+                        }
+                    }
+                }
+            }
+            return; // section found
+        }
+        
+        // Détecter la section active par position
         let activeSection = null;
         const viewportTop = 300;
         
