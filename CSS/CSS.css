@@ -2663,7 +2663,60 @@ overflow: auto;
     object-fit:cover; height:100%; width:220px; padding: 5px; object-fit: cover; object-position: center;border-radius: 5px;border: var(--border);outline: 3px solid var(--neutral1);background: var(--neutral2);
 }
 
-/*** STYLES --------------- ***/
+/*** CHRONO ***/
+.chrono {
+display: grid;
+grid-auto-rows: auto;
+row-gap: 20px;
+column-gap: 60px;
+position: relative;
+box-sizing: border-box;
+margin: 0 auto;
+}
+
+/* Permet d'utiliser des sauts de ligne dans le HTML pour que le code soit plus lisible à remplir */
+.chrono > br {
+ display: none;
+}
+
+/*Date ou événement*/
+.chrono date {
+ grid-column: 1; /* Positionne la date dans la première colonne */
+ position: relative;
+ display: block;
+ text-align: right;
+}
+
+/* Créer la ligne verticale entre les dates et les descriptions */
+.chrono date::before {
+content: "";
+position: absolute;
+right: -31px; /* Positionne la ligne au centre de l'espace entre les colonnes. L'espace était 60px, on divise par deux pour être au centre */
+top: 18px;
+bottom: -18px;
+width: 1px; /* Largeur de la ligne */
+background: var(--accent1);
+}
+.chrono date:last-of-type:before {
+bottom: 0px;
+}
+
+/* Point entre la date et la description */
+.chrono date:after {
+content: "✧";
+position: absolute;
+z-index: 99;
+top: -3px;
+right: -37px;
+font-size: 15px;
+}
+
+.chrono desc {
+ grid-column: 2;
+ display: block;
+}
+
+/*** STYLES  ***/
 tw {
     color: transparent !important;
     background-color: var(--neutral1);
@@ -2689,6 +2742,13 @@ hr2, .hr2 {
     filter: var(--badges);
     display: block;
     margin: 0 auto;
+}
+hr3, .hr3 {
+    content: "·—·✦·—·";
+    text-align:center;
+    color: var(--accent2);
+    filter: var(--brightness);
+    letter-spacing: 1.5px;
 }
 
 t0, .t0 {
@@ -3085,6 +3145,7 @@ visibility: hidden;
 .scrollbar {
     overflow: auto;
 }
+
 /* STAFF */ 
 #last_connected.box2 a[href="/u2"]:before, /* Kaz */
 #last_connected.box2 a[href="/u3"]:before /* Lune */
