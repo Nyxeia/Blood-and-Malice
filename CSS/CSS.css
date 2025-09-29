@@ -3085,3 +3085,11 @@ visibility: hidden;
 .scrollbar {
     overflow: auto;
 }
+/* STAFF */ 
+#last_connected.box2 a[href="/u2"]:before, /* Kaz */
+#last_connected.box2 a[href="/u3"]:before /* Lune */
+{
+content:"✧";
+font-weight: 400;
+margin-right: 2px;
+}
