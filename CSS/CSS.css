@@ -11,9 +11,9 @@ color-scheme: dark;
 --section-img: url(' https://images2.imgbox.com/52/4e/jH6vuytz_o.png');
 --qeel-header: url("https://images2.imgbox.com/48/8a/OlJ7SqHN_o.png");
 
---staff1: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* lady mahler */
---staff2: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* livia */
---staff3: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* kazir */
+--staff1: url("https://images2.imgbox.com/d5/0f/9sstzfVg_o.png"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/e1/cb/Z98Yxmup_o.png"); /* livia */
+--staff3: url("https://images2.imgbox.com/8b/ab/bcVforB7_o.png"); /* kazir */
 --staff4: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* peluche */
 
 --vampires: #8d3848;
@@ -509,14 +509,9 @@ padding: 20px;
 #pa-news {
     height:150px;
 }
-#pa-list1 {
+.pa-list {
     display: flex;
     flex-direction: column;
-    gap: 7px;
-}
-#pa-list2 {
-    display: grid;
-    grid-template-columns: auto auto;
     gap: 7px;
 }
 #pa-disclaimer {
@@ -617,10 +612,10 @@ background-image: var(--staff2);
 }
 .item-3 { 
 background-image: var(--staff3);
+border-radius: 0 5px 5px 0;
 }
 .item-4 { 
 background-image: var(--staff4);
-border-radius: 0 5px 5px 0;
 }
 
 .staff-info {
@@ -916,6 +911,8 @@ transition: var(--transition);
     background-color: var(--hoverColor2); 
     transition: background-color 0.3s ease;
 }
+
+.pa-texte {text-align:left;}
 
 /*** QUI EST EN LIGNE -------------- ***/
 
