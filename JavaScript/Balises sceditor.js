@@ -24,7 +24,8 @@ $(document).ready(function () {
                             'u2',
                             'u3',  
                             'u4',
-                            'strike2'
+                            'strike2',
+                            'tag'
                         ].map(tag => `<button type="button" data-tag="${tag}"><${tag}>texte</${tag}></button>`).join('')}
 
                     </div>
@@ -67,18 +68,6 @@ $(document).ready(function () {
             $('.editor-panel .panel-content button').on('click', function (e) {
                 e.preventDefault();
                 insertTag($(this).data('tag'));
-            });
-
-            // Toggle pour afficher ou masquer le panneau
-            $('.toggle-panel').on('click', function (e) {
-                e.preventDefault();
-                $('.editor-panel').slideToggle(300, () => {
-                    const visible = $('.editor-panel').is(':visible');
-                    $(this).html(visible
-                        ? '<i class="fa-solid fa-chevron-up" style="padding-right: 3px"></i> Cacher l\'éditeur'
-                        : '<i class="fa-solid fa-chevron-down" style="padding-right: 3px"></i> Afficher l\'éditeur'
-                    );
-                });
             });
         }
     }, 500);
