@@ -9,11 +9,7 @@ $(document).ready(function () {
 
             // Contenu du panneau custom avec boutons de balises personnalisées - chevron FontAwesome, à installer ou retirer si inutile !
             const panelHTML = `
-                <button class="toggle-panel">
-                    <i class="fa-solid fa-chevron-down" style="padding-right: 3px"></i> 
-                    Afficher l\'éditeur
-                </button>
-                <div class="editor-panel" style="display: none;">
+                <div class="editor-panel">
                     <div class="panel-content">
 
                         <!-- Liste des balises à insérer -->
@@ -112,28 +108,9 @@ $('<style>')
             background-color: var(--neutral3);
         }
 
-        /* Bouton toggle pour afficher/masquer le panneau */
-        button.toggle-panel {
-            margin: 8px 0;
-            width: 100%;
-            background-color: #444;
-            color: #fff;
-            font-size: 14px;
-            line-height: 24px;
-            text-transform: lowercase;
-            padding: 6px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button.toggle-panel:hover {
-            background-color: #333;
-        }
-
         /* Conteneur du panneau */
         .editor-panel {
-            margin-top: 8px;
+            border-bottom: var(--border) !important;
         }
     `)
     .appendTo('head');
