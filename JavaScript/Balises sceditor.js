@@ -1,45 +1,60 @@
-// balises personnalisées — 
-           // à ajouter dans Modules > Gestion des codes javascript
-	// cocher "Sur toutes les pages" !
+// balises personnalisées – 
+// à ajouter dans Modules > Gestion des codes javascript
+// cocher "Sur toutes les pages" !
 
 $(document).ready(function () {
     const waitForSCEditor = setInterval(() => {
         if ($('.sceditor-toolbar').length && $('.sceditor-container').length) {
             clearInterval(waitForSCEditor); 
 
-            // Contenu du panneau custom avec boutons de balises personnalisées - chevron FontAwesome, à installer ou retirer si inutile !
+            const customTags = [
+                { tag: 'm0', text: 'm0' },
+                { tag: 'm1', text: 'm1' },
+                { tag: 'm2', text: 'm2' },
+                { tag: 'm3', text: 'm3' },
+                { tag: 'm4', text: 'm4' },
+                { tag: 'i1', text: 'i1' },
+                { tag: 'u1', text: 'u1' },
+                { tag: 'u2', text: 'u2' },
+                { tag: 'u3', text: 'u3' },
+                { tag: 'u4', text: 'u4' },
+                { tag: 'strike2', text: 'barré' },
+                { tag: 'tag', text: 'tag' }
+            ];
+
+            const isLoggedIn = _userdata.session_logged_in != 0;
+
+            // Contenu du panneau custom avec boutons de balises personnalisées
             const panelHTML = `
                 <div class="editor-panel">
                     <div class="panel-content">
 
                         <!-- Liste des balises à insérer -->
-                        ${[
-                            'm0',
-                            'm1',  
-                            'm2',  
-                            'm3',  
-                            'm4',
-                            'i1',
-                            'u1', 
-                            'u2',
-                            'u3',  
-                            'u4',
-                            'strike2',
-                            'tag'
-                        ].map(tag => `<button type="button" data-tag="${tag}"><${tag}>texte</${tag}></button>`).join('')}
-
+                        ${customTags.map(item => {
+                            // Pour les invités, utilise span avec class, sinon balise normale
+                            const openTag = isLoggedIn ? `<${item.tag}>` : `<span class="${item.tag}">`;
+                            const closeTag = isLoggedIn ? `</${item.tag}>` : `</span>`;
+                            return `<button type="button" data-tag="${item.tag}" data-is-guest="${!isLoggedIn}">${openTag}${item.text}${closeTag}</button>`;
+                        }).join('')}
+                        <!-- BEGIN switch_user_logged_in -->
+                        <div class="more-codes"><a href="https://bloodandmalice.forumactif.com/t35-les-codes-du-forum#71" target="_blank">plus</a></div>
+                        <!-- END switch_user_logged_in -->
                     </div>
                 </div>
             `;
 
-            // Ajoute le panneau juste après la barre d’outils de SCEditor
+            // Ajoute le panneau juste après la barre d'outils de SCEditor
             $('.sceditor-toolbar').after(panelHTML);
 
             /* Fonction principale : insère les balises dans le bon mode (source ou visuel)
              */
-            function insertTag(tag) {
+            function insertTag(tag, isGuest) {
                 const editorTextarea = $(".sourceMode textarea"); 
-                const editorIframe = $(".sceditor-container iframe").contents().find("body"); // mode "visuel"
+                const editorIframe = $(".sceditor-container iframe").contents().find("body");
+
+                // Détermine les balises ouvrantes et fermantes
+                const openTag = isGuest ? `<span class="${tag}">` : `<${tag}>`;
+                const closeTag = isGuest ? `</span>` : `</${tag}>`;
 
                 if (editorTextarea.length && editorTextarea.is(":visible")) {
                     // Insertion dans le mode source
@@ -48,8 +63,8 @@ $(document).ready(function () {
                     const end = textarea.selectionEnd;
                     const text = textarea.value;
 
-                    textarea.value = text.substring(0, start) + `<${tag}>` + text.substring(start, end) + `</${tag}>` + text.substring(end);
-                    textarea.selectionStart = textarea.selectionEnd = end + tag.length * 2 + 5; // repositionne le curseur après la balise
+                    textarea.value = text.substring(0, start) + openTag + text.substring(start, end) + closeTag + text.substring(end);
+                    textarea.selectionStart = textarea.selectionEnd = end + openTag.length + closeTag.length;
                     textarea.focus();
                 } else if (editorIframe.length) {
                     // Insertion dans le mode visuel (rich text)
@@ -58,7 +73,7 @@ $(document).ready(function () {
 
                     const range = selection.getRangeAt(0);
                     const span = document.createElement("span");
-                    span.innerHTML = `<${tag}>${range.toString()}</${tag}>`;
+                    span.innerHTML = openTag + range.toString() + closeTag;
                     range.deleteContents();
                     range.insertNode(span);
                 }
@@ -67,7 +82,8 @@ $(document).ready(function () {
             // Cliquer sur un bouton → insère la balise correspondante
             $('.editor-panel .panel-content button').on('click', function (e) {
                 e.preventDefault();
-                insertTag($(this).data('tag'));
+                const isGuest = $(this).data('is-guest') === true;
+                insertTag($(this).data('tag'), isGuest);
             });
         }
     }, 500);
@@ -80,7 +96,7 @@ $('<style>')
     .prop('type', 'text/css')
     .html(`
         /* Style des boutons-balise */
-           .panel-content button {
+        .panel-content button {
             background-color: var(--neutral2);
         }
         .panel-content button {
@@ -100,6 +116,13 @@ $('<style>')
         /* Conteneur du panneau */
         .editor-panel {
             border-bottom: var(--border) !important;
+        }
+
+        .more-codes {
+            display: inline-block;
+            border-left: var(--border);
+            margin-left: 5px!important;
+            padding-left: 10px!important;
         }
     `)
     .appendTo('head');

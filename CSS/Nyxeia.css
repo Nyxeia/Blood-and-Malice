@@ -1,0 +1,34 @@
+rose::before {
+    content: "・";
+    font-size: 12px;
+    vertical-align:middle;
+}
+rose::after {
+    content: "・";
+    font-size: 12px;
+    vertical-align:middle;
+}
+rose {
+    display: inline-block;
+    height: auto;
+    background-image: url('https://tinyurl.com/kazrose');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+bigrose::before {
+    content: "・";
+    font-size: 12px;
+    vertical-align:middle;
+}
+bigrose::after {
+    content: "・";
+    font-size: 12px;
+    vertical-align:middle;
+}
+bigrose {
+    display: inline-block;
+    height: auto;
+    background-image: url('https://tinyurl.com/kazrose');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
