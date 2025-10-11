@@ -126,11 +126,11 @@ background: var(--neutral2);
 position: absolute;
 border-radius: 100%;
 border: var(--border);
-height: 25px;
-width: 25px;
-font-size: 14px;
-padding: 5px 5px;
-margin: 53px 0 0 7px;
+height: 30px;
+width: 30px;
+font-size: 17px;
+padding: 6px 8px;
+margin: 47px 0 0 11px;
 color: var(--textColor1);
 }
 
