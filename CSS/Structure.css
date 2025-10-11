@@ -165,7 +165,7 @@ inset: 0;
 width: max-content;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
 padding: 15px 10px;
 z-index: 999;
 }
