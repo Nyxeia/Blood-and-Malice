@@ -1,14 +1,17 @@
-rose::before {
+img[src*="kazrose"] {
+    vertical-align: -5px;
+}
+rose::before, bigrose::before {
     content: "・";
     font-size: 12px;
     vertical-align:middle;
 }
-rose::after {
+rose::after, bigrose::after {
     content: "・";
     font-size: 12px;
     vertical-align:middle;
 }
-rose {
+rose, bigrose {
     display: inline-block;
     height: auto;
     background-image: url('https://tinyurl.com/kazrose');
@@ -16,19 +19,12 @@ rose {
     background-repeat: no-repeat;
 }
 bigrose::before {
-    content: "・";
-    font-size: 12px;
-    vertical-align:middle;
+    margin-left: -5px;
 }
 bigrose::after {
-    content: "・";
-    font-size: 12px;
-    vertical-align:middle;
+    margin-left: 8px;
+    margin-right: -5px;
 }
 bigrose {
-    display: inline-block;
     height: auto;
-    background-image: url('https://tinyurl.com/kazrose');
-    background-size: contain;
-    background-repeat: no-repeat;
 }
