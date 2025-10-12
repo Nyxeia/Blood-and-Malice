@@ -1115,9 +1115,18 @@ text-shadow: var(--shadow-cate-title);
 }
 }
 .navigation_chain a:last-child {
-    font-size: 26px;
-    display: block;
+font-size: 26px;
+display: block;
 }
+.nav_links_topics.navbot {
+height: 57px;
+}
+.nav_links_topics.navbot .navigation_chain a:last-child
+{
+font-size: 16px !important;
+display: inline;
+}
+
 .postbutton .buttons {
     font-size: 22px;
 &:hover {
@@ -1776,7 +1785,10 @@ ol {
 }
 
 .post_message_content {
-    padding: 0 15px 15px 15px;
+    padding: 0px 15px 15px 15px;
+}
+.post_message:not(:has(.like_section)) .post_message_content {
+    padding: 15px 15px 15px 15px!important;
 }
 
 /* REPONSE RAPIDE --- */
@@ -2648,7 +2660,7 @@ img {
 
 fiche:has(header img),
 .fiche:has(header img) {
-    margin-top: 50px !important;
+    margin-top: 80px !important;
 }
 header:has(img),
 .header:has(img) {
@@ -3167,9 +3179,49 @@ visibility: hidden;
     overflow: auto;
 }
 
+/* ESPACE FICHE RP */ 
+rp { 
+  display:block;
+  margin:auto;
+  width:85%;
+  text-align: justify;
+}
+
+trp {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 10px;
+}
+
+qtrp {
+    display: block;
+    position: relative;
+    font-variant: all-small-caps;
+    width:50%;
+    text-align:justify;
+    line-height: 0.9;
+}
+
+t3 {
+display:block;
+font-size: 3.1em;
+font-family: var(--font2);
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: 500;
+background: -webkit-linear-gradient(120deg, var(--accent2),var(--accent3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ESPACE LUNE */ 
+lune { color: #b34a58}
+noctia { color: #8d3848}
+
 /* STAFF */ 
-#last_connected.box2 a[href="/u2"]:before, /* Kaz */
-#last_connected.box2 a[href="/u3"]:before /* Lune */
+.qeel-content a[href="/u2"]:before, /* Kaz */
+.qeel-content a[href="/u3"]:before /* Lune */
 {
 content:"✧";
 font-weight: 400;

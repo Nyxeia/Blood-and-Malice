@@ -361,6 +361,7 @@ function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
     let state = 'normal';
     const originalParent = originalContainer;
     let placeholder = null;
+    let cachedLimitElement = null; // Cache the limit element once found
     
     function handleScroll() {
         const originalRect = originalParent.getBoundingClientRect();
@@ -369,31 +370,43 @@ function makeTableOfContentsSticky(tocContainer, originalContainer, mode) {
         let limitRect = null;
 
         if (mode === 'hybrid') {
-            // Mode hybrid si mix de réponses : détecter le prochain message sans .hybrid
-            const currentPostRow = tocContainer.closest('.post_row');
-            
-            let nextPostRow = null;
-            if (currentPostRow) {
-                nextPostRow = currentPostRow.nextElementSibling;
-                while (nextPostRow && !nextPostRow.classList.contains('post_row')) {
-                    nextPostRow = nextPostRow.nextElementSibling;
-                }
-            }
-            
-            const nextHasHybrid = nextPostRow ? nextPostRow.querySelector('.hybrid') !== null : false;
-            
-            if (nextPostRow && !nextHasHybrid) {
-                limitElement = nextPostRow;
+            // If we already found the first non-hybrid post, keep using it
+            if (cachedLimitElement && document.body.contains(cachedLimitElement)) {
+                limitElement = cachedLimitElement;
                 limitRect = limitElement.getBoundingClientRect();
-                
-                //console.log("CASE 2");
-                
+                //console.log("CASE 2 (cached)");
             } else {
-                const allPostRows = document.querySelectorAll('.post_row');
-                limitElement = allPostRows[allPostRows.length - 1];
-                limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+                // Mode hybrid si mix de réponses : détecter le prochain message sans .hybrid
+                const currentPostRow = tocContainer.closest('.post_row');
                 
-                //console.log("CASE 3");
+                let nextPostRow = null;
+                if (currentPostRow) {
+                    // Search through all following post_rows to find the first one WITHOUT .hybrid
+                    nextPostRow = currentPostRow.nextElementSibling;
+                    while (nextPostRow) {
+                        if (nextPostRow.classList.contains('post_row')) {
+                            const hasHybrid = nextPostRow.querySelector('.hybrid') !== null;
+                            if (!hasHybrid) {
+                                // Found the first non-hybrid post - cache it
+                                cachedLimitElement = nextPostRow;
+                                break;
+                            }
+                        }
+                        nextPostRow = nextPostRow.nextElementSibling;
+                    }
+                }
+                
+                if (cachedLimitElement) {
+                    limitElement = cachedLimitElement;
+                    limitRect = limitElement.getBoundingClientRect();
+                    //console.log("CASE 2");
+                } else {
+                    // No non-hybrid posts found - use last post_row
+                    const allPostRows = document.querySelectorAll('.post_row');
+                    limitElement = allPostRows[allPostRows.length - 1];
+                    limitRect = limitElement ? limitElement.getBoundingClientRect() : null;
+                    //console.log("CASE 3");
+                }
             }
         } else {
             // Mode annexe : utiliser le container du message
