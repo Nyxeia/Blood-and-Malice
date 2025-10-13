@@ -1220,7 +1220,7 @@ margin-right: 2px;
 margin-right: 3px;
 }
 .topics-author-col { 
-    width: 140px;
+    width: 160px;
     text-align: right;
     justify-self: right;
     padding-right: 20px;
@@ -1961,6 +1961,7 @@ display: block;
 font-style: normal;
 font-weight: 500;
 z-index: 4;
+margin-left: -15px;
 }
 
 /* Citation pseudo */
