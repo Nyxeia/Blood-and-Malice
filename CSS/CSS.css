@@ -78,6 +78,9 @@ color-scheme: dark;
 --top: 80px;
 --pad-wrap: 10px;
 --cat-grid-width: 150px;
+
+/*espace perso*/
+--kaz: #b25a5a;
 }
 
 ::selection {
@@ -125,6 +128,9 @@ color-scheme: light;
 --color-cate-title: #323232;
 --shadow-cate-title: 2px 2px #aaaaaa;
 --shadow-cate-title2: 1px 1px #afafaf;
+
+/*espace perso*/
+--kaz: #882222;
 }
 
 /* title style */
@@ -3216,9 +3222,10 @@ background: -webkit-linear-gradient(120deg, var(--accent2),var(--accent3) 100%);
     -webkit-text-fill-color: transparent;
 }
 
-/* ESPACE LUNE */ 
+/* DIALOGUES */ 
 lune { color: #b34a58}
 noctia { color: #8d3848}
+kaz {color: var(--kaz)}
 
 /* STAFF */ 
 .qeel-content a[href="/u2"]:before, /* Kaz */
