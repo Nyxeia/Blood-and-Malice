@@ -420,3 +420,50 @@ font-weight: 600;
 .pag-img {
 display: none;
 }
+
+/*ACTIVITIES PAGE*/
+.activity-date-group {
+    background: var(--neutral1);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.activity-feed .feed-item {
+    position: relative;
+    padding: 10px;
+    border-bottom: var(--border);
+    padding-left: 72px;
+    margin-right: 50px;
+}
+.activity-feed .feed-item::marker {
+    color: transparent;
+}
+.activity-feed .feed-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: cover;
+    background-image: var(--activity-image);
+    background-position: center;
+}
+.activity-header {
+    font-size: 18px;
+    margin: 10px;
+}
+.activity-date-group a {
+font-family: var(--font3);
+text-transform: uppercase;
+letter-spacing: 0.3px;
+font-size: var(--smaller-size);
+}
+.act-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}

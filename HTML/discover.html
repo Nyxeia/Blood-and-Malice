@@ -1,0 +1,36 @@
+<h1 class="page-title">{TITLE_ACTIVITY_FEED}</h1>
+<!-- BEGIN no_activity -->
+<div class="panel">
+	<p>{no_activity.INFO}</p>
+</div>
+<!-- END no_activity -->
+<!-- BEGIN has_activity -->
+<div class="forabg">
+	<div>
+		<!-- BEGIN activity_date_group -->
+		<div class="activity-date-group">
+			<div class="activity-header">
+				<div class="t2">{has_activity.activity_date_group.FORMATTED_DATE}</div>
+			</div>
+			<ol class="activity-feed">
+				<!-- BEGIN activity_feed_item -->
+				<li class="feed-item activity-type-{has_activity.activity_date_group.activity_feed_item.TYPE} {has_activity.activity_date_group.activity_feed_item.EXTRA_CLASS}"
+					style="--activity-image: url({has_activity.activity_date_group.activity_feed_item.U_AVATAR});">
+					<time class="time" datetime="{has_activity.activity_date_group.activity_feed_item.DATETIME}" title="{has_activity.activity_date_group.activity_feed_item.DATETIME}">
+                        {has_activity.activity_date_group.activity_feed_item.TIME_FORMATTED}
+					</time>
+					<div class="text">
+                        {has_activity.activity_date_group.activity_feed_item.ACTIVITY}
+					</div>
+				</li>
+				<!-- END activity_feed_item -->
+			</ol>
+		</div>
+		<!-- END activity_date_group -->
+	</div>
+</div>
+<div class="activity-end">
+	<span>{has_activity.L_ACTIVITY_END}</span>
+</div>
+{JS_COLLAPSE}
+<!-- END has_activity -->
