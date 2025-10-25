@@ -19,7 +19,7 @@ color-scheme: dark;
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
---spectres: #4a6a7a;
+--spectres: #496c86;
 --humains: #8b684f;
 
 --neutral1: #0e0e0e;
@@ -421,6 +421,16 @@ padding: 15px 25px;
     gap: 5px;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+.sidenav-links.codex {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto);
+}
+a.cm {
+grid-row: span 2;
+display: flex!important;
+align-items: center;
 }
 .sidenav a {
 text-decoration: none;
@@ -1038,7 +1048,7 @@ strong {font-weight: 500;}
 #last_connected {
     margin-bottom: 10px;
     height:135px;
-
+    overflow: auto;
 strong {font-weight: 500;}
 }
 
