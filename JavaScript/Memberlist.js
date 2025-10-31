@@ -59,7 +59,7 @@ $(document).ready(function () {
                         /* éxecuter les fonctions qui ajoutent une class pour chaque couleur de groupe */
                         groupMod('#8d3848', 'vampires');
                         groupMod('#774c7e', 'sorciers');
-                        groupMod('#4a6a7a', 'spectres');
+                        groupMod('#496c86', 'spectres');
                         groupMod('#8b684f', 'humains');
 
                         return;
