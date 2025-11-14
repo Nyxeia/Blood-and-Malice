@@ -1901,6 +1901,7 @@ background: var(--neutral5);
 border-radius: 5px;
 padding: 10px 5px;
 max-height: 175px;
+max-width: 555px;
 overflow: auto;
 }
 
@@ -2648,7 +2649,7 @@ fiche, .fiche {
     outline-offset: 5px;
 }
 
-section {
+section, .section {
     display: block;
     background: var(--neutral2);
     border-radius: 5px;
@@ -3240,11 +3241,13 @@ background: -webkit-linear-gradient(120deg, var(--accent2),var(--accent3) 100%);
 /* DIALOGUES */ 
 lune { color: #b34a58}
 noctia { color: #8d3848}
+maeka { color: #625179}
 kaz {color: var(--kaz)}
 
 /* STAFF */ 
 .qeel-content a[href="/u2"]:before, /* Kaz */
-.qeel-content a[href="/u3"]:before /* Lune */
+.qeel-content a[href="/u3"]:before, /* Lune */
+.qeel-content a[href="/u66"]:before /* Maeka */
 {
 content:"✧";
 font-weight: 400;

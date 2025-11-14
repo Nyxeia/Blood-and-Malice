@@ -255,7 +255,7 @@
 <!-- BARRE DE GESTION -------------->
 
 
-<div class="links_bar watch_bar">
+<div class="links_bar">
     <!-- Lien "surveiller le sujet" -->
     <!-- BEGIN switch_user_logged_in -->
     <!-- BEGIN watchtopic -->
@@ -270,6 +270,10 @@
         <a href="{U_FAVOURITE_JS_PLUS_MENU}">Ajouter à ses favoris</a>
     </span>
     <!-- END switch_plus_menu -->
+    <!-- Pagination -->
+    <!-- BEGIN topicpagination -->
+    <span class="pagination right">{PAGINATION}</span>
+    <!-- END topicpagination -->
 </div>
 
 
@@ -299,11 +303,6 @@
         <a class="buttons" href="{U_POST_REPLY_TOPIC}" title="{T_POST_REPLY_TOPIC}">répondre</a>
         <!-- END switch_user_authreply -->
     </div>
-    <!-- Pagination -->
-    <!-- BEGIN topicpagination -->
-    <span class="pagination right">{PAGINATION}</span>
-    <!-- END topicpagination -->
-
 </div>
 
 <br />
