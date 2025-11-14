@@ -20,7 +20,7 @@ $(document).ready(function () {
 
         /* MODIFS DES VARIABLES */
         var membersPerPage = 40, /* nombre de membres par page (le même que dans les settings du PA) */
-            itemsPerPageDefault = 40, /* nombre de membres par page sur la nouvelle grille (peut être différent du setting dans le PA !) */
+            itemsPerPageDefault = 300, /* nombre de membres par page sur la nouvelle grille (peut être différent du setting dans le PA !) */
             memberList = '.userlist', /* sélecteur du bloc autour des blocs membres */
             itemSelector = '.userlist_profil', /* le sélecteur des blocs membres individuels */
             pseudoMembre = '.userlist_name', /* sélecteur du pseudo du membre */
