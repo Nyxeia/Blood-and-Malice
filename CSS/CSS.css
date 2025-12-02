@@ -15,7 +15,7 @@ color-scheme: dark;
 --staff1: url("https://images2.imgbox.com/d5/0f/9sstzfVg_o.png"); /* lady mahler */
 --staff2: url("https://images2.imgbox.com/e1/cb/Z98Yxmup_o.png"); /* lune */
 --staff3: url("https://images2.imgbox.com/8b/ab/bcVforB7_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/1d/74/44l1XEHx_o.gif"); /* peluche */
+--staff4: url("https://images2.imgbox.com/8f/00/O4ZPqFLd_o.png"); /* ashleigh */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -81,6 +81,7 @@ color-scheme: dark;
 
 /*espace perso*/
 --kaz: #b25a5a;
+--darius: #a693b6;
 }
 
 ::selection {
@@ -131,6 +132,7 @@ color-scheme: light;
 
 /*espace perso*/
 --kaz: #882222;
+--darius: #5e258e;
 }
 
 /* title style */
@@ -460,7 +462,7 @@ li:has(#logout)
 display: none;
 }
 .navbar li:first-child {
-margin-right: -5px;
+margin-right: 5px;
 }
 
 /* liens de navigation */
@@ -1219,14 +1221,15 @@ justify-self: center;
 width: 50px;
 height: 50px;
 background: var(--neutral2);
-border-radius: 100%;
-img {
+border-radius: 100%; 
+  }
+.topicslist-img img {
 border-radius: 100%;
 width: 50px;
 height: 50px;
 filter: var(--brightness);
 }
-}
+
 
 .topic-type strong {
 background: var(--accent1);
@@ -1649,8 +1652,9 @@ cursor: pointer;
     transform: translateX(-50%);
     margin-top: -35px;
     transition: var(--transition);
+  }
 
-    img {
+.custom-icon img, .custom-icon-hrp img {
         width: 70px;
         height: 70px;
         border-radius: 100%;
@@ -1659,7 +1663,7 @@ cursor: pointer;
         padding: 4px;
         background: var(--neutral2);
     }
-}
+
 .tabs-wrap {
     display: flex;
     justify-content: space-between;
@@ -3262,16 +3266,28 @@ background: -webkit-linear-gradient(120deg, var(--accent2),var(--accent3) 100%);
     -webkit-text-fill-color: transparent;
 }
 
+.anim_ava {
+  width:120px;
+  transition: width 0.4s ease;
+  &:hover {
+    width: 200px;
+  }
+}
+
 /* DIALOGUES */ 
 lune { color: #b34a58}
 noctia { color: #8d3848}
 maeka { color: #625179}
 kaz {color: var(--kaz)}
+da {color: var(--darius)}
 
 /* STAFF */ 
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
-.qeel-content a[href="/u66"]:before /* Maeka */
+.qeel-content a[href="/u83"]:before, /* Darius */
+.qeel-content a[href="/u66"]:before, /* Maeka */
+.qeel-content a[href="/u40"]:before, /* Ashleigh */
+.qeel-content a[href="/u95"]:before /* Neptune */
 {
 content:"✧";
 font-weight: 400;
