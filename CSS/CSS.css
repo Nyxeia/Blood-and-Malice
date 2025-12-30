@@ -16,6 +16,7 @@ color-scheme: dark;
 --staff2: url("https://images2.imgbox.com/e1/cb/Z98Yxmup_o.png"); /* lune */
 --staff3: url("https://images2.imgbox.com/8b/ab/bcVforB7_o.png"); /* kazir */
 --staff4: url("https://images2.imgbox.com/8f/00/O4ZPqFLd_o.png"); /* ashleigh */
+--staff5: url("https://images2.imgbox.com/46/ce/mjMzOBV9_o.png"); /* kimiko */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -153,7 +154,7 @@ color-scheme: light;
 .custom-name, .custom-fc,
 .userlist_name,
 .toc-title, .toc-pseudo,
-t0, t1, .t0, .t1 {
+t0, t1, t4, .t0, .t1, .t4{
 font-size: 18px;
 font-family: var(--font2);
 text-transform: lowercase;
@@ -161,6 +162,13 @@ letter-spacing: 1px;
 font-weight: 500;
 color: var(--textColor2);
 text-shadow: var(--text-shadow);
+}
+t4, .t4 {
+display:block;
+padding-inline:15px;
+font-size:1.5em;
+background:var(--neutral5);
+border-radius:10px;
 }
 /* subtitle style */
 #top-header-texte,
@@ -650,10 +658,13 @@ background-image: var(--staff2);
 }
 .item-3 { 
 background-image: var(--staff3);
-border-radius: 0 5px 5px 0;
 }
 .item-4 { 
 background-image: var(--staff4);
+}
+.item-5 { 
+background-image: var(--staff5);
+border-radius: 0 5px 5px 0;
 }
 
 .staff-info {
@@ -3074,6 +3085,18 @@ tbox {
 }
 }
 
+altbox {
+    margin: auto;
+    display: block;
+    width: 90%;
+    background: var(--neutral5);
+    border-radius: 10px;
+    padding: 10px;
+    outline: 1px solid var(--neutral5);
+    outline-offset: 1px;
+
+}
+
 
 deco {
     display: flex;
@@ -3275,19 +3298,19 @@ background: -webkit-linear-gradient(120deg, var(--accent2),var(--accent3) 100%);
 }
 
 /* DIALOGUES */ 
-lune { color: #b34a58}
-noctia { color: #8d3848}
-maeka { color: #625179}
+lune { color: #b34a58;}
+noctia { color: #8d3848;}
+maeka { color: #625179;}
+sonali { color: #893333;}
 kaz {color: var(--kaz)}
 da {color: var(--darius)}
+liam {color: #54918b;}
 
 /* STAFF */ 
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
-.qeel-content a[href="/u83"]:before, /* Darius */
-.qeel-content a[href="/u66"]:before, /* Maeka */
-.qeel-content a[href="/u40"]:before, /* Ashleigh */
-.qeel-content a[href="/u95"]:before /* Neptune */
+.qeel-content a[href="/u5"]:before, /* Kimiko */
+.qeel-content a[href="/u40"]:before /* Ashleigh */
 {
 content:"✧";
 font-weight: 400;
