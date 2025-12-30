@@ -142,7 +142,7 @@ color: var(--textColor1);
 background-image: var(--header);
 background-position: center;
 background-repeat: no-repeat;
-background-size: auto;
+background-size: cover;
 width: calc(var(--forum)-var(--pad-wrap));
 height: 500px;
 display: block;
