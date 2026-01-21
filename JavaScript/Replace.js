@@ -17,13 +17,13 @@ $(function() {
 document.addEventListener('DOMContentLoaded', () => {
 
 var noNewTemp = "https://2img.net/images2.imgbox.com/1e/8d/dJqoidn7_o.png";
-var newTemp = "https://images2.imgbox.com/53/dd/9BUrEYyh_o.png";
+var newTemp = "https://2img.net/images2.imgbox.com/53/dd/9BUrEYyh_o.png";
 
 var currentCatImgList = document.getElementsByClassName("forum-img");
 var currentMsgImgList = document.getElementsByClassName("topicslist-img");
 
 // Add class to category img 
-for (currentImg of currentCatImgList) {
+for (var currentImg of currentCatImgList) {
   
     switch (currentImg.getAttribute("src"))
     {
@@ -38,7 +38,7 @@ for (currentImg of currentCatImgList) {
 }
 
 // Same for new message in topic
-for (currentDiv of currentMsgImgList) {
+for (var currentDiv of currentMsgImgList) {
     var currentImg = currentDiv.firstChild;
 
     switch (currentImg.getAttribute("src"))

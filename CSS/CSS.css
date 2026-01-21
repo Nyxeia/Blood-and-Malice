@@ -35,8 +35,8 @@ color-scheme: dark;
 --accent1: #344160;
 --accent2: #6a4c7a;
 --accent3: #4f6482;
---accent4: var(--accent2); /*gros souligné 1*/
---accent5: var(--accent3); /*gros souligné 2*/
+--accent4: var(--accent0); /*gros souligné 1*/
+--accent5: var(--accent1); /*gros souligné 2*/
 
 --gradient: linear-gradient(120deg, var(--accent0),var(--accent1) 100%);
 
@@ -53,7 +53,6 @@ color-scheme: dark;
 --border2: 1px solid var(--neutral3); /* cercles */
 --border3: 1px solid #313131; /* navbar separator */
 --inner-border: 4px solid var(--neutral2);
---shadowBox: 0 0 20px #23265730;
 --text-shadow: 2px 2px 0px #000000;
 --text-shadow2: 1px 1px 0px #000000;
 --transition: color 0.3s;
@@ -62,15 +61,16 @@ color-scheme: dark;
 --scrollbar-bg: transparent;
 
 --greyout: #000000b5;
---brightness: brightness(1.2);
---brightness-header: brightness(1.2);
+--brightness: brightness(1.4);
+--brightness-header: brightness(1.4);
 --brightness-icons: brightness(1.2);
+--brightness-staff: brightness(1.4);
+--brightness-text: brightness(1.2);
 --color-cate-title: #858585;
 --shadow-cate-title: var(--text-shadow);
 --shadow-cate-title2: var(--text-shadow2);
 --badges: brightness(0.6);
 
-/* font  */
 --smallest-size: 12px;
 --smaller-size: 13px;
 --normal-size: 14px;
@@ -79,7 +79,6 @@ color-scheme: dark;
 --font2: "Pirata One";
 --font3: "Roboto Condensed";
 
-/* dimensions */
 --forum: 1010px;
 --top: 80px;
 --pad-wrap: 10px;
@@ -97,7 +96,7 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---background: linear-gradient(90deg, #f7eaff42 10%, #bac8db7d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--background: linear-gradient(90deg, #f2ddff5c 10%, #c4ddfd66), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/66/62/qICnk1gU_o.gif');
 --pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
 --cate-img: url('https://images2.imgbox.com/f2/e7/Lw4s2Qak_o.png');
@@ -111,11 +110,12 @@ color-scheme: light;
 --neutral3: #c7c7c7;
 --neutral5: #dedede;
 
---accent1: #782436;
---accent2: #620026;
---accent3: #934552;
---accent4: #c89aa2c9; /*gros souligné 1*/
---accent5: #b26076a6; /*gros souligné 2*/
+--accent0: #77578a;
+--accent1: #475b8b;
+--accent2: #4e2762;
+--accent3: #355685;
+--accent4: #9c83e9b0;
+--accent5: #5c76cd94;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -126,7 +126,6 @@ color-scheme: light;
 
 --border3: 1px solid #a5a5a5; /* navbar separator */
 
---shadowBox: 0 0 20px var(--neutralDark);
 --text-shadow: 2px 2px #e1e1e1;
 --text-shadow2: 1px 1px 0px #eaeaea;
 
@@ -136,9 +135,11 @@ color-scheme: light;
 --brightness: brightness(1.3);
 --brightness-header: brightness(1.2);
 --brightness-icons: brightness(2.5);
---color-cate-title: #323232;
---shadow-cate-title: 2px 2px #aaaaaa;
---shadow-cate-title2: 1px 1px #afafaf;
+--brightness-staff: brightness(2.5);
+--brightness-text: brightness(1.2);
+--color-cate-title: #1f232e;
+--shadow-cate-title: 1px 1px #a2a2a29e;
+--shadow-cate-title2: 1px 1px #a5a5a57d;
 
 /*espace perso*/
 --kaz: #882222;
@@ -652,7 +653,7 @@ filter: var(--brightness);
 transition: flex 0.8s ease;
 position: relative;
 overflow: hidden;
-filter: var(--brightness-icons);
+filter: var(--brightness-staff);
 
 &:hover{
     flex: 5;
@@ -738,8 +739,6 @@ transform: scale(1);
 transition-delay: 0.1s;
 }
   
-/*** ANNONCES DEFILANTES ----------- ***/
-
 /* Barre défilante */
 .module {
 border-radius: 5px;
@@ -748,7 +747,7 @@ margin: 10px 0;
 padding: 4px 8px;
 }
 
-/*** CATEGORIES -------------------- ***/
+/*** CATEGORIES ***/
 .category {
 border-radius: 10px;
 padding: 10px;
@@ -775,6 +774,7 @@ font-size: 34px;
 margin-top: 10px;
 color: var(--color-cate-title);
 text-shadow: var(--shadow-cate-title);
+filter: brightness(0.9);
 }
 .cate_title h1 {margin-top: 25px;}
 
@@ -783,6 +783,7 @@ color: var(--accent2);
 margin-top: 42px;
 position: absolute;
 letter-spacing: 1px;
+filter: brightness(0.9);
 }
 
 /* conteneur d'un forum*/
@@ -2054,11 +2055,7 @@ opacity: 0.8;
 max-height: none !important;
 }
 
-/****** ------------------------------------------------------------------------------
-****** MEMBRES ------------------------------------------------------ ******/
-
-/*** ------------------------------- ***/
-/*** PAGE DE PROFIL ---------------- ***/
+/*** PAGE DE PROFIL ***/
 
 .idcard.container {
     background: var(--neutral1);
@@ -3019,12 +3016,13 @@ instapost notif {
 }
 m0, .m0 {
     color: var(--accent2);
-    filter: var(--brightness);
+    filter: var(--brightness-text);
     letter-spacing: 1.5px;
 }
 m1, .m1 {
     color: var(--accent3);
     letter-spacing: 1.5px;
+    filter: var(--brightness-text);
 }
 
 m2, m3, m4,
@@ -3049,7 +3047,7 @@ i1, .i1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
-    filter: var(--brightness);
+    filter: var(--brightness-text);
 }
 
 u1, .u1 {
@@ -3074,7 +3072,7 @@ u2, .u2 {
     text-decoration-style: dashed;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
-    filter: var(--brightness);
+    filter: var(--brightness-text);
 }
 
 u3, u4,
@@ -3085,7 +3083,7 @@ u3, u4,
     font-size: 1.2em;
     letter-spacing: 1px;
     padding-inline: 0.2em;
-    box-shadow: inset 0 -10px 0 var(--accent0);
+    box-shadow: inset 0 -10px 0 var(--accent4);
     color: var(--textColor2);
     transition: 2s;
 
@@ -3096,7 +3094,7 @@ u3, u4,
 }
 
 u4, .u4 {
-    box-shadow: inset 0 -10px 0 var(--accent1);
+    box-shadow: inset 0 -10px 0 var(--accent5);
 
     &:hover {
         box-shadow: inset 0 -7px 0 var(--accent5);
@@ -3106,7 +3104,7 @@ u4, .u4 {
 strike2, .strike2 {
     display: inline;
     text-decoration-line: line-through;
-    text-decoration-color: var(--accent1);
+    text-decoration-color: #475b8bbd;
     text-decoration-style: wavy;
     text-decoration-thickness: 3px;
 }
@@ -3461,7 +3459,6 @@ bulle {
     height: 10px;
     border-radius:50px;
     margin: 0 5px 0 0;
-    box-shadow: var(--shadowBox);
     background: var(--textColor3); 
 }
 
