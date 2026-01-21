@@ -11,8 +11,6 @@ color-scheme: dark;
 --cate-img: url('https://images2.imgbox.com/ed/24/lsLbSiiY_o.png');
 --section-img: url('https://images2.imgbox.com/d8/71/99cpIQXF_o.png');
 --qeel-header: url("https://images2.imgbox.com/54/3e/AgFVsMYu_o.png");
-
-/* icones nouveau message */
 --noNewMsg: url('https://images2.imgbox.com/1e/8d/dJqoidn7_o.png');
 --newMsg: url('https://images2.imgbox.com/53/dd/9BUrEYyh_o.png');
 
@@ -33,9 +31,9 @@ color-scheme: dark;
 --neutral4: #474747; 
 --neutral5: #111111; /*fond spoilers, quote, etc*/
 
---accent0: #3d2f5d;
---accent1: #32445d;
---accent2: #765888;
+--accent0: #4d3859;
+--accent1: #344160;
+--accent2: #6a4c7a;
 --accent3: #4f6482;
 --accent4: var(--accent2); /*gros souligné 1*/
 --accent5: var(--accent3); /*gros souligné 2*/
@@ -99,14 +97,12 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---background: linear-gradient(90deg, #fbf4ff42 10%, #bac8db7d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--background: linear-gradient(90deg, #f7eaff42 10%, #bac8db7d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/66/62/qICnk1gU_o.gif');
 --pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
 --cate-img: url('https://images2.imgbox.com/f2/e7/Lw4s2Qak_o.png');
 --section-img: url('https://images2.imgbox.com/30/0b/S0W1HTTb_o.png');
 --qeel-header: url("https://images2.imgbox.com/2a/25/VXyfHlaF_o.png");
-
-/* icones nouveau message */
 --noNewMsg: url('https://images2.imgbox.com/ea/39/WwiuYhsl_o.png');
 --newMsg: url('https://images2.imgbox.com/d4/9a/OQAlDWoZ_o.png');
 
@@ -3053,6 +3049,7 @@ i1, .i1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
+    filter: var(--brightness);
 }
 
 u1, .u1 {
@@ -3077,6 +3074,7 @@ u2, .u2 {
     text-decoration-style: dashed;
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
+    filter: var(--brightness);
 }
 
 u3, u4,
