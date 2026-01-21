@@ -5,7 +5,7 @@
 
 :root {
 color-scheme: dark;
---background: linear-gradient(180deg, #46464642 10%, #1414147d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--background: linear-gradient(120deg, #31415642 10%, #201b257d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/af/a9/SwSCayHC_o.gif');
 --pa-img: url('https://images2.imgbox.com/a1/74/3RGtYoDr_o.png');
 --cate-img: url('https://images2.imgbox.com/ed/24/lsLbSiiY_o.png');
@@ -99,6 +99,7 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
+--background: linear-gradient(90deg, #fbf4ff42 10%, #bac8db7d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/66/62/qICnk1gU_o.gif');
 --pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
 --cate-img: url('https://images2.imgbox.com/f2/e7/Lw4s2Qak_o.png');
@@ -697,7 +698,7 @@ text-align: center;
 padding: 10px;
 box-sizing: border-box;
 pointer-events: none;
-filter: brightness(1) !important;
+filter: brightness(0.55) !important;
 }
 
 .staff-char,
