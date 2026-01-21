@@ -7,16 +7,20 @@
 color-scheme: dark;
 --background: linear-gradient(180deg, #46464642 10%, #1414147d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/af/a9/SwSCayHC_o.gif');
---pa-img: url('https://images2.imgbox.com/60/31/7ZGLKIbI_o.png');
+--pa-img: url('https://images2.imgbox.com/a1/74/3RGtYoDr_o.png');
 --cate-img: url('https://images2.imgbox.com/ed/24/lsLbSiiY_o.png');
---section-img: url(' https://images2.imgbox.com/52/4e/jH6vuytz_o.png');
+--section-img: url('https://images2.imgbox.com/d8/71/99cpIQXF_o.png');
 --qeel-header: url("https://images2.imgbox.com/54/3e/AgFVsMYu_o.png");
 
---staff1: url("https://images2.imgbox.com/d5/0f/9sstzfVg_o.png"); /* lady mahler */
---staff2: url("https://images2.imgbox.com/e1/cb/Z98Yxmup_o.png"); /* lune */
---staff3: url("https://images2.imgbox.com/8b/ab/bcVforB7_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/8f/00/O4ZPqFLd_o.png"); /* ashleigh */
---staff5: url("https://images2.imgbox.com/46/ce/mjMzOBV9_o.png"); /* kimiko */
+/* icones nouveau message */
+--noNewMsg: url('https://images2.imgbox.com/1e/8d/dJqoidn7_o.png');
+--newMsg: url('https://images2.imgbox.com/53/dd/9BUrEYyh_o.png');
+
+--staff1: url("https://images2.imgbox.com/90/5f/Cv76LQuS_o.png"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/3d/ac/qe77jtYN_o.png"); /* lune */
+--staff3: url("https://images2.imgbox.com/4c/17/240pC6yh_o.png"); /* kazir */
+--staff4: url("https://images2.imgbox.com/c5/12/LN7oG6va_o.png"); /* ashleigh */
+--staff5: url("https://images2.imgbox.com/38/4c/r7I2JQfQ_o.png"); /* kimiko */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -95,10 +99,15 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---header: url('https://images2.imgbox.com/6c/c4/VPe3Peqb_o.gif');
---pa-img: url('https://images2.imgbox.com/dd/72/dIZOidri_o.png');
---cate-img: url('https://images2.imgbox.com/bc/b3/ktcwSg7t_o.png');
---section-img: url('https://images2.imgbox.com/86/41/fjdzcBth_o.png');
+--header: url('https://images2.imgbox.com/66/62/qICnk1gU_o.gif');
+--pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
+--cate-img: url('https://images2.imgbox.com/f2/e7/Lw4s2Qak_o.png');
+--section-img: url('https://images2.imgbox.com/30/0b/S0W1HTTb_o.png');
+--qeel-header: url("https://images2.imgbox.com/2a/25/VXyfHlaF_o.png");
+
+/* icones nouveau message */
+--noNewMsg: url('https://images2.imgbox.com/ea/39/WwiuYhsl_o.png');
+--newMsg: url('https://images2.imgbox.com/d4/9a/OQAlDWoZ_o.png');
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
@@ -646,6 +655,7 @@ filter: var(--brightness);
 transition: flex 0.8s ease;
 position: relative;
 overflow: hidden;
+filter: var(--brightness-icons);
 
 &:hover{
     flex: 5;
@@ -687,6 +697,7 @@ text-align: center;
 padding: 10px;
 box-sizing: border-box;
 pointer-events: none;
+filter: brightness(1) !important;
 }
 
 .staff-char,
@@ -1192,6 +1203,12 @@ font-size: var(--smaller-size);
 
 
 /*** LISTE DES SUJETS -------------- ***/
+.img-nonew {
+    content: var(--noNewMsg);
+}
+.img-new {
+    content: var(--newMsg);
+}
 
 .forum-page-desc {
 background: var(--neutral1);
