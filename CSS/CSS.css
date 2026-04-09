@@ -6,13 +6,13 @@
 :root {
 color-scheme: dark;
 --background: linear-gradient(120deg, #31415642 10%, #201b257d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
---header: url('https://images2.imgbox.com/af/a9/SwSCayHC_o.gif');
+--header: url('https://images2.imgbox.com/53/2a/MBD0p29G_o.gif');
 --pa-img: url('https://images2.imgbox.com/a1/74/3RGtYoDr_o.png');
---cate-img: url('https://images2.imgbox.com/ed/24/lsLbSiiY_o.png');
---section-img: url('https://images2.imgbox.com/d8/71/99cpIQXF_o.png');
---qeel-header: url("https://images2.imgbox.com/54/3e/AgFVsMYu_o.png");
---noNewMsg: url('https://images2.imgbox.com/1e/8d/dJqoidn7_o.png');
---newMsg: url('https://images2.imgbox.com/53/dd/9BUrEYyh_o.png');
+--cate-img: url('https://images2.imgbox.com/8f/7f/3RHsfYDl_o.png');
+--section-img: url('https://images2.imgbox.com/f9/16/FOJxDxrR_o.png');
+--qeel-header: url("https://images2.imgbox.com/3b/79/PwGfoBqT_o.png");
+--noNewMsg: url('https://images2.imgbox.com/6d/6b/kynb9lNZ_o.png');
+--newMsg: url('https://images2.imgbox.com/3e/86/aTiARdqg_o.png');
 
 --staff1: url("https://images2.imgbox.com/90/5f/Cv76LQuS_o.png"); /* lady mahler */
 --staff2: url("https://images2.imgbox.com/3d/ac/qe77jtYN_o.png"); /* lune */
@@ -97,13 +97,13 @@ color-scheme: dark;
 [data-color-scheme="light"] {
 color-scheme: light;
 --background: linear-gradient(90deg, #f4e1ff85 10%, #e3efff80), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
---header: url('https://images2.imgbox.com/66/62/qICnk1gU_o.gif');
+--header: url('https://images2.imgbox.com/01/99/JiEwqQAS_o.gif');
 --pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
---cate-img: url('https://images2.imgbox.com/f2/e7/Lw4s2Qak_o.png');
---section-img: url('https://images2.imgbox.com/30/0b/S0W1HTTb_o.png');
---qeel-header: url("https://images2.imgbox.com/2a/25/VXyfHlaF_o.png");
---noNewMsg: url('https://images2.imgbox.com/ea/39/WwiuYhsl_o.png');
---newMsg: url('https://images2.imgbox.com/d4/9a/OQAlDWoZ_o.png');
+--cate-img: url('https://images2.imgbox.com/98/31/tRBdIjKM_o.png');
+--section-img: url('https://images2.imgbox.com/2e/88/2IxyESZW_o.png');
+--qeel-header: url("https://images2.imgbox.com/1b/f6/tjbV6U0t_o.png");
+--noNewMsg: url('https://images2.imgbox.com/27/35/RbLFxV63_o.png');
+--newMsg: url('https://images2.imgbox.com/55/09/XAH6IKpP_o.png');
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
