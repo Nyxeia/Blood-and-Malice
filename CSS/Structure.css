@@ -467,3 +467,525 @@ font-size: var(--smaller-size);
     height: 20px;
     margin-left: 10px;
 }
+
+/*** ELEMENTS ESTHETIQUES ---------- ***/
+
+/* Contenur général qui sert généralement de fond et/ou de contour*/
+.container {
+padding: 0 10px;
+border-radius: 5px;
+}
+
+/* Barre de séparation */
+.separator {
+padding-bottom: 5px;
+margin-bottom: 5px;
+border-bottom: 1px solid var(--neutralDark);
+clear: both;
+height: 1px;
+width: 100%;
+}
+
+hr {
+border: none;
+border-top: var(--border);
+}
+
+/* Titre d'un toggle */
+summary {
+cursor: pointer;
+}
+
+/* Conteneur moins large (les historiques des messages essentiellement) */
+.wrapped {
+margin: 10px;
+clear: both;
+background: var(--neutral1);
+border-radius: 5px;
+padding: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.wrapped .panel {
+width: 800px;
+background: var(--neutral2);
+padding: 10px 20px;
+border: var(--border);
+margin: 10px;
+}
+
+.preview-author {
+border-bottom: var(--border);
+margin-bottom: 6px;
+padding-bottom: 5px;
+strong {font-weight: 500;}
+}
+
+/* Image/avatar réduit */
+.mini_img img {
+width: 40px;
+height: 40px;
+object-fit: cover;
+object-position: center;
+border-radius: 5px;
+margin-right: 10px;
+background: var(--neutralDark);
+}
+
+/* Permet d'aligner un élément à droite ou à gauche */
+.right {
+float: right;
+}
+.center {
+text-align: center;
+}
+.left {
+float: left;
+}
+.clear {
+clear: both;
+}
+
+/* Barre de gestion 
+* Contient des boutons ou des liens spéciaux */
+.links_bar,
+.postbutton,
+.navigation_links {
+clear: both;
+background: var(--neutral1);
+border-radius: 8px;
+padding: 15px 20px;
+margin: 10px;
+}
+.links_bar:empty {
+display: none;
+}
+.links_bar.indexbot {
+margin-top:0;
+}
+.watch_bar {text-align: right;}
+
+.postbutton, 
+.navigation_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a strong {font-weight: 500;}
+}
+
+/* Lien spécial mis en avant */
+.specials_links a,
+a.specials_links {
+padding: 2px 6px;
+border-radius: 5px;
+}
+
+/* Suppression des liens vides */
+.specials_links a:empty,
+a.specials_links:empty {
+display: none;
+}
+
+#page-footer {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+#bottom {
+font-size: 12px;
+width: var(--forum);
+background:none;
+margin: 0px;
+width: var(--forum);
+border-radius: 0px;
+background: var(--neutral1);
+
+strong, a {
+font-weight:400;
+}
+}
+.adminlink {
+background: var(--neutral1);
+width: var(--forum);
+padding: 20px 0 10px 0;
+}
+
+/* SIDE NAVIGATION */
+.sidenav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 99;
+top: 0;
+right: 0;
+background-color: var(--neutral1);
+overflow-x: hidden;
+transition: all ease .5s;
+opacity: 0;
+visibility: hidden;
+}
+.sidenav.open {
+right: 0;
+visibility: visible;
+opacity: 1;
+width: 400px;
+
+.sidenav-title {
+    background-image: var(--cate-img);
+    filter: var(--brightness);
+    background-position: bottom 75px right -28px;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+
+    h2 {
+        color: var(--color-cate-title);
+        text-shadow: var(--shadow-cate-title2);
+        font-size: 22px;
+        margin-left: 15px;
+    }
+}
+}
+
+.sidenav-wrap {
+padding: 15px 25px;
+}
+/* The navigation menu links */
+.sidenav-links {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.sidenav-links.codex {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto);
+}
+.sidenav-links.univers, .sidenav-links.bottins {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+}
+a.cm {
+grid-row: span 2;
+display: flex!important;
+align-items: center;
+}
+.sidenav a {
+text-decoration: none;
+display: block;
+transition: 0.3s;
+}
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+/*** BARRE DE NAVIGATION ----------- ***/
+.navbar {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+border-right: var(--border3);
+height: 18px;
+}
+
+/* Suppression des liens peu utilisés*/
+.navbar a[href^="/faq"],
+.navbar a[href^="/calendar"],
+.navbar a[href^="/groups"],
+.navbar a[href^="/images"],
+li:has(#logout)
+{
+display: none;
+}
+.navbar li:first-child {
+margin-right: 5px;
+}
+
+/*** LISTE DES MEMBRES ------------- ***/
+.membres.cate_title {
+margin: 0;
+}
+.filtres {
+    margin: 10px 0;
+    background: var(--neutral1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0 20px;
+
+    h3 {
+        font-size: 15px;
+    }
+    button {
+        padding: 3px 10px !important;
+        margin: 0 2px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .is-checked {
+        background: var(--accent1);
+        color: var(--textColor3) !important;
+        font-weight: 400;
+        border: 1px solid var(--accent1);
+    }
+}
+
+.userlist {
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    background: var(--neutral1);
+}
+
+.userlist_profil {
+    padding: 10px !important;
+    background: var(--neutral2) !important;
+    border-radius: 5px !important;
+    border: var(--border);
+    width: 225px !important;
+    box-sizing: border-box !important;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.userlist_header {
+    margin-top: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 58px;
+}
+.userlist_pseudo {
+    margin-bottom: 2px;
+}
+.userlist_name {
+    text-shadow: var(--text-shadow2);
+    font-size: 22px;
+    transition: var(--transition);
+    line-height: 24px;
+    strong {font-weight: 500;}
+}
+.userlist_alias {
+letter-spacing: 1px;
+}
+
+.userlist_avatar {
+    margin: 18px 0 15px 0;
+}
+
+.userlist_avatar img,
+.toc-avatar img {
+width: 175px;
+height: 175px;
+object-fit: cover;
+object-position: center;
+border-radius: 100%;
+background: var(--neutral2);
+padding: 6px;
+border: var(--border2);
+outline: 6px solid var(--neutral1);
+}
+
+.userlist_infos {
+    padding: 5px;
+}
+.userlist_visited.vampires {color: var(--vampires)}
+.userlist_visited.sorciers {color:var(--sorciers)}
+.userlist_visited.spectres {color: var(--spectres)}
+.userlist_visited.humains {color:var(--humains)}
+
+.userlist_posts, .userlist_joined {
+    font-size: var(--smallest-size);
+}
+
+/****** ------------------------------------------------------------------------------ 
+****** MESSAGES PRIVES -------------------------------------------------------------- ******/
+
+/*** ------------------------------- ***/
+/*** LISTE DES MPs ----------------- ***/
+
+/* Menu des MPS */
+#privmsgs-menu {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px auto;
+background: var(--neutral1);
+padding: 15px 10px;
+margin: 10px;
+border-radius: 5px;
+}
+
+#privmsgs-menu li {
+display: flex;
+align-items: center;
+gap: 5px;
+padding: 3px 10px !important;
+font-size: 13px;
+font-weight: 500;
+font-weight: 600;
+border-radius: 5px;
+font-family: var(--font3);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+background: var(--accent1);
+border: 1px solid var(--accent1);
+margin-top: 1px;
+}
+#privmsgs-menu li:has(a) {
+    color: var(--textColor1);
+    background: var(--neutral2);
+    border: var(--border);
+}
+
+/* Affichage d'un MP dans la liste */
+.mp_row {
+background: var(--neutral1);
+border-radius: 5px;
+display: grid;
+grid-template-columns: 60px auto 145px 100px;
+grid-gap: 10px;
+align-items: center;
+border-radius: 5px;
+padding: 10px;
+margin-bottom: 5px;
+
+a strong {font-weight: 500;}
+}
+
+.mp_img img {
+grid-column: 1;
+justify-self: center;
+width: 50px;
+height: 50px;
+background: var(--neutral2);
+border-radius: 100%;
+}
+
+.navigation_links.mp {
+align-items: flex-end;
+flex-direction: column;
+}
+
+/*** AFFICHAGE D'UN MESSAGE PRIVÉ -- ***/
+
+.container.mpread {
+    .page-title, .postbutton {margin: 10px 0;}
+    .post_message {
+        grid-column: 1 / span 2;
+        padding: 15px;
+    }
+}
+.message {
+background: var(--neutral1);
+border-radius: 5px;
+display: grid;
+grid-template-columns: 240px auto;
+}
+
+.message_infos {
+padding: 10px 10px 10px 0;
+display:grid;
+grid-template-rows: 46px auto;
+}
+
+.message_profil {
+padding: 10px;
+text-align: center;
+}
+
+.message_content {
+padding: 25px;
+}
+
+/*** ------------------------------- ***/
+/*** PAGE D'ENVOI D'UN MESSAGE ----- ***/
+
+.message-edition {
+display: flex;
+flex-direction: row;
+/* flex-direction: row-reverse; -- pour smileys à droite */
+gap: 15px;
+/*espace entre la zone de texte et la boîte à smileys*/
+}
+
+/* Prévisualisation d'un message */
+#preview {
+background: var(--neutral2);
+padding: 10px 20px;
+border: var(--border);
+border-radius: 5px;
+margin: 10px;
+
+.content {
+    width: 738px;
+    margin: auto;
+}
+}
+
+/* Bouton édition d'un champ de profil */
+.ajax-profil_edit {
+cursor: pointer;
+position: absolute;
+top: 0;
+left: 0 px;
+}
+
+/* Bouton validation des modifications */
+.ajax-profil_valid {
+cursor: pointer;
+margin-left: 4px;
+vertical-align: middle;
+}
+
+/*** PROFILS SIMPLIFIÉS DES TAGS ---- ***/
+/* Supression de la flèche peu esthétique*/
+.tooltipster-arrow {}
+
+.tooltipster-default {}
+
+.preview_content {
+display: flex;
+}
+
+.preview_avatar img {
+object-fit: cover;
+object-position: center;
+width: 70px;
+height: 70px;
+border-radius: 5px;
+margin-right: 10px;
+}
+
+.preview_infos {
+width: 100%;
+padding-top: 3px;
+}
+
+.preview_pseudo,
+.preview_pseudo strong {
+}
+
+.preview_contacts {
+position: absolute;
+bottom: 8px;
+right: 10px;
+display: flex;
+align-items: center;
+}
+
+.preview_contacts a {
+margin-left: 5px;
+}
+
+.tooltipster-arrow {
+display: none;
+}
