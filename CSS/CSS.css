@@ -5,7 +5,7 @@
 
 :root {
 color-scheme: dark;
---background: linear-gradient(120deg, #31415642 10%, #201b257d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--background: linear-gradient(120deg, #40383242 10%, #4d42427d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/53/2a/MBD0p29G_o.gif');
 --pa-img: url('https://images2.imgbox.com/a1/74/3RGtYoDr_o.png');
 --cate-img: url('https://images2.imgbox.com/8f/7f/3RHsfYDl_o.png');
@@ -31,10 +31,10 @@ color-scheme: dark;
 --neutral4: #474747; 
 --neutral5: #111111; /*fond spoilers, quote, etc*/
 
---accent0: #4d3859;
---accent1: #344160;
---accent2: #6a4c7a;
---accent3: #4f6482;
+--accent0: #5b432d;
+--accent1: #542d30;
+--accent2: #7f6248;
+--accent3: #803e43;
 --accent4: var(--accent0); /*gros souligné 1*/
 --accent5: var(--accent1); /*gros souligné 2*/
 
@@ -66,7 +66,7 @@ color-scheme: dark;
 --brightness-icons: brightness(1.2);
 --brightness-staff: brightness(1.4);
 --brightness-text: brightness(1.2);
---color-cate-title: #858585;
+--color-cate-title: #72706f;
 --shadow-cate-title: var(--text-shadow);
 --shadow-cate-title2: var(--text-shadow2);
 --badges: brightness(0.6);
@@ -96,7 +96,7 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---background: linear-gradient(90deg, #f4e1ff85 10%, #e3efff80), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--background: linear-gradient(90deg, #f8daca85 10%, #ffebd880), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/01/99/JiEwqQAS_o.gif');
 --pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
 --cate-img: url('https://images2.imgbox.com/98/31/tRBdIjKM_o.png');
@@ -110,12 +110,12 @@ color-scheme: light;
 --neutral3: #c7c7c7;
 --neutral5: #dedede;
 
---accent0: #77578a;
---accent1: #475b8b;
---accent2: #4e2762;
---accent3: #355685;
---accent4: #9c83e9b0;
---accent5: #5c76cd94;
+--accent0: #7d5942;
+--accent1: #895656;
+--accent2: #5f2c00;
+--accent3: #662a2f;
+--accent4: #70340054;
+--accent5: #8a454a7a;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -136,7 +136,7 @@ color-scheme: light;
 --brightness-icons: brightness(2.5);
 --brightness-staff: brightness(2.8);
 --brightness-text: brightness(1.2);
---color-cate-title: #1f232e;
+--color-cate-title: #1d1b1a;
 --shadow-cate-title: 1px 1px #a2a2a29e;
 --shadow-cate-title2: 1px 1px #a5a5a57d;
 
@@ -549,6 +549,10 @@ letter-spacing: 1px;
 filter: brightness(0.9);
 }
 
+[data-color-scheme="light"] .cate_quote {
+color: #a6927b;
+}
+
 /* conteneur d'un forum*/
 .forum {
 background: var(--neutral1);
@@ -737,9 +741,11 @@ transition: var(--transition);
 }
 
 .pa-texte {text-align:left;}
+.sidenav-title {
+    background-position: bottom 43px right -144px !important;
+}
 
 /*** QUI EST EN LIGNE -------------- ***/
-
 .qeel-wrap {
 background: var(--neutral1);
 padding: 20px;
@@ -2464,7 +2470,7 @@ t1, .t1 {
     font-size: 24px;
     text-align: center;
     background: var(--neutral1);
-    background-position: bottom -9px right -81px;
+    background-position: bottom 41px right -66px;
     background-image: var(--section-img);
     border-radius: 10px;
     filter: var(--brightness);
@@ -2584,7 +2590,7 @@ u4, .u4 {
 strike2, .strike2 {
     display: inline;
     text-decoration-line: line-through;
-    text-decoration-color: #475b8bbd;
+    text-decoration-color: var(--accent4);
     text-decoration-style: wavy;
     text-decoration-thickness: 3px;
 }
@@ -2666,7 +2672,7 @@ tbox {
     font-size: var(--smaller-size);
     padding: 4px 6px;
     background: var(--neutral1);
-    background-position: bottom -9px right -81px;
+    background-position: bottom -2px right -44px;
     background-image: var(--section-img);
     border-radius: 5px;
     filter: var(--brightness);
