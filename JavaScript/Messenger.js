@@ -1721,7 +1721,7 @@
           chat.className = FAM.config.embed ? "FAM-embedded" : "";
           chat.dataset.hidden = FAM.config.embed ? false : true;
           chat.innerHTML =
-            '<div id="FAM-toolbar">' +
+            '<div id="FAM-toolbar"><div id="FAM-deco"></div>' +
             '<div id="FAM-toolbar-inner">' +
             '<span id="FAM-back" class="FAM-toolbar-button" onclick="FAM.history.back()" style="display:none" title="' +
             FAM.lang.tooltip_back +
