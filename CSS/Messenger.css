@@ -106,7 +106,7 @@
     flex-grow: 99;
     margin: 0;
     height: 55px;
-    background-position: bottom 41px right -34px;
+    background-position: bottom 22px right -16px;
 }
 
 .FAM-toolbar-button {
@@ -822,8 +822,8 @@ a.FAM-attachment-thumb {
     color: var(--FAM-titleClr);
 }
 
-.FAM-chat:hover .FAM-chat-avatar, .FAM-chat:hover .FAM-chat-content {
-    background-color: var(--FAM-pluginBackground)
+.FAM-chat:hover {
+    background-color: var(--FAM-pluginBackground);
 }
 
 .FAM-forum-name, .FAM-topic-name {
@@ -878,8 +878,6 @@ a.FAM-attachment-thumb {
     align-self: center;
     padding: 15px 5px 15px 20px;
     border-radius: 10px 0 0 10px;
-    opacity: .8;
-    
 }
 
 .FAM-chat-avatar img {
@@ -1573,11 +1571,14 @@ blockquote.FAM-codebox>div {
 
 
 .FAM-tab-name {
-    font-size: 12px;
-    width: 80%;
     width: calc(100% - 16px);
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
+    color: var(--textColor3);
 }
 
 .FAM-tab-close {
