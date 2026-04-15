@@ -817,14 +817,14 @@ a.FAM-attachment-thumb {
     color: var(--FAM-fontLightClr);
 }
 
-.FAM-chat:hover,
 .FAM-chat:hover a  {
-    color: var(--FAM-titleClr);
+    color: var(--hoverColorBase);
 }
 
-.FAM-chat:hover {
+/* .FAM-chat:hover {
     background-color: var(--FAM-pluginBackground);
-}
+    border-radius: 5px;
+} */
 
 .FAM-forum-name, .FAM-topic-name {
     display: none;
@@ -870,13 +870,13 @@ a.FAM-attachment-thumb {
 }
 
 .FAM-topic:nth-of-type(4) .FAM-topic-name {
-    display: block;
+    display: none;
 }
 
 .FAM-chat-avatar {
     grid-row: 2;
     align-self: center;
-    padding: 15px 5px 15px 20px;
+    padding: 15px 5px 15px 0px;
     border-radius: 10px 0 0 10px;
 }
 
@@ -906,12 +906,17 @@ a.FAM-attachment-thumb {
 
 .FAM-chat-title {
     font-weight: 600;
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
 }
 
-
 .FAM-chat-date {
-    font-size: 12px;
-    margin-top: 4px;
+    font-family: var(--font3);
+    text-transform: lowercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
 }
 
 .FAM-chat-date > a.lastpost_link {
@@ -921,10 +926,11 @@ a.FAM-attachment-thumb {
 }
 
 .FAM-chat-date > strong {
-    margin-left: 5px;
+    display: none;
+    /* margin-left: 5px;
     background-color: var(--FAM-msgBackground);
     padding: 0px 4px 0px;
-    border-radius: 4px;
+    border-radius: 4px; */
 }
 
 .FAM-chat-date > strong a {display: initial!important;}
