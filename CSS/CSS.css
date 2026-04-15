@@ -94,7 +94,6 @@ color-scheme: dark;
 
  --FAM-fontSize: 14px;
  --FAM-titleFont: 'Open Sans';
- --FAM-titleSize: 24px;
 
  --FAM-light: white;
  --FAM-dark: black;
@@ -2988,9 +2987,11 @@ bulle {
 .no { background: var(--vampires)}
 
 #FAM-deco {
-height: 80px;
+height: 64px;
 width: 100%;
 background-image: var(--qeel-header);
 border-radius: 5px;
 filter: var(--brightness);
+margin-top: -4px;
+margin-bottom: 10px;
 }

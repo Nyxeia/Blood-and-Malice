@@ -1726,10 +1726,7 @@
             '<span id="FAM-back" class="FAM-toolbar-button" onclick="FAM.history.back()" style="display:none" title="' +
             FAM.lang.tooltip_back +
             '"><i class="bi bi-arrow-left-short"></i></span>' +
-            '<h1 class="FAM-maintitle"></h1>' +
-            '<div id="FAM-menu-about" class="FAM-menu-option" onclick="FAM.page.about.open();" title="' +
-            FAM.lang.tooltip_about +
-            '"><i class="bi bi-info-circle"></i></div>' +
+            '<t1 class="FAM-maintitle"></t1>' +
             "</div>" +
             "</div>" +
             '<div id="FAM-tab-container" ' +
