@@ -36,7 +36,6 @@
     transition-property: top, right, bottom, left, height, width, margin, opacity, visibility;
     transition-duration: 700ms;
     grid-template-columns: 100%;
-    box-shadow: var(--shadowBox);
     padding-left: 15px;
     padding-right: 50px;
 }
@@ -57,16 +56,11 @@
     z-index: 1
 }
 
-#FAM-button {
-    color: var(--highlight_static);
-    font-size: 22px;
-    background: var(--gradient_static);
+#FAM-button-open {
+    font-size: 15px;
+    background: none;
     border-radius: 50px;
     position: fixed;
-    width: 45px;
-    height: 45px;
-    right: 10px;
-    bottom: 22px;
     cursor: pointer;
     z-index:100;
     transition-property: right;
@@ -74,11 +68,6 @@
     display: grid;
     place-items: center;
     transition: color 0.2s;
-}
-
-#FAM-button:hover {
-    background: var(--gradient_static);
-    color: var(--hover_static);
 }
 
 #FAM[data-hidden="false"] ~ #FAM-button {
