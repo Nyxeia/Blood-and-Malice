@@ -56,6 +56,14 @@
     z-index: 1
 }
 
+.FAM-pos {
+    display: flex;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+
 #FAM-button-open {
     font-size: 15px;
     background: none;
