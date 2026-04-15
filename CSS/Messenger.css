@@ -1046,8 +1046,8 @@ strong.FAM-page-link {
 
 
 .FAM-msg-avatar {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     padding: 2px;
     border-radius: 100%;
     overflow: hidden;
@@ -1070,6 +1070,7 @@ strong.FAM-page-link {
 
 .FAM-msg.FAM-my-msg {
     flex-direction: row-reverse;
+    color: var(--textColor3);
 }
 
 .FAM-msg-box {
@@ -1104,6 +1105,7 @@ strong.FAM-page-link {
     background: var(--FAM-msgBackground);
     border-radius: 17px 17px 17px 6px;
     padding: 8px 20px 8px 15px;
+    border: var(--border);
 }
 
 .FAM-my-msg .FAM-msg-content {
@@ -1149,7 +1151,7 @@ strong.FAM-page-link {
     text-overflow: ellipsis;
     overflow: hidden;
     flex-basis: fit-content;
-    color: var(--FAM-fontLightClr);
+    color: var(--textColor2);
 }
 
 .FAM-name-mention {
