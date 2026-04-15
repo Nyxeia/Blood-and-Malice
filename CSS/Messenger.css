@@ -815,9 +815,14 @@ a.FAM-attachment-thumb {
     display: grid;
     grid-template-columns: max-content 1fr;
     color: var(--FAM-fontLightClr);
+
+    border-left: 8px solid var(--neutral2);
+    border-right: 8px solid var(--neutral2);
+    border-top: 0px solid var(--neutral2);
+    border-bottom: 5px solid var(--neutral2);
 }
 
-.FAM-chat:hover a  {
+.FAM-chat-title:hover {
     color: var(--hoverColorBase);
 }
 
@@ -876,7 +881,7 @@ a.FAM-attachment-thumb {
 .FAM-chat-avatar {
     grid-row: 2;
     align-self: center;
-    padding: 15px 5px 15px 0px;
+    padding: 15px 5px 15px 15px;
     border-radius: 10px 0 0 10px;
 }
 
