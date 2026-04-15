@@ -99,15 +99,15 @@
 
 .FAM-maintitle {
     text-align: left;
-    font-size: var(--FAM-titleSize);
+    font-size: 26px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 99;
     margin: 0;
+    height: 55px;
+    background-position: bottom 41px right -34px;
 }
-
-
 
 .FAM-toolbar-button {
     color: var(--FAM-button);
