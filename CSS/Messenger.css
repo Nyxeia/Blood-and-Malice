@@ -822,14 +822,9 @@ a.FAM-attachment-thumb {
     border-bottom: 5px solid var(--neutral2);
 }
 
-.FAM-chat-title:hover {
+.FAM-chat-title:hover, .FAM-chat:hover .FAM-chat-title {
     color: var(--hoverColorBase);
 }
-
-/* .FAM-chat:hover {
-    background-color: var(--FAM-pluginBackground);
-    border-radius: 5px;
-} */
 
 .FAM-forum-name, .FAM-topic-name {
     display: none;
@@ -946,6 +941,39 @@ a.FAM-attachment-thumb {
 .FAM-chat-date .last-post-icon,
 .FAM-chat-date a:last-of-type {display: none;}
 
+.FAM-chat:first-child {
+border-top: 8px solid var(--neutral2);
+border-radius: 5px 5px 0 0;
+}
+
+.FAM-chat:last-child {
+border-bottom: 8px solid var(--neutral2);
+border-radius: 0 0 5px 5px;
+}
+
+.FAM-name-mention {
+    font-family: var(--font3);
+    text-transform: uppercase;
+}
+.FAM-msg-info {
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
+
+    strong {font-weight: 500;}
+}
+.FAM-msg .FAM-name-mention:after {
+content:"✧";
+font-weight: 400;
+margin-left: 5px;
+}
+.FAM-my-msg .FAM-name-mention:before {
+content:"✧";
+font-weight: 400;
+margin-right: 5px;
+}
+.FAM-my-msg .FAM-name-mention:after {
+content:none;
+}
 
 .FAM-new-post,
 .FAM-new-post a,
@@ -1583,6 +1611,10 @@ blockquote.FAM-codebox>div {
     color: var(--FAM-pluginBackground);
 }
 
+.FAM-tab.FAM-tab-active .FAM-tab-name
+{
+    color: var(--textColor3);
+}
 
 .FAM-tab-name {
     width: calc(100% - 16px);
@@ -1592,7 +1624,7 @@ blockquote.FAM-codebox>div {
     text-transform: uppercase;
     letter-spacing: 0.3px;
     font-size: var(--smaller-size);
-    color: var(--textColor3);
+    color: var(--textColor2);
 }
 
 .FAM-tab-close {
