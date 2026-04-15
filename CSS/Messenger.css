@@ -814,7 +814,7 @@ a.FAM-attachment-thumb {
     cursor: pointer;
     display: grid;
     grid-template-columns: max-content 1fr;
-    color: var(--FAM-fontLightClr);
+    color: var(--textColor2);
 
     border-left: 8px solid var(--neutral2);
     border-right: 8px solid var(--neutral2);
@@ -1096,6 +1096,7 @@ strong.FAM-page-link {
     border-radius: 17px 17px 6px 17px;
     padding: 8px 15px 8px 20px;
     float: right;
+    border: var(--border);
 }
 
 .FAM-msg-text {
