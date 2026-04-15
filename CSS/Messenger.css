@@ -110,9 +110,12 @@
 }
 
 .FAM-toolbar-button {
-    color: var(--FAM-button);
-    font-size: 24px;
+    font-size: 40px;
     cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    left: 16px;
+    color: #b5b5b5;
 }
 
 .FAM-toolbar-button i:hover {
