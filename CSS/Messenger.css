@@ -1062,7 +1062,7 @@ strong.FAM-page-link {
 }
 
 .FAM-msg[data-compact="yes"] {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .FAM-msg {
