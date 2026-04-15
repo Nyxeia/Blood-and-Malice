@@ -108,9 +108,9 @@ color-scheme: dark;
 
  --FAM-pluginBackground: var(--neutral2);
  --FAM-chatBackground: var(--neutral1);
- --FAM-textareaBackground: #fafbfc;
- --FAM-msgBackground: #dce3f4;
- --FAM-myMsgBackground: #fafbfc;
+ --FAM-textareaBackground: var(--neutral2);
+ --FAM-msgBackground: var(--neutral2);
+ --FAM-myMsgBackground: var(--gradient);
  --FAM-quoteBackground: #8a9fd236;
 
  /* --FAM-shadowBox: 0 0 20px var(--neutralDarker); */
