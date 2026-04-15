@@ -18,8 +18,8 @@ color-scheme: dark;
 --staff1: url("https://images2.imgbox.com/90/5f/Cv76LQuS_o.png"); /* lady mahler */
 --staff2: url("https://images2.imgbox.com/3d/ac/qe77jtYN_o.png"); /* lune */
 --staff3: url("https://images2.imgbox.com/4c/17/240pC6yh_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/c5/12/LN7oG6va_o.png"); /* ashleigh */
---staff5: url("https://images2.imgbox.com/38/4c/r7I2JQfQ_o.png"); /* kimiko */
+--staff4: url("https://images2.imgbox.com/38/4c/r7I2JQfQ_o.png"); /* kimiko */
+--staff5: url("https://images2.imgbox.com/12/6b/k0bl1TvY_o.png"); /* gemma */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -2966,7 +2966,7 @@ da {color: var(--darius)}
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
 .qeel-content a[href="/u5"]:before, /* Kimiko */
-.qeel-content a[href="/u40"]:before /* Ashleigh */
+.qeel-content a[href="/u205"]:before /* Gemma */
 {
 content:"✧";
 font-weight: 400;
