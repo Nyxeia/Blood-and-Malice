@@ -8,18 +8,18 @@
 color-scheme: dark;
 --background: linear-gradient(120deg, #40383242 10%, #4d42427d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/53/2a/MBD0p29G_o.gif');
---pa-img: url('https://images2.imgbox.com/a1/74/3RGtYoDr_o.png');
+--pa-img: url('https://images2.imgbox.com/00/09/XyEl1LCu_o.png');
 --cate-img: url('https://images2.imgbox.com/8f/7f/3RHsfYDl_o.png');
 --section-img: url('https://images2.imgbox.com/f9/16/FOJxDxrR_o.png');
 --qeel-header: url("https://images2.imgbox.com/3b/79/PwGfoBqT_o.png");
 --noNewMsg: url('https://images2.imgbox.com/6d/6b/kynb9lNZ_o.png');
 --newMsg: url('https://images2.imgbox.com/3e/86/aTiARdqg_o.png');
 
---staff1: url("https://images2.imgbox.com/90/5f/Cv76LQuS_o.png"); /* lady mahler */
---staff2: url("https://images2.imgbox.com/3d/ac/qe77jtYN_o.png"); /* lune */
---staff3: url("https://images2.imgbox.com/4c/17/240pC6yh_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/38/4c/r7I2JQfQ_o.png"); /* kimiko */
---staff5: url("https://images2.imgbox.com/12/6b/k0bl1TvY_o.png"); /* gemma */
+--staff1: url("https://images2.imgbox.com/37/7c/hUBFIPF5_o.png"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/4b/ee/RXQiVDrF_o.png"); /* lune */
+--staff3: url("https://images2.imgbox.com/97/ab/bXTqV2vd_o.png"); /* kazir */
+--staff4: url("https://images2.imgbox.com/a9/a7/ALqtockP_o.png"); /* kimiko */
+--staff5: url("https://images2.imgbox.com/c1/6f/FAkQMgEa_o.png"); /* gemma */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -132,12 +132,18 @@ color-scheme: dark;
 color-scheme: light;
 --background: linear-gradient(90deg, #f8daca85 10%, #ffebd880), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
 --header: url('https://images2.imgbox.com/01/99/JiEwqQAS_o.gif');
---pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
+--pa-img: url('https://images2.imgbox.com/6b/b9/HAXxqay0_o.png');
 --cate-img: url('https://images2.imgbox.com/98/31/tRBdIjKM_o.png');
 --section-img: url('https://images2.imgbox.com/2e/88/2IxyESZW_o.png');
 --qeel-header: url("https://images2.imgbox.com/1b/f6/tjbV6U0t_o.png");
 --noNewMsg: url('https://images2.imgbox.com/27/35/RbLFxV63_o.png');
 --newMsg: url('https://images2.imgbox.com/55/09/XAH6IKpP_o.png');
+  
+--staff1: url("https://images2.imgbox.com/38/e0/UF4rp5XU_o.png"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/95/a6/7il4iBuW_o.png"); /* lune */
+--staff3: url("https://images2.imgbox.com/6e/45/tLvJQCwK_o.png"); /* kazir */
+--staff4: url("https://images2.imgbox.com/fc/72/FtgYBFVR_o.png"); /* kimiko */
+--staff5: url("https://images2.imgbox.com/85/10/PSBKWkcM_o.png"); /* gemma */
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
@@ -168,7 +174,7 @@ color-scheme: light;
 --brightness: brightness(1.5);
 --brightness-header: brightness(1.5);
 --brightness-icons: brightness(2.5);
---brightness-staff: brightness(2.8);
+--brightness-staff: brightness(1.5);
 --brightness-text: brightness(1.2);
 --color-cate-title: #1d1b1a;
 --shadow-cate-title: 1px 1px #a2a2a29e;
