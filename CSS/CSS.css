@@ -3039,3 +3039,9 @@ margin-right: 5px;
 .FAM-my-msg .FAM-name-mention:after {
 content:none;
 }
+
+.FAM-chat-date > strong:before {
+content:"✧";
+font-weight: 400;
+margin-right: 5px;
+}
