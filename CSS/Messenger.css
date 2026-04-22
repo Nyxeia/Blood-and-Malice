@@ -926,11 +926,7 @@ a.FAM-attachment-thumb {
 }
 
 .FAM-chat-date > strong {
-    display: none;
-    /* margin-left: 5px;
-    background-color: var(--FAM-msgBackground);
-    padding: 0px 4px 0px;
-    border-radius: 4px; */
+    text-transform: uppercase;
 }
 
 .FAM-chat-date > strong a {display: initial!important;}
