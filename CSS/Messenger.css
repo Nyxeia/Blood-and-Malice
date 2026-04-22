@@ -36,7 +36,6 @@
     transition-property: top, right, bottom, left, height, width, margin, opacity, visibility;
     transition-duration: 700ms;
     grid-template-columns: 100%;
-    box-shadow: var(--shadowBox);
     padding-left: 15px;
     padding-right: 50px;
 }
@@ -57,16 +56,19 @@
     z-index: 1
 }
 
-#FAM-button {
-    color: var(--highlight_static);
-    font-size: 22px;
-    background: var(--gradient_static);
+.FAM-pos {
+    display: flex;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+#FAM-button-open {
+    font-size: 15px;
+    background: none;
     border-radius: 50px;
     position: fixed;
-    width: 45px;
-    height: 45px;
-    right: 10px;
-    bottom: 22px;
     cursor: pointer;
     z-index:100;
     transition-property: right;
@@ -74,11 +76,6 @@
     display: grid;
     place-items: center;
     transition: color 0.2s;
-}
-
-#FAM-button:hover {
-    background: var(--gradient_static);
-    color: var(--hover_static);
 }
 
 #FAM[data-hidden="false"] ~ #FAM-button {
@@ -102,20 +99,23 @@
 
 .FAM-maintitle {
     text-align: left;
-    font-size: var(--FAM-titleSize);
+    font-size: 26px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 99;
     margin: 0;
+    height: 55px;
+    background-position: bottom 22px right -16px;
 }
 
-
-
 .FAM-toolbar-button {
-    color: var(--FAM-button);
-    font-size: 24px;
+    font-size: 40px;
     cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    left: 16px;
+    color: #b5b5b5;
 }
 
 .FAM-toolbar-button i:hover {
@@ -814,16 +814,16 @@ a.FAM-attachment-thumb {
     cursor: pointer;
     display: grid;
     grid-template-columns: max-content 1fr;
-    color: var(--FAM-fontLightClr);
+    color: var(--textColor2);
+
+    border-left: 8px solid var(--neutral2);
+    border-right: 8px solid var(--neutral2);
+    border-top: 0px solid var(--neutral2);
+    border-bottom: 5px solid var(--neutral2);
 }
 
-.FAM-chat:hover,
-.FAM-chat:hover a  {
-    color: var(--FAM-titleClr);
-}
-
-.FAM-chat:hover .FAM-chat-avatar, .FAM-chat:hover .FAM-chat-content {
-    background-color: var(--FAM-pluginBackground)
+.FAM-chat-title:hover, .FAM-chat:hover .FAM-chat-title {
+    color: var(--hoverColorBase);
 }
 
 .FAM-forum-name, .FAM-topic-name {
@@ -870,16 +870,14 @@ a.FAM-attachment-thumb {
 }
 
 .FAM-topic:nth-of-type(4) .FAM-topic-name {
-    display: block;
+    display: none;
 }
 
 .FAM-chat-avatar {
     grid-row: 2;
     align-self: center;
-    padding: 15px 5px 15px 20px;
+    padding: 15px 5px 15px 15px;
     border-radius: 10px 0 0 10px;
-    opacity: .8;
-    
 }
 
 .FAM-chat-avatar img {
@@ -908,12 +906,17 @@ a.FAM-attachment-thumb {
 
 .FAM-chat-title {
     font-weight: 600;
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
 }
 
-
 .FAM-chat-date {
-    font-size: 12px;
-    margin-top: 4px;
+    font-family: var(--font3);
+    text-transform: lowercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
 }
 
 .FAM-chat-date > a.lastpost_link {
@@ -923,10 +926,7 @@ a.FAM-attachment-thumb {
 }
 
 .FAM-chat-date > strong {
-    margin-left: 5px;
-    background-color: var(--FAM-msgBackground);
-    padding: 0px 4px 0px;
-    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 .FAM-chat-date > strong a {display: initial!important;}
@@ -937,6 +937,39 @@ a.FAM-attachment-thumb {
 .FAM-chat-date .last-post-icon,
 .FAM-chat-date a:last-of-type {display: none;}
 
+.FAM-chat:first-child {
+border-top: 8px solid var(--neutral2);
+border-radius: 5px 5px 0 0;
+}
+
+.FAM-chat:last-child {
+border-bottom: 8px solid var(--neutral2);
+border-radius: 0 0 5px 5px;
+}
+
+.FAM-name-mention {
+    font-family: var(--font3);
+    text-transform: uppercase;
+}
+.FAM-msg-info {
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
+
+    strong {font-weight: 500;}
+}
+.FAM-msg .FAM-name-mention:after {
+content:"✧";
+font-weight: 400;
+margin-left: 5px;
+}
+.FAM-my-msg .FAM-name-mention:before {
+content:"✧";
+font-weight: 400;
+margin-right: 5px;
+}
+.FAM-my-msg .FAM-name-mention:after {
+content:none;
+}
 
 .FAM-new-post,
 .FAM-new-post a,
@@ -1037,8 +1070,8 @@ strong.FAM-page-link {
 
 
 .FAM-msg-avatar {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     padding: 2px;
     border-radius: 100%;
     overflow: hidden;
@@ -1061,6 +1094,7 @@ strong.FAM-page-link {
 
 .FAM-msg.FAM-my-msg {
     flex-direction: row-reverse;
+    color: var(--textColor3);
 }
 
 .FAM-msg-box {
@@ -1087,6 +1121,7 @@ strong.FAM-page-link {
     border-radius: 17px 17px 6px 17px;
     padding: 8px 15px 8px 20px;
     float: right;
+    border: var(--border);
 }
 
 .FAM-msg-text {
@@ -1094,6 +1129,7 @@ strong.FAM-page-link {
     background: var(--FAM-msgBackground);
     border-radius: 17px 17px 17px 6px;
     padding: 8px 20px 8px 15px;
+    border: var(--border);
 }
 
 .FAM-my-msg .FAM-msg-content {
@@ -1139,7 +1175,7 @@ strong.FAM-page-link {
     text-overflow: ellipsis;
     overflow: hidden;
     flex-basis: fit-content;
-    color: var(--FAM-fontLightClr);
+    color: var(--textColor2);
 }
 
 .FAM-name-mention {
@@ -1571,13 +1607,20 @@ blockquote.FAM-codebox>div {
     color: var(--FAM-pluginBackground);
 }
 
+.FAM-tab.FAM-tab-active .FAM-tab-name
+{
+    color: var(--textColor3);
+}
 
 .FAM-tab-name {
-    font-size: 12px;
-    width: 80%;
     width: calc(100% - 16px);
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-family: var(--font3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
+    color: var(--textColor2);
 }
 
 .FAM-tab-close {
