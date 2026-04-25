@@ -666,7 +666,12 @@ padding: 15px 25px;
     grid-auto-flow: column;
     grid-template-rows: repeat(5, auto);
 }
-.sidenav-links.univers, .sidenav-links.bottins {
+.sidenav-links.univers {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(4, auto);
+}
+.sidenav-links.bottins {
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(3, auto);
