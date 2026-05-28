@@ -2,23 +2,24 @@
 @import url('https://nyxeia.github.io/Blood-and-Malice/CSS/Notiffi.css');
 @import url('https://nyxeia.github.io/Blood-and-Malice/CSS/Structure.css');
 @import url('https://nyxeia.github.io/Blood-and-Malice/CSS/Nyxeia.css');
+@import url('https://nyxeia.github.io/Blood-and-Malice/CSS/Messenger.css');
 
 :root {
 color-scheme: dark;
---background: linear-gradient(120deg, #31415642 10%, #201b257d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
---header: url('https://images2.imgbox.com/af/a9/SwSCayHC_o.gif');
---pa-img: url('https://images2.imgbox.com/a1/74/3RGtYoDr_o.png');
---cate-img: url('https://images2.imgbox.com/ed/24/lsLbSiiY_o.png');
---section-img: url('https://images2.imgbox.com/d8/71/99cpIQXF_o.png');
---qeel-header: url("https://images2.imgbox.com/54/3e/AgFVsMYu_o.png");
---noNewMsg: url('https://images2.imgbox.com/1e/8d/dJqoidn7_o.png');
---newMsg: url('https://images2.imgbox.com/53/dd/9BUrEYyh_o.png');
+--background: linear-gradient(120deg, #40383242 10%, #4d42427d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--header: url('https://images2.imgbox.com/53/2a/MBD0p29G_o.gif');
+--pa-img: url('https://images2.imgbox.com/00/09/XyEl1LCu_o.png');
+--cate-img: url('https://images2.imgbox.com/8f/7f/3RHsfYDl_o.png');
+--section-img: url('https://images2.imgbox.com/f9/16/FOJxDxrR_o.png');
+--qeel-header: url("https://images2.imgbox.com/3b/79/PwGfoBqT_o.png");
+--noNewMsg: url('https://images2.imgbox.com/6d/6b/kynb9lNZ_o.png');
+--newMsg: url('https://images2.imgbox.com/3e/86/aTiARdqg_o.png');
 
---staff1: url("https://images2.imgbox.com/90/5f/Cv76LQuS_o.png"); /* lady mahler */
---staff2: url("https://images2.imgbox.com/3d/ac/qe77jtYN_o.png"); /* lune */
---staff3: url("https://images2.imgbox.com/4c/17/240pC6yh_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/c5/12/LN7oG6va_o.png"); /* ashleigh */
---staff5: url("https://images2.imgbox.com/38/4c/r7I2JQfQ_o.png"); /* kimiko */
+--staff1: url("https://images2.imgbox.com/bf/2f/MpO4vdvT_o.png"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/4b/ee/RXQiVDrF_o.png"); /* lune */
+--staff3: url("https://images2.imgbox.com/97/ab/bXTqV2vd_o.png"); /* kazir */
+--staff4: url("https://images2.imgbox.com/a9/a7/ALqtockP_o.png"); /* kimiko */
+--staff5: url("https://images2.imgbox.com/c1/6f/FAkQMgEa_o.png"); /* gemma */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -31,10 +32,10 @@ color-scheme: dark;
 --neutral4: #474747; 
 --neutral5: #111111; /*fond spoilers, quote, etc*/
 
---accent0: #4d3859;
---accent1: #344160;
---accent2: #6a4c7a;
---accent3: #4f6482;
+--accent0: #5b432d;
+--accent1: #542d30;
+--accent2: #7f6248;
+--accent3: #803e43;
 --accent4: var(--accent0); /*gros souligné 1*/
 --accent5: var(--accent1); /*gros souligné 2*/
 
@@ -66,7 +67,7 @@ color-scheme: dark;
 --brightness-icons: brightness(1.2);
 --brightness-staff: brightness(1.4);
 --brightness-text: brightness(1.2);
---color-cate-title: #858585;
+--color-cate-title: #72706f;
 --shadow-cate-title: var(--text-shadow);
 --shadow-cate-title2: var(--text-shadow2);
 --badges: brightness(0.6);
@@ -87,6 +88,39 @@ color-scheme: dark;
 /*espace perso*/
 --kaz: #b25a5a;
 --darius: #a693b6;
+
+/*messenger*/
+ --FAM-windowSize: 750px;
+
+ --FAM-fontSize: 14px;
+ --FAM-titleFont: 'Open Sans';
+
+ --FAM-light: white;
+ --FAM-dark: black;
+
+--FAM-accentClr: var(--gradient);
+--FAM-secondClr: var(--gradient);
+--FAM-fontClr: var(--textColor1);
+ --FAM-fontLightClr: var(--textColor3);
+--FAM-linkClr: var(--textColor1);
+--FAM-titleClr: var(--textColor1);
+--FAM-buttonsClr: var(--textColor1);
+
+ --FAM-pluginBackground: var(--neutral2);
+ --FAM-chatBackground: var(--neutral1);
+ --FAM-textareaBackground: var(--neutral2);
+ --FAM-msgBackground: var(--neutral2);
+ --FAM-myMsgBackground: var(--gradient);
+ --FAM-quoteBackground: #8a9fd236;
+
+ /* --FAM-shadowBox: 0 0 20px var(--neutralDarker); */
+
+ /* Pas besoin de les modifier, elles sont relatives aux variables au-dessus */
+ --FAM-gradient: linear-gradient(-90deg, var(--FAM-pluginBackground) 20%, color-mix(in srgb, var(--FAM-pluginBackground), transparent 100%) 100%);
+ --FAM-gradientTop: linear-gradient(180deg, var(--FAM-chatBackground) 20%, color-mix(in srgb, var(--FAM-chatBackground), transparent 100%) 100%);
+ --FAM-gradientBot: linear-gradient( 0deg, var(--FAM-chatBackground) 20%, color-mix(in srgb, var(--FAM-chatBackground), transparent 100%) 100%);
+ --FAM-sleepModeBackground: color-mix(in srgb, var(--FAM-chatBackground), transparent 30%);
+ --FAM-newMsgAnimation: color-mix(in srgb, var(--FAM-accentClr), transparent 20%);
 }
 
 ::selection {
@@ -96,26 +130,32 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---background: linear-gradient(90deg, #f4e1ff85 10%, #e3efff80), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
---header: url('https://images2.imgbox.com/66/62/qICnk1gU_o.gif');
---pa-img: url('https://images2.imgbox.com/54/9e/7UhbuKPR_o.png');
---cate-img: url('https://images2.imgbox.com/f2/e7/Lw4s2Qak_o.png');
---section-img: url('https://images2.imgbox.com/30/0b/S0W1HTTb_o.png');
---qeel-header: url("https://images2.imgbox.com/2a/25/VXyfHlaF_o.png");
---noNewMsg: url('https://images2.imgbox.com/ea/39/WwiuYhsl_o.png');
---newMsg: url('https://images2.imgbox.com/d4/9a/OQAlDWoZ_o.png');
+--background: linear-gradient(90deg, #f8daca85 10%, #ffebd880), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
+--header: url('https://images2.imgbox.com/01/99/JiEwqQAS_o.gif');
+--pa-img: url('https://images2.imgbox.com/6b/b9/HAXxqay0_o.png');
+--cate-img: url('https://images2.imgbox.com/98/31/tRBdIjKM_o.png');
+--section-img: url('https://images2.imgbox.com/2e/88/2IxyESZW_o.png');
+--qeel-header: url("https://images2.imgbox.com/1b/f6/tjbV6U0t_o.png");
+--noNewMsg: url('https://images2.imgbox.com/27/35/RbLFxV63_o.png');
+--newMsg: url('https://images2.imgbox.com/55/09/XAH6IKpP_o.png');
+  
+--staff1: url("https://images2.imgbox.com/e3/6c/Y81X1mrE_o.png"); /* lady mahler */
+--staff2: url("https://images2.imgbox.com/95/a6/7il4iBuW_o.png"); /* lune */
+--staff3: url("https://images2.imgbox.com/6e/45/tLvJQCwK_o.png"); /* kazir */
+--staff4: url("https://images2.imgbox.com/fc/72/FtgYBFVR_o.png"); /* kimiko */
+--staff5: url("https://images2.imgbox.com/85/10/PSBKWkcM_o.png"); /* gemma */
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
 --neutral3: #c7c7c7;
 --neutral5: #dedede;
 
---accent0: #77578a;
---accent1: #475b8b;
---accent2: #4e2762;
---accent3: #355685;
---accent4: #9c83e9b0;
---accent5: #5c76cd94;
+--accent0: #7d5942;
+--accent1: #895656;
+--accent2: #5f2c00;
+--accent3: #662a2f;
+--accent4: #70340054;
+--accent5: #8a454a7a;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -131,12 +171,12 @@ color-scheme: light;
 --badges: brightness(0.8) invert(1);
 
 --greyout: #bbbbbb94;
---brightness: brightness(1.5);
---brightness-header: brightness(1.5);
+--brightness: brightness(1.8);
+--brightness-header: brightness(1.8);
+--brightness-staff: brightness(1.8);
 --brightness-icons: brightness(2.5);
---brightness-staff: brightness(2.8);
 --brightness-text: brightness(1.2);
---color-cate-title: #1f232e;
+--color-cate-title: #181515;
 --shadow-cate-title: 1px 1px #a2a2a29e;
 --shadow-cate-title2: 1px 1px #a5a5a57d;
 
@@ -549,6 +589,14 @@ letter-spacing: 1px;
 filter: brightness(0.9);
 }
 
+[data-color-scheme="light"] .cate_quote {
+color: #d18c64;
+background: #1e1e1ee8;
+filter: brightness(0.5);
+padding: 0 5px;
+border-radius: 15px;
+}
+
 /* conteneur d'un forum*/
 .forum {
 background: var(--neutral1);
@@ -737,9 +785,11 @@ transition: var(--transition);
 }
 
 .pa-texte {text-align:left;}
+.sidenav-title {
+    background-position: bottom 43px right -144px !important;
+}
 
 /*** QUI EST EN LIGNE -------------- ***/
-
 .qeel-wrap {
 background: var(--neutral1);
 padding: 20px;
@@ -2464,7 +2514,7 @@ t1, .t1 {
     font-size: 24px;
     text-align: center;
     background: var(--neutral1);
-    background-position: bottom -9px right -81px;
+    background-position: bottom 41px right -66px;
     background-image: var(--section-img);
     border-radius: 10px;
     filter: var(--brightness);
@@ -2584,7 +2634,7 @@ u4, .u4 {
 strike2, .strike2 {
     display: inline;
     text-decoration-line: line-through;
-    text-decoration-color: #475b8bbd;
+    text-decoration-color: var(--accent4);
     text-decoration-style: wavy;
     text-decoration-thickness: 3px;
 }
@@ -2666,7 +2716,7 @@ tbox {
     font-size: var(--smaller-size);
     padding: 4px 6px;
     background: var(--neutral1);
-    background-position: bottom -9px right -81px;
+    background-position: bottom -2px right -44px;
     background-image: var(--section-img);
     border-radius: 5px;
     filter: var(--brightness);
@@ -2925,7 +2975,7 @@ da {color: var(--darius)}
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
 .qeel-content a[href="/u5"]:before, /* Kimiko */
-.qeel-content a[href="/u40"]:before /* Ashleigh */
+.qeel-content a[href="/u205"]:before /* Gemma */
 {
 content:"✧";
 font-weight: 400;
@@ -2945,3 +2995,56 @@ bulle {
 .ok { background: #49866d; }
 .exempt { background: var(--humains);}
 .no { background: var(--vampires)}
+
+#FAM-deco {
+height: 64px;
+width: 100%;
+background-image: var(--qeel-header);
+border-radius: 5px;
+filter: var(--brightness);
+margin-top: -4px;
+margin-bottom: 10px;
+}
+
+.FAM-chat:hover .FAM-chat-title{
+    color: var(--hoverColorBase);
+}
+
+.FAM-chat:first-child {
+border-top: 8px solid var(--neutral2);
+border-radius: 5px 5px 0 0;
+}
+
+.FAM-chat:last-child {
+border-bottom: 8px solid var(--neutral2);
+border-radius: 0 0 5px 5px;
+}
+
+.FAM-name-mention {
+    font-family: var(--font3);
+    text-transform: uppercase;
+}
+.FAM-msg-info {
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
+
+    strong {font-weight: 500;}
+}
+.FAM-msg .FAM-name-mention:after {
+content:"✧";
+font-weight: 400;
+margin-left: 5px;
+}
+.FAM-my-msg .FAM-name-mention:before {
+content:"✧";
+font-weight: 400;
+margin-right: 5px;
+}
+.FAM-my-msg .FAM-name-mention:after {
+content:none;
+}
+.FAM-chat-date > strong:before {
+content:"✧";
+font-weight: 400;
+margin-right: 5px;
+}

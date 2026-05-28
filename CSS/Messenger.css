@@ -916,7 +916,7 @@ a.FAM-attachment-thumb {
     font-family: var(--font3);
     text-transform: lowercase;
     letter-spacing: 0.3px;
-    font-size: var(--smallest-size);
+    font-size: var(--smaller-size);
 }
 
 .FAM-chat-date > a.lastpost_link {
