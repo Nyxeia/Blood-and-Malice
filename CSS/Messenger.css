@@ -46,6 +46,16 @@
     right: calc(-100%);
 }
 
+#FAM-deco {
+height: 64px;
+width: 100%;
+background-image: var(--qeel-header);
+border-radius: 5px;
+filter: var(--brightness);
+margin-top: -4px;
+margin-bottom: 10px;
+}
+
 #FAM.FAM-embedded {
     position: relative;
     bottom: 0;
@@ -929,6 +939,12 @@ a.FAM-attachment-thumb {
     text-transform: uppercase;
 }
 
+.FAM-chat-date > strong:before {
+content:"✧";
+font-weight: 400;
+margin-right: 5px;
+}
+
 .FAM-chat-date > strong a {display: initial!important;}
 
 .FAM-chat-date > strong:empty,
@@ -947,16 +963,7 @@ border-bottom: 8px solid var(--neutral2);
 border-radius: 0 0 5px 5px;
 }
 
-.FAM-name-mention {
-    font-family: var(--font3);
-    text-transform: uppercase;
-}
-.FAM-msg-info {
-    letter-spacing: 0.3px;
-    font-size: var(--smaller-size);
 
-    strong {font-weight: 500;}
-}
 .FAM-msg .FAM-name-mention:after {
 content:"✧";
 font-weight: 400;
@@ -1163,6 +1170,9 @@ strong.FAM-page-link {
     display: flex;
     gap: 5px;
     clear: both;
+    letter-spacing: 0.3px;
+    font-size: var(--smaller-size);
+    strong {font-weight: 500;}
 }
 
 .FAM-msg-date,
