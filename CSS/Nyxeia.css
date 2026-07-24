@@ -1,4 +1,4 @@
-img[src*="kazrose"] {
+img[src*="kazirose"] {
     vertical-align: -5px;
 }
 rose::before, bigrose::before {
@@ -14,7 +14,7 @@ rose::after, bigrose::after {
 rose, bigrose {
     display: inline-block;
     height: auto;
-    background-image: url('https://tinyurl.com/kazrosee');
+    background-image: url('https://tinyurl.com/kazirose');
     background-size: contain;
     background-repeat: no-repeat;
 }
