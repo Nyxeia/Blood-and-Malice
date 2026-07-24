@@ -6,20 +6,21 @@
 
 :root {
 color-scheme: dark;
---background: linear-gradient(120deg, #40383242 10%, #4d42427d), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
---header: url('https://images2.imgbox.com/53/2a/MBD0p29G_o.gif');
---pa-img: url('https://images2.imgbox.com/00/09/XyEl1LCu_o.png');
---cate-img: url('https://images2.imgbox.com/8f/7f/3RHsfYDl_o.png');
---section-img: url('https://images2.imgbox.com/f9/16/FOJxDxrR_o.png');
---qeel-header: url("https://images2.imgbox.com/3b/79/PwGfoBqT_o.png");
---noNewMsg: url('https://images2.imgbox.com/6d/6b/kynb9lNZ_o.png');
---newMsg: url('https://images2.imgbox.com/3e/86/aTiARdqg_o.png');
+--background: linear-gradient(120deg, #40383242 10%, #4d42427d), url(https://i.ibb.co/MktQF0fz/fond-2.png); /*fond du forum*/
+--header: url('https://i.ibb.co/7xh9cZfs/gngngnheader.gif');
+--pa-img: url('https://i.ibb.co/q3kVjJDb/pa-sombre.png');
+--cate-img: url('https://i.ibb.co/0yb1btV2/fond-catefonce.png');
+--section-img: url('https://i.ibb.co/G4C66nyx/fond-titre-fonc.png');
+--qeel-header: url("https://i.ibb.co/sdkkLwf9/qeel.png");
+--noNewMsg: url('https://i.ibb.co/d09mrjb2/no-new.png');
+--newMsg: url('https://i.ibb.co/21nckttB/new-message.png');
 
---staff1: url("https://images2.imgbox.com/bf/2f/MpO4vdvT_o.png"); /* lady mahler */
---staff2: url("https://images2.imgbox.com/4b/ee/RXQiVDrF_o.png"); /* lune */
---staff3: url("https://images2.imgbox.com/97/ab/bXTqV2vd_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/a9/a7/ALqtockP_o.png"); /* kimiko */
---staff5: url("https://images2.imgbox.com/c1/6f/FAkQMgEa_o.png"); /* gemma */
+--staff1: url("https://i.ibb.co/Tx435JGc/lady-pa.png"); /* lady mahler */
+--staff2: url("https://i.ibb.co/pjpFjRRH/lune.png"); /* lune */
+--staff3: url("https://i.ibb.co/1Grgq4K3/kaz.png"); /* kazir */
+--staff4: url("https://i.ibb.co/zTqzNKjQ/pa-staff-fortune.png"); /* fortune */
+--staff5: url("https://i.ibb.co/DD0D4ywG/gemma.png"); /* gemma */
+--staff6: url("https://i.ibb.co/xt1KTD7c/sela.png"); /* sela */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -87,7 +88,7 @@ color-scheme: dark;
 
 /*espace perso*/
 --kaz: #b25a5a;
---darius: #a693b6;
+--darius: #ae6339;
 
 /*messenger*/
  --FAM-windowSize: 750px;
@@ -130,20 +131,21 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---background: linear-gradient(90deg, #f8daca85 10%, #ffebd880), url(https://images2.imgbox.com/92/7d/ZnlmoSz4_o.png); /*fond du forum*/
---header: url('https://images2.imgbox.com/01/99/JiEwqQAS_o.gif');
---pa-img: url('https://images2.imgbox.com/6b/b9/HAXxqay0_o.png');
---cate-img: url('https://images2.imgbox.com/98/31/tRBdIjKM_o.png');
---section-img: url('https://images2.imgbox.com/2e/88/2IxyESZW_o.png');
---qeel-header: url("https://images2.imgbox.com/1b/f6/tjbV6U0t_o.png");
---noNewMsg: url('https://images2.imgbox.com/27/35/RbLFxV63_o.png');
---newMsg: url('https://images2.imgbox.com/55/09/XAH6IKpP_o.png');
+--background: linear-gradient(90deg, #f8daca85 10%, #ffebd880), url(https://i.ibb.co/MktQF0fz/fond-2.png); /*fond du forum*/
+--header: url('https://i.ibb.co/NgCGL3c8/header-clair.gif');
+--pa-img: url('https://i.ibb.co/GvsrQs8C/pa-clair.png');
+--cate-img: url('https://i.ibb.co/zhwQdppH/fond-cat-claire.png');
+--section-img: url('https://i.ibb.co/Fqx5S87h/fond-titre-claire.png');
+--qeel-header: url("https://i.ibb.co/nNQpc404/qeel-clair.png");
+--noNewMsg: url('https://i.ibb.co/nNsTvZvj/no-new-2.png');
+--newMsg: url('https://i.ibb.co/sdXsmMmw/new-message-clair.png');
   
---staff1: url("https://images2.imgbox.com/e3/6c/Y81X1mrE_o.png"); /* lady mahler */
---staff2: url("https://images2.imgbox.com/95/a6/7il4iBuW_o.png"); /* lune */
---staff3: url("https://images2.imgbox.com/6e/45/tLvJQCwK_o.png"); /* kazir */
---staff4: url("https://images2.imgbox.com/fc/72/FtgYBFVR_o.png"); /* kimiko */
---staff5: url("https://images2.imgbox.com/85/10/PSBKWkcM_o.png"); /* gemma */
+--staff1: url("https://i.ibb.co/HLvrF0LD/lady-pa-clair.png"); /* lady mahler */
+--staff2: url("https://i.ibb.co/XZsrh64t/lune-clair.png"); /* lune */
+--staff3: url("https://i.ibb.co/8D6tMHDF/kaz-light.png"); /* kazir */
+--staff4: url("https://i.ibb.co/qwKhb8h/pa-staff-fortune-clair.png"); /* fortune */
+--staff5: url("https://i.ibb.co/yFV8cq5Z/gemma-light.png"); /* gemma */
+--staff6: url("https://i.ibb.co/Tx1Q6B95/sela2.png"); /* sela */
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
@@ -182,7 +184,7 @@ color-scheme: light;
 
 /*espace perso*/
 --kaz: #882222;
---darius: #5e258e;
+--darius: #aa4c18;
 }
 
 /* title style */
@@ -483,6 +485,10 @@ background-image: var(--staff4);
 }
 .item-5 { 
 background-image: var(--staff5);
+border-radius: 0 5px 5px 0;
+}
+.item-6 { 
+background-image: var(--staff6);
 border-radius: 0 5px 5px 0;
 }
 
@@ -2312,7 +2318,7 @@ instapost {
 instahead2 {
     gap: 15px;
 }
-instahead img, instahead2 img {
+instahead img, instahead2>img {
     background: var(--gradient);
     padding: 3px;
     width: 120px;
@@ -2321,7 +2327,7 @@ instahead img, instahead2 img {
     object-position: center;
     border-radius: 100%;
 }
-instahead2 img {
+instahead2>img {
     width: 60px;
     height: 60px;
     padding: 2px;
@@ -2478,14 +2484,14 @@ tw:hover, .tw:hover {
 }
 
 hr1, .hr1 {
-    content: url("https://images2.imgbox.com/fe/70/L8oIIqLl_o.png");
+    content: url("https://i.ibb.co/vCzLbstb/test-s-pa.png");
     width: 115px;
     filter: var(--badges);
     display: block;
     margin: 0 auto;
 }
 hr2, .hr2 {
-    content: url("https://images2.imgbox.com/84/10/m7j6vZfT_o.png");
+    content: url("https://i.ibb.co/JWcJK4Nv/test-s-pa-2.png");
     width: 180px;
     filter: var(--badges);
     display: block;
@@ -2493,7 +2499,7 @@ hr2, .hr2 {
 }
 
 hr3, .hr3 {
-    content: url("https://images2.imgbox.com/57/64/rTTTS1Ir_o.png");
+    content: url("https://i.ibb.co/BKQQbLrG/test-s-pa-3.png");
     width: 120px;
     filter: var(--badges);
     display: block;
@@ -2965,17 +2971,19 @@ background: -webkit-linear-gradient(90deg, var(--accent2),var(--accent3) 100%);
 /* DIALOGUES */ 
 lune { color: #b34a58;}
 noctia { color: #8d3848;}
-maeka { color: #816480;}
+maeka, sam { color: #816480;}
 zorah { color: #786a97;}
 aaron { color: #89745d;}
+vexia { color: #7c544f;}
 kaz {color: var(--kaz)}
 da {color: var(--darius)}
 
 /* STAFF */ 
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
-.qeel-content a[href="/u5"]:before, /* Kimiko */
-.qeel-content a[href="/u205"]:before /* Gemma */
+.qeel-content a[href="/u25"]:before, /* Fortune */
+.qeel-content a[href="/u205"]:before, /* Gemma */
+.qeel-content a[href="/u279"]:before /* Sela */
 {
 content:"✧";
 font-weight: 400;
