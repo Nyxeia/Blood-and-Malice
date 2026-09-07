@@ -6,20 +6,20 @@
 
 :root {
 color-scheme: dark;
---background: linear-gradient(120deg, #40383242 10%, #4d42427d), url(https://i.ibb.co/MktQF0fz/fond-2.png); /*fond du forum*/
---header: url('https://i.ibb.co/7xh9cZfs/gngngnheader.gif');
---pa-img: url('https://i.ibb.co/q3kVjJDb/pa-sombre.png');
---cate-img: url('https://i.ibb.co/0yb1btV2/fond-catefonce.png');
---section-img: url('https://i.ibb.co/G4C66nyx/fond-titre-fonc.png');
---qeel-header: url("https://i.ibb.co/sdkkLwf9/qeel.png");
---noNewMsg: url('https://i.ibb.co/d09mrjb2/no-new.png');
---newMsg: url('https://i.ibb.co/21nckttB/new-message.png');
+--background: linear-gradient(00deg, #0d3f360d 10% 10%, #66466947), url(https://i.ibb.co/MktQF0fz/fond-2.png); /*fond du forum*/
+--header: url('https://i.ibb.co/9HPFCgyb/headerfonce.gif');
+--pa-img: url('https://i.ibb.co/VWc4bhC6/pa-sombre.gif');
+--cate-img: url('https://i.ibb.co/1Gk1bnWj/fond-cate-fonce.png');
+--section-img: url('https://i.ibb.co/zV8xVvTq/fond-titre-fonc.png');
+--qeel-header: url("https://i.ibb.co/S4d7g0T9/qeel-fonce.png");
+--noNewMsg: url('https://i.ibb.co/DHG068pg/no-message.png');
+--newMsg: url('https://i.ibb.co/nsPN6V2C/new-message.png');
 
---staff1: url("https://i.ibb.co/Tx435JGc/lady-pa.png"); /* lady mahler */
---staff2: url("https://i.ibb.co/pjpFjRRH/lune.png"); /* lune */
---staff3: url("https://i.ibb.co/1Grgq4K3/kaz.png"); /* kazir */
---staff4: url("https://i.ibb.co/zTqzNKjQ/pa-staff-fortune.png"); /* fortune */
---staff5: url("https://i.ibb.co/DD0D4ywG/gemma.png"); /* gemma */
+--staff1: url("https://i.ibb.co/ccSTtvMF/staff-lady.gif"); /* lady mahler */
+--staff2: url("https://i.ibb.co/XkVMJTcG/staff-lune.gif"); /* lune */
+--staff3: url("https://i.ibb.co/4nvrWBTD/staff-kaz.gif"); /* kazir */
+--staff4: url("https://i.ibb.co/1fwYrtQb/staff-fortune.gif"); /* fortune */
+--staff5: url("https://i.ibb.co/Ng4mBWh0/staff-gemma.gif"); /* gemma */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -32,10 +32,10 @@ color-scheme: dark;
 --neutral4: #474747; 
 --neutral5: #111111; /*fond spoilers, quote, etc*/
 
---accent0: #5b432d;
---accent1: #542d30;
---accent2: #7f6248;
---accent3: #803e43;
+--accent0: #074539;
+--accent1: #532953;
+--accent2: #276d5f;
+--accent3: #7d487d;
 --accent4: var(--accent0); /*gros souligné 1*/
 --accent5: var(--accent1); /*gros souligné 2*/
 
@@ -62,12 +62,12 @@ color-scheme: dark;
 --scrollbar-bg: transparent;
 
 --greyout: #000000b5;
---brightness: brightness(1.4);
---brightness-header: brightness(1.4);
+--brightness: brightness(1.3);
+--brightness-header: brightness(1.1);
 --brightness-icons: brightness(1.2);
---brightness-staff: brightness(1.4);
+--brightness-staff: brightness(1);
 --brightness-text: brightness(1.2);
---color-cate-title: #72706f;
+--color-cate-title: #959595;
 --shadow-cate-title: var(--text-shadow);
 --shadow-cate-title2: var(--text-shadow2);
 --badges: brightness(0.6);
@@ -130,32 +130,32 @@ color-scheme: dark;
 
 [data-color-scheme="light"] {
 color-scheme: light;
---background: linear-gradient(90deg, #f8daca85 10%, #ffebd880), url(https://i.ibb.co/MktQF0fz/fond-2.png); /*fond du forum*/
---header: url('https://i.ibb.co/NgCGL3c8/header-clair.gif');
---pa-img: url('https://i.ibb.co/GvsrQs8C/pa-clair.png');
---cate-img: url('https://i.ibb.co/zhwQdppH/fond-cat-claire.png');
---section-img: url('https://i.ibb.co/Fqx5S87h/fond-titre-claire.png');
---qeel-header: url("https://i.ibb.co/nNQpc404/qeel-clair.png");
---noNewMsg: url('https://i.ibb.co/nNsTvZvj/no-new-2.png');
---newMsg: url('https://i.ibb.co/sdXsmMmw/new-message-clair.png');
+--background: linear-gradient(180deg, #e0fff99c 10% 10%, #877389ab), url(https://i.ibb.co/MktQF0fz/fond-2.png); /*fond du forum*/
+--header: url('https://i.ibb.co/G45dQjTY/headerclair.gif');
+--pa-img: url('https://i.ibb.co/TD5YvR6x/pa-clair.gif');
+--cate-img: url('https://i.ibb.co/d001qwK2/fond-cat-claire.png');
+--section-img: url('https://i.ibb.co/m5fTJpX1/fond-titre-claire.png');
+--qeel-header: url("https://i.ibb.co/4ZF2Wp3b/qeel-clair.png");
+--noNewMsg: url('https://i.ibb.co/BHPJK8dd/no-new-clair.png');
+--newMsg: url('https://i.ibb.co/W4HmdShN/new-message-clair.png');
   
---staff1: url("https://i.ibb.co/HLvrF0LD/lady-pa-clair.png"); /* lady mahler */
---staff2: url("https://i.ibb.co/XZsrh64t/lune-clair.png"); /* lune */
---staff3: url("https://i.ibb.co/8D6tMHDF/kaz-light.png"); /* kazir */
---staff4: url("https://i.ibb.co/qwKhb8h/pa-staff-fortune-clair.png"); /* fortune */
---staff5: url("https://i.ibb.co/yFV8cq5Z/gemma-light.png"); /* gemma */
+--staff1: url("https://i.ibb.co/rNx62NJ/pa-clair-lady.gif"); /* lady mahler */
+--staff2: url("https://i.ibb.co/TCYwdLW/pa-clair-lune.gif"); /* lune */
+--staff3: url("https://i.ibb.co/k6HXCj8T/pa-clair-kaz.gif"); /* kazir */
+--staff4: url("https://i.ibb.co/cXc8RJJb/pa-clair-fortune.gif"); /* fortune */
+--staff5: url("https://i.ibb.co/sJNFL3Dp/pa-clair-gemma.gif"); /* gemma */
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
 --neutral3: #c7c7c7;
 --neutral5: #dedede;
 
---accent0: #7d5942;
---accent1: #895656;
---accent2: #5f2c00;
---accent3: #662a2f;
---accent4: #70340054;
---accent5: #8a454a7a;
+--accent0: #7b437f;
+--accent1: #338d7f;
+--accent2: #602165;
+--accent3: #006353;
+--accent4: #7b437f82;
+--accent5: #338d8173;
 
 --textColor1: #404040;
 --textColor2: #414141;
@@ -171,12 +171,12 @@ color-scheme: light;
 --badges: brightness(0.8) invert(1);
 
 --greyout: #bbbbbb94;
---brightness: brightness(1.8);
---brightness-header: brightness(1.8);
---brightness-staff: brightness(1.8);
+--brightness: brightness(1.5);
+--brightness-header: brightness(1.5);
+--brightness-staff: brightness(1.5);
 --brightness-icons: brightness(2.5);
 --brightness-text: brightness(1.2);
---color-cate-title: #181515;
+--color-cate-title: #202322;
 --shadow-cate-title: 1px 1px #a2a2a29e;
 --shadow-cate-title2: 1px 1px #a5a5a57d;
 
@@ -590,8 +590,8 @@ filter: brightness(0.9);
 }
 
 [data-color-scheme="light"] .cate_quote {
-color: #d18c64;
-background: #1e1e1ee8;
+color: #af3eaf;
+background: #ebebeb;
 filter: brightness(0.5);
 padding: 0 5px;
 border-radius: 15px;
@@ -2494,6 +2494,14 @@ hr2, .hr2 {
 
 hr3, .hr3 {
     content: url("https://i.ibb.co/BKQQbLrG/test-s-pa-3.png");
+    width: 120px;
+    filter: var(--badges);
+    display: block;
+    margin: 0 auto;
+}
+
+hr4, .hr4 {
+    content: url("https://i.ibb.co/hxfjK81C/test-s-pa-4.png");
     width: 120px;
     filter: var(--badges);
     display: block;
