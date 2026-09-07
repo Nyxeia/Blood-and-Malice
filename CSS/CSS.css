@@ -20,7 +20,6 @@ color-scheme: dark;
 --staff3: url("https://i.ibb.co/1Grgq4K3/kaz.png"); /* kazir */
 --staff4: url("https://i.ibb.co/zTqzNKjQ/pa-staff-fortune.png"); /* fortune */
 --staff5: url("https://i.ibb.co/DD0D4ywG/gemma.png"); /* gemma */
---staff6: url("https://i.ibb.co/xt1KTD7c/sela.png"); /* sela */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -145,7 +144,6 @@ color-scheme: light;
 --staff3: url("https://i.ibb.co/8D6tMHDF/kaz-light.png"); /* kazir */
 --staff4: url("https://i.ibb.co/qwKhb8h/pa-staff-fortune-clair.png"); /* fortune */
 --staff5: url("https://i.ibb.co/yFV8cq5Z/gemma-light.png"); /* gemma */
---staff6: url("https://i.ibb.co/Tx1Q6B95/sela2.png"); /* sela */
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
@@ -485,10 +483,6 @@ background-image: var(--staff4);
 }
 .item-5 { 
 background-image: var(--staff5);
-border-radius: 0 5px 5px 0;
-}
-.item-6 { 
-background-image: var(--staff6);
 border-radius: 0 5px 5px 0;
 }
 
@@ -2982,8 +2976,7 @@ da {color: var(--darius)}
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
 .qeel-content a[href="/u25"]:before, /* Fortune */
-.qeel-content a[href="/u205"]:before, /* Gemma */
-.qeel-content a[href="/u279"]:before /* Sela */
+.qeel-content a[href="/u205"]:before /* Gemma */
 {
 content:"✧";
 font-weight: 400;
