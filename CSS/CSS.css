@@ -15,11 +15,12 @@ color-scheme: dark;
 --noNewMsg: url('https://i.ibb.co/DHG068pg/no-message.png');
 --newMsg: url('https://i.ibb.co/nsPN6V2C/new-message.png');
 
---staff1: url("https://i.ibb.co/ccSTtvMF/staff-lady.gif"); /* lady mahler */
---staff2: url("https://i.ibb.co/XkVMJTcG/staff-lune.gif"); /* lune */
---staff3: url("https://i.ibb.co/4nvrWBTD/staff-kaz.gif"); /* kazir */
---staff4: url("https://i.ibb.co/1fwYrtQb/staff-fortune.gif"); /* fortune */
---staff5: url("https://i.ibb.co/Ng4mBWh0/staff-gemma.gif"); /* gemma */
+--staff1: url("https://i.ibb.co/s9Q3F4sz/slim-ladyfonce.gif"); /* lady mahler */
+--staff2: url("https://i.ibb.co/s9tmrLYD/slim-lunefonce.gif"); /* lune */
+--staff3: url("https://i.ibb.co/F4TdC3P4/slim-kazir-fonce.gif"); /* kazir */
+--staff4: url("https://i.ibb.co/FqwV6Mcy/slim-fortune-fonce.gif"); /* fortune */
+--staff5: url("https://i.ibb.co/Pzmv5pny/slim-gemma-fonce.gif"); /* gemma */
+--staff6: url("https://i.ibb.co/cK2QmNd0/slim-dantefonce.gif"); /* dante */
 
 --vampires: #8d3848;
 --sorciers: #774c7e;
@@ -138,12 +139,14 @@ color-scheme: light;
 --qeel-header: url("https://i.ibb.co/4ZF2Wp3b/qeel-clair.png");
 --noNewMsg: url('https://i.ibb.co/BHPJK8dd/no-new-clair.png');
 --newMsg: url('https://i.ibb.co/W4HmdShN/new-message-clair.png');
+--lady-avatar: url('https://i.ibb.co/Wvfy5PrJ/avatar-ladyclair.gif');
   
---staff1: url("https://i.ibb.co/rNx62NJ/pa-clair-lady.gif"); /* lady mahler */
---staff2: url("https://i.ibb.co/TCYwdLW/pa-clair-lune.gif"); /* lune */
---staff3: url("https://i.ibb.co/k6HXCj8T/pa-clair-kaz.gif"); /* kazir */
---staff4: url("https://i.ibb.co/cXc8RJJb/pa-clair-fortune.gif"); /* fortune */
---staff5: url("https://i.ibb.co/sJNFL3Dp/pa-clair-gemma.gif"); /* gemma */
+--staff1: url("https://i.ibb.co/KpKysY0V/slim-ladyeclair.gif"); /* lady mahler */
+--staff2: url("https://i.ibb.co/JWt3njwS/slim-luneclair.gif"); /* lune */
+--staff3: url("https://i.ibb.co/0jzSzxJj/slim-kazclair.gif"); /* kazir */
+--staff4: url("https://i.ibb.co/B9vKQqM/slim-fortuneclair.gif"); /* fortune */
+--staff5: url("https://i.ibb.co/Wvgr9MgH/slim-gemmaclair.gif"); /* gemma */
+--staff6: url("https://i.ibb.co/C54PcX8T/slim-dante-clair.gif"); /* dante */
 
 --neutral1: #d8d8d8;
 --neutral2: #e7e7e7;
@@ -183,6 +186,11 @@ color-scheme: light;
 /*espace perso*/
 --kaz: #882222;
 --darius: #aa4c18;
+}
+
+[data-color-scheme="light"] .post_avatar img[alt*="Lady Admin"]
+{
+    content:var(--lady-avatar);
 }
 
 /* title style */
@@ -483,6 +491,9 @@ background-image: var(--staff4);
 }
 .item-5 { 
 background-image: var(--staff5);
+}
+.item-6 { 
+background-image: var(--staff6);
 border-radius: 0 5px 5px 0;
 }
 
@@ -2951,13 +2962,13 @@ qtrp {
 }
 
 t3 {
-display:block;
+display:inline;
 font-size: 3.1em;
 font-family: var(--font2);
 text-transform: uppercase;
 letter-spacing: 1px;
 font-weight: 500;
-background: -webkit-linear-gradient(90deg, var(--accent2),var(--accent3) 100%);
+background: -webkit-linear-gradient(310deg, var(--accent2),var(--accent3) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -2984,7 +2995,8 @@ da {color: var(--darius)}
 .qeel-content a[href="/u2"]:before, /* Kaz */
 .qeel-content a[href="/u3"]:before, /* Lune */
 .qeel-content a[href="/u25"]:before, /* Fortune */
-.qeel-content a[href="/u205"]:before /* Gemma */
+.qeel-content a[href="/u205"]:before, /* Gemma */
+.qeel-content a[href="/u375"]:before /* Dante */
 {
 content:"✧";
 font-weight: 400;
