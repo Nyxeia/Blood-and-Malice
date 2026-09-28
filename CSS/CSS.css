@@ -188,7 +188,7 @@ color-scheme: light;
 --darius: #aa4c18;
 }
 
-[data-color-scheme="light"] .post_avatar img[alt*="Lady Admin"]
+[data-color-scheme="light"] .post_avatar img[alt*="Lady Mahler"]
 {
     content:var(--lady-avatar);
 }
